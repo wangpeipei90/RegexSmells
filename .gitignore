@@ -1,3 +1,20 @@
+## OSX ds store files
+*.DS_Store
+
+## bin, java class and eclipse
+/readability_analysis/bin/
+*.classpath
+*.project
+
+## python and R
+*.pyc
+*.Rout
+*.RData
+
+## data sources
+/data
+*.db
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
