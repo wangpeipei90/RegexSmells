@@ -1,0 +1,109 @@
+\documentclass{sig-alternate-05-2015}
+
+\usepackage{url}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{eurosym}
+\usepackage{amsfonts}
+\usepackage{balance}
+\usepackage{cite} %this package is awesome - it reorders lists of citations to be in numeric order
+\usepackage{pifont}
+\usepackage{eqparbox}
+\usepackage{hyperref}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{pbox}
+\renewcommand{\arraystretch}{1.2} 
+\usepackage{arydshln}
+%\renewcommand*\cmidrule{} % No middle lines
+%\renewcommand{\arraystretch}{1.5} % Additional spacing with no middle lines
+%\renewcommand*\cmidrule{\hdashline[1pt/2pt]}% Dashed middle lines
+\renewcommand*\cmidrule{\midrule[0.001em]} % Thin middle lines
+%\renewcommand*\cmidrule{\midrule} % Thick middle lines
+\newcommand{\todo}[1]{{\color{magenta}\{TODO: #1\}}}
+\newcommand{\clarify}[1]{{\color{blue}\{CLARIFY: #1\}}}
+
+%Images
+%\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.pdf,.jpg,.png}
+
+\hyphenation{second-ly ap-pen-dix}
+
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+\newcommand{\horiz}{\hspace{2.1pt}}
+\renewcommand{\topfraction}{.9}
+
+\newcommand{\ignore}[1]{}
+
+\begin{document}
+%\bstctlcite{IEEEexample:BSTcontrol}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Readability and Refactoring of Regular Expressions}
+
+
+\numberofauthors{2}
+\author{
+% 1st. author
+\alignauthor
+Carl Chapman\\
+       \affaddr{Department of Computer Science}\\
+       \affaddr{Iowa State University}\\
+       \email{carl1976@iastate.edu}
+\alignauthor
+Kathryn T. Stolee\\
+       \affaddr{Department of Computer Science}\\
+       \affaddr{North Carolina State University}\\
+       \email{ktstolee@ncsu.edu}
+\alignauthor
+}
+
+
+\maketitle
+
+
+\begin{abstract}
+Regexes are hard to understand. Let me tell you how. 
+\end{abstract}
+
+
+\section{Introduction}
+
+Our contributions are as follows: 
+\begin{itemize}
+\item 
+\end{itemize}
+
+The rest of this paper is organized as follows: 
+
+
+\section{Related Work}
+
+
+\section{Study}
+
+\section{Results}
+
+\section{Discussion: Refactoring Opportunities}
+
+\section{Threats to Validity} 
+
+
+\section{Conclusion}
+
+
+\balance
+
+\section*{Acknowledgements}
+This work is supported in part by  NSF SHF-EAGER-1446932. 
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{biblio,stolee}
+
+\end{document}
+
