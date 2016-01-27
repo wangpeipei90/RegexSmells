@@ -8,23 +8,39 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProcessDataMain {
-	public static String basePath = "/Users/carlchapman/git/regex_readability_study/data/";
-	public static String ORIGINAL = "original/";
-	public static String IN = "Rinput/";
-	public static String OUT = "Routput/";
-	public static String SIMPLE = "simplified/";
+public class Step1_CreateInputFiles {
+
 
 	public static void main(String[] args) throws IOException {
 		
-		List<AnswerColumn> pairsFrom2 = getColumns(getLines(basePath + ORIGINAL + "pairs_from_2.csv"));
-		List<AnswerColumn> pairsFrom3 = getColumns(getLines(basePath + ORIGINAL + "pairs_from_3.csv"));
-		List<AnswerColumn> tripleLines = getColumns(getLines(basePath + ORIGINAL + "triples.csv"));
+		List<AnswerColumn> pairsFrom2 = getColumns(getLines(IOUtil.basePath + IOUtil.ORIGINAL + "pairs_from_2.csv"));
+		List<AnswerColumn> pairsFrom3 = getColumns(getLines(IOUtil.basePath + IOUtil.ORIGINAL + "pairs_from_3.csv"));
+		List<AnswerColumn> tripleLines = getColumns(getLines(IOUtil.basePath + IOUtil.ORIGINAL + "triples.csv"));
 		
-		System.out.println(getColumnRange(pairsFrom3,0,2));
-		System.out.println(getColumnRange(tripleLines,12,3));
-		System.out.println(getColumnRange(pairsFrom2,4,2));
-
+		int nPairs2 = pairsFrom2.size()/2;
+		int nPairs3 = pairsFrom3.size()/2;
+		int nTriplets = tripleLines.size()/3;
+		
+		writeInputFiles(pairsFrom2, nPairs2, 2, IOUtil.P2_PATH);
+		writeInputFiles(pairsFrom3, nPairs3, 2, IOUtil.P3_PATH);
+		writeInputFiles(tripleLines, nTriplets, 3, IOUtil.T_PATH);
+	}
+	
+	private static void writeInputFiles(List<AnswerColumn> answerColumns, int nFiles, int columnsPerFile, String path){
+		for(int fileIndex = 0;fileIndex < nFiles; fileIndex++){
+			StringBuilder filenameBuilder = new StringBuilder();
+			int offset = fileIndex * columnsPerFile;
+			for(int colIndex = 0; colIndex <columnsPerFile; colIndex++){
+				filenameBuilder.append(answerColumns.get(offset + colIndex).getRegexCode());
+				if(colIndex<columnsPerFile-1){
+					filenameBuilder.append("_");
+				}else{
+					filenameBuilder.append(".csv");
+				}
+			}
+			File f = new File(IOUtil.basePath + IOUtil.IN + path + filenameBuilder.toString());
+			IOUtil.createAndWrite(f, getColumnRange(answerColumns,offset,columnsPerFile));
+		}
 	}
 	
 	private static String getColumnRange(List<AnswerColumn> allColumns, int firstInclusive, int rangeSize){
