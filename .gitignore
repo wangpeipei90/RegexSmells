@@ -12,7 +12,7 @@
 *.RData
 
 ## data sources
-/data
+/data/
 *.db
 
 ## Core latex/pdflatex auxiliary files:
