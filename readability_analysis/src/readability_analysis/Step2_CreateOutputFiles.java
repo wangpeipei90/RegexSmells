@@ -19,7 +19,7 @@ public class Step2_CreateOutputFiles {
 			if(!p2File.isHidden()){
 				String newFilename = p2File.getName().replaceAll("tsv", "Rout");
 				File outFile = new File(p2_out_directory,newFilename);
-				writeROutput(getWilcoxTest(p2File.getAbsolutePath(),outFile.getAbsolutePath()), scriptTempFile);
+				writeROutput(wrapTestIO(p2File.getAbsolutePath(),getWilcoxTest(),outFile.getAbsolutePath()), scriptTempFile);
 			}
 		}
 		
@@ -27,7 +27,7 @@ public class Step2_CreateOutputFiles {
 			if(!p3File.isHidden()){
 				String newFilename = p3File.getName().replaceAll("tsv", "Rout");
 				File outFile = new File(p3_out_directory,newFilename);
-				writeROutput(getWilcoxTest(p3File.getAbsolutePath(),outFile.getAbsolutePath()), scriptTempFile);
+				writeROutput(wrapTestIO(p3File.getAbsolutePath(),getWilcoxTest(),outFile.getAbsolutePath()), scriptTempFile);
 			}
 		}
 		
@@ -35,18 +35,28 @@ public class Step2_CreateOutputFiles {
 			if(!tFile.isHidden()){
 				String newFilename = tFile.getName().replaceAll("tsv", "Rout");
 				File outFile = new File(t_out_directory,newFilename);
-				//writeROutput(getKruskalTest(p3File.getAbsolutePath(),outFile.getAbsolutePath()), scriptTempFile);
+				writeROutput(wrapTestIO(tFile.getAbsolutePath(),getKruskalTest(),outFile.getAbsolutePath()), scriptTempFile);
 			}
 		}
 		
 	}
 	
-	private static String getWilcoxTest(String inPath, String outPath){
+	private static String wrapTestIO(String inPath, String testContent, String outPath) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("tbl = read.table(\""+inPath+"\",TRUE)\n");
-		sb.append("results = wilcox.test(tbl[,1],tbl[,2])\n");
+		sb.append(testContent);
 		sb.append("capture.output(results,file=\""+outPath+"\")");
 		return sb.toString();
+	}
+	
+	
+	
+	private static String getKruskalTest() {
+		return "results = kruskal.test(value ~ code, data=tbl)\n";
+	}
+
+	private static String getWilcoxTest(){
+		return "results = wilcox.test(tbl[,1],tbl[,2])\n";
 	}
 
 

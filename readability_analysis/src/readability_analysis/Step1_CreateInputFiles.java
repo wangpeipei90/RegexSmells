@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Step1_CreateInputFiles {
+	private static WilcoxFormatter wilcoxFormatter = new WilcoxFormatter();
+	private static KruskalFormatter kruskalFormatter = new KruskalFormatter();
 
 
 	public static void main(String[] args) throws IOException {
@@ -16,17 +18,19 @@ public class Step1_CreateInputFiles {
 		List<AnswerColumn> pairsFrom2 = getColumns(getLines(IOUtil.basePath + IOUtil.ORIGINAL + "pairs_from_2.csv"));
 		List<AnswerColumn> pairsFrom3 = getColumns(getLines(IOUtil.basePath + IOUtil.ORIGINAL + "pairs_from_3.csv"));
 		List<AnswerColumn> tripleLines = getColumns(getLines(IOUtil.basePath + IOUtil.ORIGINAL + "triples.csv"));
-		
-		int nPairs2 = pairsFrom2.size()/2;
-		int nPairs3 = pairsFrom3.size()/2;
-		int nTriplets = tripleLines.size()/3;
-		
-		writeInputFiles(pairsFrom2, nPairs2, 2, IOUtil.P2_PATH);
-		writeInputFiles(pairsFrom3, nPairs3, 2, IOUtil.P3_PATH);
-		writeInputFiles(tripleLines, nTriplets, 3, IOUtil.T_PATH);
+
+		writeInputFiles(pairsFrom2, IOUtil.P2_PATH, wilcoxFormatter);
+		writeInputFiles(pairsFrom3, IOUtil.P3_PATH, wilcoxFormatter);
+		writeInputFiles(tripleLines, IOUtil.T_PATH, kruskalFormatter);
 	}
 	
-	private static void writeInputFiles(List<AnswerColumn> answerColumns, int nFiles, int columnsPerFile, String path){
+	private static void writeInputFiles(List<AnswerColumn> answerColumns,
+			String path, RFormattable formatter) {
+		int columnsPerFile = formatter.getNColumns();
+		int nFiles = answerColumns.size()/columnsPerFile;
+		if(nFiles * columnsPerFile != answerColumns.size()){
+			throw new RuntimeException("number of columns must be evenly divisible by " + columnsPerFile);
+		}
 		for(int fileIndex = 0;fileIndex < nFiles; fileIndex++){
 			StringBuilder filenameBuilder = new StringBuilder();
 			int offset = fileIndex * columnsPerFile;
@@ -39,38 +43,8 @@ public class Step1_CreateInputFiles {
 				}
 			}
 			File f = new File(IOUtil.basePath + IOUtil.IN + path + filenameBuilder.toString());
-			IOUtil.createAndWrite(f, getColumnRange(answerColumns,offset,columnsPerFile));
+			IOUtil.createAndWrite(f, formatter.formatData(answerColumns, offset, columnsPerFile));
 		}
-	}
-	
-	private static String getColumnRange(List<AnswerColumn> allColumns, int firstInclusive, int rangeSize){
-		//List<AnswerColumn> colsInRange = new ArrayList<AnswerColumn>(rangeSize);
-		StringBuilder sb = new StringBuilder();
-		int nRows = allColumns.get(0).getNRows();
-
-		for(int i = 0;i<rangeSize;i++){
-			int index = firstInclusive + i;
-			sb.append(allColumns.get(index).getRegexCode());
-			if(i<rangeSize-1){
-				sb.append("\t");
-			}else{
-				sb.append("\n");
-			}
-		}
-		for(int j=0;j<nRows;j++){	
-			for(int i = 0;i<rangeSize;i++){
-				int index = firstInclusive + i;
-				Double valueDouble = allColumns.get(index).getValues()[j];
-				String valueString = valueDouble.equals(Double.NaN) ? "NA" : valueDouble.toString();
-				sb.append(valueString);
-				if(i<rangeSize-1){
-					sb.append("\t");
-				}else{
-					sb.append("\n");
-				}
-			}
-		}
-		return sb.toString();
 	}
 	
 	private static List<AnswerColumn> getColumns(List<String> lines){
