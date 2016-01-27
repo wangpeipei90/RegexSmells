@@ -35,7 +35,7 @@ public class Step1_CreateInputFiles {
 				if(colIndex<columnsPerFile-1){
 					filenameBuilder.append("_");
 				}else{
-					filenameBuilder.append(".csv");
+					filenameBuilder.append(".tsv");
 				}
 			}
 			File f = new File(IOUtil.basePath + IOUtil.IN + path + filenameBuilder.toString());
@@ -52,7 +52,7 @@ public class Step1_CreateInputFiles {
 			int index = firstInclusive + i;
 			sb.append(allColumns.get(index).getRegexCode());
 			if(i<rangeSize-1){
-				sb.append(",");
+				sb.append("\t");
 			}else{
 				sb.append("\n");
 			}
@@ -60,9 +60,11 @@ public class Step1_CreateInputFiles {
 		for(int j=0;j<nRows;j++){	
 			for(int i = 0;i<rangeSize;i++){
 				int index = firstInclusive + i;
-				sb.append(allColumns.get(index).getValues()[j]);
+				Double valueDouble = allColumns.get(index).getValues()[j];
+				String valueString = valueDouble.equals(Double.NaN) ? "NA" : valueDouble.toString();
+				sb.append(valueString);
 				if(i<rangeSize-1){
-					sb.append(",");
+					sb.append("\t");
 				}else{
 					sb.append("\n");
 				}

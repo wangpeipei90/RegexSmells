@@ -1,0 +1,7 @@
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  tbl[, 1] and tbl[, 2]
+W = 334.5, p-value = 0.5922
+alternative hypothesis: true location shift is not equal to 0
+
