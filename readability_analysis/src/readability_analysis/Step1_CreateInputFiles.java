@@ -15,9 +15,9 @@ public class Step1_CreateInputFiles {
 
 	public static void main(String[] args) throws IOException {
 		
-		List<AnswerColumn> pairsFrom2 = getColumns(getLines(IOUtil.basePath + IOUtil.ORIGINAL + "pairs_from_2.csv"));
-		List<AnswerColumn> pairsFrom3 = getColumns(getLines(IOUtil.basePath + IOUtil.ORIGINAL + "pairs_from_3.csv"));
-		List<AnswerColumn> tripleLines = getColumns(getLines(IOUtil.basePath + IOUtil.ORIGINAL + "triples.csv"));
+		List<AnswerColumn> pairsFrom2 = IOUtil.getColumns(IOUtil.getLines(IOUtil.basePath + IOUtil.ORIGINAL + "pairs_from_2.csv"),",");
+		List<AnswerColumn> pairsFrom3 = IOUtil.getColumns(IOUtil.getLines(IOUtil.basePath + IOUtil.ORIGINAL + "pairs_from_3.csv"),",");
+		List<AnswerColumn> tripleLines = IOUtil.getColumns(IOUtil.getLines(IOUtil.basePath + IOUtil.ORIGINAL + "triples.csv"),",");
 
 		writeInputFiles(pairsFrom2, IOUtil.P2_PATH, wilcoxFormatter);
 		writeInputFiles(pairsFrom3, IOUtil.P3_PATH, wilcoxFormatter);
@@ -46,33 +46,4 @@ public class Step1_CreateInputFiles {
 			IOUtil.createAndWrite(f, formatter.formatData(answerColumns, offset, columnsPerFile));
 		}
 	}
-	
-	private static List<AnswerColumn> getColumns(List<String> lines){
-
-		String[] colNames = lines.get(0).split(",");
-		int nCols = colNames.length;
-		int nRows = lines.size()-1;
-		
-		//assume that the first line is column headers, well formed matrix, etc.
-		//notice the divergence from convention - this is an array of columns
-		Double[][] values = new Double[nCols][nRows];
-		for(int i=0;i<nRows;i++){
-			String[] rowValues = lines.get(i+1).split(",");
-			for(int j=0;j<nCols;j++){
-				values[j][i] = rowValues[j].equals("NA") ? Double.NaN : Double.parseDouble(rowValues[j]);
-			}
-		}
-		List<AnswerColumn> answerColumns = new ArrayList<AnswerColumn>(nCols);
-		for(int j=0;j<nCols;j++){
-			answerColumns.add(new AnswerColumn(colNames[j],values[j]));
-		}
-		return answerColumns;
-	}
-	
-	private static List<String> getLines(String filePathString)  throws IOException  {
-		Path filePath = new File(filePathString).toPath();
-		Charset charset = Charset.defaultCharset();        
-		return Files.readAllLines(filePath, charset);
-	}
-
 }
