@@ -55,5 +55,10 @@ public class KruskalOutput {
 	public boolean isValid() {
 		return p_value <= alpha;
 	}
+	
+	public boolean hasBothNames(String name1, String name2){
+		TreeSet<String> nameTree = getNames();
+		return nameTree.contains(name1) && nameTree.contains(name2);
+	}
 
 }

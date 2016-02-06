@@ -1,6 +1,0 @@
-
-	Kruskal-Wallis rank sum test
-
-data:  value by code
-Kruskal-Wallis chi-squared = 1.658, df = 2, p-value = 0.4365
-

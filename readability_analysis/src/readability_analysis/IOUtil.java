@@ -22,6 +22,7 @@ public class IOUtil {
 	public static String P3_PATH = "P3/";
 	public static String T_PATH = "T/";
 	public static final String R_SCRIPTNAME = "scRipt.r";
+	public static final String M_PATH = "M/";
 
 	public static void createAndWrite(File file, String content) {
 		FileWriter fw;
