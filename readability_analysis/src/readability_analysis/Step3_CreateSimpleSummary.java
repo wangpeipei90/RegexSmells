@@ -28,14 +28,37 @@ public class Step3_CreateSimpleSummary {
 			IOUtil.P3_PATH);
 		File t_out_directory = new File(IOUtil.basePath + IOUtil.OUT +
 			IOUtil.T_PATH);
+		File m_out_directory = new File(IOUtil.basePath + IOUtil.OUT +
+				IOUtil.M_PATH);
 		File allDataSimplified = new File(IOUtil.basePath + IOUtil.SIMPLE +
 			"simpleSummary.tsv");
 		IOUtil.createAndWrite(allDataSimplified, 
 				getPairsFromTwo(p2_out_directory, p2_in_directory) +
 			getTriples(t_out_directory, t_in_directory) 
 			+
-			getPairsFromThree(p3_out_directory, p3_in_directory)
+			getPairsFromThree(p3_out_directory, p3_in_directory) + 
+			getMetagroupANOVAs(m_out_directory)
 			);
+	}
+
+	private static String getMetagroupANOVAs(File m_out_directory) throws IOException {
+		StringBuilder sb = new StringBuilder();
+		sb.append(":::::::::BEGIN METAGROUP ANOVA RESULTS::::::::::\n");
+		sb.append("Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n");
+		for (File mFile : m_out_directory.listFiles()) {
+			if (!mFile.isHidden()) {
+				sb.append(mFile.getName().subSequence(0, mFile.getName().indexOf("."))+"\n");
+				List<String> lines = IOUtil.getLines(mFile.getAbsolutePath());
+				int nLinesToInclude = 5;
+				int lineCounter = 0;
+				while(lineCounter < nLinesToInclude){
+					sb.append(lines.get(lineCounter++) + "\n");
+				}
+				sb.append("\n\n");
+			}
+		}
+		sb.append(":::::::::END METAGROUP ANOVA RESULTS::::::::::\n\n");
+		return sb.toString();
 	}
 
 	private static String getPairsFromTwo(File p2_out_directory,

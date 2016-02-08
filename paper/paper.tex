@@ -13,14 +13,17 @@
 % Tables
 \usepackage{booktabs}
 \usepackage{pbox}
-\renewcommand{\arraystretch}{1.2} 
+\renewcommand{\arraystretch}{1.2}
 \usepackage{arydshln}
 %\renewcommand*\cmidrule{} % No middle lines
 %\renewcommand{\arraystretch}{1.5} % Additional spacing with no middle lines
 %\renewcommand*\cmidrule{\hdashline[1pt/2pt]}% Dashed middle lines
 \renewcommand*\cmidrule{\midrule[0.001em]} % Thin middle lines
 %\renewcommand*\cmidrule{\midrule} % Thick middle lines
-\newcommand{\todo}[1]{{\color{magenta}\{TODO: #1\}}}
+\newcommand{\todoNow}[1]{\textbf{\textcolor{red}{TODO.NOW: #1}}} %comment out for submission
+\newcommand{\todoMid}[1]{\textbf{\textcolor{magenta}{TODO.MID: #1}}} %comment out for submission
+%\newcommand{\todoMid}[1]{\textbf{\textcolor{magenta}{}}} %comment out for submission
+\newcommand{\todoLast}[1]{\textbf{\textcolor{blue}{TODO.LAST: #1}}} %comment out for submission
 \newcommand{\clarify}[1]{{\color{blue}\{CLARIFY: #1\}}}
 
 %Images
@@ -67,39 +70,25 @@ Kathryn T. Stolee\\
 
 
 \begin{abstract}
-Regexes are hard to understand. Let me tell you how. 
+Regexes are hard to understand. Let me tell you how.
 \end{abstract}
 
+\input{introduction}
 
-\section{Introduction}
+\input{related}
 
-Our contributions are as follows: 
-\begin{itemize}
-\item 
-\end{itemize}
+\input{study}
 
-The rest of this paper is organized as follows: 
+\input{results}
 
+\input{discussion}
 
-\section{Related Work}
-
-
-\section{Study}
-
-\section{Results}
-
-\section{Discussion: Refactoring Opportunities}
-
-\section{Threats to Validity} 
-
-
-\section{Conclusion}
-
+\input{conclusion}
 
 \balance
 
 \section*{Acknowledgements}
-This work is supported in part by  NSF SHF-EAGER-1446932. 
+This work is supported in part by  NSF SHF-EAGER-1446932.
 
 
 \bibliographystyle{IEEEtran}
