@@ -8,12 +8,16 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class IOUtil {
 
 	public static String basePath = "/Users/carlchapman/git/regex_readability_study/data/";
 	public static String ORIGINAL = "original/";
+	public static String COMPOSITION = "composition/";
 	public static String IN = "Rinput/";
 	public static String OUT = "Routput/";
 	public static String TMP = "temp/";
@@ -89,6 +93,47 @@ public class IOUtil {
 			}
 		}
 		return answers;
+	}
+
+	public static HashMap<String, Pattern> getCodeMap(List<String> lines,
+			String delim) {
+		HashMap<String,Pattern> codeMap = new HashMap<String,Pattern>();
+
+		for(String line : lines){
+			//System.out.println(line);
+			String[] tokens = line.split(delim);
+			Pattern p = Pattern.compile(tokens[1].substring(0,tokens[1].length()-1));
+			Pattern y = codeMap.put(tokens[0], p);
+			if (y!=null){
+				System.err.println("duplicate key");
+			}
+		}
+		return codeMap;
+	}
+
+	public static HashMap<String, List<String>> getAnswerMap(
+			List<String> lines, String delim) {
+		HashMap<String,List<String>> answerMap = new HashMap<String,List<String>>();
+
+		for(String line : lines){
+			String[] tokens = line.split(delim);
+			String tempCode = "";
+			boolean isCode = true;
+			for(String token : tokens){
+				if(isCode){
+					tempCode = token;
+				}else{
+					List<String> answers = answerMap.get(tempCode);
+					if(answers==null){
+						answers = new LinkedList<String>();
+					}
+					answers.add(token);
+					answerMap.put(tempCode, answers);
+				}
+				isCode=!isCode;
+			}
+		}
+		return answerMap;
 	}
 
 }

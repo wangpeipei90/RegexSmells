@@ -55,5 +55,19 @@ public class AnswerColumn {
 	public double getAvg() {
 		return sum/(existingValues.length + 0.0);
 	}
+
+	public int getX() {
+		int count = 0;
+		for(double d : existingValues){
+			if(d >0){
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public int getCount() {
+		return existingValues.length;
+	}
 	
 }
