@@ -14,6 +14,15 @@ public class FeatureSetClass {
 			isFeaturePresentArray[i] = featureCountArray[i] > 0;
 		}
 	}
+	
+	public boolean subsumes(FeatureSetClass other){
+		for (int i = 0; i < isFeaturePresentArray.length; i++) {
+			if(other.isFeaturePresentArray[i] && ! this.isFeaturePresentArray[i]){
+				return false;
+			}
+		}
+		return true;
+	}
 
 	@Override
 	public int hashCode() {

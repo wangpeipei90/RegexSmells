@@ -1,14 +1,14 @@
 package node_count.build_corpus;
 
+import node_count.exceptions.PythonParsingException;
+import node_count.exceptions.QuoteRuleException;
 import node_count.metric.FeatureCount;
+import node_count.metric.FeatureSetClass;
+import node_count.pcre.PCRE;
 
 import org.antlr.runtime.tree.CommonTree;
 import org.apache.commons.lang3.StringUtils;
 import org.python.util.PythonInterpreter;
-
-import node_count.pcre.PCRE;
-import node_count.exceptions.PythonParsingException;
-import node_count.exceptions.QuoteRuleException;
 
 public final class WeightRankedRegex implements RankableContent {
 	private final String pattern;
@@ -47,6 +47,10 @@ public final class WeightRankedRegex implements RankableContent {
 			this.rootTree = new PCRE(getUnescapedPattern()).getCommonTree();
 			this.features = new FeatureCount(rootTree,pattern);
 		}
+	}
+	
+	public boolean subsumes(FeatureSetClass candidate){
+		return new FeatureSetClass(features).subsumes(candidate);
 	}
 	
 	public static String getUnescaped(String unquotedPattern){
