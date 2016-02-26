@@ -19,14 +19,10 @@ import node_count.exceptions.QuoteRuleException;
 
 public class CorpusBuilder {
 	
-	public static void initializeCorpus(String connectionString,
-			List<WeightRankedRegex> corpus)
+	public static TreeSet<RegexProjectSet> initializeCorpus(String connectionString)
 			throws ClassNotFoundException, SQLException,
 			IllegalArgumentException, QuoteRuleException,
 			PythonParsingException {
-		if (corpus == null) {
-			throw new RuntimeException("the empty corpus should not be null");
-		}
 
 		HashMap<PatternEscapedPair, TreeSet<Integer>> patternProjectMM = new HashMap<PatternEscapedPair, TreeSet<Integer>>();
 		// prepare sql
@@ -52,6 +48,9 @@ public class CorpusBuilder {
 			String pattern = rs.getString("pattern");
 			int projectID = rs.getInt("uniqueSourceID");
 			try {
+				
+				//the important thing to know about patternEscapedPair is that it compares
+				//and hashes to others using ONLY the unescaped version
 				PatternEscapedPair patternEscapedPair = new PatternEscapedPair(pattern);
 				if(patternEscapedPair.getPattern().equals("")){
 					System.out.println("found empty: " + pattern);
@@ -80,12 +79,15 @@ public class CorpusBuilder {
 			entryList.add(new SortableEntry(entry.getKey(),entry.getValue()));
 		}
 		Collections.sort(entryList);
+		TreeSet<RegexProjectSet> corpus = new TreeSet<RegexProjectSet>();
 		for (SortableEntry entry : entryList) {
 			String pattern = entry.getKey().getPattern();
 			try {
-				WeightRankedRegex r = new WeightRankedRegex(pattern, entry.getValue().size());
+				RegexProjectSet r = new RegexProjectSet(pattern, entry.getValue());
 				corpusPatternSet.add(pattern);
-				corpus.add(r);
+				if(!corpus.add(r)){
+					throw new RuntimeException("Failure to add pattern "+pattern+" - every RegexProjectSet must be unique!!!");
+				}
 			} catch (AlienFeatureException e) {
 				String alienMessage = e.getMessage();
 				if (alienMessage != null && !alienMessage.equals("")) {
@@ -109,6 +111,7 @@ public class CorpusBuilder {
 				errorPatternSet.add(pattern);
 			}
 		}
+		return corpus;
 	}
 
 }

@@ -8,8 +8,8 @@ public class PatternEscapedPair implements Comparable<PatternEscapedPair>{
 	
 	public PatternEscapedPair(String pattern) throws QuoteRuleException{
 		this.pattern = pattern;
-		String unquoted = WeightRankedRegex.getUnquotedPythonPattern(pattern);
-		this.unescaped = WeightRankedRegex.getUnescaped(unquoted);
+		String unquoted = RegexProjectSet.getUnquotedPythonPattern(pattern);
+		this.unescaped = RegexProjectSet.getUnescaped(unquoted);
 	}
     
 	public String getPattern(){

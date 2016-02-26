@@ -1,5 +1,7 @@
 package node_count.build_corpus;
 
+import java.util.TreeSet;
+
 import node_count.exceptions.PythonParsingException;
 import node_count.exceptions.QuoteRuleException;
 import node_count.metric.FeatureCount;
@@ -10,16 +12,17 @@ import org.antlr.runtime.tree.CommonTree;
 import org.apache.commons.lang3.StringUtils;
 import org.python.util.PythonInterpreter;
 
-public final class WeightRankedRegex implements RankableContent {
+public final class RegexProjectSet implements RankableContent {
 	private final String pattern;
 	private final CommonTree rootTree;
 
 	private final FeatureCount features;
-	private final int weight;
-	public String unquoted;
-	private String unescaped;
+	private final TreeSet<Integer> projectIDSet;
+	public final String unquoted;
+	private final String unescaped;
+	private final String projectsCSV;
 
-	public WeightRankedRegex(String pattern, int weight) throws QuoteRuleException, IllegalArgumentException, PythonParsingException {
+	public RegexProjectSet(String pattern, TreeSet<Integer> projectIDSet) throws QuoteRuleException, IllegalArgumentException, PythonParsingException {
 		if (pattern == null) {
 			throw new IllegalArgumentException("pattern cannot be null: "+pattern);
 		} 
@@ -30,7 +33,17 @@ public final class WeightRankedRegex implements RankableContent {
 			throw new IllegalArgumentException("pattern cannot be empty: "+pattern);
 		} else {
 			this.pattern = pattern;
-			this.weight = weight;
+			if (projectIDSet==null || projectIDSet.isEmpty()) {
+				throw new IllegalArgumentException("projectIDSet cannot be null or empty for pattern: "+pattern);
+			}
+			this.projectIDSet = projectIDSet;
+			StringBuilder sb = new StringBuilder();
+			for(Integer pID : projectIDSet){
+				sb.append(pID);
+				sb.append(",");
+			}
+			String allWithExtraComma = sb.toString();
+			this.projectsCSV = allWithExtraComma.substring(0,allWithExtraComma.length()-1);
 
 			try{
 				
@@ -48,7 +61,7 @@ public final class WeightRankedRegex implements RankableContent {
 			this.features = new FeatureCount(rootTree,pattern);
 		}
 	}
-	
+
 	public boolean subsumes(FeatureSetClass candidate){
 		return new FeatureSetClass(features).subsumes(candidate);
 	}
@@ -70,7 +83,7 @@ public final class WeightRankedRegex implements RankableContent {
 	}
 
 	public int getRankableValue() {
-		return weight;
+		return projectIDSet.size();
 	}
 
 	@Override
@@ -79,11 +92,11 @@ public final class WeightRankedRegex implements RankableContent {
 			System.err.println("class mismatch");
 			return 1;
 		}
-		WeightRankedRegex wrrOther = (WeightRankedRegex) other;
+		RegexProjectSet wrrOther = (RegexProjectSet) other;
 		// higher weight is earlier
-		if (this.weight > wrrOther.weight) {
+		if (this.getRankableValue() > wrrOther.getRankableValue()) {
 			return -1;
-		} else if (this.weight < wrrOther.weight) {
+		} else if (this.getRankableValue() < wrrOther.getRankableValue()) {
 			return 1;
 		} else {
 			// shorter length is earlier
@@ -109,11 +122,11 @@ public final class WeightRankedRegex implements RankableContent {
 
 	@Override
 	public String toString() {
-		return "WeightRankedRegex [pattern=" + pattern + "]";
+		return unescaped + "\t" + projectsCSV;
 	}
 
 	public String dump(int index, int paddedSize) {
-		return StringUtils.leftPad(String.valueOf(index), paddedSize, "0")  + " | "+StringUtils.leftPad(String.valueOf(weight), paddedSize, "0")+" | "+pattern +"\n";
+		return StringUtils.leftPad(String.valueOf(index), paddedSize, "0")  + " | "+StringUtils.leftPad(String.valueOf(getRankableValue()), paddedSize, "0")+" | "+pattern +"\n";
 	}
 
 	@Override

@@ -18,6 +18,7 @@ public class IOUtil {
 	public static String basePath = "/Users/carlchapman/git/regex_readability_study/data/";
 	public static String ORIGINAL = "original/";
 	public static String COMPOSITION = "composition/";
+	public static String NODES = "nodes/";
 	public static String IN = "Rinput/";
 	public static String OUT = "Routput/";
 	public static String TMP = "temp/";
