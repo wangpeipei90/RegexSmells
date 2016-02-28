@@ -34,16 +34,16 @@ public class GroupDictionary extends HashMap<String, NodeGroup> {
 
 		SnodeList.add(new RTNode(C.S1, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_REP_SINGLEEXACTLY)), Pattern.compile(".*")));
 		SnodeList.add(new RTNode(C.S2, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach()), Pattern.compile(".*")));
-		SnodeList.add(new RTNode(C.S3, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_REP_DOUBLEBOUNDED)), Pattern.compile(".*")));
+		SnodeList.add(new RTNode(C.S3, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_REP_DOUBLEBOUNDED)), Pattern.compile("\\{(\\d+),\\1\\}")));
 
-		LnodeList.add(new RTNode(C.L1, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_REP_LOWERBOUNDED)), Pattern.compile(".*")));
+		LnodeList.add(new RTNode(C.L1, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_REP_LOWERBOUNDED)), Pattern.compile("\\{[1-9]\\d*,\\}")));
 		LnodeList.add(new RTNode(C.L2, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_REP_KLEENISH)), Pattern.compile(".*")));
-		LnodeList.add(new RTNode(C.L3, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_REP_LOWERBOUNDED)), Pattern.compile(".*")));
+		LnodeList.add(new RTNode(C.L3, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_REP_LOWERBOUNDED)), Pattern.compile("\\{0,\\}")));
 		LnodeList.add(new RTNode(C.L4, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_REP_ADDITIONAL)), Pattern.compile(".*")));
 
 		CnodeList.add(new RTNode(C.C1, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_CC_RANGE,FeatureDictionary.I_META_CC)), Pattern.compile(".*")));
 		CnodeList.add(new RTNode(C.C2, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_CC)), Pattern.compile(".*")));
-		CnodeList.add(new RTNode(C.C3, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_OR)), Pattern.compile(".*")));
+		CnodeList.add(new RTNode(C.C3, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_OR)), Pattern.compile(".*")));// not sure how to do this one
 		CnodeList.add(new RTNode(C.C4, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_NCC)), Pattern.compile(".*")));
 		CnodeList.add(new RTNode(C.C5, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_CC)), Pattern.compile(".*")));
 		CnodeList.add(new RTNode(C.C6, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_OR)), Pattern.compile(".*")));

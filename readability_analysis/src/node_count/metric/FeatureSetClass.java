@@ -15,6 +15,15 @@ public class FeatureSetClass {
 		}
 	}
 	
+	public boolean overlaps(FeatureSetClass other){
+		for (int i = 0; i < isFeaturePresentArray.length; i++) {
+			if(other.isFeaturePresentArray[i] && this.isFeaturePresentArray[i]){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public boolean subsumes(FeatureSetClass other){
 		for (int i = 0; i < isFeaturePresentArray.length; i++) {
 			if(other.isFeaturePresentArray[i] && ! this.isFeaturePresentArray[i]){

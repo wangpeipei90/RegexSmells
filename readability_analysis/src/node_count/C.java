@@ -11,7 +11,7 @@ public class C {
 	public static final String SNG = "SNG";
 	public static final String WNW = "WNW";
 
-	public static final String[] groupNames = {DBB};
+	public static final String[] groupNames = {CCC};
 	//public static final String[] groupNames = { BKR, CCC, DBB, LIT, LWB, OPT, OR, SNG, WNW };
 	
 	public static final String D1 = "D1";
