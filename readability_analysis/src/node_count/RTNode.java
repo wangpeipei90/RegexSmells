@@ -30,6 +30,18 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 	
 	private static final Pattern S2_repeatingChars = Pattern.compile("(ELEMENT•DOWN•.•UP•)\\1+");
 	private static final Pattern S2_repeatingElement = Pattern.compile("(ELEMENT•[^ ]+)\\1");
+	
+	private static final Pattern R3_OR_REQUIRING_REDUNDANCY = Pattern.compile("OR•DOWN•(?:ALTERNATIVE•DOWN•(?:.+)UP•)*(ALTERNATIVE•DOWN•(.+)UP•)(ALTERNATIVE•DOWN•(.+)UP•)*\\1");
+	
+	private static final Pattern P1_MATCHALLOR = Pattern.compile("OR•DOWN•ALTERNATIVE•DOWN•ELEMENT•DOWN•ANY•UP•UP•ALTERNATIVE•DOWN•ELEMENT•DOWN•\\\\0x0a•UP•UP•UP•|OR•DOWN•ALTERNATIVE•DOWN•ELEMENT•DOWN•\\\\0x0a•UP•UP•ALTERNATIVE•DOWN•ELEMENT•DOWN•ANY•UP•UP•UP•");
+	private static final Pattern P2_S_OPTION = Pattern.compile("ELEMENT•DOWN•OPTIONS•DOWN•SET•DOWN•(.•)*s•(.•)*UP•UNSET•UP•UP•");
+	private static final Pattern P3_M_OPTION = Pattern.compile("ELEMENT•DOWN•OPTIONS•DOWN•SET•DOWN•(.•)*m•(.•)*UP•UNSET•UP•UP•");
+	private static final Pattern P5_I_OPTION = Pattern.compile("ELEMENT•DOWN•OPTIONS•DOWN•SET•DOWN•(.•)*i•(.•)*UP•UNSET•UP•UP•");
+	
+	private static final Pattern CCC_WRAPPED_ESCAPE_CHAR = Pattern.compile("(?<=\\[)[.^$*+?(){}\\\\|[\\]]\\](?=\\])");
+	private static final Pattern CCC_WRAPPED_NONESCAPE_CHAR = Pattern.compile("(?<=\\[)[^.^$*+?(){}\\\\|[\\]]\\](?=\\])");
+	private static final Pattern HEX_OR_OCTAL = Pattern.compile("(\\\\x[a-f0-9A-F]{2})|((\\\\0\\d*)|(\\\\\\d{3}))");
+	
 	private static final FeatureSetClass rangeFSC = new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_CC_RANGE));
 	private static final FeatureSetClass defaultsFSC = new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_CC_DECIMAL, FeatureDictionary.I_CC_NDECIMAL, FeatureDictionary.I_CC_NWHITESPACE, FeatureDictionary.I_CC_NWORD, FeatureDictionary.I_CC_WHITESPACE, FeatureDictionary.I_CC_WORD));
 
@@ -98,20 +110,33 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 
 				case C.R1:
 				case C.R2:
+					return this.add(regex);
 				case C.R3:
-
+					return matchesR3(regex) ? this.add(regex) : false;
+					
 				case C.P1:
+					return matchesP1(regex) ? this.add(regex) : false;
 				case C.P2:
+					return matchesP2(regex) ? this.add(regex) : false;
 				case C.P3:
+					return matchesP3(regex) ? this.add(regex) : false;
 				case C.P4:
+					return matchesP4(regex) ? this.add(regex) : false;
 				case C.P5:
+					return matchesP5(regex) ? this.add(regex) : false;
 				case C.P6:
+					return matchesP6(regex) ? this.add(regex) : false;
+
 
 				case C.T1:
+					return matchesT1(regex) ? this.add(regex) : false;
 				case C.T2:
 				case C.T3:
+					return this.add(regex);
 				case C.T4:
+					return matchesT4(regex) ? this.add(regex) : false;
 				case C.T5:
+					return matchesT5(regex) ? this.add(regex) : false;
 				case C.T6:
 				case C.T7:
 
@@ -129,7 +154,8 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 		}
 		return false;
 	}
-	
+
+
 	private boolean matchesS2(RegexProjectSet regex) {
 		String tokenStream = getTokenStream(regex);
 		if (true) {
@@ -182,7 +208,68 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 		Matcher m1 = C6_ORofLITERALS_REQUIRING_DEFAULT.matcher(tokenStream);
 		return(m1.find());
 	}
+	
+	private static boolean matchesR3(RegexProjectSet regex) {
+		String tokenStream = getTokenStream(regex);
+		System.out.println(tokenStream);
+		Matcher m1 = R3_OR_REQUIRING_REDUNDANCY.matcher(tokenStream);
+		return(m1.find());
+	}
+	
+	private static boolean matchesP1(RegexProjectSet regex) {
+		String tokenStream = getTokenStream(regex);
+		//System.out.println(tokenStream);
+		Matcher m1 = P1_MATCHALLOR.matcher(tokenStream);
+		return(m1.find());
+	}
+	
+	private static boolean matchesP2(RegexProjectSet regex) {
+		String tokenStream = getTokenStream(regex);
+		Matcher m1 = P2_S_OPTION.matcher(tokenStream);
+		return(m1.find());
+	}
+	
+	private static boolean matchesP3(RegexProjectSet regex) {
+		String tokenStream = getTokenStream(regex);
+		Matcher m1 = P3_M_OPTION.matcher(tokenStream);
+		return(m1.find());
+	}
+	
+	//uses P3_M_OPTION also, but the RTNode regex filter is different
+	private static boolean matchesP4(RegexProjectSet regex) {
+		String tokenStream = getTokenStream(regex);
+		Matcher m1 = P3_M_OPTION.matcher(tokenStream);
+		return(m1.find());
+	}
+	
+	private static boolean matchesP5(RegexProjectSet regex) {
+		String tokenStream = getTokenStream(regex);
+		Matcher m1 = P5_I_OPTION.matcher(tokenStream);
+		return(m1.find());
+	}
 
+	private static boolean matchesP6(RegexProjectSet regex) {
+		//true iff ignorecase makes no effect
+		return false;
+	}
+	
+	private static boolean matchesT1(RegexProjectSet regex) {
+		Matcher m1 = CCC_WRAPPED_ESCAPE_CHAR.matcher(regex.unquoted);
+		Matcher m2 = HEX_OR_OCTAL.matcher(regex.unquoted);
+		return !m1.find() && !m2.find();
+	}
+	
+	private static boolean matchesT4(RegexProjectSet regex) {
+		Matcher m1 = CCC_WRAPPED_ESCAPE_CHAR.matcher(regex.unquoted);
+		Matcher m2 = CCC_WRAPPED_NONESCAPE_CHAR.matcher(regex.unquoted);
+		return m1.find() && !m2.find();
+	}
+	
+	private static boolean matchesT5(RegexProjectSet regex) {
+		Matcher m1 = CCC_WRAPPED_ESCAPE_CHAR.matcher(regex.unquoted);
+		Matcher m2 = CCC_WRAPPED_NONESCAPE_CHAR.matcher(regex.unquoted);
+		return m1.find() && m2.find();
+	}
 	////////////helpers////////////
 	
 	// cite:
@@ -238,7 +325,7 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 		//testing some ideas
 		TreeSet<Integer> testPIDs = new TreeSet<Integer>();
 		testPIDs.add(1);
-		 RegexProjectSet testRegex = new RegexProjectSet("'[\\s\\dabcc]'",testPIDs);
-		 System.out.println(matchesC5(testRegex));
+		 RegexProjectSet testRegex = new RegexProjectSet("'(?msi)bleh'",testPIDs);
+		 System.out.println(matchesP2(testRegex));
 	}
 }
