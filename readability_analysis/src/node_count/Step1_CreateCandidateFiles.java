@@ -1,10 +1,12 @@
 package node_count;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeSet;
+import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
 
 import node_count.build_corpus.CorpusUtil;
@@ -22,8 +24,8 @@ public class Step1_CreateCandidateFiles {
 
 	public static void main(String[] args) throws ClassNotFoundException,
 			IllegalArgumentException, SQLException, QuoteRuleException,
-			PythonParsingException {
-		TreeSet<RegexProjectSet> corpus = CorpusUtil.initializeCorpus(connectionString);
+			PythonParsingException,IOException, InterruptedException, ExecutionException {
+		TreeSet<RegexProjectSet> corpus = CorpusUtil.reloadCorpus();
 
 		// new dictionary contains all node groups initialized with empty nodes
 		GroupDictionary gd = new GroupDictionary();
@@ -32,9 +34,15 @@ public class Step1_CreateCandidateFiles {
 			StringBuilder errorLogContent = new StringBuilder();
 			NodeGroup group = gd.get(groupName);
 			for (RTNode node : group) {
+				System.out.println("in group: "+node.getName());
 				for (RegexProjectSet rps : corpus) {
-					node.addIfMatches(rps);
+					node.addIfMatches(rps,errorLogContent);
 				}
+			}
+			File preprocessLog = new File(IOUtil.basePath + IOUtil.NODES,"preprocessErrorLog.txt");
+			if(errorLogContent.length()>0){
+				IOUtil.createAndWrite(preprocessLog,errorLogContent.toString());
+				errorLogContent = new StringBuilder();
 			}
 			TreeSet<RegexProjectSet> partialCover = new TreeSet<RegexProjectSet>();
 			boolean first = true;

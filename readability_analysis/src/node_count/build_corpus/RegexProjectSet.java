@@ -85,6 +85,10 @@ public final class RegexProjectSet implements RankableContent {
 	public int getRankableValue() {
 		return projectIDSet.size();
 	}
+	
+	public TreeSet<Integer> getProjectIDSet(){
+		return projectIDSet;
+	}
 
 	@Override
 	public int compareTo(RankableContent other) {

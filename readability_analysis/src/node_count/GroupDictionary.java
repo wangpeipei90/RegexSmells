@@ -49,8 +49,8 @@ public class GroupDictionary extends HashMap<String, NodeGroup> {
 		CnodeList.add(new RTNode(C.C5, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_CC)), dotStar));
 		CnodeList.add(new RTNode(C.C6, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_OR)), dotStar));
 
-		RnodeList.add(new RTNode(C.R1, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_OR)), Pattern.compile("\\([^|]+(\\|[^|]+)+\\).+|.+\\([^|]+(\\|[^|]+)+\\)")));
-		RnodeList.add(new RTNode(C.R2, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_OR)), Pattern.compile("^[^|]+(\\|[^|]+)+$")));
+		RnodeList.add(new RTNode(C.R1, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_OR)), dotStar));//Pattern.compile("\\([^|]+(\\|[^|]+)+\\).+|.+\\([^|]+(\\|[^|]+)+\\)")));
+		RnodeList.add(new RTNode(C.R2, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_OR)), dotStar));//Pattern.compile("^[^|]+(\\|[^|]+)+$")));
 		RnodeList.add(new RTNode(C.R3, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_OR)), dotStar));
 
 		PnodeList.add(new RTNode(C.P1, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach()), dotStar));

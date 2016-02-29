@@ -19,6 +19,7 @@ public class IOUtil {
 	public static String ORIGINAL = "original/";
 	public static String COMPOSITION = "composition/";
 	public static String NODES = "nodes/";
+	public static String CLEAN_NODES = "manuallyReviewedNodes/";
 	public static String IN = "Rinput/";
 	public static String OUT = "Routput/";
 	public static String TMP = "temp/";
