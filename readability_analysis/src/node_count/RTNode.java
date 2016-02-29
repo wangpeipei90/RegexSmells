@@ -38,8 +38,8 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 	private static final Pattern P3_M_OPTION = Pattern.compile("ELEMENT•DOWN•OPTIONS•DOWN•SET•DOWN•(.•)*m•(.•)*UP•UNSET•UP•UP•");
 	private static final Pattern P5_I_OPTION = Pattern.compile("ELEMENT•DOWN•OPTIONS•DOWN•SET•DOWN•(.•)*i•(.•)*UP•UNSET•UP•UP•");
 	
-	private static final Pattern CCC_WRAPPED_ESCAPE_CHAR = Pattern.compile("(?<=\\[)[.^$*+?(){}\\\\|[\\]]\\](?=\\])");
-	private static final Pattern CCC_WRAPPED_NONESCAPE_CHAR = Pattern.compile("(?<=\\[)[^.^$*+?(){}\\\\|[\\]]\\](?=\\])");
+	private static final Pattern CCC_WRAPPED_ESCAPE_CHAR = Pattern.compile("(?<=\\[)([.^$*+?(){}\\\\|\\[])(?=\\])");
+	private static final Pattern CCC_WRAPPED_NONESCAPE_CHAR = Pattern.compile("(?<=\\[)([^.^$*+?(){}\\\\|\\[])(?=\\])");
 	private static final Pattern HEX_OR_OCTAL = Pattern.compile("(\\\\x[a-f0-9A-F]{2})|((\\\\0\\d*)|(\\\\\\d{3}))");
 	
 	private static final FeatureSetClass rangeFSC = new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_CC_RANGE));
@@ -211,7 +211,6 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 	
 	private static boolean matchesR3(RegexProjectSet regex) {
 		String tokenStream = getTokenStream(regex);
-		System.out.println(tokenStream);
 		Matcher m1 = R3_OR_REQUIRING_REDUNDANCY.matcher(tokenStream);
 		return(m1.find());
 	}

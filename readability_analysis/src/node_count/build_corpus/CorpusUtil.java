@@ -1,5 +1,9 @@
 package node_count.build_corpus;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -10,14 +14,20 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+import readability_analysis.IOUtil;
+import node_count.Step1_CreateCandidateFiles;
 import node_count.exceptions.AlienFeatureException;
 import node_count.exceptions.PythonParsingException;
 import node_count.exceptions.QuoteRuleException;
 
 
-public class CorpusBuilder {
+public class CorpusUtil {
 	
 	public static TreeSet<RegexProjectSet> initializeCorpus(String connectionString)
 			throws ClassNotFoundException, SQLException,
@@ -112,6 +122,40 @@ public class CorpusBuilder {
 			}
 		}
 		return corpus;
+	}
+	
+	public static TreeSet<RegexProjectSet> reloadCorpus() throws IOException, IllegalArgumentException, QuoteRuleException, PythonParsingException{
+		TreeSet<RegexProjectSet> corpus = new TreeSet<RegexProjectSet>();
+		List<String> lines = IOUtil.getLines(IOUtil.basePath + IOUtil.CORPUS + "serializedCorpus.txt");
+		for(String line : lines){
+			String[] parts = line.split("\t");
+			String[] IDs = parts[1].split(",");
+			TreeSet<Integer> IDSet = new TreeSet<Integer>();
+			for(String id : IDs){
+				IDSet.add(Integer.parseInt(id));
+			}
+			corpus.add(new RegexProjectSet(parts[0],IDSet));
+		}
+		return corpus;
+	}
+	
+	public static void main(String[] args) throws ClassNotFoundException, IllegalArgumentException, SQLException, QuoteRuleException, PythonParsingException, IOException{
+		//here we serialize the corpus, to avoid lag in development waiting for corpus to build again
+		File corpusFile = new File(IOUtil.basePath + IOUtil.CORPUS,"serializedCorpus.txt");
+		File loadedFile = new File(IOUtil.basePath + IOUtil.CORPUS,"loadedCorpus.txt");
+		TreeSet<RegexProjectSet> corpus = initializeCorpus(Step1_CreateCandidateFiles.connectionString);
+		StringBuilder contents = new StringBuilder();
+		for(RegexProjectSet rps :corpus){
+			contents.append(rps.getContent()+"\t"+rps.getProjectsCSV()+"\n");
+		}
+		IOUtil.createAndWrite(corpusFile,contents.toString());
+		TreeSet<RegexProjectSet> loadedC = reloadCorpus();
+		StringBuilder contents2 = new StringBuilder();
+		for(RegexProjectSet rps :loadedC){
+			contents2.append(rps.getContent()+"\t"+rps.getProjectsCSV()+"\n");
+		}
+		IOUtil.createAndWrite(loadedFile,contents2.toString());
+		System.out.println(corpus.equals(loadedC));
 	}
 
 }

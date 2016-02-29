@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import node_count.build_corpus.CorpusBuilder;
+import node_count.build_corpus.CorpusUtil;
 import node_count.build_corpus.RegexProjectSet;
 import node_count.exceptions.PythonParsingException;
 import node_count.exceptions.QuoteRuleException;
@@ -23,7 +23,7 @@ public class Step1_CreateCandidateFiles {
 	public static void main(String[] args) throws ClassNotFoundException,
 			IllegalArgumentException, SQLException, QuoteRuleException,
 			PythonParsingException {
-		TreeSet<RegexProjectSet> corpus = CorpusBuilder.initializeCorpus(connectionString);
+		TreeSet<RegexProjectSet> corpus = CorpusUtil.initializeCorpus(connectionString);
 
 		// new dictionary contains all node groups initialized with empty nodes
 		GroupDictionary gd = new GroupDictionary();

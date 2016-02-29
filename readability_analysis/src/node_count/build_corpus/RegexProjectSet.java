@@ -125,6 +125,10 @@ public final class RegexProjectSet implements RankableContent {
 		return unescaped + "\t" + projectsCSV;
 	}
 
+	public String getProjectsCSV() {
+		return projectsCSV;
+	}
+
 	public String dump(int index, int paddedSize) {
 		return StringUtils.leftPad(String.valueOf(index), paddedSize, "0")  + " | "+StringUtils.leftPad(String.valueOf(getRankableValue()), paddedSize, "0")+" | "+pattern +"\n";
 	}
@@ -200,6 +204,40 @@ public final class RegexProjectSet implements RankableContent {
 			s.substring(threeFromEnd).equals(tripple);
 	}
 	
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((pattern == null) ? 0 : pattern.hashCode());
+		result = prime * result +
+			((projectsCSV == null) ? 0 : projectsCSV.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RegexProjectSet other = (RegexProjectSet) obj;
+		if (pattern == null) {
+			if (other.pattern != null)
+				return false;
+		} else if (!pattern.equals(other.pattern))
+			return false;
+		if (projectsCSV == null) {
+			if (other.projectsCSV != null)
+				return false;
+		} else if (!projectsCSV.equals(other.projectsCSV))
+			return false;
+		return true;
+	}
+
 	public static void main(String[] args) throws QuoteRuleException{
 		String r = "'^(boot(\\\\.\\\\d+)?$|kernel\\\\.)'";
 		System.out.println(r);
