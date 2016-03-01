@@ -8,6 +8,9 @@ import java.util.TreeSet;
 
 import org.apache.commons.lang3.StringUtils;
 
+import analyze.Composer;
+import analyze.FeatureDetail;
+import metric.FeatureDictionary;
 import node_count.build_corpus.CorpusUtil;
 import node_count.build_corpus.RegexProjectSet;
 import node_count.exceptions.PythonParsingException;
@@ -21,7 +24,8 @@ public class Step2_CreateReport {
 
 	
 	public static void main(String[] args) throws IOException, IllegalArgumentException, QuoteRuleException, PythonParsingException {
-		String header = "name         \tdescription                           \tnPatterns\t%Patterns\tnProjects\t%Projects\texample\n";
+		String between = " & ";
+		String header = "name         \tdescription              \tnPatterns\t%Patterns\tnProjects\t%Projects\texample\n";
 		DescriptionDictionary desc = new DescriptionDictionary();
 		int longestDesc = desc.getLongestLength();
 		StringBuilder report = new StringBuilder();
@@ -87,3 +91,92 @@ public class Step2_CreateReport {
 		return allProjectIDs;
 	}
 }
+//sb.append("rank & code & description & example & brics & hampi & Rex & RE2 & nPatterns & \\% patterns & nProjects & \\% projects \\\\ \n\\toprule[0.16em]\n");
+//TreeSet<FeatureDetail> sortedFeatures = new TreeSet<FeatureDetail>();
+//for (int i = 0; i < nFeatures; i++) {
+//	if (i == FeatureDictionary.I_META_LITERAL || presentCounter[i] == 0) {
+//		continue;
+//	}
+//	// int featureID, int nFiles, int nPresent, int nProjects, int max,
+//	// int nTokens)
+//	sortedFeatures.add(new FeatureDetail(i, filesWithFeature[i], presentCounter[i], nProjectsPerFeature[i], max[i], tokensCounter[i]));
+//}
+//int rankIndex = 1;
+//for (FeatureDetail featureDetail : sortedFeatures) {
+//	int ID = featureDetail.getID();
+//	String featureCode = fd.getCode(ID);
+//	String description = fd.getDescription(ID);
+//	String verbatimBlock = fd.getVerbatim(ID);
+//
+//	String nPresent = Composer.commafy(presentCounter[ID]);
+//	String percentPresent = Composer.percentify(presentCounter[ID], nPatterns);
+//
+//	String nTokens = Composer.commafy(tokensCounter[ID]);
+//	String percentTokens = Composer.percentify(tokensCounter[ID], adjustedTokens);
+//
+//	String maxOccurances = Composer.commafy(max[ID]);
+//
+//	String weightInt = Composer.commafy(featureDetail.getRankableValue());
+//	String weightPercent = df.format(100 * (featureDetail.getRankableValue() / totalWeight));
+//
+//	// System.out.println("filesWithFeature[ID]: "+filesWithFeature[ID]+" totalNFiles[0]: "+totalNFiles[0]+" nProjectsPerFeature[ID]: "+nProjectsPerFeature[ID]+" totalNProjects[0]: "+totalNProjects[0]);
+//
+////	String nFiles = Composer.commafy(filesWithFeature[ID]);
+////	String percentFiles = Composer.percentify(filesWithFeature[ID], totalNFiles[0]);
+//
+//	String nProjects = Composer.commafy(nProjectsPerFeature[ID]);
+//	String percentProjects = Composer.percentify(nProjectsPerFeature[ID], totalNProjects[0]);
+//
+//	sb.append("" + rankIndex);
+//	sb.append(between);
+//	sb.append(featureCode);
+//	sb.append(between);
+//	sb.append(description);
+//	sb.append(between);
+//	sb.append(verbatimBlock);
+//	sb.append(between);
+//	sb.append(projectFeatureInclusion(ID, 0));
+//	sb.append(between);
+//	sb.append(projectFeatureInclusion(ID, 1));
+//	sb.append(between);
+//	sb.append(projectFeatureInclusion(ID, 2));
+//	sb.append(between);
+//	sb.append(projectFeatureInclusion(ID, 3));
+//	sb.append(between);
+//
+//	sb.append(nPresent);
+//	sb.append(between);
+//	sb.append(percentPresent);
+//	sb.append(between);
+//
+//	// sb.append(nTokens);
+//	// sb.append(between);
+//	// sb.append(percentTokens);
+//	// sb.append(between);
+//
+//	// sb.append(maxOccurances);
+//	// sb.append(between);
+//
+//	// sb.append(weightInt);
+//	// sb.append(between);
+//	// sb.append(weightPercent);
+//	// sb.append(between);
+//
+////	sb.append(nFiles);
+////	sb.append(between);
+////	sb.append(percentFiles);
+////	sb.append(between);
+//	sb.append(nProjects);
+//	sb.append(between);
+//	sb.append(percentProjects);
+//
+//	if(rankIndex==8 || rankIndex==27){
+//		sb.append(" \\\\ \n\\midrule[0.12em]\n");
+//	}else if(rankIndex < sortedFeatures.size()){
+//		sb.append(" \\\\ \n\\midrule\n");
+//	}
+//	rankIndex++;
+//}
+//sb.append(" \\\\ \n\\bottomrule[0.13em]\n\\end{tabular}\n"
+//	+ "\\end{center}\n\\end{table*}\n");
+//return sb.toString();
