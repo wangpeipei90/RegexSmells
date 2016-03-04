@@ -19,12 +19,28 @@ Each of the 10 categories had 6 concrete versions of some FR and so there are 60
 
 
 \subsection{Metrics}
+We measure understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}.
 
+\textbf{Matching}
+Given a regex and a set of strings, determine which strings will be matched by the regex. The percentage of correct responses is the matching score. For example, consider the following regex and five strings, which comes from our study:
+
+\begin{tabular} {l | l l}
+REGEX & response 1 & response 2 \\ \hline
+String 1\\
+String 2\\
+String 3\\
+String 4\\
+String 5  \\
+Score \\
+\end{tabular}
+
+\textbf{Composition}
 
 
 
 \subsection{Design}
-In Mechanical Turk, we designed a 180 tasks composed of 10 matching subtasks, so that each of the 60 CRs had 30 separate observations (each an average of 5 \emph{example string} problems).  These 1800 observations are what the analysis will focus on.
+In Mechanical Turk, we designed a 180 tasks composed of 10 matching subtasks, so that each of the 60 CRs had 30 separate observations (each an average of 5 \emph{example string} problems).  These 1800 observations are what the analysis will focus on. The ordering of the regexes in each HIT was random to control for learning effects. 
+
 
 \todoNow{Were there qualification questions that required participants to demonstrate knowledge of regexes?}
 
