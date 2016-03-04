@@ -1,0 +1,271 @@
+\begin{table*}
+\begin{center}
+\caption{How frequently is each alternative expression style used?}
+\label{table:nodeCount}
+\begin{tabular}
+{lllcccc}
+name & description & example & nPatterns & \% patterns & nProjects & \% projects \\ 
+\toprule[0.16em]
+C1 & 
+CCC and RNG & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'^[1-9][0-9]*$'\end{verbatim}\end{minipage}
+ & 
+2,510 & 
+0.18 & 
+818 & 
+0.53\\
+C2 & 
+CCC, no RNG or defaults & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'[aeiouy]'\end{verbatim}\end{minipage}
+ & 
+1,283 & 
+0.09 & 
+551 & 
+0.36\\
+C3 & 
+OR of single chars & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'\\(t|n|r|"|\\)'\end{verbatim}\end{minipage}
+ & 
+156 & 
+0.01 & 
+174 & 
+0.11\\
+C4 & 
+Contains NCCC & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'[^0-9]'\end{verbatim}\end{minipage}
+ & 
+1,935 & 
+0.14 & 
+776 & 
+0.50\\
+C5 & 
+CCC and defaults, no RNG & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'[-+\d.]'\end{verbatim}\end{minipage}
+ & 
+675 & 
+0.05 & 
+382 & 
+0.25\\
+C6 & 
+OR containing defaults & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'(\s|_)+'\end{verbatim}\end{minipage}
+ & 
+90 & 
+0.01 & 
+131 & 
+0.08\\
+CCC REMAINDER & 
+null & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'^\s*$'\end{verbatim}\end{minipage}
+ & 
+7,491 & 
+0.55 & 
+1,223 & 
+0.79\\
+
+D1 & 
+DBB other than {0,1} & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'^x{1,4}$'\end{verbatim}\end{minipage}
+ & 
+279 & 
+0.02 & 
+212 & 
+0.14\\
+D2 & 
+DBB exactly {0,1} & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'^[\n\r]{0,1}'\end{verbatim}\end{minipage}
+ & 
+23 & 
+0.00 & 
+25 & 
+0.02\\
+D3 & 
+Contains QST & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'^https?://\S+$'\end{verbatim}\end{minipage}
+ & 
+1,871 & 
+0.14 & 
+646 & 
+0.42\\
+D4 & 
+OR expressing repetition & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'^(Q|QQ)\<(.+)\>$'\end{verbatim}\end{minipage}
+ & 
+10 & 
+0.00 & 
+27 & 
+0.02\\
+DBB REMAINDER & 
+null & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'^[1-9][0-9]*$'\end{verbatim}\end{minipage}
+ & 
+11,491 & 
+0.85 & 
+1,473 & 
+0.95\\
+
+LIT REMAINDER & 
+null & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'(\w+)\s+(\d+)'\end{verbatim}\end{minipage}
+ & 
+319 & 
+0.02 & 
+538 & 
+0.35\\
+T1 & 
+no HEX, OCT or CCC-wrapped & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'get_tag'\end{verbatim}\end{minipage}
+ & 
+12,482 & 
+0.92 & 
+1,485 & 
+0.96\\
+T2 & 
+Contains HEX literal & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'(\x1b|~{)'\end{verbatim}\end{minipage}
+ & 
+479 & 
+0.04 & 
+243 & 
+0.16\\
+T3 & 
+Contains CCC-wrapped & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'[$][{]\d+:([^}]+)[}]'\end{verbatim}\end{minipage}
+ & 
+307 & 
+0.02 & 
+268 & 
+0.17\\
+T4 & 
+Contains OCT literal & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'[\041-\176]+:$'\end{verbatim}\end{minipage}
+ & 
+14 & 
+0.00 & 
+37 & 
+0.02\\
+
+L1 & 
+LWB like {M,}, M>0 & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'^_{2,}.*[^_]+_?$'\end{verbatim}\end{minipage}
+ & 
+91 & 
+0.01 & 
+166 & 
+0.11\\
+L2 & 
+Contains KLE & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'^(.*?)'''\s*(#.*)?$'\end{verbatim}\end{minipage}
+ & 
+6,017 & 
+0.44 & 
+1,097 & 
+0.71\\
+L3 & 
+Contains ADD & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'[A-Z][a-z]+'\end{verbatim}\end{minipage}
+ & 
+6,003 & 
+0.44 & 
+1,207 & 
+0.78\\
+LWB REMAINDER & 
+null & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'-py([123]\.[0-9])$'\end{verbatim}\end{minipage}
+ & 
+3,979 & 
+0.29 & 
+944 & 
+0.61\\
+
+OR REMAINDER & 
+null & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'^[012TF\*]{9}$'\end{verbatim}\end{minipage}
+ & 
+11,495 & 
+0.85 & 
+1,489 & 
+0.96\\
+R1 & 
+OR with prefix or suffix & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'^(def|class)\s+'\end{verbatim}\end{minipage}
+ & 
+1,529 & 
+0.11 & 
+603 & 
+0.39\\
+R2 & 
+top-level OR & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'([ ]+_)|(_[ ]+)|([ ]+)'\end{verbatim}\end{minipage}
+ & 
+573 & 
+0.04 & 
+396 & 
+0.26\\
+
+S1 & 
+Contains SNG & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'[^ ]*\.[A-Z]{3}'\end{verbatim}\end{minipage}
+ & 
+581 & 
+0.04 & 
+340 & 
+0.22\\
+S2 & 
+Repeated non-literals & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'ff:ff:ff:ff:ff:ff'\end{verbatim}\end{minipage}
+ & 
+927 & 
+0.07 & 
+497 & 
+0.32\\
+S3 & 
+DBB like {M,M} & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'U[\dA-F]{5,5}'\end{verbatim}\end{minipage}
+ & 
+27 & 
+0.00 & 
+32 & 
+0.02\\
+SNG REMAINDER & 
+null & 
+\begin{minipage}{1.50in}\begin{verbatim}
+'@@BINARYDIR@@'\end{verbatim}\end{minipage}
+ & 
+12,209 & 
+0.90 & 
+1,498 & 
+0.97\\
+
+ \\ 
+\bottomrule[0.13em]
+\end{tabular}
+\end{center}
+\end{table*}

@@ -15,28 +15,28 @@ import java.util.regex.Pattern;
 public class Step2_CreateOutputFiles {	
 	private static DecimalFormat df3 = new DecimalFormat("0.00");
 
-	private static File scriptTempFile = new File(IOUtil.basePath + IOUtil.TMP +
+	private static File scriptTempFile = new File(IOUtil.dataPath + IOUtil.TMP +
 		IOUtil.R_SCRIPTNAME);
 	
-	private static File p2_in_directory = new File(IOUtil.basePath + IOUtil.IN +
+	private static File p2_in_directory = new File(IOUtil.dataPath + IOUtil.IN +
 			IOUtil.P2_PATH);
-	private static File p3_in_directory = new File(IOUtil.basePath + IOUtil.IN +
+	private static File p3_in_directory = new File(IOUtil.dataPath + IOUtil.IN +
 			IOUtil.P3_PATH);
-	private static File t_in_directory = new File(IOUtil.basePath + IOUtil.IN +
+	private static File t_in_directory = new File(IOUtil.dataPath + IOUtil.IN +
 			IOUtil.T_PATH);
-	private static File m_in_directory = new File(IOUtil.basePath + IOUtil.IN +
+	private static File m_in_directory = new File(IOUtil.dataPath + IOUtil.IN +
 			IOUtil.M_PATH);
 
 	public static void main(String[] args) throws IOException,
 			InterruptedException {
 
-		File p2_out_directory = new File(IOUtil.basePath + IOUtil.OUT +
+		File p2_out_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 			IOUtil.P2_PATH);
-		File p3_out_directory = new File(IOUtil.basePath + IOUtil.OUT +
+		File p3_out_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 			IOUtil.P3_PATH);
-		File t_out_directory = new File(IOUtil.basePath + IOUtil.OUT +
+		File t_out_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 			IOUtil.T_PATH);
-		File m_out_directory = new File(IOUtil.basePath + IOUtil.OUT +
+		File m_out_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 			IOUtil.M_PATH);
 
 		for (File p2File : p2_in_directory.listFiles()) {
@@ -71,9 +71,9 @@ public class Step2_CreateOutputFiles {
 			}
 		}
 
-		HashMap<String, Pattern> codePatternMap = IOUtil.getCodeMap(IOUtil.getLines(IOUtil.basePath +
+		HashMap<String, Pattern> codePatternMap = IOUtil.getCodeMap(IOUtil.getLines(IOUtil.dataPath +
 			IOUtil.ORIGINAL + "RenamingRegexes.tsv"), "\t");
-		HashMap<String, List<String>> codeAnswerMap = IOUtil.getAnswerMap(IOUtil.getLines(IOUtil.basePath +
+		HashMap<String, List<String>> codeAnswerMap = IOUtil.getAnswerMap(IOUtil.getLines(IOUtil.dataPath +
 			IOUtil.ORIGINAL + "compositionAnswers.tsv"), "\t");
 		List<AnswerColumn> compositionAnswers = getCompositionAnswerColumns(codePatternMap, codeAnswerMap);
 		writeCompositionOutputFiles(compositionAnswers);
@@ -145,13 +145,13 @@ public class Step2_CreateOutputFiles {
 			List<AnswerColumn> compositionAnswers) throws IOException, InterruptedException {
 		Pattern metacode = Pattern.compile("M\\d+R\\dV\\d[^M.]+[^_M.]");
 		Pattern highestMetacode = Pattern.compile("M\\d");
-		File p2_out_composition_directory = new File(IOUtil.basePath + IOUtil.OUT + IOUtil.COMPOSITION + 
+		File p2_out_composition_directory = new File(IOUtil.dataPath + IOUtil.OUT + IOUtil.COMPOSITION + 
 				IOUtil.P2_PATH);
-		File p3_out_composition_directory = new File(IOUtil.basePath + IOUtil.OUT + IOUtil.COMPOSITION + 
+		File p3_out_composition_directory = new File(IOUtil.dataPath + IOUtil.OUT + IOUtil.COMPOSITION + 
 				IOUtil.P3_PATH);
-		File m_in_composition_directory = new File(IOUtil.basePath + IOUtil.IN + IOUtil.COMPOSITION + 
+		File m_in_composition_directory = new File(IOUtil.dataPath + IOUtil.IN + IOUtil.COMPOSITION + 
 				IOUtil.M_PATH);
-		File m_out_composition_directory = new File(IOUtil.basePath + IOUtil.OUT + IOUtil.COMPOSITION + 
+		File m_out_composition_directory = new File(IOUtil.dataPath + IOUtil.OUT + IOUtil.COMPOSITION + 
 				IOUtil.M_PATH);
 
 		for (File p2File : p2_in_directory.listFiles()) {

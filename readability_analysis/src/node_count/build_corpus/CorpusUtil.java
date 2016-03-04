@@ -126,7 +126,7 @@ public class CorpusUtil {
 	
 	public static TreeSet<RegexProjectSet> reloadCorpus() throws IOException, IllegalArgumentException, QuoteRuleException, PythonParsingException{
 		TreeSet<RegexProjectSet> corpus = new TreeSet<RegexProjectSet>();
-		List<String> lines = IOUtil.getLines(IOUtil.basePath + IOUtil.CORPUS + "serializedCorpus.txt");
+		List<String> lines = IOUtil.getLines(IOUtil.dataPath + IOUtil.CORPUS + "serializedCorpus.txt");
 		for(String line : lines){
 			String[] parts = line.split("\t");
 			String[] IDs = parts[1].split(",");
@@ -141,8 +141,8 @@ public class CorpusUtil {
 	
 	public static void main(String[] args) throws ClassNotFoundException, IllegalArgumentException, SQLException, QuoteRuleException, PythonParsingException, IOException{
 		//here we serialize the corpus, to avoid lag in development waiting for corpus to build again
-		File corpusFile = new File(IOUtil.basePath + IOUtil.CORPUS,"serializedCorpus.txt");
-		File loadedFile = new File(IOUtil.basePath + IOUtil.CORPUS,"loadedCorpus.txt");
+		File corpusFile = new File(IOUtil.dataPath + IOUtil.CORPUS,"serializedCorpus.txt");
+		File loadedFile = new File(IOUtil.dataPath + IOUtil.CORPUS,"loadedCorpus.txt");
 		TreeSet<RegexProjectSet> corpus = initializeCorpus(Step1_CreateCandidateFiles.connectionString);
 		StringBuilder contents = new StringBuilder();
 		for(RegexProjectSet rps :corpus){

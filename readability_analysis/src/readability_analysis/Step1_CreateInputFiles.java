@@ -18,11 +18,11 @@ public class Step1_CreateInputFiles {
 
 	public static void main(String[] args) throws IOException {
 
-		List<AnswerColumn> pairsFrom2 = IOUtil.getColumns(IOUtil.getLines(IOUtil.basePath +
+		List<AnswerColumn> pairsFrom2 = IOUtil.getColumns(IOUtil.getLines(IOUtil.dataPath +
 			IOUtil.ORIGINAL + "pairs_from_2.csv"), ",");
-		List<AnswerColumn> pairsFrom3 = IOUtil.getColumns(IOUtil.getLines(IOUtil.basePath +
+		List<AnswerColumn> pairsFrom3 = IOUtil.getColumns(IOUtil.getLines(IOUtil.dataPath +
 			IOUtil.ORIGINAL + "pairs_from_3.csv"), ",");
-		List<AnswerColumn> tripleLines = IOUtil.getColumns(IOUtil.getLines(IOUtil.basePath +
+		List<AnswerColumn> tripleLines = IOUtil.getColumns(IOUtil.getLines(IOUtil.dataPath +
 			IOUtil.ORIGINAL + "triples.csv"), ",");
 
 
@@ -50,7 +50,7 @@ public class Step1_CreateInputFiles {
 					filenameBuilder.append(".tsv");
 				}
 			}
-			File f = new File(IOUtil.basePath + IOUtil.IN + path +
+			File f = new File(IOUtil.dataPath + IOUtil.IN + path +
 				filenameBuilder.toString());
 			IOUtil.createAndWrite(f, formatter.formatData(answerColumns, offset, columnsPerFile));
 		}

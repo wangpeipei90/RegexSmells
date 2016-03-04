@@ -39,7 +39,7 @@ public class Step1_CreateCandidateFiles {
 					node.addIfMatches(rps,errorLogContent);
 				}
 			}
-			File preprocessLog = new File(IOUtil.basePath + IOUtil.NODES,"preprocessErrorLog.txt");
+			File preprocessLog = new File(IOUtil.dataPath + IOUtil.NODES,"preprocessErrorLog.txt");
 			if(errorLogContent.length()>0){
 				IOUtil.createAndWrite(preprocessLog,errorLogContent.toString());
 				errorLogContent = new StringBuilder();
@@ -74,11 +74,11 @@ public class Step1_CreateCandidateFiles {
 			group.add(remainder);
 			for (RTNode node : group) {
 				String nodeName = node.getName();
-				File nodeOutFile = new File(IOUtil.basePath + IOUtil.NODES +
+				File nodeOutFile = new File(IOUtil.dataPath + IOUtil.NODES +
 					groupName + "/", nodeName+".tsv");
 				IOUtil.createAndWrite(nodeOutFile, node.getContent());
 			}
-			File errorLog = new File(IOUtil.basePath + IOUtil.NODES +
+			File errorLog = new File(IOUtil.dataPath + IOUtil.NODES +
 					groupName + "/","errorLog.txt");
 			IOUtil.createAndWrite(errorLog,errorLogContent.toString());
 		}
