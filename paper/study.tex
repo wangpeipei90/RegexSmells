@@ -17,7 +17,61 @@ Each of the 10 categories had 6 concrete versions of some FR and so there are 60
 
 \todoNow{create some illustration of one matching subtask}
 
-In mechanical Turk, we designed a 180 tasks composed of 10 matching subtasks, so that each of the 60 CRs had 30 separate observations (each an average of 5 \emph{example string} problems).  These 1800 observations are what the analysis will focus on.
+
+\subsection{Metrics}
 
 
 
+
+\subsection{Design}
+In Mechanical Turk, we designed a 180 tasks composed of 10 matching subtasks, so that each of the 60 CRs had 30 separate observations (each an average of 5 \emph{example string} problems).  These 1800 observations are what the analysis will focus on.
+
+\todoNow{Were there qualification questions that required participants to demonstrate knowledge of regexes?}
+
+\subsection{Participants}
+In total, there were 180 different participants in the study. A majority were male (83\%) with an average age of 31. Most had
+at least an Associates degree (72\%) and most were at least somewhat familiar with regexes prior to the study (87\%). On average, 
+participants compose 67 regexes per year with a range of 0 to 1000. Fittingly, participants read more regexes than they write with an average of 116 and a range from 0 to 2000. Figure~\ref{participantprofile} summarizes the self-reported participant characteristics from the qualification survey. 
+
+
+\begin{figure}
+\fbox{\parbox{\columnwidth}{
+\begin{enumerate}
+\item 
+\begin{tabular} {lrr}
+\textbf{What is your gender?} & \textbf{n} & \textbf{\%}\\ \hline
+Male & 149 & 83\%\\ 
+Female & 27& 15\%\\
+Prefer not to say & 4& 2\%
+\end{tabular}
+\item \textbf{What is your age?} \\
+$\mu = 31$, $\sigma = 9.3$
+
+\item 
+
+\begin{tabular} {l |rr}
+\textbf{Education Level?} & \textbf{n} & \textbf{\%}\\ \hline
+High School & 5 & 3\%\\
+Some college, no degree & 46 & 26\%\\
+ Associates degree & 14 & 8\%\\
+Bachelors degree & 78 & 43\%\\
+Graduate degree & 37 & 21\%\\
+\end{tabular}
+\item 
+\begin{tabular} {lrr}
+\textbf{Familiarity with regexes?} & \textbf{n} & \textbf{\%}\\ \hline
+Not familiar at all & 5 & 3\%\\ 
+Somewhat not familiar & 16 & 9\%\\ 
+Not sure & 2 & 1\%\\
+Somewhat familiar & 121 & 67\%\\
+Very familiar & 36 & 20\%\\
+\end{tabular}
+\item \textbf{How many regexes do you compose each year?} \\
+$\mu = 67$, $\sigma = 173$
+\item \textbf{How many regexes (not written by you) do you read each year?} \\
+$\mu = 116$, $\sigma = 275$
+%\item In what contexts do you use regexes? \\
+\end{enumerate}
+}}
+\caption{Participant Profiles, $n=180$ \label{participantprofile}}
+\end{figure}
