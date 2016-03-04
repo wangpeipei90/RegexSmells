@@ -15,22 +15,22 @@ public class Step3_CreateSimpleSummary {
 	private static double alpha = 0.05;
 
 	public static void main(String[] args) throws IOException {
-		File p2_in_directory = new File(IOUtil.basePath + IOUtil.IN +
+		File p2_in_directory = new File(IOUtil.dataPath + IOUtil.IN +
 			IOUtil.P2_PATH);
-		File p3_in_directory = new File(IOUtil.basePath + IOUtil.IN +
+		File p3_in_directory = new File(IOUtil.dataPath + IOUtil.IN +
 			IOUtil.P3_PATH);
-		File t_in_directory = new File(IOUtil.basePath + IOUtil.IN +
+		File t_in_directory = new File(IOUtil.dataPath + IOUtil.IN +
 			IOUtil.T_PATH);
 
-		File p2_out_directory = new File(IOUtil.basePath + IOUtil.OUT +
+		File p2_out_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 			IOUtil.P2_PATH);
-		File p3_out_directory = new File(IOUtil.basePath + IOUtil.OUT +
+		File p3_out_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 			IOUtil.P3_PATH);
-		File t_out_directory = new File(IOUtil.basePath + IOUtil.OUT +
+		File t_out_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 			IOUtil.T_PATH);
-		File m_out_directory = new File(IOUtil.basePath + IOUtil.OUT +
+		File m_out_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 			IOUtil.M_PATH);
-		File allDataSimplified = new File(IOUtil.basePath + IOUtil.SIMPLE +
+		File allDataSimplified = new File(IOUtil.dataPath + IOUtil.SIMPLE +
 			"simpleSummary.tsv");
 		IOUtil.createAndWrite(allDataSimplified, getPairsFromTwo(p2_out_directory, p2_in_directory) +
 			getTriples(t_out_directory, t_in_directory) +
@@ -40,7 +40,7 @@ public class Step3_CreateSimpleSummary {
 
 	private static String getPairsFromTwo(File p2_out_directory,
 			File p2_in_directory) throws IOException {
-		File p2_out_compose_directory = new File(IOUtil.basePath + IOUtil.OUT +
+		File p2_out_compose_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 				IOUtil.COMPOSITION + IOUtil.P2_PATH);
 		
 		
@@ -111,7 +111,7 @@ public class Step3_CreateSimpleSummary {
 
 	private static String getPairsFromThree(File p3_out_directory,
 			File p3_in_directory) throws IOException {
-		File p3_out_compose_directory = new File(IOUtil.basePath + IOUtil.OUT +
+		File p3_out_compose_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 				IOUtil.COMPOSITION + IOUtil.P3_PATH);
 		
 		
@@ -151,7 +151,7 @@ public class Step3_CreateSimpleSummary {
 
 	private static String getMetagroupANOVAs(File m_out_directory)
 			throws IOException {
-		File m_out_compose_directory = new File(IOUtil.basePath + IOUtil.OUT +
+		File m_out_compose_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 			IOUtil.COMPOSITION + IOUtil.M_PATH);
 		StringBuilder sb = new StringBuilder();
 		sb.append(":::::::::BEGIN METAGROUP ANOVA RESULTS::::::::::\n");

@@ -15,7 +15,8 @@ import java.util.regex.Pattern;
 
 public class IOUtil {
 
-	public static String basePath = "/Users/carlchapman/git/regex_readability_study/data/";
+	public static String paperPath = "/Users/carlchapman/git/regex_readability_study/paper/";
+	public static String dataPath = "/Users/carlchapman/git/regex_readability_study/data/";
 	public static String ORIGINAL = "original/";
 	public static String COMPOSITION = "composition/";
 	public static String NODES = "nodes/";
@@ -30,6 +31,9 @@ public class IOUtil {
 	public static final String R_SCRIPTNAME = "scRipt.r";
 	public static final String M_PATH = "M/";
 	public static final String CORPUS = "corpus/";
+	public static final String TABLE = "table/";
+	
+	
 
 	public static void createAndWrite(File file, String content) {
 		FileWriter fw;

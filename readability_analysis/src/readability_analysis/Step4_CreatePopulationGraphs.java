@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class Step4_CreatePopulationGraphs {
 	
-	private static File scriptTempFile = new File(IOUtil.basePath + IOUtil.TMP +
+	private static File scriptTempFile = new File(IOUtil.dataPath + IOUtil.TMP +
 			IOUtil.R_SCRIPTNAME);
 	
 	public static void main(String[] args) throws IOException,

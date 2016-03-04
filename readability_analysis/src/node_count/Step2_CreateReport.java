@@ -6,11 +6,6 @@ import java.text.DecimalFormat;
 import java.util.List;
 import java.util.TreeSet;
 
-import org.apache.commons.lang3.StringUtils;
-
-import analyze.Composer;
-import analyze.FeatureDetail;
-import metric.FeatureDictionary;
 import node_count.build_corpus.CorpusUtil;
 import node_count.build_corpus.RegexProjectSet;
 import node_count.exceptions.PythonParsingException;
@@ -19,17 +14,28 @@ import readability_analysis.IOUtil;
 
 public class Step2_CreateReport {
 	
-	private static File cleanRoot = new File(IOUtil.basePath + IOUtil.CLEAN_NODES);
+	private static File cleanRoot = new File(IOUtil.dataPath + IOUtil.CLEAN_NODES);
+	private static File generatedDir = new File(IOUtil.paperPath + IOUtil.TABLE);
 	private static DecimalFormat df3 = new DecimalFormat("0.00");
 
 	
 	public static void main(String[] args) throws IOException, IllegalArgumentException, QuoteRuleException, PythonParsingException {
-		String between = " & ";
-		String header = "name         \tdescription              \tnPatterns\t%Patterns\tnProjects\t%Projects\texample\n";
+		String between = " & \n";
+		String tableLatex = "\\begin{table*}\n\\begin{center}\n"
+			+ "\\caption{How frequently is each alternative expression style used?}\n"
+			+ "\\label{table:nodeCount}\n"
+			+ "\\begin{tabular}\n{lllcccc}\n";
+		String topRow = "name & description & example & nPatterns & \\% patterns & nProjects & \\% projects \\\\ \n\\toprule[0.16em]\n";
+		double width = 1.5;
+		String widthS = df3.format(width);
+		String beforePattern = "\\begin{minipage}{" + widthS +
+				"in}\\begin{verbatim}\n";
+			String afterPattern = "\\end{verbatim}\\end{minipage}\n";
+
 		DescriptionDictionary desc = new DescriptionDictionary();
-		int longestDesc = desc.getLongestLength();
+		//int longestDesc = desc.getLongestLength();
 		StringBuilder report = new StringBuilder();
-		report.append(header);
+		report.append(tableLatex+topRow);
 		TreeSet<RegexProjectSet> corpus = CorpusUtil.reloadCorpus();
 		double corpusSize = corpus.size() + 0.0;
 		TreeSet<Integer> corpusProjectIDs = aggregateProjectIDs(corpus);
@@ -55,29 +61,38 @@ public class Step2_CreateReport {
 							}
 						}
 						TreeSet<Integer> fileMemberIDs = aggregateProjectIDs(cleanRTNodeMembers);
-						String nProjects = "" + fileMemberIDs.size();
-						String nPatterns = "" + cleanRTNodeMembers.size();
+						int nProjects = fileMemberIDs.size();
+						int nPatterns = cleanRTNodeMembers.size();
 						double percentPatterns = cleanRTNodeMembers.size()/corpusSize;
 						double percentProjects = fileMemberIDs.size()/allProjectsSize;
-						String nodeName = nodeFile.getName().replaceAll(".tsv","");
+						String nodeName = nodeFile.getName().replaceAll(".tsv","").replaceAll("_"," ");
 						String firstPattern = first==null ? "NO_PATTERN_FOUND" : "'"+first.getUnescapedPattern()+"'";
 						String shortDescription = desc.get(nodeName);
-						report.append(StringUtils.rightPad(nodeName, 13) +
-							"\t" +
-							StringUtils.rightPad(shortDescription, longestDesc) +
-							"\t" +
-							StringUtils.rightPad(nPatterns, 9) + 
-							"\t" + StringUtils.rightPad(df3.format(percentPatterns),9) + 
-							"\t" +StringUtils.rightPad(nProjects,9) + 
-							"\t" + StringUtils.rightPad(df3.format(percentProjects),9) + 
-							"\t" + firstPattern+"\n");
+						report.append(nodeName);
+						report.append(between);
+						report.append(shortDescription);
+						report.append(between);
+						report.append(beforePattern);
+						report.append(firstPattern);
+						report.append(afterPattern);
+						report.append(between);
+						report.append(Composer.commafy(nPatterns));
+						report.append(between);
+						report.append(df3.format(percentPatterns));
+						report.append(between);
+						report.append(Composer.commafy(nProjects));
+						report.append(between);
+						report.append(df3.format(percentProjects));
+						report.append("\\\\\n");
 					}
 					
 				}
 				report.append("\n");
 			}
 		}
-		File reportFile = new File(cleanRoot,"report.txt");
+		String tableFoot = " \\\\ \n\\bottomrule[0.13em]\n\\end{tabular}\n\\end{center}\n\\end{table*}\n";
+		report.append(tableFoot);
+		File reportFile = new File(generatedDir,"nodeCountTable.tex");
 		IOUtil.createAndWrite(reportFile,report.toString());
 
 	}
@@ -91,85 +106,6 @@ public class Step2_CreateReport {
 		return allProjectIDs;
 	}
 }
-//sb.append("rank & code & description & example & brics & hampi & Rex & RE2 & nPatterns & \\% patterns & nProjects & \\% projects \\\\ \n\\toprule[0.16em]\n");
-//TreeSet<FeatureDetail> sortedFeatures = new TreeSet<FeatureDetail>();
-//for (int i = 0; i < nFeatures; i++) {
-//	if (i == FeatureDictionary.I_META_LITERAL || presentCounter[i] == 0) {
-//		continue;
-//	}
-//	// int featureID, int nFiles, int nPresent, int nProjects, int max,
-//	// int nTokens)
-//	sortedFeatures.add(new FeatureDetail(i, filesWithFeature[i], presentCounter[i], nProjectsPerFeature[i], max[i], tokensCounter[i]));
-//}
-//int rankIndex = 1;
-//for (FeatureDetail featureDetail : sortedFeatures) {
-//	int ID = featureDetail.getID();
-//	String featureCode = fd.getCode(ID);
-//	String description = fd.getDescription(ID);
-//	String verbatimBlock = fd.getVerbatim(ID);
-//
-//	String nPresent = Composer.commafy(presentCounter[ID]);
-//	String percentPresent = Composer.percentify(presentCounter[ID], nPatterns);
-//
-//	String nTokens = Composer.commafy(tokensCounter[ID]);
-//	String percentTokens = Composer.percentify(tokensCounter[ID], adjustedTokens);
-//
-//	String maxOccurances = Composer.commafy(max[ID]);
-//
-//	String weightInt = Composer.commafy(featureDetail.getRankableValue());
-//	String weightPercent = df.format(100 * (featureDetail.getRankableValue() / totalWeight));
-//
-//	// System.out.println("filesWithFeature[ID]: "+filesWithFeature[ID]+" totalNFiles[0]: "+totalNFiles[0]+" nProjectsPerFeature[ID]: "+nProjectsPerFeature[ID]+" totalNProjects[0]: "+totalNProjects[0]);
-//
-////	String nFiles = Composer.commafy(filesWithFeature[ID]);
-////	String percentFiles = Composer.percentify(filesWithFeature[ID], totalNFiles[0]);
-//
-//	String nProjects = Composer.commafy(nProjectsPerFeature[ID]);
-//	String percentProjects = Composer.percentify(nProjectsPerFeature[ID], totalNProjects[0]);
-//
-//	sb.append("" + rankIndex);
-//	sb.append(between);
-//	sb.append(featureCode);
-//	sb.append(between);
-//	sb.append(description);
-//	sb.append(between);
-//	sb.append(verbatimBlock);
-//	sb.append(between);
-//	sb.append(projectFeatureInclusion(ID, 0));
-//	sb.append(between);
-//	sb.append(projectFeatureInclusion(ID, 1));
-//	sb.append(between);
-//	sb.append(projectFeatureInclusion(ID, 2));
-//	sb.append(between);
-//	sb.append(projectFeatureInclusion(ID, 3));
-//	sb.append(between);
-//
-//	sb.append(nPresent);
-//	sb.append(between);
-//	sb.append(percentPresent);
-//	sb.append(between);
-//
-//	// sb.append(nTokens);
-//	// sb.append(between);
-//	// sb.append(percentTokens);
-//	// sb.append(between);
-//
-//	// sb.append(maxOccurances);
-//	// sb.append(between);
-//
-//	// sb.append(weightInt);
-//	// sb.append(between);
-//	// sb.append(weightPercent);
-//	// sb.append(between);
-//
-////	sb.append(nFiles);
-////	sb.append(between);
-////	sb.append(percentFiles);
-////	sb.append(between);
-//	sb.append(nProjects);
-//	sb.append(between);
-//	sb.append(percentProjects);
-//
 //	if(rankIndex==8 || rankIndex==27){
 //		sb.append(" \\\\ \n\\midrule[0.12em]\n");
 //	}else if(rankIndex < sortedFeatures.size()){
