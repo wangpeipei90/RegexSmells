@@ -1,9 +1,10 @@
 \begin{table*}
 \begin{center}
+\begin{small}
 \caption{How frequently is each alternative expression style used?}
 \label{table:nodeCount}
 \begin{tabular}
-{lllcccc}
+{lll@{}rcrc}
 name & description & example & nPatterns & \% patterns & nProjects & \% projects \\ 
 \toprule[0.16em]
 C1 & 
@@ -60,7 +61,7 @@ OR containing defaults &
 0.01 & 
 131 & 
 0.08\\
-CCC REMAINDER & 
+CCC REM & 
 null & 
 \begin{minipage}{1.50in}\begin{verbatim}
 '^\s*$'\end{verbatim}\end{minipage}
@@ -106,7 +107,7 @@ OR expressing repetition &
 0.00 & 
 27 & 
 0.02\\
-DBB REMAINDER & 
+DBB REM & 
 null & 
 \begin{minipage}{1.50in}\begin{verbatim}
 '^[1-9][0-9]*$'\end{verbatim}\end{minipage}
@@ -116,7 +117,7 @@ null &
 1,473 & 
 0.95\\
 
-LIT REMAINDER & 
+LIT REM & 
 null & 
 \begin{minipage}{1.50in}\begin{verbatim}
 '(\w+)\s+(\d+)'\end{verbatim}\end{minipage}
@@ -189,7 +190,7 @@ Contains ADD &
 0.44 & 
 1,207 & 
 0.78\\
-LWB REMAINDER & 
+LWB REM & 
 null & 
 \begin{minipage}{1.50in}\begin{verbatim}
 '-py([123]\.[0-9])$'\end{verbatim}\end{minipage}
@@ -199,7 +200,7 @@ null &
 944 & 
 0.61\\
 
-OR REMAINDER & 
+OR REM & 
 null & 
 \begin{minipage}{1.50in}\begin{verbatim}
 '^[012TF\*]{9}$'\end{verbatim}\end{minipage}
@@ -254,7 +255,7 @@ DBB like {M,M} &
 0.00 & 
 32 & 
 0.02\\
-SNG REMAINDER & 
+SNG REM & 
 null & 
 \begin{minipage}{1.50in}\begin{verbatim}
 '@@BINARYDIR@@'\end{verbatim}\end{minipage}
@@ -267,5 +268,6 @@ null &
  \\ 
 \bottomrule[0.13em]
 \end{tabular}
+\end{small}
 \end{center}
 \end{table*}
