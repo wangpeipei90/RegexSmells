@@ -1,5 +1,6 @@
 package readability_analysis;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -64,4 +65,10 @@ public class ProportionOutput {
 		return counts[0] +"\t"+counts[1] + "\t";
 	}
 
+	@Override
+	public String toString() {
+		return "ProportionOutput [filename=" + filename + ", textContent=" +
+			textContent + ", counts=" + Arrays.toString(counts) + ", p_value=" +
+			p_value + "]";
+	}
 }

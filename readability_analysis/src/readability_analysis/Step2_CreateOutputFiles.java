@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -26,6 +24,8 @@ public class Step2_CreateOutputFiles {
 			IOUtil.T_PATH);
 	private static File m_in_directory = new File(IOUtil.dataPath + IOUtil.IN +
 			IOUtil.M_PATH);
+	private static File g_in_directory = new File(IOUtil.dataPath + IOUtil.IN +
+			IOUtil.G_PATH);
 
 	public static void main(String[] args) throws IOException,
 			InterruptedException {
@@ -38,6 +38,8 @@ public class Step2_CreateOutputFiles {
 			IOUtil.T_PATH);
 		File m_out_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 			IOUtil.M_PATH);
+		File g_out_directory = new File(IOUtil.dataPath + IOUtil.OUT +
+				IOUtil.G_PATH);
 
 		for (File p2File : p2_in_directory.listFiles()) {
 			if (!p2File.isHidden()) {
@@ -68,6 +70,14 @@ public class Step2_CreateOutputFiles {
 				String newFilename = mFile.getName().replaceAll("csv", "Rout");
 				File outFile = new File(m_out_directory, newFilename);
 				writeROutput(wrapTestIO(mFile.getAbsolutePath(), getANOVATest(), outFile.getAbsolutePath(), ","), scriptTempFile);
+			}
+		}
+		
+		for (File gFile : g_in_directory.listFiles()) {
+			if (!gFile.isHidden()) {
+				String newFilename = gFile.getName().replaceAll("csv", "Rout");
+				File outFile = new File(g_out_directory, newFilename);
+				writeROutput(wrapTestIO(gFile.getAbsolutePath(), getANOVATest(), outFile.getAbsolutePath(), ","), scriptTempFile);
 			}
 		}
 

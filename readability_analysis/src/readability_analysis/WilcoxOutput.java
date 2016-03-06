@@ -27,4 +27,12 @@ public class WilcoxOutput {
 	public Double getPValue() {
 		return p_value;
 	}
+
+	@Override
+	public String toString() {
+		return "WilcoxOutput [p_value=" + p_value +
+			"]";
+	}
+	
+	
 }
