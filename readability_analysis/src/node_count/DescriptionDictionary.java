@@ -10,39 +10,28 @@ public class DescriptionDictionary extends HashMap<String,String>{
 	}
 
 	private void initializeDescriptions() {
-		this.put("D1","DBB other than {0,1}");
-		this.put("D2","DBB exactly {0,1}");
-		this.put("D3","Contains QST");
-		this.put("D4","OR expressing repetition");
-		this.put("DBB_REMAINDER","Not found in any DBB Nodes");
+		this.put("D1","curly brace repetition like \\{M,N\\} with M<N");
+		this.put("D2","zero-or-one repetition using question mark");
+		this.put("D3","repetition expressed using an OR");
 
-		this.put("S1","Contains SNG");
-		this.put("S2","Repeated non-literals");
-		this.put("S3","DBB like {M,M}");
-		this.put("SNG_REMAINDER","Not found in any SNG Nodes");
+		this.put("S1","curly brace repetition like \\{M\\}");
+		this.put("S2","explicit sequential repetition");
+		this.put("S3","curly brace repetition like \\{M,M\\}");
 
-		this.put("L1","LWB like {M,}, M>0");
-		this.put("L2","Contains KLE");
-		this.put("L3","Contains ADD");
-		this.put("LWB_REMAINDER","Not found in any LWB Nodes");
+		this.put("L1","curly brace repetition like \\{M,\\}");
+		this.put("L2","zero-or-more repetition using kleene star");
+		this.put("L3","one-or-more repetition using plus");
 
-		this.put("C1","CCC and RNG");
-		this.put("C2","CCC, no RNG or defaults");
-		this.put("C3","OR of single chars");
-		this.put("C4","Contains NCCC");
-		this.put("C5","CCC and defaults, no RNG");
-		this.put("C6","OR containing defaults");
-		this.put("CCC_REMAINDER","Not found in any CCC Nodes");
+		this.put("C1","char class using ranges");
+		this.put("C2","char class explicitly listing all chars");
+		this.put("C3","any negated char class");
+		this.put("C4","char class using defaults");
+		this.put("C5","an OR of length-one sub-patterns");
 
-		this.put("R1","OR with prefix or suffix");
-		this.put("R2","top-level OR");
-		this.put("OR_REMAINDER","Not found in any OR Nodes");
-
-		this.put("T1","no HEX, OCT or CCC-wrapped");
-		this.put("T2","Contains HEX literal");
-		this.put("T3","Contains CCC-wrapped");
-		this.put("T4","Contains OCT literal");
-		this.put("LIT_REMAINDER","Not found in any LIT Nodes");
+		this.put("T1","no HEX, OCT or char-class-wrapped literals");
+		this.put("T2","has HEX literal like \\verb!\\xF5!");
+		this.put("T3","has char-class-wrapped literals like [\\$]");
+		this.put("T4","has OCT literal like \\verb!\\0177!");
 		
 	}
 
