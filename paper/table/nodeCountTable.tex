@@ -1,8 +1,9 @@
-\begin{table*}\begin{small}\begin{center}
+\begin{table*}[ht]
+\begin{small}\begin{center}
 \caption{How frequently is each alternative expression style used?}
 \label{table:nodeCount}
 \begin{tabular}
-{lllcccc}
+{lll@{}rrrr}
 name & description & example & nPatterns & \% patterns & nProjects & \% projects \\
 \toprule[0.16em]
 C1 & char class using ranges & \begin{minipage}{1.5in}\begin{verbatim}
@@ -62,8 +63,7 @@ S2 & explicit sequential repetition & \begin{minipage}{1.5in}\begin{verbatim}
  & 3,378 & 24.8\% & 861 & 55.8\%\\
 S3 & curly brace repetition like \{M,M\} & \begin{minipage}{1.5in}\begin{verbatim}
 'U[\dA-F]{5,5}'\end{verbatim}\end{minipage}
- & 27 & .2\% & 32 & 2.1\%\\
-\midrule
+ & 27 & .2\% & 32 & 2.1\%
  \\
 \bottomrule[0.13em]
 \end{tabular}
