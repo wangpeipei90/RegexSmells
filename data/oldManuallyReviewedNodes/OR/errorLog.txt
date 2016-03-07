@@ -1,0 +1,6 @@
+
+current node: R1
+
+
+current node: R2
+

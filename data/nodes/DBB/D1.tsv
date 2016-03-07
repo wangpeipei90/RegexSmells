@@ -1,0 +1,367 @@
+'&(#?[xX]?(?:[0-9a-fA-F]+|\\w{1,8}));'	31,287,302,323,355,381,422,476,602,732,849,866,878,1004,1012,1054,1086,1087,1158,1184,1495,1509,1517,1580,1634
+'^[ -~]{0,200}[!-~]$'	12,287,412,602,759,852,927,961,992,1003,1054,1087,1104,1221,1257,1269,1386,1415,1469,1498,1509,1511,1536,1580
+'(\\d{1,2})\\.(\\d{1,2})\\.(\\d{1,2})'	82,89,302,323,355,422,849,866,878,1004,1012,1074,1075,1086,1158,1184,1495,1517,1580,1634
+'^(?P<birth>\\d{6})/?(?P<id>\\d{3,4})$'	302,323,355,422,849,866,878,1004,1012,1086,1158,1184,1495,1517,1634
+'^(?P<residence>\\d{10})(?P<origin>\\w{1,3})[-\\ ]?(?P<birthday>\\d{7})[-\\ ]?(?P<validity>\\d{7})[-\\ ]?(?P<checksum>\\d{1})$'	302,323,355,422,849,866,878,1004,1012,1086,1158,1184,1495,1517,1634
+'^(\\+62|0)[2-9]\\d{7,10}$'	302,323,355,422,849,866,878,1004,1012,1086,1158,1495,1517,1634
+'^(?P<number>\\d{1,8})-?(?P<check>\\d)$'	302,323,355,422,849,866,878,1012,1086,1158,1495,1517,1634
+'^\\d{4}-\\d{1,2}-\\d{1,2}$'	302,323,355,422,866,1004,1184,1495,1517
+'(^|\\n)(?P<level>#{1,6})(?P<header>.*?)#*(\\n|$)'	236,247,552,606,919,1007,1223,1395,1420
+'^x{1,4}$'	12,412,759,852,961,1087,1221,1511
+'^x{1,3}$'	12,412,759,852,961,1087,1221,1511
+'^x{1,2}$'	12,412,759,852,961,1087,1221,1511
+'^x{1,4}?$'	12,412,759,852,961,1087,1221,1511
+'^x{1,3}?$'	12,412,759,852,961,1087,1221,1511
+'^x{1,2}?$'	12,412,759,852,961,1087,1221,1511
+'^x{3,4}?$'	12,412,759,852,961,1087,1221,1511
+'^(\\w){1,4}$'	12,412,759,852,961,1087,1221,1511
+'^(\\w){1,3}$'	12,412,759,852,961,1087,1221,1511
+'^(\\w){1,2}$'	12,412,759,852,961,1087,1221,1511
+'^(\\w){1,4}?$'	12,412,759,852,961,1087,1221,1511
+'^(\\w){1,3}?$'	12,412,759,852,961,1087,1221,1511
+'^(\\w){1,2}?$'	12,412,759,852,961,1087,1221,1511
+'^(\\w){3,4}?$'	12,412,759,852,961,1087,1221,1511
+'U[\\dA-F]{5,5}'	220,927,1122,1263,1290,1469,1580,1594
+'#x([\\d|A-F]{4,4})'	220,927,1122,1263,1290,1469,1580,1594
+'(^|\\n)[ ]{0,3}>[ ]?(.*)'	236,247,552,606,919,1007,1223,1420
+'^(\\d{1,3})\\.(\\d{1,4})$'	12,412,759,852,961,1087,1221,1511
+'[^\\x00-\\x21\\xff]{1,250}$'	992,1104,1257,1386,1415,1469,1536,1580
+'^(?:(?:00|\\+)386|0)(\\d{7,8})$'	302,849,878,1012,1086,1158,1495,1634
+'\\[#x([\\d|A-F]{4,4})-#x([\\d|A-F]{4,4})\\]'	220,927,1122,1263,1290,1469,1580,1594
+'(?P<year>\\d{4})-(?P<month>\\d{1,2})-(?P<day>\\d{1,2})$'	849,878,1012,1086,1158,1495,1580,1634
+'^(\\+385|00385|0)(?P<prefix>\\d{2})(?P<number>\\d{6,7})$'	302,849,878,1012,1086,1158,1495,1634
+'^(#[0-9a-f]+|rgb\\(\\d+%?,\\d*%?,?\\d*%?\\)?|\\d{0,2}\\.?\\d{0,2}(cm|em|ex|in|mm|pc|pt|px|%|,|\\))?)$'	220,927,1122,1263,1290,1469,1580,1594
+'(?P<hour>\\d{1,2}):(?P<minute>\\d{1,2})(?::(?P<second>\\d{1,2})(?:\\.(?P<microsecond>\\d{1,6})\\d{0,6})?)?'	849,878,1012,1086,1158,1495,1580,1634
+'(([a-zA-Z0-9\\_\\-\\.\\+]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?))'	147,181,190,325,582,622,915,1597
+'^[ ]{0,3}[*+-][ ](.*)'	247,552,606,919,1007,1223,1420
+'^[ ]{0,3}\\d+\\.[ ](.*)'	247,552,606,919,1007,1223,1420
+'a(?:b|(c|e){1,2}?|d)+?(.)'	12,412,759,852,1087,1221,1511
+'^[ ]{4,7}((\\d+\\.)|[*+-])[ ].*'	247,552,606,919,1007,1223,1420
+'^[ ]{0,3}((\\d+\\.)|[*+-])[ ](.*)'	247,552,606,919,1007,1223,1420
+'(([a-zA-Z0-9\\_\\-\\.\\+]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?))(\\?subject=\\S+)?'	220,454,666,707,927,1003,1247
+'^[ 0-9a-zA-Z\\._\\+/\\$-]{1,256}$'	82,89,1004,1074,1075,1495
+'(url\\([\'"]{0,1}\\s*(.*?)["\']{0,1}\\))'	302,849,878,1086,1495,1634
+'\\\\(\\\'|\\"|\\\\|[abfnrtv]|x.{0,2}|[0-7]{1,3})'	101,251,602,1054,1087,1580
+'([0-9]{4}-[0-9]{2}-[0-9]{2})  ([0-9]{4,5}) {1,2}(.*)'	412,759,852,961,1221,1511
+'^[ ]{0,3}(?P<key>[A-Za-z0-9_-]+):\\s*(?P<value>.*)'	236,247,919,1007,1395
+"\n        ^(\\#{1,6})  # \\1 = string of #'s\n        [ \\t]*\n        (.+?)       # \\2 = Header text\n        [ \\t]*\n        (?<!\\\\)     # ensure not an escaped trailing '#'\n        \\#*         # optional closing #'s (not counted)\n        \\n+\n        "	552,606,1223,1247,1420
+'^.{3,20}$'	200,1294,1337,1595
+'^[a-zA-Z0-9-]{1,500}$'	1004,1074,1075,1495
+'^[a-zA-Z0-9-]{1,100}$'	1004,1074,1075,1495
+'(\\[.{16,16}[^,]*?),.*?\\]\\)'	356,538,1247,1288
+'(?i)([aeiou]).{1,3}([aeiou])nes$'	305,1025,1138,1505
+'^([a-z]{2,3}(_[a-z]{2,8})*)\\.py$'	147,162,181,1087
+'/{0,2}[^]\\0\\t\\r\\v\\n ()<>{}/%[]+'	642,776,971,1203
+'(^|\\n)[ ]{0,3}:[ ]{1,3}(.*?)(\\n|$)'	236,247,919,1007
+'^[a-z0-9][a-z0-9\\._-]{1,253}[a-z0-9]$'	546,830,1028,1039
+'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'	171,682,1247,1381
+'^([\\w\\d]([\\w\\d\\-]{0,61}[\\w\\d])?\\.)*[\\w\\d]([\\w\\d\\-]{0,61}[\\w\\d])?$'	422,747,1517,1580
+'^(?P<year>\\d{4})-(?P<month>\\d{2})-(?P<day>\\d{2})T(?P<hour>\\d{2}):(?P<minute>\\d{2}):(?P<second>\\d{2})(\\.\\d{3,6}Z?)?$'	142,193,631,895
+'(?P<product>\\w+)(-)(?P<version>\\w+\\.\\w+(\\.\\w+){0,2})(\\.)(?P<locale>.+?)(\\.)(?P<platform>.+?)(\\.)(?P<type>\\w+)(.mar)'	1007,1015,1032,1327
+u'\\b((?:([\\w-]+):(/{1,3})|www[.])(?:(?:(?:[^\\s&()]|&amp;|&quot;)*(?:[^!"#$%&\'()*+,.:;<=>?@\\[\\]^`{|}~\\s]))|(?:\\((?:[^\\s&()]|&amp;|&quot;)*\\)))+)'	552,606,800,1469
+'(?P<year>\\d{4})-(?P<month>\\d{1,2})-(?P<day>\\d{1,2})[T ](?P<hour>\\d{1,2}):(?P<minute>\\d{1,2})(?::(?P<second>\\d{1,2})(?:\\.(?P<microsecond>\\d{1,6})\\d{0,6})?)?(?P<tzinfo>Z|[+-]\\d{1,2}:\\d{1,2})?$'	849,878,1495,1634
+u'.{1,2047}'	1263,1580,1594
+'^[0-9a-f]{20,40}$'	174,422,1644
+'^[a-zA-Z0-9_-]{3,20}$'	1294,1337,1595
+'^[0-9A-Za-z._-]{0,100}$'	1004,1075,1495
+'\\\\([0-9a-fA-F]{1,6})\\s?'	113,147,181
+'([0-9A-F]{1,2}:){5}[0-9A-F]{1,2}'	947,996,1491
+'name=[\'"]{0,1}([-\\w\\.]*?)[\'"]'	247,919,1007
+'(\\d+):(\\d+):(\\d+)(?:\\.(\\d{0,6}))?'	1415,1469,1580
+'sqlalchemy/([a-z_]+/){0,2}[a-z_]+\\.py'	1415,1469,1580
+'([^<>= ]+)(?:\\s*([<>=]{1,2})\\s*(.*))?$'	242,930,1323
+'^(.+)[ \\._\\-]([0-9]{2})([0-9]{2,3})[\\._ -][^\\/]*$'	506,1269,1498
+'^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$'	840,1495,1608
+'^([0-9]{4})~([01][0-9])~([0-9]{2})~([0-9]{1,2})~([0-9]{2})~([0-9]{2})$'	1269,1469,1498
+'^([01]?[0-9])~([0-9]{2})~([0-9]{4})~([0-9]{1,2})~([0-9]{2})~([0-9]{2})$'	1269,1469,1498
+'(?P<time>\\d+)\\.M(?P<M>\\d{1,6})P(?P<P>\\d+)Q(?P<Q>\\d+)\\.(?P<host>[^:/]+)'	12,1087,1580
+'(?P<year>\\d{4})-(?P<month>\\d{1,2})-(?P<day>\\d{1,2})(?: (?P<hour>\\d{1,2}):(?P<minute>\\d{1,2}):(?P<second>\\d{1,2})(?:\\.(?P<microsecond>\\d{1,6}))?)?'	927,1003,1469
+'(?P<year>\\d{4})-(?P<month>\\d{1,2})-(?P<day>\\d{1,2})[T ](?P<hour>\\d{1,2}):(?P<minute>\\d{1,2})(?::(?P<second>\\d{1,2})(?:\\.(?P<microsecond>\\d{1,6})\\d{0,6})?)?(?P<tzinfo>Z|[+-]\\d{2}:?\\d{2})?$'	1012,1086,1580
+'    # mere offset\n                ^\n                &?                                          # possible ampersand\n                (       0                                       # just zero\n                |       [1-9]{1,1}[0-9]*        # decimal\n                |       0[0-7]+                         # octal\n                |       0x[0-9a-f]+                     # hex\n                )\n                $\n                '	1007,1015,1032
+'    # indirect offset\n                ^\\(\n                (?P<base>&?0                  # just zero\n                        |&?[1-9]{1,1}[0-9]* # decimal\n                        |&?0[0-7]*          # octal\n                        |&?0x[0-9A-F]+      # hex\n                )\n                (?P<type>\n                        \\.         # this dot might be alone\n                        [BSL]? # one of this chars in either case\n                )?\n                (?P<sign>\n                        [-+]{0,1}\n                )?\n                (?P<off>0              # just zero\n                        |[1-9]{1,1}[0-9]*  # decimal\n                        |0[0-7]*           # octal\n                        |0x[0-9a-f]+       # hex\n                )?\n                \\)$'	1007,1015,1032
+'(\\d{2,3})'	1269,1498
+'^[\\n\\r]{0,1}'	1050,1350
+'[\\n\\r]{0,1}$'	1050,1350
+'\\b\\d{4,6}\\b'	1199,1300
+'(.*)\\.\\w{3,4}$'	1269,1498
+'[a-fA-F0-9]{1,4}'	636,1125
+'[A-Z0-9$-_.]{3,20}'	728,1416
+'((\\d*?)\\d{1,3})$'	391,872
+'(\\d{1,3}\\.\\d{2})%'	440,542
+'^[a-zA-Z0-9_-]{1,500}$'	1004,1495
+'[a-z_][a-z0-9_]{2,30}$'	640,662
+'(?:\\d{1,3}\\.){3}\\d{1,3}'	506,897
+'\\d{1,2}/\\d{1,2}/\\d{4,4}'	109,182
+'\x1b\\[(\\d\\d;){0,2}\\d\\dm'	251,1087
+'(<(?:\\+|\\||\\$|\\d{1,2})>)'	305,1505
+'\x03[0-9]{1,2}(,[0-9]{1,2})?'	1269,1498
+'((\\d*?)(\\d{0,3}?))\\d{1,3}$'	391,872
+'^(?P<x>[a-zA-Z]{1,2})(?P<y>\\d+)$'	189,955
+'\\d{1,3}.\\d{1,3}.\\d{1,3}.\\d{1,3}'	171,1381
+'-d 192.168.[0-9]{1,3}.[0-9]{1,3} -j'	1223,1420
+'^(\\#{1,6})[ \\t]*(.+?)[ \\t]*\\#*\\n+'	55,200
+'^(<=|>=|<|>|!=|={2,3}|~=)?\\s*([^\\s,]+)$'	1263,1580
+'(^/dev/x{0,1}[a-z]{0,1}d{0,1})([a-z]+)[0-9]*$'	1223,1420
+'^([a-z]\\w*)\\s*:?(\\s*\\(.*\\)\\s*){0,2}\\s*$'	1054,1198
+'^(.*) ?\\[([^ ]*) \\+(0x[0-9A-F]{1,8})\\](.*)$'	1015,1032
+'\\d\\d-[a-zA-Z]{3,3}-\\d\\d\\d\\d \\d\\d:\\d\\d'	1015,1032
+'^([0-9]{1,3}\\.){0,3}[0-9]{1,3}(/[0-9]{1,2}){1}$'	1332,1523
+'^[a-zA-Z0-9._%-+]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,6}$'	228,783
+'((?:http|https|git)://github.com/[^/]*/[^/]*)/{0,1}'	354,379
+'(?is)<p>([^<>]{0,15}<b>[^<>]+?</b>[^<>]{2,2}.+?)</p>'	169,179
+'^([A-Z]\\w+:[a-z0-9-]+)\\s*:?(\\s*\\(.*\\)\\s*){0,2}\\s*$'	1054,1198
+'^([A-Z]\\w+::[a-z0-9-]+)\\s*:?(\\s*\\(.*\\)\\s*){0,2}\\s*$'	1054,1198
+'^([ \\|0-9-]*)(.*) ?\\[([^ ]*) \\+(0x[0-9A-F]{1,8})\\](.*)$'	1015,1032
+'(\\w{3}, \\d{1,2} \\w{3} \\d{4} \\d\\d:\\d\\d:\\d\\d) [\\+\\-]\\d{4}'	1269,1498
+'\\\\(\\\'|\\"|\\\\|[abfnrtv]|x.{0,2}|[0-7]{1,3}|u[0-9a-fA-F]{0,4}|U[0-9a-fA-F]{0,8}|N\\{.+?\\})'	251,1087
+'(I[0-9a-f]{8,40})|([Bb]ug|[Ll][Pp])[\\s\\#:]*(\\d+)|([Bb]lue[Pp]rint|[Bb][Pp])[\\s\\#:]*([A-Za-z0-9\\-]+)'	1223,1420
+'(?P<year>[0-9]{4})(-(?P<month>[0-9]{1,2})(-(?P<day>[0-9]{1,2})((?P<separator>.)(?P<hour>[0-9]{2}):(?P<minute>[0-9]{2})(:(?P<second>[0-9]{2})(\\.(?P<fraction>[0-9]+))?)?(?P<timezone>Z|(([-+])([0-9]{2}):([0-9]{2})))?)?)?)?'	897,1580
+'\n            ^\n            \\s*\n            (={1,5})\n            \\s*\n            (?P<name>(?:!=+|\n                        [^=!]+|\n                        !)+?\n            )\n            \\s*\n            \\1\n            (?:\\s|\\#|$)\n         '	305,1505
+'\n    (\\n)?                            # leading line = $1\n    (^[ \\t]*)                        # leading whitespace = $2\n    ([*+-]|\\d+[.]) [ \\t]+            # list marker = $3\n    ((?:.+?)                         # list item text = $4\n    (\\n{1,2}))\n    (?= \\n* (\\Z | \\2 ([*+-]|\\d+[.]) [ \\t]+))\n    '	55,200
+'^-{1,2}'	53
+'.{3,20}'	200
+'\\d{4,4}'	126
+'\\d{2,5}'	394
+'^.{1,21}$'	1527
+'\\S{1,10}'	1302
+'[0-9]{1,3}'	1009
+'^[0-9]{3,4}$'	826
+'^[0-9]{2,4}$'	1353
+'\\.\\w{2,20}'	36
+'^[0-9]{1,5}$'	826
+u'^d\\d{1,3}:'	1557
+'(.+)\\s{5,15}'	1302
+u'^(\\d{1,2})$'	624
+'^[0-9]{1,12}$'	1353
+u'^ur\\d{7,8}$'	1557
+'_c[0-9]{4,4}$'	975
+'^[a-z]{1,10}$'	1458
+':\n(\\s{8,10})'	753
+'^[ ]{0,3}[^ :]'	236
+'^[+]{0,1}\\d*$'	1607
+'HB\\d{1,4}.htm'	109
+'SB\\d{1,4}.htm'	182
+'[0-9]*[nN]{1,1}'	498
+'0x[0-9a-f]{7,9}'	1580
+'\\b\\w{2,25}\\b'	43
+'^[a-z0-9]{3,24}$'	741
+'[0-9]*n[wW]{1,1}'	498
+'\x1b\\[[0]{0,1}m'	498
+'\\n--=---{0,2}\\n'	173
+'#[0-9a-fA-F]{3,6}'	498
+'^([a-f0-9]{7,40})'	560
+'\\.[a-zA-Z]{2,4}$'	1555
+'^[A-Z]{3,5}:\\d+$'	743
+'(\\-)\\s*\\d{1,2}'	1008
+'NOTIFY (\\d{1,3})'	318
+'^(.+):(\\d{1,5})$'	187
+'\\d{1,3}\\.\\d{5}'	1302
+'[A-Z0-9_]{0,8} *='	571
+'^[A-Z0-9_-]{0,8}$'	332
+'\\*(\\.[a-z]{1,5})'	1555
+'[a-zA-Z0-9_]{2,10}'	1302
+'\\\\([0-7]{1,3}|.)'	1520
+'^[0-9A-Fa-f]{1,4}$'	1495
+'^[^_]{1,1}.*\\.py$'	1528
+'\\.[a-zA-Z0-9]{2,4}'	1555
+'(?:[^\\n]*\\n){0,2}'	1594
+'(.*?)(_\\d\\d){1,2}'	971
+'^[0-9A-Fa-f]{4,40}$'	599
+'\\.(?P<e>\\w{1,5})$'	1247
+'^[0-9A-Z\\.]{1,10}$'	277
+'[0-9a-fA-F]{0,64}\\Z'	677
+'[0-9a-fA-F]{6,64}\\Z'	677
+'^[a-zA-Z0-9-]{1,50}$'	840
+'^[0-9]{1,3}[kKmMgG]$'	1353
+u'(\\d{1,2}):(\\d{2})'	1113
+"''|\\\\([0-7]{1,3}|.)"	1520
+'^[a-zA-Z0-9_-]{1,21}$'	1527
+'[+\\-]{0,1}\\b\\d+\\b'	1108
+'W (\\d{1,3}) ([10PX])'	318
+u'(\\d{1,2}):(\\d\\d)$'	624
+'/{1,2}.*?(?=/{1,2}|$)'	436
+'^[A-Za-z0-9+/]*={0,2}$'	1580
+'^[a-zA-Z0-9_-]{1,128}$'	1527
+'^[ ]{0,3}[*+-][ ]+(.*)'	236
+u'(\\d{1,2})/(\\d{1,2})'	624
+'^[a-zA-Z0-9\\-]{1,100}$'	200
+'[=*/+\\-^]{1,2}|[\\w.]+'	232
+'\\\\x([a-fA-F0-9]{1,4})'	1116
+'^[ MADRCU?!]{1,2}\\s+.*'	1025
+'urn:btih:([\\w]{32,40})'	1469
+'^\\[(.+)\\]:(\\d{1,5})$'	187
+'^[ ]{0,3}:[ ]{1,3}(.*)$'	1395
+'(.+):([0-9]+)[:]{0,1}.*'	498
+'[dSNwrho]{1,3} =.{7,8}?'	1302
+'\\.([a-z]{2,3})(?:\\?|$)'	913
+'^[ ]{0,3}\\d+\\.[ ]+(.*)'	236
+'(^[\\w\\s]{1,20}?):(.*$)'	31
+'(\\D|^)\\d{1,2}\\W*\\d00'	1122
+'^\\d+,\\d{2}\\.\\d{1,2}$'	340
+'^([A-Fa-f0-9]{2,2}){3,4}$'	80
+'&(?![^a-zA-Z0-9_#]{1,5};)'	1469
+u'[^0-9]([0-9]{3,4})[^0-9]'	1469
+'(\\w+ \\d{1,2}, \\d{4,4})'	182
+'^[0-9]{4}(-[0-9]{2}){0,2}'	1398
+u'(\\d{1,2})-(\\d+)-(\\d+)'	624
+'^[a-zA-Z0-9_\\-.]{1,128}$'	1077
+'"volume" ?: ?([0-9]{1,3})'	1093
+u'(\\d{1,2})/(\\d+)/(\\d+)'	624
+'\\\\{1,2}x([a-fA-F0-9]{2})'	1025
+'(?P<pixels>\\d{1,4}) pixel'	1469
+'.*\\([+]{0,1}\\d{3,15}\\)$'	1607
+u'(?i)\\w{0,4}://[\\w\\d./]*'	1139
+'^[a-zA-Z][a-zA-Z\\d_]{2,4}$'	820
+'<p(?: [^>]*){0,1}>(.*?)</p>'	1248
+'/./(.+?)/season (\\d{1,2})$'	84
+'<s(?: [^>]*){0,1}>(.*?)</s>'	1248
+'\\\\([ \tn\\\\]|[0-7]{3,3})'	27
+'^\\s*[\\d\\.]+\\w{0,3}\\s*$'	200
+'^[a-z][a-z0-9\\.\\:]{1,12}$'	826
+'\\.[a-z]+-\\d{2}[mud]{0,3}$'	1594
+'(?m).*([0-9a-fA-F]{32,32}).*'	859
+'(.+)[-_]([0-9a-fA-F]{40,40})'	318
+'\\d{4}\\.\\d{1,2}\\.\\d{1,2}'	126
+'((\\d){1,3}\\.){3}(\\d){1,3}'	1501
+'http://localhost:[0-9]{4,5}/'	313
+'^(?:\\d{1,3}\\.){3}\\d{1,3}$'	897
+'\\d{1,2}\\.\\d{1,2}\\.\\d{4}'	126
+'^([^;]+);([^;]+):(\\d{1,5})$'	798
+'(\\d{1,2}/\\d{1,2}/\\d{4,4})'	182
+'([A-Z]{2}[0-9]{2,3}-[0-9]{2})'	721
+'Resolution: \\d{1,4}x\\d{1,4}'	1054
+' *[0-9]+: +[1-9][0-9a-z]{3,3}'	1302
+u'^VERSION\\s*=\\s*[\\\'"]{1,3}'	689
+'(([0-9]{1,3}\\.){3}[0-9]{1,3})'	1563
+'(\\[.{16,16}[^,)]*?),.*?\\]\\)'	436
+'^HTTP/1.[0-1] [0-9]{1,3} OK\r\n'	1375
+'^[ ]{4,7}((\\d+\\.)|[*+-])[ ]+.*'	236
+'Resolution: \\d{1,4}(?=\\d{1,4})'	1054
+'<[wc](?: [^>]*){0,1}>(.*?)</[wc]>'	1248
+'(\\d{1,2}) (\\d{1,2})[ ]?(\\d{4})'	1113
+'("[^"]*"|0x[0-9A-Fa-f]{1,4}|\\d+)'	804
+'\\b([0-9]{1,3}\\.){3}[0-9]{1,3}\\b'	727
+u'(\\w\\w\\w) (\\d{1,2}) (\\d{1,2})'	624
+'^[ ]{0,3}((\\d+\\.)|[*+-])[ ]+(.*)'	236
+'/./(.+?)/season (\\d{1,2})/extras$'	84
+'[ ]{0,3}\\[\\^([^\\]]*)\\]:\\s*(.*)'	1395
+'<([wc](?: [^>]*){0,1}>)(.*?)</[wc]>'	1248
+'(?<!\\\\)\\\\u([dD][0-9a-fA-F]{3,3})'	299
+'UP\\s+(?:[0-9]{1,3}\\.){3}[0-9]{1,3}'	1007
+'Codon frequenc[a-z\\s]{3,7}:\\s+(.+)'	1302
+'inet addr:((\\d{1,3}\\.){3}\\d{1,3})'	244
+'(\\d{1,3}(\\,\\d{3})*|\\d+)(\\.\\d+)?'	1488
+'.*?/video/tv/(.+?)/season (\\d{1,2})$'	84
+'^[-a-z0-9_.]+@[-a-z0-9]+\\.+[a-z]{2,6}'	1353
+'9(?:\\d[ \\-\\)\\(\\dx\\.]{0,2}){6,12}'	1122
+'9(?:\\d[ \\-\\)\\(\\dx\\.]{0,2}){6,10}'	1122
+'&(#?[xX]?(?:[0-9a-fA-F]+;|\\w{1,32};?))'	1580
+'^([0-9a-fA-F]{1,2}:){5}[0-9a-fA-F]{1,2}$'	562
+'(\\d{4,4})[\\.|\\s](\\d+)[\\.|\\s](\\d+)'	126
+'[a-z,A-Z,.]+@[a-zA-Z_]+?\\.[a-zA-Z]{2,6}'	185
+'^(\\d{1,2})\\.(\\d{1,2})\\.(\\d{1,3})(.*)'	873
+'([0-9]{0,4})(?:_sp\\d*)?\\.([0-9][0-9.]*)$'	743
+'^http://((?:www\\.)?\\w+\\.\\w{2,3})(/.*)?'	1479
+'(\\\\x[a-zA-Z0-9]{2}|\\\\[0-7]{1,3}|\\\\.)'	1143
+'^[a-zA-Z0-9][a-zA-Z0-9\\_\\.\\:\\-]{0,251}$'	826
+'(?:\\d[ \\-\\)\\(\\dx\\.]{0,2}(?!\n)){6,12}'	1122
+'\\,(\\s)*?(?P<size>[0-9]+)(\\s)*?(\\,){0,1}'	190
+'.*?/video/tv/(.+?)/season (\\d{1,2})/extras$'	84
+'api_version:\\s*(?P<api_version>[\\w.]{1,32})'	1074
+'(.*?)(?:\\.(\\d+))?(([-+]\\d{1,2}):(\\d{2}))?$'	425
+'^(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.)\\d{1,3}.*'	884
+'\\b([0-9a-fA-F]{1,4}::?){3,}[0-9a-fA-F]{1,4}\\b'	727
+'^(.*) ?\\[([^ ]*) \\+(0x[0-9A-F]{1,16})\\](.*)$'	1007
+'^(\\w{1,4}\\s+\\d{1,2}\\s+\\d\\d:\\d\\d:\\d\\d)'	455
+'.*?/video/tv/(.+?)/season (\\d{1,2}) \\[720p\\]$'	84
+'inet (\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})'	1501
+'^(\\d{1,2}|\\*)(?:-(\\d{1,2}))?(?:/(\\d{1,2}))?$'	1463
+'(^| )-{1,2}(?P<opt>\\S+) ?(?P<value>(\\! )?\\S+)?'	826
+'^(.*) ?\\[([^ ]*) \\+(0x[0-9a-fA-F]{1,8})\\](.*)$'	1007
+'^[a-zA-Z0-9._%-]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,6}$'	1644
+'(?im)(x-eyeconnect-token *: *([0-9a-fA-F]{32,32}))'	859
+'^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$'	246
+'^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$'	727
+'(\\d{0,3}\\.\\d{0,3}\\.\\d{0,3}\\.\\d{0,3})\\.(\\d+)'	225
+'\\,( )*?(?P<alignment>(right)|(left))( )*?(\\,){0,1}'	190
+'^(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):(\\d+)$'	187
+u'^[ ]{0,3}(?P<key>[A-Za-z0-9._-]+):\\s*(?P<value>.*)'	1340
+'^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$'	978
+'[r][g][b][(]\\d{1,3}[,][ ]*\\d{1,3}[,][ ]*\\d{1,3}[)]'	1025
+'[\\w\\-][\\w\\-\\.]+@[\\w\\-][\\w\\-\\.]+[a-zA-Z]{1,4}'	117
+'([\\w\\d_\\.\\-])+\\@(([\\w\\d\\-])+\\.)+([\\w\\d]{2,4})+'	1258
+'^(?:(#{1,6}|\\.+ |\\++ |\\++\\. |\\-+ |\\-+\\. )\\s*)?(.*)$'	1247
+'([A-Za-z0-9_]+\\s+)+([A-Za-z0-9_:]+)\\s*\\([^)]*\\){0,1}\\s*'	498
+u'(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec) (\\d{1,2})'	624
+'^(?P<user>[ugo]{0,3})(?P<action>[\\+\\-])(?P<value>[rwxst]{1,3})$'	826
+'(?:[\\d]{1,3}(?:\\.[\\d]{1,3})(?:\\.[\\d]{1,3})(?:\\.[\\d]{1,3}))'	873
+'^(\\d{4,4}-\\d{2,2}-\\d{2,2}T\\d{2,2}:\\d{2,2}:\\d{2,2})\\.\\d*Z$'	1500
+'\\Argb:([0-9a-fA-F]{1,4})/([0-9a-fA-F]{1,4})/([0-9a-fA-F]{1,4})\\Z'	27
+'<(\\d\\d\\d\\d)-(\\d\\d)-(\\d\\d) [A-Z]\\w\\w (\\d{1,2}):(\\d\\d)>'	624
+'[a-zA-Z0-9\\.\\_\\%\\-\\+]+@[a-zA-Z0-9\\.\\_\\%\\-]+.[a-zA-Z]{2,6}'	122
+'^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,6}|[0-9]{1,3})(\\]?)$'	219
+'^(?P<year>[0-9]{4})[-/](?P<month>[0-9]{1,2})[-/](?P<day>[0-9]{1,2})$'	679
+'^(?P<month>[0-9]{1,2})[-/](?P<day>[0-9]{1,2})[-/](?P<year>[0-9]{4})$'	679
+'color ([^ ]+) #([a-fA-F0-9]{2,2})([a-fA-F0-9]{2,2})([a-fA-F0-9]{2,2})'	1216
+'(\\w{1,4}\\s+\\d{1,2}\\s+\\d\\d:\\d\\d:\\d\\d)(\\s+[\\w\\d\\.\\/\\@]+)'	455
+'\\[(\\d\\d\\d\\d)-(\\d\\d)-(\\d\\d) [A-Z]\\w\\w (\\d{1,2}):(\\d\\d)\\]'	624
+'git-svn-id: \\w+://.+ \\w{4,12}-\\w{4,12}-\\w{4,12}-\\w{4,12}-\\w{4,12}'	414
+'^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,3})$'	190
+u'(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec) (\\d{1,2}) (\\d{1,4})'	624
+u'(?:[-*/%^&|<>!]=?|&&|\\|\\||<<|>>>|={1,3}|!==?)\\s*(?<!\\+)(\\+)[\\w(\\[]'	304
+'(?i)(?:https?://)?(?:www\\.)?dailymotion\\.[a-z]{2,3}/video/([^_/]+)_([^/]+)'	386
+u'():\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-\\/]))?'	1557
+'(((?P<name1>.+?)(\\s*,\\s*)((".*")|(left|right)|([0-9]{1,2}%)))|(?P<name2>.+))'	190
+u'[ ]{1}([01]{1}[0-9]{1}|[2]{1}[0-3]{1}|[0-9]{1})[-:.]([03]{1}[05]{1})[.,: ]{0,1}'	1113
+'^(6553[0-5]|655[0-2]\\d|65[0-4]\\d\\d|6[0-4]\\d{3}|[1-5]\\d{4}|[1-9]\\d{0,3}|0)$'	548
+'^([0-9]{4}):([0-9]{1,2}):([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2})(?::([0-9]{1,2}))?'	1495
+'[r][g][b][a][(]\\d{1,3}[,][ ]*\\d{1,3}[,][ ]*\\d{1,3}[,][ ]*(\\d+|\\d*\\.\\d+)[)]'	1025
+'^([a-zA-Z0-9]+(\\-[a-zA-Z0-9]+)*\\.)*[a-zA-Z0-9]+(\\-[a-zA-Z0-9]+)*\\.[a-zA-Z]{2,4}$'	820
+'\\s*[ur]{0,2}(?:"""[\\s\\S]*?"""|"[^"\n]+?"|\'\'\'[\\s\\S]*?\'\'\'|\'[^\'\n]+?\')\\s*'	1248
+'^\\$?(\\d{1,3},?(\\d{3},?)*\\d{3}(\\.\\d{0,2})?|\\d{1,3}(\\.\\d{0,2})?|\\.\\d{1,2}?)$'	977
+'^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2})(\\.\\d{1,6})?Z?([\\+\\-]\\d{2}:?\\d{2})?$'	1580
+'(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-\\/]))?'	1557
+'{\\s*(.+?)?\\s?(\\([0-9\\?]{4}-[0-9\\?]{1,2}-[0-9\\?]{1,2}\\))?\\s?(\\(#[0-9]+\\.[0-9]+\\))?}'	1469
+'^[\\w-]+(\\.[\\w-]+)*@([a-z0-9-]+(\\.[a-z0-9-]+)*?\\.[a-z]{2,6}|(\\d{1,3}\\.){3}\\d{1,3})(:\\d{4})?$'	548
+'Resolution: (?<=\\dx)\\d{1,4}|(?<=\\d\\dx)\\d{1,4}|(?<=\\d\\d\\dx)\\d{1,4}|(?<=\\d\\d\\d\\dx)\\d{1,4}'	1054
+'(?:.*(/|\\\\))?(?P<artist>.*) - (?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2}) (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<artist>.*) - (?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2})-(?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<artist>.*) - (?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2}) - (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<artist>.*) - (?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2})\\. (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<artist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2}) (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<artist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2}) - (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<artist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2})\\. (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'((?P<url>\\w{3,6}://\\S+)|(?P<email>[-+=%/\\w\\.]+@[\\w\\.\\-]+)|(?P<item>(?P<class>[A-Za-z_]+)(\\s*)(?P<id>\\d+)))'	43
+'(?:.*(/|\\\\))?(?P<artist>.*)(/|\\\\)(?P=artist) - (?P<album>.*) - (?P<tracknum>\\d{2}) - (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'#\\sQuery_time:\\s(\\d*\\.\\d{1,6})\\s*Lock_time:\\s(\\d*\\.\\d{1,6})\\s*Rows_sent:\\s(\\d*)\\s*Rows_examined:\\s(\\d*)'	873
+'(?:.*(/|\\\\))?(?P<artist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P=album)-(?P<tracknum>\\d{2})-(?P<title>.*)\\.(?:\\w{2,5})$'	913
+'^(?:nfs://)?(?P<host>([a-zA-Z][\\w\\.^-]*|\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}))(?::(?P<port>\\d*))?(?P<dir>/[\\w/]*)?$'	1543
+'(?:.*(/|\\\\))?(?P<albumartist>.*) - (?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2})_(?P<artist>.*)_-_(?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<albumartist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<artist>.*)-(?P<tracknum>\\d{2})-(?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<artist>.*)(/|\\\\)((?P<year>\\d{4}) - )(?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2})-(?P<title>.*)\\.(?:\\w{2,5})$'	913
+'Week (\\d{1,2}) ending (January|February|March|April|May|June|July|August|September|October|November|December) (\\d{1,2}), (\\d{4})'	411
+'(?:.*(/|\\\\))?(?P<albumartist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2}) - (?P<artist>.*) - (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<albumartist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<artist>.*) - (?P<tracknum>\\d{2}) - (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<albumartist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2})\\. (?P<artist>.*) - (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<albumartist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P=album)-(?P<tracknum>\\d{2})-(?P<artist>.*)-(?P<title>.*)\\.(?:\\w{2,5})$'	913
+'^(?:(?P<days>-?\\d+) )?((?:(?P<hours>\\d+):)(?=\\d+:\\d+))?(?:(?P<minutes>\\d+):)?(?P<seconds>\\d+)(?:\\.(?P<microseconds>\\d{1,6})\\d{0,6})?$'	1158
+'(((http|https)://)|(www\\.))+(([a-zA-Z0-9\\._-]+\\.[a-zA-Z]{2,6})|([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}))(/[a-zA-Z0-9\\&amp;%_\\./-~-]*)?'	548
+'([a-zA-Z]+[.]? \\d+\\, \\d\\d\\d\\d at \\d+(\\:\\d+)? [ap]\\.m\\. [A-Z]{1,5})|( \\((\\d+ hour(s)?(, )?)?(\\d+ minute(s)?(, )?)?(\\d+ second(s)?(, )?)?\\))'	1529
+u'\\b((?:([\\w-]+):(/{1,3})|www[.])(?:(?:(?:[^\\s&()]|&amp;|&quo\nt;)*(?:[^!"#$%&\'()*+,.:;<=>?@\\[\\]^`{|}~\\s]))|(?:\\((?:[^\\s&()]|&amp;|&quot;)*\\)))+)'	1055
+'^(optimized.)?group(?P<year>[0-9]{2}).(?P<group>[^.]+).mc(?P<prodyear>[0-9]{2})[_]?(?P<energy>[0-9]{1,2})(TeV)?.(?P<run>[0-9]+).(?P<name>).(?P<tag>[^.]+).(?P<suffix>.+)$'	270
+'^((?P<day>\\w{3}),\\s*)*(?P<dm>\\d{2})\\s+(?P<month>\\w{3})\\s+(?P<year>\\d{4})\\s+(?P<hour>\\d{2}):(?P<min>[0-5][0-9])(:(?P<sec>[0-5][0-9]))*\\s((?P<tz>\\w{2,3})|(?P<offset>[+\\-]\\d{4}))$'	1258
+'(?P<year>[0-9]{4})-(?P<month>[0-9]{1,2})-(?P<day>[0-9]{1,2}).(?P<hour>[0-9]{2}):(?P<min>[0-9]{2})(:(?P<sec>[0-9]{2}))?(?P<tz>Z|(?P<tzdirec>[-+])(?P<tzhour>[0-9]{1,2})(:)?(?P<tzmin>[0-9]{2})?)?'	506
+'(?P<year>[0-9]{4})-(?P<month>[0-9]{1,2})-(?P<day>[0-9]{1,2}).(?P<hour>[0-9]{2}):(?P<min>[0-9]{2})(:(?P<sec>[0-9]{2}))?( )?(?P<tz>Z|(?P<tzdirec>[-+])(?P<tzhour>[0-9]{1,2})(:)?(?P<tzmin>[0-9]{2})?)?'	506
+'(?P<year>\\d{4})-(?P<month>\\d{1,2})-(?P<day>\\d{1,2})[T ](?P<hour>\\d{1,2}):(?P<minute>\\d{1,2})(?::(?P<second>\\d{1,2})(?:\\.(?P<microsecond>\\d{1,6})\\d{0,6})?)?(?P<tzinfo>Z|[+-]\\d{2}(?::?\\d{2})?)?$'	1158
+'((?:(?:(?:(?!-)(?:[\\w\\d-])*[A-Za-z](?:[\\w\\d-])*(?:(?<!-))){1,63})(?:(?:\\.)?(?:(?!-)[\\w\\d-]{1,63}(?<!-)))*|(?:[\\d]{1,3}(?:\\.[\\d]{1,3})(?:\\.[\\d]{1,3})(?:\\.[\\d]{1,3}))))(?:\\:(\\d+))?(?:\\:([\\/\\\\w+.\\w+.\\-]+))?'	873
+"^([\\w\\!\\#$\\%\\&'\\*\\+\\-\\/\\=\\?\\^\\`{\\|\\}\\~]+\\.)*[\\w\\!\\#$\\%\\&'\\*\\+\\-\\/\\=\\?\\^\\`{\\|\\}\\~]+@((((([a-z0-9]{1}[a-z0-9\\-]{0,62}[a-z0-9]{1})|[a-z])\\.)+[a-z]{2,6})|(\\d{1,3}\\.){3}\\d{1,3}(\\:\\d{1,5})?)$"	1247
+'(?P<dayname>[a-zA-Z]{3}), (?P<day>[0-9]{1,2}) (?P<month>[a-zA-Z]{3}) (?P<year>[0-9]{2,4}) (?P<hour>[0-9]{2}):(?P<min>[0-9]{2})(:(?P<sec>[0-9]{2}))?( )?(?P<tz>[A-Z]{2,3}|(?P<tzdirec>[-+])(?P<tzhour>[0-9]{2})(?P<tzmin>[0-9]{2}))?'	506
+'^<((?:[a-z0-9.]*))>\\s*\n                                     ((?:[a-z0-9_.]*))\\s*\n                                     \\({0,1}\n                                     ((?:[a-z0-9,= ]*))\n                                     \\){0,1}$'	1256
+'((?!.*::.*::)(?:(?!:)|:(?=:))(?:[0-9a-f]{0,4}(?:(?<=::)|(?<!::):)){6}(?:[0-9a-f]{0,4}(?:(?<=::)|(?<!::):)[0-9a-f]{0,4}(?:(?<=::)|(?<!:)|(?<=:)(?<!::) :)|(?:25[0-4]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(?: \\.(?:25[0-4]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))(?:\\:(\\d+))?(?:\\:([\\/\\\\w+.\\w+.\\-]+))?'	873
+'\n    ep                  # Character Literals\n    (?:isode)?          # Junk group for optional character literals\n    [\\W_]?              # Optional non alphanum char\n    (?P<E>\\d{1,2})      # NG(E) capturing 1/2 digits for episode no\n    [\\W_]               # non alphanum char\n    (?P<EN>.*)          # NG(EN) greedily trying to grab episode name'	817
+'\n    (?P<SN>.*?)         # NG(SN) non greedily capturing show name\n    season              # Character literals\n    [\\W_]?              # Optional non alphanum char\n    (?P<S>\\d{1,2})      # NG(S) capturing 1/2 digits for season no\n    [\\W_]?              # Optional non alphanum char\n    episode             # Character literals\n    [\\W_]?              # Optional non alphanum char\n    (?P<E>\\d{1,2})      # NG(E) capturing 1/2 digits for episode no\n    (?P<EN>.*)          # NG(EN) greedily trying to grab episode name'	817
+'  \n    (?P<SN>.*?)         # Named Group (SN) non greedily capturing show name\n    s                   # Letter S representing season\n    (?P<S>\\d{1,2})      # Named Group (S) capturing 1/2 digits for season no\n    [\\W_]?              # Single Optional Non Alpha-Num char\n    e                   # Letter E representing Episode\n    (?P<E>\\d{1,2})      # Named Group (E) Capturing 1/2 digits for episode no\n    [\\W_]*?             # Non greedy optional Non Alpha-Num char\n    (?P<EN>.*)          # Named Group (EN) greedily trying to grab episode name'	817
+"\n        ^\n        (?:\n          # Dotted variants:\n          (?:\n            # Decimal 1-255 (no leading 0's)\n            [3-9]\\d?|2(?:5[0-5]|[0-4]?\\d)?|1\\d{0,2}\n          |\n            0x0*[0-9a-f]{1,2}  # Hexadecimal 0x0 - 0xFF (possible leading 0's)\n          |\n            0+[1-3]?[0-7]{0,2} # Octal 0 - 0377 (possible leading 0's)\n          )\n          (?:                  # Repeat 0-3 times, separated by a dot\n            \\.\n            (?:\n              [3-9]\\d?|2(?:5[0-5]|[0-4]?\\d)?|1\\d{0,2}\n            |\n              0x0*[0-9a-f]{1,2}\n            |\n              0+[1-3]?[0-7]{0,2}\n            )\n          ){0,3}\n        |\n          0x0*[0-9a-f]{1,8}    # Hexadecimal notation, 0x0 - 0xffffffff\n        |\n          0+[0-3]?[0-7]{0,10}  # Octal notation, 0 - 037777777777\n        |\n          # Decimal notation, 1-4294967295:\n          429496729[0-5]|42949672[0-8]\\d|4294967[01]\\d\\d|429496[0-6]\\d{3}|\n          42949[0-5]\\d{4}|4294[0-8]\\d{5}|429[0-3]\\d{6}|42[0-8]\\d{7}|\n          4[01]\\d{8}|[1-3]\\d{0,9}|[4-9]\\d{0,8}\n        )\n        $\n    "	1523
+'\n    ^\n    \\s*                         # Leading whitespace\n    (?!.*::.*::)                # Only a single wildcard allowed\n    (?:(?!:)|:(?=:))            # Colon iff it would be part of a wildcard\n    (?:                         # Repeat 6 times:\n        [0-9a-f]{0,4}           #   A group of at most four hexadecimal digits\n        (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n    ){6}                        #\n    (?:                         # Either\n        [0-9a-f]{0,4}           #   Another group\n        (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n        [0-9a-f]{0,4}           #   Last group\n        (?: (?<=::)             #   Colon iff preceeded by exacly one colon\n         |  (?<!:)              #\n         |  (?<=:) (?<!::) :    #\n         )                      # OR\n     |                          #   A v4 address with NO leading zeros \n        (?:25[0-4]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\n        (?: \\.\n            (?:25[0-4]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\n        ){3}\n    )\n    \\s*                         # Trailing whitespace\n    $\n'	1500
+'\n        ^\n        \\s*                         # Leading whitespace\n        (?!.*::.*::)                # Only a single whildcard allowed\n        (?:(?!:)|:(?=:))            # Colon iff it would be part of a wildcard\n        (?:                         # Repeat 6 times:\n            [0-9a-f]{0,4}           #   A group of at most four hexadecimal digits\n            (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n        ){6}                        #\n        (?:                         # Either\n            [0-9a-f]{0,4}           #   Another group\n            (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n            [0-9a-f]{0,4}           #   Last group\n            (?: (?<=::)             #   Colon iff preceeded by exacly one colon\n             |  (?<!:)              #\n             |  (?<=:) (?<!::) :    #\n             )                      # OR\n         |                          #   A v4 address with NO leading zeros \n            (?:25[0-4]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\n            (?: \\.\n                (?:25[0-4]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\n            ){3}\n        )\n        \\s*                         # Trailing whitespace\n        $\n    '	1523
+'[ \\[(\\n\\t]([a-zA-Z0-9\\-.]{4,70}\\.(?:ac|com\\.ac|edu\\.ac|gov\\.ac|net\\.ac|mil\\.ac|org\\.ac|ad|nom\\.ad|ae|co\\.ae|net\\.ae|org\\.ae|sch\\.ae|ac\\.ae|gov\\.ae|mil\\.ae|aero|accident-investigation\\.aero|accident-prevention\\.aero|aerobatic\\.aero|aeroclub\\.aero|aerodrome\\.aero|agents\\.aero|aircraft\\.aero|airline\\.aero|airport\\.aero|air-surveillance\\.aero|airtraffic\\.aero|air-traffic-control\\.aero|ambulance\\.aero|amusement\\.aero|association\\.aero|author\\.aero|ballooning\\.aero|broker\\.aero|caa\\.aero|cargo\\.aero|catering\\.aero|certification\\.aero|championship\\.aero|charter\\.aero|civilaviation\\.aero|club\\.aero|conference\\.aero|consultant\\.aero|consulting\\.aero|control\\.aero|council\\.aero|crew\\.aero|design\\.aero|dgca\\.aero|educator\\.aero|emergency\\.aero|engine\\.aero|engineer\\.aero|entertainment\\.aero|equipment\\.aero|exchange\\.aero|express\\.aero|federation\\.aero|flight\\.aero|freight\\.aero|fuel\\.aero|gliding\\.aero|government\\.aero|groundhandling\\.aero|group\\.aero|hanggliding\\.aero|homebuilt\\.aero|insurance\\.aero|journal\\.aero|journalist\\.aero|leasing\\.aero|logistics\\.aero|magazine\\.aero|maintenance\\.aero|marketplace\\.aero|media\\.aero|microlight\\.aero|modelling\\.aero|navigation\\.aero|parachuting\\.aero|paragliding\\.aero|passenger-association\\.aero|pilot\\.aero|press\\.aero|production\\.aero|recreation\\.aero|repbody\\.aero|res\\.aero|research\\.aero|rotorcraft\\.aero|safety\\.aero|scientist\\.aero|services\\.aero|show\\.aero|skydiving\\.aero|software\\.aero|student\\.aero|taxi\\.aero|trader\\.aero|trading\\.aero|trainer\\.aero|union\\.aero|workinggroup\\.aero|works\\.aero|af|gov\\.af|com\\.af|org\\.af|net\\.af|edu\\.af|ag|com\\.ag|org\\.ag|net\\.ag|co\\.ag|nom\\.ag|ai|off\\.ai|com\\.ai|net\\.ai|org\\.ai|al|gov\\.al|edu\\.al|org\\.al|com\\.al|net\\.al|am|an|com\\.an|net\\.an|org\\.an|edu\\.an|ao|ed\\.ao|gv\\.ao|og\\.ao|co\\.ao|pb\\.ao|it\\.ao|aq|ar|e164\\.arpa|in-addr\\.arpa|ip6\\.arpa|uri\\.arpa|urn\\.arpa|as|gov\\.as|asia|at|gv\\.at|ac\\.at|co\\.at|or\\.at|priv\\.at|au|act\\.edu\\.au|nsw\\.edu\\.au|nt\\.edu\\.au|qld\\.edu\\.au|sa\\.edu\\.au|tas\\.edu\\.au|vic\\.edu\\.au|wa\\.edu\\.au|act\\.gov\\.au|nsw\\.gov\\.au|nt\\.gov\\.au|qld\\.gov\\.au|sa\\.gov\\.au|tas\\.gov\\.au|vic\\.gov\\.au|wa\\.gov\\.au|aw|com\\.aw|ax|az|com\\.az|net\\.az|int\\.az|gov\\.az|org\\.az|edu\\.az|info\\.az|pp\\.az|mil\\.az|name\\.az|pro\\.az|biz\\.az|ba|org\\.ba|net\\.ba|edu\\.ba|gov\\.ba|mil\\.ba|unsa\\.ba|unbi\\.ba|co\\.ba|com\\.ba|rs\\.ba|bb|com\\.bb|edu\\.bb|gov\\.bb|net\\.bb|org\\.bb|bd|be|ac\\.be|bf|gov\\.bf|bg|a\\.bg|b\\.bg|c\\.bg|d\\.bg|e\\.bg|f\\.bg|g\\.bg|h\\.bg|i\\.bg|j\\.bg|k\\.bg|l\\.bg|m\\.bg|n\\.bg|o\\.bg|p\\.bg|q\\.bg|r\\.bg|s\\.bg|t\\.bg|u\\.bg|v\\.bg|w\\.bg|x\\.bg|y\\.bg|z\\.bg|0\\.bg|1\\.bg|2\\.bg|3\\.bg|4\\.bg|5\\.bg|6\\.bg|7\\.bg|8\\.bg|9\\.bg|bh|com\\.bh|bi|co\\.bi|com\\.bi|edu\\.bi|or\\.bi|org\\.bi|biz|bj|bm|com\\.bm|edu\\.bm|gov\\.bm|net\\.bm|org\\.bm|bn|bo|com\\.bo|edu\\.bo|gov\\.bo|gob\\.bo|int\\.bo|org\\.bo|net\\.bo|mil\\.bo|tv\\.bo|br|adm\\.br|adv\\.br|agr\\.br|am\\.br|arq\\.br|art\\.br|ato\\.br|bio\\.br|blog\\.br|bmd\\.br|can\\.br|cim\\.br|cng\\.br|cnt\\.br|com\\.br|coop\\.br|ecn\\.br|edu\\.br|eng\\.br|esp\\.br|etc\\.br|eti\\.br|far\\.br|flog\\.br|fm\\.br|fnd\\.br|fot\\.br|fst\\.br|g12\\.br|ggf\\.br|gov\\.br|imb\\.br|ind\\.br|inf\\.br|jor\\.br|jus\\.br|lel\\.br|mat\\.br|med\\.br|mil\\.br|mus\\.br|net\\.br|nom\\.br|not\\.br|ntr\\.br|odo\\.br|org\\.br|ppg\\.br|pro\\.br|psc\\.br|psi\\.br|qsl\\.br|rec\\.br|slg\\.br|srv\\.br|tmp\\.br|trd\\.br|tur\\.br|tv\\.br|vet\\.br|vlog\\.br|wiki\\.br|zlg\\.br|bs|com\\.bs|net\\.bs|org\\.bs|edu\\.bs|gov\\.bs|bt|bw|co\\.bw|org\\.bw|by|gov\\.by|mil\\.by|com\\.by|bz|com\\.bz|net\\.bz|org\\.bz|edu\\.bz|gov\\.bz|ca|ab\\.ca|bc\\.ca|mb\\.ca|nb\\.ca|nf\\.ca|nl\\.ca|ns\\.ca|nt\\.ca|nu\\.ca|on\\.ca|pe\\.ca|qc\\.ca|sk\\.ca|yk\\.ca|gc\\.ca|cat|cc|cd|gov\\.cd|cf|cg|ch|ci|org\\.ci|or\\.ci|com\\.ci|co\\.ci|edu\\.ci|ed\\.ci|ac\\.ci|net\\.ci|go\\.ci|asso\\.ci|a\xc3\xa9roport\\.ci|int\\.ci|presse\\.ci|md\\.ci|gouv\\.ci|ck|cl|gov\\.cl|gob\\.cl|cm|gov\\.cm|cn|ac\\.cn|com\\.cn|edu\\.cn|gov\\.cn|net\\.cn|org\\.cn|mil\\.cn|\xe5\x85\xac\xe5\x8f\xb8\\.cn|\xe7\xbd\x91\xe7\xbb\x9c\\.cn|\xe7\xb6\xb2\xe7\xb5\xa1\\.cn|ah\\.cn|bj\\.cn|cq\\.cn|fj\\.cn|gd\\.cn|gs\\.cn|gz\\.cn|gx\\.cn|ha\\.cn|hb\\.cn|he\\.cn|hi\\.cn|hl\\.cn|hn\\.cn|jl\\.cn|js\\.cn|jx\\.cn|ln\\.cn|nm\\.cn|nx\\.cn|qh\\.cn|sc\\.cn|sd\\.cn|sh\\.cn|sn\\.cn|sx\\.cn|tj\\.cn|xj\\.cn|xz\\.cn|yn\\.cn|zj\\.cn|hk\\.cn|mo\\.cn|tw\\.cn|co|arts\\.co|com\\.co|edu\\.co|firm\\.co|gov\\.co|info\\.co|int\\.co|mil\\.co|net\\.co|nom\\.co|org\\.co|rec\\.co|web\\.co|com|ar\\.com|br\\.com|cn\\.com|de\\.com|eu\\.com|gb\\.com|hu\\.com|jpn\\.com|kr\\.com|no\\.com|qc\\.com|ru\\.com|sa\\.com|se\\.com|uk\\.com|us\\.com|uy\\.com|za\\.com|coop|cr|cu|com\\.cu|edu\\.cu|org\\.cu|net\\.cu|gov\\.cu|inf\\.cu|cv|cx|gov\\.cx|cy|cz|de|dj|dk|dm|com\\.dm|net\\.dm|org\\.dm|edu\\.dm|gov\\.dm|do|dz|com\\.dz|org\\.dz|net\\.dz|gov\\.dz|edu\\.dz|asso\\.dz|pol\\.dz|art\\.dz|ec|com\\.ec|info\\.ec|net\\.ec|fin\\.ec|k12\\.ec|med\\.ec|pro\\.ec|org\\.ec|edu\\.ec|gov\\.ec|mil\\.ec|edu|ee|edu\\.ee|gov\\.ee|riik\\.ee|lib\\.ee|med\\.ee|com\\.ee|pri\\.ee|aip\\.ee|org\\.ee|fie\\.ee|eg|er|es|com\\.es|nom\\.es|org\\.es|gob\\.es|edu\\.es|et|eu|fi|aland\\.fi|fj|fk|fm|fo|fr|com\\.fr|asso\\.fr|nom\\.fr|prd\\.fr|presse\\.fr|tm\\.fr|aeroport\\.fr|assedic\\.fr|avocat\\.fr|avoues\\.fr|cci\\.fr|chambagri\\.fr|chirurgiens-dentistes\\.fr|experts-comptables\\.fr|geometre-expert\\.fr|gouv\\.fr|greta\\.fr|huissier-justice\\.fr|medecin\\.fr|notaires\\.fr|pharmacien\\.fr|port\\.fr|veterinaire\\.fr|ga|gd|ge|com\\.ge|edu\\.ge|gov\\.ge|org\\.ge|mil\\.ge|net\\.ge|pvt\\.ge|gf|gg|co\\.gg|org\\.gg|net\\.gg|sch\\.gg|gov\\.gg|gh|com\\.gh|edu\\.gh|gov\\.gh|org\\.gh|mil\\.gh|gi|com\\.gi|ltd\\.gi|gov\\.gi|mod\\.gi|edu\\.gi|org\\.gi|gl|gm|ac\\.gn|com\\.gn|edu\\.gn|gov\\.gn|org\\.gn|net\\.gn|gov|gp|com\\.gp|net\\.gp|mobi\\.gp|edu\\.gp|org\\.gp|asso\\.gp|gq|gr|com\\.gr|edu\\.gr|net\\.gr|org\\.gr|gov\\.gr|gs|gt|gu|gw|gy|co\\.gy|com\\.gy|net\\.gy|hk|com\\.hk|edu\\.hk|gov\\.hk|idv\\.hk|net\\.hk|org\\.hk|\xe5\x85\xac\xe5\x8f\xb8\\.hk|\xe6\x95\x99\xe8\x82\xb2\\.hk|\xe6\x95\x8e\xe8\x82\xb2\\.hk|\xe6\x94\xbf\xe5\xba\x9c\\.hk|\xe5\x80\x8b\xe4\xba\xba\\.hk|\xe4\xb8\xaa\xe4\xba\xba\\.hk|\xe7\xae\x87\xe4\xba\xba\\.hk|\xe7\xb6\xb2\xe7\xbb\x9c\\.hk|\xe7\xbd\x91\xe7\xbb\x9c\\.hk|\xe7\xbb\x84\xe7\xb9\x94\\.hk|\xe7\xb6\xb2\xe7\xb5\xa1\\.hk|\xe7\xbd\x91\xe7\xb5\xa1\\.hk|\xe7\xbb\x84\xe7\xbb\x87\\.hk|\xe7\xb5\x84\xe7\xb9\x94\\.hk|\xe7\xb5\x84\xe7\xbb\x87\\.hk|hm|hn|com\\.hn|edu\\.hn|org\\.hn|net\\.hn|mil\\.hn|gob\\.hn|hr|iz\\.hr|from\\.hr|name\\.hr|com\\.hr|ht|com\\.ht|shop\\.ht|firm\\.ht|info\\.ht|adult\\.ht|net\\.ht|pro\\.ht|org\\.ht|med\\.ht|art\\.ht|coop\\.ht|pol\\.ht|asso\\.ht|edu\\.ht|rel\\.ht|gouv\\.ht|perso\\.ht|hu|co\\.hu|info\\.hu|org\\.hu|priv\\.hu|sport\\.hu|tm\\.hu|2000\\.hu|agrar\\.hu|bolt\\.hu|casino\\.hu|city\\.hu|erotica\\.hu|erotika\\.hu|film\\.hu|forum\\.hu|games\\.hu|hotel\\.hu|ingatlan\\.hu|jogasz\\.hu|konyvelo\\.hu|lakas\\.hu|media\\.hu|news\\.hu|reklam\\.hu|sex\\.hu|shop\\.hu|suli\\.hu|szex\\.hu|tozsde\\.hu|utazas\\.hu|video\\.hu|id|ie|gov\\.ie|il|im|co\\.im|ltd\\.co\\.im|plc\\.co\\.im|net\\.im|gov\\.im|org\\.im|nic\\.im|ac\\.im|in|co\\.in|firm\\.in|net\\.in|org\\.in|gen\\.in|ind\\.in|nic\\.in|ac\\.in|edu\\.in|res\\.in|gov\\.in|mil\\.in|info|int|eu\\.int|io|com\\.io|iq|gov\\.iq|edu\\.iq|ir|ac\\.ir|co\\.ir|gov\\.ir|id\\.ir|net\\.ir|org\\.ir|sch\\.ir|is|net\\.is|com\\.is|edu\\.is|gov\\.is|org\\.is|int\\.is|it|gov\\.it|edu\\.it|agrigento\\.it|ag\\.it|alessandria\\.it|al\\.it|ancona\\.it|an\\.it|aosta\\.it|aoste\\.it|ao\\.it|arezzo\\.it|ar\\.it|ascoli-piceno\\.it|ascolipiceno\\.it|ap\\.it|asti\\.it|at\\.it|avellino\\.it|av\\.it|bari\\.it|ba\\.it|barlettaandriatrani\\.it|barletta-andria-trani\\.it|belluno\\.it|bl\\.it|benevento\\.it|bn\\.it|bergamo\\.it|bg\\.it|biella\\.it|bi\\.it|bologna\\.it|bo\\.it|bolzano\\.it|bozen\\.it|balsan\\.it|alto-adige\\.it|altoadige\\.it|suedtirol\\.it|bz\\.it|brescia\\.it|bs\\.it|brindisi\\.it|br\\.it|cagliari\\.it|ca\\.it|caltanissetta\\.it|cl\\.it|campobasso\\.it|cb\\.it|caserta\\.it|ce\\.it|catania\\.it|ct\\.it|catanzaro\\.it|cz\\.it|chieti\\.it|ch\\.it|como\\.it|co\\.it|cosenza\\.it|cs\\.it|cremona\\.it|cr\\.it|crotone\\.it|kr\\.it|cuneo\\.it|cn\\.it|enna\\.it|en\\.it|fermo\\.it|ferrara\\.it|fe\\.it|firenze\\.it|florence\\.it|fi\\.it|foggia\\.it|fg\\.it|forli-cesena\\.it|forlicesena\\.it|fc\\.it|frosinone\\.it|fr\\.it|genova\\.it|genoa\\.it|ge\\.it|gorizia\\.it|go\\.it|grosseto\\.it|gr\\.it|imperia\\.it|im\\.it|isernia\\.it|is\\.it|laquila\\.it|aquila\\.it|aq\\.it|la-spezia\\.it|laspezia\\.it|sp\\.it|latina\\.it|lt\\.it|lecce\\.it|le\\.it|lecco\\.it|lc\\.it|livorno\\.it|li\\.it|lodi\\.it|lo\\.it|lucca\\.it|lu\\.it|macerata\\.it|mc\\.it|mantova\\.it|mn\\.it|massa-carrara\\.it|massacarrara\\.it|ms\\.it|matera\\.it|mt\\.it|messina\\.it|me\\.it|milano\\.it|milan\\.it|mi\\.it|modena\\.it|mo\\.it|monza\\.it|napoli\\.it|naples\\.it|na\\.it|novara\\.it|no\\.it|nuoro\\.it|nu\\.it|oristano\\.it|or\\.it|padova\\.it|padua\\.it|pd\\.it|palermo\\.it|pa\\.it|parma\\.it|pr\\.it|pavia\\.it|pv\\.it|perugia\\.it|pg\\.it|pescara\\.it|pe\\.it|pesaro-urbino\\.it|pesarourbino\\.it|pu\\.it|piacenza\\.it|pc\\.it|pisa\\.it|pi\\.it|pistoia\\.it|pt\\.it|pordenone\\.it|pn\\.it|potenza\\.it|pz\\.it|prato\\.it|po\\.it|ragusa\\.it|rg\\.it|ravenna\\.it|ra\\.it|reggio-calabria\\.it|reggiocalabria\\.it|rc\\.it|reggio-emilia\\.it|reggioemilia\\.it|re\\.it|rieti\\.it|ri\\.it|rimini\\.it|rn\\.it|roma\\.it|rome\\.it|rm\\.it|rovigo\\.it|ro\\.it|salerno\\.it|sa\\.it|sassari\\.it|ss\\.it|savona\\.it|sv\\.it|siena\\.it|si\\.it|siracusa\\.it|sr\\.it|sondrio\\.it|so\\.it|taranto\\.it|ta\\.it|teramo\\.it|te\\.it|terni\\.it|tr\\.it|torino\\.it|turin\\.it|to\\.it|trapani\\.it|tp\\.it|trento\\.it|trentino\\.it|tn\\.it|treviso\\.it|tv\\.it|trieste\\.it|ts\\.it|udine\\.it|ud\\.it|varese\\.it|va\\.it|venezia\\.it|venice\\.it|ve\\.it|verbania\\.it|vb\\.it|vercelli\\.it|vc\\.it|verona\\.it|vr\\.it|vibo-valentia\\.it|vibovalentia\\.it|vv\\.it|vicenza\\.it|vi\\.it|viterbo\\.it|vt\\.it|je|co\\.je|org\\.je|net\\.je|sch\\.je|gov\\.je|jm|jo|com\\.jo|org\\.jo|net\\.jo|edu\\.jo|sch\\.jo|gov\\.jo|mil\\.jo|name\\.jo|jobs|jp|ac\\.jp|ad\\.jp|co\\.jp|ed\\.jp|go\\.jp|gr\\.jp|lg\\.jp|ne\\.jp|or\\.jp|aichi\\.jp|akita\\.jp|aomori\\.jp|chiba\\.jp|ehime\\.jp|fukui\\.jp|fukuoka\\.jp|fukushima\\.jp|gifu\\.jp|gunma\\.jp|hiroshima\\.jp|hokkaido\\.jp|hyogo\\.jp|ibaraki\\.jp|ishikawa\\.jp|iwate\\.jp|kagawa\\.jp|kagoshima\\.jp|kanagawa\\.jp|kawasaki\\.jp|kitakyushu\\.jp|kobe\\.jp|kochi\\.jp|kumamoto\\.jp|kyoto\\.jp|mie\\.jp|miyagi\\.jp|miyazaki\\.jp|nagano\\.jp|nagasaki\\.jp|nagoya\\.jp|nara\\.jp|niigata\\.jp|oita\\.jp|okayama\\.jp|okinawa\\.jp|osaka\\.jp|saga\\.jp|saitama\\.jp|sapporo\\.jp|sendai\\.jp|shiga\\.jp|shimane\\.jp|shizuoka\\.jp|tochigi\\.jp|tokushima\\.jp|tokyo\\.jp|tottori\\.jp|toyama\\.jp|wakayama\\.jp|yamagata\\.jp|yamaguchi\\.jp|yamanashi\\.jp|yokohama\\.jp|ke|kg|org\\.kg|net\\.kg|com\\.kg|edu\\.kg|gov\\.kg|mil\\.kg|kh|ki|edu\\.ki|biz\\.ki|net\\.ki|org\\.ki|gov\\.ki|info\\.ki|com\\.ki|km|org\\.km|nom\\.km|gov\\.km|prd\\.km|tm\\.km|edu\\.km|mil\\.km|ass\\.km|com\\.km|coop\\.km|asso\\.km|presse\\.km|medecin\\.km|notaires\\.km|pharmaciens\\.km|veterinaire\\.km|gouv\\.km|kn|net\\.kn|org\\.kn|edu\\.kn|gov\\.kn|kr|ac\\.kr|co\\.kr|es\\.kr|go\\.kr|hs\\.kr|kg\\.kr|mil\\.kr|ms\\.kr|ne\\.kr|or\\.kr|pe\\.kr|re\\.kr|sc\\.kr|busan\\.kr|chungbuk\\.kr|chungnam\\.kr|daegu\\.kr|daejeon\\.kr|gangwon\\.kr|gwangju\\.kr|gyeongbuk\\.kr|gyeonggi\\.kr|gyeongnam\\.kr|incheon\\.kr|jeju\\.kr|jeonbuk\\.kr|jeonnam\\.kr|seoul\\.kr|ulsan\\.kr|kw|ky|edu\\.ky|gov\\.ky|com\\.ky|org\\.ky|net\\.ky|kz|org\\.kz|edu\\.kz|net\\.kz|gov\\.kz|mil\\.kz|com\\.kz|la|int\\.la|net\\.la|info\\.la|edu\\.la|gov\\.la|per\\.la|com\\.la|org\\.la|c\\.la|com\\.lb|edu\\.lb|gov\\.lb|net\\.lb|org\\.lb|lc|com\\.lc|net\\.lc|co\\.lc|org\\.lc|edu\\.lc|gov\\.lc|li|lk|gov\\.lk|sch\\.lk|net\\.lk|int\\.lk|com\\.lk|org\\.lk|edu\\.lk|ngo\\.lk|soc\\.lk|web\\.lk|ltd\\.lk|assn\\.lk|grp\\.lk|hotel\\.lk|com\\.lr|edu\\.lr|gov\\.lr|org\\.lr|net\\.lr|ls|co\\.ls|org\\.ls|lt|gov\\.lt|lu|lv|com\\.lv|edu\\.lv|gov\\.lv|org\\.lv|mil\\.lv|id\\.lv|net\\.lv|asn\\.lv|conf\\.lv|ly|com\\.ly|net\\.ly|gov\\.ly|plc\\.ly|edu\\.ly|sch\\.ly|med\\.ly|org\\.ly|id\\.ly|ma|co\\.ma|net\\.ma|gov\\.ma|org\\.ma|ac\\.ma|press\\.ma|mc|tm\\.mc|asso\\.mc|md|me|co\\.me|net\\.me|org\\.me|edu\\.me|ac\\.me|gov\\.me|its\\.me|priv\\.me|mg|org\\.mg|nom\\.mg|gov\\.mg|prd\\.mg|tm\\.mg|edu\\.mg|mil\\.mg|com\\.mg|mh|mil|mk|com\\.mk|org\\.mk|net\\.mk|edu\\.mk|gov\\.mk|inf\\.mk|name\\.mk|ml|mm|mn|gov\\.mn|edu\\.mn|org\\.mn|mo|com\\.mo|net\\.mo|org\\.mo|edu\\.mo|gov\\.mo|mobi|mp|mq|mr|gov\\.mr|ms|mt|mu|com\\.mu|net\\.mu|org\\.mu|gov\\.mu|ac\\.mu|co\\.mu|or\\.mu|museum|academy\\.museum|agriculture\\.museum|air\\.museum|airguard\\.museum|alabama\\.museum|alaska\\.museum|amber\\.museum|ambulance\\.museum|american\\.museum|americana\\.museum|americanantiques\\.museum|americanart\\.museum|amsterdam\\.museum|and\\.museum|annefrank\\.museum|anthro\\.museum|anthropology\\.museum|antiques\\.museum|aquarium\\.museum|arboretum\\.museum|archaeological\\.museum|archaeology\\.museum|architecture\\.museum|art\\.museum|artanddesign\\.museum|artcenter\\.museum|artdeco\\.museum|arteducation\\.museum|artgallery\\.museum|arts\\.museum|artsandcrafts\\.museum|asmatart\\.museum|assassination\\.museum|assisi\\.museum|association\\.museum|astronomy\\.museum|atlanta\\.museum|austin\\.museum|australia\\.museum|automotive\\.museum|aviation\\.museum|axis\\.museum|badajoz\\.museum|baghdad\\.museum|bahn\\.museum|bale\\.museum|baltimore\\.museum|barcelona\\.museum|baseball\\.museum|basel\\.museum|baths\\.museum|bauern\\.museum|beauxarts\\.museum|beeldengeluid\\.museum|bellevue\\.museum|bergbau\\.museum|berkeley\\.museum|berlin\\.museum|bern\\.museum|bible\\.museum|bilbao\\.museum|bill\\.museum|birdart\\.museum|birthplace\\.museum|bonn\\.museum|boston\\.museum|botanical\\.museum|botanicalgarden\\.museum|botanicgarden\\.museum|botany\\.museum|brandywinevalley\\.museum|brasil\\.museum|bristol\\.museum|british\\.museum|britishcolumbia\\.museum|broadcast\\.museum|brunel\\.museum|brussel\\.museum|brussels\\.museum|bruxelles\\.museum|building\\.museum|burghof\\.museum|bus\\.museum|bushey\\.museum|cadaques\\.museum|california\\.museum|cambridge\\.museum|can\\.museum|canada\\.museum|capebreton\\.museum|carrier\\.museum|cartoonart\\.museum|casadelamoneda\\.museum|castle\\.museum|castres\\.museum|celtic\\.museum|center\\.museum|chattanooga\\.museum|cheltenham\\.museum|chesapeakebay\\.museum|chicago\\.museum|children\\.museum|childrens\\.museum|childrensgarden\\.museum|chiropractic\\.museum|chocolate\\.museum|christiansburg\\.museum|cincinnati\\.museum|cinema\\.museum|circus\\.museum|civilisation\\.museum|civilization\\.museum|civilwar\\.museum|clinton\\.museum|clock\\.museum|coal\\.museum|coastaldefence\\.museum|cody\\.museum|coldwar\\.museum|collection\\.museum|colonialwilliamsburg\\.museum|coloradoplateau\\.museum|columbia\\.museum|columbus\\.museum|communication\\.museum|communications\\.museum|community\\.museum|computer\\.museum|computerhistory\\.museum|comunica\xc3\xa7\xc3\xb5es\\.museum|contemporary\\.museum|contemporaryart\\.museum|convent\\.museum|copenhagen\\.museum|corporation\\.museum|correios-e-telecomunica\xc3\xa7\xc3\xb5es\\.museum|corvette\\.museum|costume\\.museum|countryestate\\.museum|county\\.museum|crafts\\.museum|cranbrook\\.museum|creation\\.museum|cultural\\.museum|culturalcenter\\.museum|culture\\.museum|cyber\\.museum|cymru\\.museum|dali\\.museum|dallas\\.museum|database\\.museum|ddr\\.museum|decorativearts\\.museum|delaware\\.museum|delmenhorst\\.museum|denmark\\.museum|depot\\.museum|design\\.museum|detroit\\.museum|dinosaur\\.museum|discovery\\.museum|dolls\\.museum|donostia\\.museum|durham\\.museum|eastafrica\\.museum|eastcoast\\.museum|education\\.museum|educational\\.museum|egyptian\\.museum|eisenbahn\\.museum|elburg\\.museum|elvendrell\\.museum|embroidery\\.museum|encyclopedic\\.museum|england\\.museum|entomology\\.museum|environment\\.museum|environmentalconservation\\.museum|epilepsy\\.museum|essex\\.museum|estate\\.museum|ethnology\\.museum|exeter\\.museum|exhibition\\.museum|family\\.museum|farm\\.museum|farmequipment\\.museum|farmers\\.museum|farmstead\\.museum|field\\.museum|figueres\\.museum|filatelia\\.museum|film\\.museum|fineart\\.museum|finearts\\.museum|finland\\.museum|flanders\\.museum|florida\\.museum|force\\.museum|fortmissoula\\.museum|fortworth\\.museum|foundation\\.museum|francaise\\.museum|frankfurt\\.museum|franziskaner\\.museum|freemasonry\\.museum|freiburg\\.museum|fribourg\\.museum|frog\\.museum|fundacio\\.museum|furniture\\.museum|gallery\\.museum|garden\\.museum|gateway\\.museum|geelvinck\\.museum|gemological\\.museum|geology\\.museum|georgia\\.museum|giessen\\.museum|glas\\.museum|glass\\.museum|gorge\\.museum|grandrapids\\.museum|graz\\.museum|guernsey\\.museum|halloffame\\.museum|hamburg\\.museum|handson\\.museum|harvestcelebration\\.museum|hawaii\\.museum|health\\.museum|heimatunduhren\\.museum|hellas\\.museum|helsinki\\.museum|hembygdsforbund\\.museum|heritage\\.museum|histoire\\.museum|historical\\.museum|historicalsociety\\.museum|historichouses\\.museum|historisch\\.museum|historisches\\.museum|history\\.museum|historyofscience\\.museum|horology\\.museum|house\\.museum|humanities\\.museum|illustration\\.museum|imageandsound\\.museum|indian\\.museum|indiana\\.museum|indianapolis\\.museum|indianmarket\\.museum|intelligence\\.museum|interactive\\.museum|iraq\\.museum|iron\\.museum|isleofman\\.museum|jamison\\.museum|jefferson\\.museum|jerusalem\\.museum|jewelry\\.museum|jewish\\.museum|jewishart\\.museum|jfk\\.museum|journalism\\.museum|judaica\\.museum|judygarland\\.museum|juedisches\\.museum|juif\\.museum|karate\\.museum|karikatur\\.museum|kids\\.museum|koebenhavn\\.museum|koeln\\.museum|kunst\\.museum|kunstsammlung\\.museum|kunstunddesign\\.museum|labor\\.museum|labour\\.museum|lajolla\\.museum|lancashire\\.museum|landes\\.museum|lans\\.museum|l\xc3\xa4ns\\.museum|larsson\\.museum|lewismiller\\.museum|lincoln\\.museum|linz\\.museum|living\\.museum|livinghistory\\.museum|localhistory\\.museum|london\\.museum|losangeles\\.museum|louvre\\.museum|loyalist\\.museum|lucerne\\.museum|luxembourg\\.museum|luzern\\.museum|mad\\.museum|madrid\\.museum|mallorca\\.museum|manchester\\.museum|mansion\\.museum|mansions\\.museum|manx\\.museum|marburg\\.museum|maritime\\.museum|maritimo\\.museum|maryland\\.museum|marylhurst\\.museum|media\\.museum|medical\\.museum|medizinhistorisches\\.museum|meeres\\.museum|memorial\\.museum|mesaverde\\.museum|michigan\\.museum|midatlantic\\.museum|military\\.museum|mill\\.museum|miners\\.museum|mining\\.museum|minnesota\\.museum|missile\\.museum|missoula\\.museum|modern\\.museum|moma\\.museum|money\\.museum|monmouth\\.museum|monticello\\.museum|montreal\\.museum|moscow\\.museum|motorcycle\\.museum|muenchen\\.museum|muenster\\.museum|mulhouse\\.museum|muncie\\.museum|museet\\.museum|museumcenter\\.museum|museumvereniging\\.museum|music\\.museum|national\\.museum|nationalfirearms\\.museum|nationalheritage\\.museum|nativeamerican\\.museum|naturalhistory\\.museum|naturalhistorymuseum\\.museum|naturalsciences\\.museum|nature\\.museum|naturhistorisches\\.museum|natuurwetenschappen\\.museum|naumburg\\.museum|naval\\.museum|nebraska\\.museum|neues\\.museum|newhampshire\\.museum|newjersey\\.museum|newmexico\\.museum|newport\\.museum|newspaper\\.museum|newyork\\.museum|niepce\\.museum|norfolk\\.museum|north\\.museum|nrw\\.museum|nuernberg\\.museum|nuremberg\\.museum|nyc\\.museum|nyny\\.museum|oceanographic\\.museum|oceanographique\\.museum|omaha\\.museum|online\\.museum|ontario\\.museum|openair\\.museum|oregon\\.museum|oregontrail\\.museum|otago\\.museum|oxford\\.museum|pacific\\.museum|paderborn\\.museum|palace\\.museum|paleo\\.museum|palmsprings\\.museum|panama\\.museum|paris\\.museum|pasadena\\.museum|pharmacy\\.museum|philadelphia\\.museum|philadelphiaarea\\.museum|philately\\.museum|phoenix\\.museum|photography\\.museum|pilots\\.museum|pittsburgh\\.museum|planetarium\\.museum|plantation\\.museum|plants\\.museum|plaza\\.museum|portal\\.museum|portland\\.museum|portlligat\\.museum|posts-and-telecommunications\\.museum|preservation\\.museum|presidio\\.museum|press\\.museum|project\\.museum|public\\.museum|pubol\\.museum|quebec\\.museum|railroad\\.museum|railway\\.museum|research\\.museum|resistance\\.museum|riodejaneiro\\.museum|rochester\\.museum|rockart\\.museum|roma\\.museum|russia\\.museum|saintlouis\\.museum|salem\\.museum|salvadordali\\.museum|salzburg\\.museum|sandiego\\.museum|sanfrancisco\\.museum|santabarbara\\.museum|santacruz\\.museum|santafe\\.museum|saskatchewan\\.museum|satx\\.museum|savannahga\\.museum|schlesisches\\.museum|schoenbrunn\\.museum|schokoladen\\.museum|school\\.museum|schweiz\\.museum|science\\.museum|scienceandhistory\\.museum|scienceandindustry\\.museum|sciencecenter\\.museum|sciencecenters\\.museum|science-fiction\\.museum|sciencehistory\\.museum|sciences\\.museum|sciencesnaturelles\\.museum|scotland\\.museum|seaport\\.museum|settlement\\.museum|settlers\\.museum|shell\\.museum|sherbrooke\\.museum|sibenik\\.museum|silk\\.museum|ski\\.museum|skole\\.museum|society\\.museum|sologne\\.museum|soundandvision\\.museum|southcarolina\\.museum|southwest\\.museum|space\\.museum|spy\\.museum|square\\.museum|stadt\\.museum|stalbans\\.museum|starnberg\\.museum|state\\.museum|stateofdelaware\\.museum|station\\.museum|steam\\.museum|steiermark\\.museum|stjohn\\.museum|stockholm\\.museum|stpetersburg\\.museum|stuttgart\\.museum|suisse\\.museum|surgeonshall\\.museum|surrey\\.museum|svizzera\\.museum|sweden\\.museum|sydney\\.museum|tank\\.museum|tcm\\.museum|technology\\.museum|telekommunikation\\.museum|television\\.museum|texas\\.museum|textile\\.museum|theater\\.museum|time\\.museum|timekeeping\\.museum|topology\\.museum|torino\\.museum|touch\\.museum|town\\.museum|transport\\.museum|tree\\.museum|trolley\\.museum|trust\\.museum|trustee\\.museum|uhren\\.museum|ulm\\.museum|undersea\\.museum|university\\.museum|usa\\.museum|usantiques\\.museum|usarts\\.museum|uscountryestate\\.museum|usculture\\.museum|usdecorativearts\\.museum|usgarden\\.museum|ushistory\\.museum|ushuaia\\.museum|uslivinghistory\\.museum|utah\\.museum|uvic\\.museum|valley\\.museum|vantaa\\.museum|versailles\\.museum|viking\\.museum|village\\.museum|virginia\\.museum|virtual\\.museum|virtuel\\.museum|vlaanderen\\.museum|volkenkunde\\.museum|wales\\.museum|wallonie\\.museum|war\\.museum|washingtondc\\.museum|watchandclock\\.museum|watch-and-clock\\.museum|western\\.museum|westfalen\\.museum|whaling\\.museum|wildlife\\.museum|williamsburg\\.museum|windmill\\.museum|workshop\\.museum|york\\.museum|yorkshire\\.museum|yosemite\\.museum|youth\\.museum|zoological\\.museum|zoology\\.museum|\xd7\x99\xd7\xa8\xd7\x95\xd7\xa9\xd7\x9c\xd7\x99\xd7\x9d\\.museum|\xd0\xb8\xd0\xba\xd0\xbe\xd0\xbc\\.museum|mv|mw|ac\\.mw|biz\\.mw|co\\.mw|com\\.mw|coop\\.mw|edu\\.mw|gov\\.mw|int\\.mw|net\\.mw|org\\.mw|mx|com\\.mx|org\\.mx|gob\\.mx|edu\\.mx|net\\.mx|my|com\\.my|net\\.my|org\\.my|gov\\.my|edu\\.my|mil\\.my|name\\.my|mz|na|info\\.na|pro\\.na|name\\.na|school\\.na|or\\.na|dr\\.na|us\\.na|mx\\.na|ca\\.na|in\\.na|cc\\.na|tv\\.na|ws\\.na|mobi\\.na|co\\.na|com\\.na|org\\.na|name|nc|ne|net|gb\\.net|se\\.net|uk\\.net|nf|com\\.nf|net\\.nf|per\\.nf|rec\\.nf|web\\.nf|arts\\.nf|firm\\.nf|info\\.nf|other\\.nf|store\\.nf|ac\\.ng|com\\.ng|edu\\.ng|gov\\.ng|net\\.ng|org\\.ng|ni|nl|no|fhs\\.no|vgs\\.no|fylkesbibl\\.no|folkebibl\\.no|museum\\.no|idrett\\.no|priv\\.no|mil\\.no|stat\\.no|dep\\.no|kommune\\.no|herad\\.no|aa\\.no|ah\\.no|bu\\.no|fm\\.no|hl\\.no|hm\\.no|jan-mayen\\.no|mr\\.no|nl\\.no|nt\\.no|of\\.no|ol\\.no|oslo\\.no|rl\\.no|sf\\.no|st\\.no|svalbard\\.no|tm\\.no|tr\\.no|va\\.no|vf\\.no|gs\\.aa\\.no|gs\\.ah\\.no|gs\\.bu\\.no|gs\\.fm\\.no|gs\\.hl\\.no|gs\\.hm\\.no|gs\\.jan-mayen\\.no|gs\\.mr\\.no|gs\\.nl\\.no|gs\\.nt\\.no|gs\\.of\\.no|gs\\.ol\\.no|gs\\.oslo\\.no|gs\\.rl\\.no|gs\\.sf\\.no|gs\\.st\\.no|gs\\.svalbard\\.no|gs\\.tm\\.no|gs\\.tr\\.no|gs\\.va\\.no|gs\\.vf\\.no|akrehamn\\.no|\xc3\xa5krehamn\\.no|algard\\.no|\xc3\xa5lg\xc3\xa5rd\\.no|arna\\.no|brumunddal\\.no|bryne\\.no|bronnoysund\\.no|br\xc3\xb8nn\xc3\xb8ysund\\.no|drobak\\.no|dr\xc3\xb8bak\\.no|egersund\\.no|fetsund\\.no|floro\\.no|flor\xc3\xb8\\.no|fredrikstad\\.no|hokksund\\.no|honefoss\\.no|h\xc3\xb8nefoss\\.no|jessheim\\.no|jorpeland\\.no|j\xc3\xb8rpeland\\.no|kirkenes\\.no|kopervik\\.no|krokstadelva\\.no|langevag\\.no|langev\xc3\xa5g\\.no|leirvik\\.no|mjondalen\\.no|mj\xc3\xb8ndalen\\.no|mo-i-rana\\.no|mosjoen\\.no|mosj\xc3\xb8en\\.no|nesoddtangen\\.no|orkanger\\.no|osoyro\\.no|os\xc3\xb8yro\\.no|raholt\\.no|r\xc3\xa5holt\\.no|sandnessjoen\\.no|sandnessj\xc3\xb8en\\.no|skedsmokorset\\.no|slattum\\.no|spjelkavik\\.no|stathelle\\.no|stavern\\.no|stjordalshalsen\\.no|stj\xc3\xb8rdalshalsen\\.no|tananger\\.no|tranby\\.no|vossevangen\\.no|afjord\\.no|\xc3\xa5fjord\\.no|agdenes\\.no|al\\.no|\xc3\xa5l\\.no|alesund\\.no|\xc3\xa5lesund\\.no|alstahaug\\.no|alta\\.no|\xc3\xa1lt\xc3\xa1\\.no|alaheadju\\.no|\xc3\xa1laheadju\\.no|alvdal\\.no|amli\\.no|\xc3\xa5mli\\.no|amot\\.no|\xc3\xa5mot\\.no|andebu\\.no|andoy\\.no|and\xc3\xb8y\\.no|andasuolo\\.no|ardal\\.no|\xc3\xa5rdal\\.no|aremark\\.no|arendal\\.no|\xc3\xa5s\\.no|aseral\\.no|\xc3\xa5seral\\.no|asker\\.no|askim\\.no|askvoll\\.no|askoy\\.no|ask\xc3\xb8y\\.no|asnes\\.no|\xc3\xa5snes\\.no|audnedaln\\.no|aukra\\.no|aure\\.no|aurland\\.no|aurskog-holand\\.no|aurskog-h\xc3\xb8land\\.no|austevoll\\.no|austrheim\\.no|averoy\\.no|aver\xc3\xb8y\\.no|balestrand\\.no|ballangen\\.no|balat\\.no|b\xc3\xa1l\xc3\xa1t\\.no|balsfjord\\.no|bahccavuotna\\.no|b\xc3\xa1hccavuotna\\.no|bamble\\.no|bardu\\.no|beardu\\.no|beiarn\\.no|bajddar\\.no|b\xc3\xa1jddar\\.no|baidar\\.no|b\xc3\xa1id\xc3\xa1r\\.no|berg\\.no|bergen\\.no|berlevag\\.no|berlev\xc3\xa5g\\.no|bearalvahki\\.no|bearalv\xc3\xa1hki\\.no|bindal\\.no|birkenes\\.no|bjarkoy\\.no|bjark\xc3\xb8y\\.no|bjerkreim\\.no|bjugn\\.no|bodo\\.no|bod\xc3\xb8\\.no|badaddja\\.no|b\xc3\xa5d\xc3\xa5ddj\xc3\xa5\\.no|budejju\\.no|bokn\\.no|bremanger\\.no|bronnoy\\.no|br\xc3\xb8nn\xc3\xb8y\\.no|bygland\\.no|bykle\\.no|barum\\.no|b\xc3\xa6rum\\.no|bo\\.telemark\\.no|b\xc3\xb8\\.telemark\\.no|bo\\.nordland\\.no|b\xc3\xb8\\.nordland\\.no|bievat\\.no|biev\xc3\xa1t\\.no|bomlo\\.no|b\xc3\xb8mlo\\.no|batsfjord\\.no|b\xc3\xa5tsfjord\\.no|bahcavuotna\\.no|b\xc3\xa1hcavuotna\\.no|dovre\\.no|drammen\\.no|drangedal\\.no|dyroy\\.no|dyr\xc3\xb8y\\.no|donna\\.no|d\xc3\xb8nna\\.no|eid\\.no|eidfjord\\.no|eidsberg\\.no|eidskog\\.no|eidsvoll\\.no|eigersund\\.no|elverum\\.no|enebakk\\.no|engerdal\\.no|etne\\.no|etnedal\\.no|evenes\\.no|evenassi\\.no|even\xc3\xa1\xc5\xa1\xc5\xa1i\\.no|evje-og-hornnes\\.no|farsund\\.no|fauske\\.no|fuossko\\.no|fuoisku\\.no|fedje\\.no|fet\\.no|finnoy\\.no|finn\xc3\xb8y\\.no|fitjar\\.no|fjaler\\.no|fjell\\.no|flakstad\\.no|flatanger\\.no|flekkefjord\\.no|flesberg\\.no|flora\\.no|fla\\.no|fl\xc3\xa5\\.no|folldal\\.no|forsand\\.no|fosnes\\.no|frei\\.no|frogn\\.no|froland\\.no|frosta\\.no|frana\\.no|fr\xc3\xa6na\\.no|froya\\.no|fr\xc3\xb8ya\\.no|fusa\\.no|fyresdal\\.no|forde\\.no|f\xc3\xb8rde\\.no|gamvik\\.no|gangaviika\\.no|g\xc3\xa1\xc5\x8bgaviika\\.no|gaular\\.no|gausdal\\.no|gildeskal\\.no|gildesk\xc3\xa5l\\.no|giske\\.no|gjemnes\\.no|gjerdrum\\.no|gjerstad\\.no|gjesdal\\.no|gjovik\\.no|gj\xc3\xb8vik\\.no|gloppen\\.no|gol\\.no|gran\\.no|grane\\.no|granvin\\.no|gratangen\\.no|grimstad\\.no|grong\\.no|kraanghke\\.no|kr\xc3\xa5anghke\\.no|grue\\.no|gulen\\.no|hadsel\\.no|halden\\.no|halsa\\.no|hamar\\.no|hamaroy\\.no|habmer\\.no|h\xc3\xa1bmer\\.no|hapmir\\.no|h\xc3\xa1pmir\\.no|hammerfest\\.no|hammarfeasta\\.no|h\xc3\xa1mm\xc3\xa1rfeasta\\.no|haram\\.no|hareid\\.no|harstad\\.no|hasvik\\.no|aknoluokta\\.no|\xc3\xa1k\xc5\x8boluokta\\.no|hattfjelldal\\.no|aarborte\\.no|haugesund\\.no|hemne\\.no|hemnes\\.no|hemsedal\\.no|heroy\\.more-og-romsdal\\.no|her\xc3\xb8y\\.m\xc3\xb8re-og-romsdal\\.no|heroy\\.nordland\\.no|her\xc3\xb8y\\.nordland\\.no|hitra\\.no|hjartdal\\.no|hjelmeland\\.no|hobol\\.no|hob\xc3\xb8l\\.no|hof\\.no|hol\\.no|hole\\.no|holmestrand\\.no|holtalen\\.no|holt\xc3\xa5len\\.no|hornindal\\.no|horten\\.no|hurdal\\.no|hurum\\.no|hvaler\\.no|hyllestad\\.no|hagebostad\\.no|h\xc3\xa6gebostad\\.no|hoyanger\\.no|h\xc3\xb8yanger\\.no|hoylandet\\.no|h\xc3\xb8ylandet\\.no|ha\\.no|h\xc3\xa5\\.no|ibestad\\.no|inderoy\\.no|inder\xc3\xb8y\\.no|iveland\\.no|jevnaker\\.no|jondal\\.no|jolster\\.no|j\xc3\xb8lster\\.no|karasjok\\.no|karasjohka\\.no|k\xc3\xa1r\xc3\xa1\xc5\xa1johka\\.no|karlsoy\\.no|galsa\\.no|g\xc3\xa1ls\xc3\xa1\\.no|karmoy\\.no|karm\xc3\xb8y\\.no|kautokeino\\.no|guovdageaidnu\\.no|klepp\\.no|klabu\\.no|kl\xc3\xa6bu\\.no|kongsberg\\.no|kongsvinger\\.no|kragero\\.no|krager\xc3\xb8\\.no|kristiansand\\.no|kristiansund\\.no|krodsherad\\.no|kr\xc3\xb8dsherad\\.no|kvalsund\\.no|rahkkeravju\\.no|r\xc3\xa1hkker\xc3\xa1vju\\.no|kvam\\.no|kvinesdal\\.no|kvinnherad\\.no|kviteseid\\.no|kvitsoy\\.no|kvits\xc3\xb8y\\.no|kvafjord\\.no|kv\xc3\xa6fjord\\.no|giehtavuoatna\\.no|kvanangen\\.no|kv\xc3\xa6nangen\\.no|navuotna\\.no|n\xc3\xa1vuotna\\.no|kafjord\\.no|k\xc3\xa5fjord\\.no|gaivuotna\\.no|g\xc3\xa1ivuotna\\.no|larvik\\.no|lavangen\\.no|lavagis\\.no|loabat\\.no|loab\xc3\xa1t\\.no|lebesby\\.no|davvesiida\\.no|leikanger\\.no|leirfjord\\.no|leka\\.no|leksvik\\.no|lenvik\\.no|leangaviika\\.no|lea\xc5\x8bgaviika\\.no|lesja\\.no|levanger\\.no|lier\\.no|lierne\\.no|lillehammer\\.no|lillesand\\.no|lindesnes\\.no|lindas\\.no|lind\xc3\xa5s\\.no|lom\\.no|loppa\\.no|lahppi\\.no|l\xc3\xa1hppi\\.no|lund\\.no|lunner\\.no|luroy\\.no|lur\xc3\xb8y\\.no|luster\\.no|lyngdal\\.no|lyngen\\.no|ivgu\\.no|lardal\\.no|lerdal\\.no|l\xc3\xa6rdal\\.no|lodingen\\.no|l\xc3\xb8dingen\\.no|lorenskog\\.no|l\xc3\xb8renskog\\.no|loten\\.no|l\xc3\xb8ten\\.no|malvik\\.no|masoy\\.no|m\xc3\xa5s\xc3\xb8y\\.no|muosat\\.no|muos\xc3\xa1t\\.no|mandal\\.no|marker\\.no|marnardal\\.no|masfjorden\\.no|meland\\.no|meldal\\.no|melhus\\.no|meloy\\.no|mel\xc3\xb8y\\.no|meraker\\.no|mer\xc3\xa5ker\\.no|moareke\\.no|mo\xc3\xa5reke\\.no|midsund\\.no|midtre-gauldal\\.no|modalen\\.no|modum\\.no|molde\\.no|moskenes\\.no|moss\\.no|mosvik\\.no|malselv\\.no|m\xc3\xa5lselv\\.no|malatvuopmi\\.no|m\xc3\xa1latvuopmi\\.no|namdalseid\\.no|aejrie\\.no|namsos\\.no|namsskogan\\.no|naamesjevuemie\\.no|n\xc3\xa5\xc3\xa5mesjevuemie\\.no|laakesvuemie\\.no|nannestad\\.no|narvik\\.no|narviika\\.no|naustdal\\.no|nedre-eiker\\.no|nes\\.akershus\\.no|nes\\.buskerud\\.no|nesna\\.no|nesodden\\.no|nesseby\\.no|unjarga\\.no|unj\xc3\xa1rga\\.no|nesset\\.no|nissedal\\.no|nittedal\\.no|nord-aurdal\\.no|nord-fron\\.no|nord-odal\\.no|norddal\\.no|nordkapp\\.no|davvenjarga\\.no|davvenj\xc3\xa1rga\\.no|nordre-land\\.no|nordreisa\\.no|raisa\\.no|r\xc3\xa1isa\\.no|nore-og-uvdal\\.no|notodden\\.no|naroy\\.no|n\xc3\xa6r\xc3\xb8y\\.no|notteroy\\.no|n\xc3\xb8tter\xc3\xb8y\\.no|odda\\.no|oksnes\\.no|\xc3\xb8ksnes\\.no|oppdal\\.no|oppegard\\.no|oppeg\xc3\xa5rd\\.no|orkdal\\.no|orland\\.no|\xc3\xb8rland\\.no|orskog\\.no|\xc3\xb8rskog\\.no|orsta\\.no|\xc3\xb8rsta\\.no|os\\.hedmark\\.no|os\\.hordaland\\.no|osen\\.no|osteroy\\.no|oster\xc3\xb8y\\.no|ostre-toten\\.no|\xc3\xb8stre-toten\\.no|overhalla\\.no|ovre-eiker\\.no|\xc3\xb8vre-eiker\\.no|oyer\\.no|\xc3\xb8yer\\.no|oygarden\\.no|\xc3\xb8ygarden\\.no|oystre-slidre\\.no|\xc3\xb8ystre-slidre\\.no|porsanger\\.no|porsangu\\.no|pors\xc3\xa1\xc5\x8bgu\\.no|porsgrunn\\.no|radoy\\.no|rad\xc3\xb8y\\.no|rakkestad\\.no|rana\\.no|ruovat\\.no|randaberg\\.no|rauma\\.no|rendalen\\.no|rennebu\\.no|rennesoy\\.no|rennes\xc3\xb8y\\.no|rindal\\.no|ringebu\\.no|ringerike\\.no|ringsaker\\.no|rissa\\.no|risor\\.no|ris\xc3\xb8r\\.no|roan\\.no|rollag\\.no|rygge\\.no|ralingen\\.no|r\xc3\xa6lingen\\.no|rodoy\\.no|r\xc3\xb8d\xc3\xb8y\\.no|romskog\\.no|r\xc3\xb8mskog\\.no|roros\\.no|r\xc3\xb8ros\\.no|rost\\.no|r\xc3\xb8st\\.no|royken\\.no|r\xc3\xb8yken\\.no|royrvik\\.no|r\xc3\xb8yrvik\\.no|rade\\.no|r\xc3\xa5de\\.no|salangen\\.no|siellak\\.no|saltdal\\.no|salat\\.no|s\xc3\xa1l\xc3\xa1t\\.no|s\xc3\xa1lat\\.no|samnanger\\.no|sande\\.more-og-romsdal\\.no|sande\\.m\xc3\xb8re-og-romsdal\\.no|sande\\.vestfold\\.no|sandefjord\\.no|sandnes\\.no|sandoy\\.no|sand\xc3\xb8y\\.no|sarpsborg\\.no|sauda\\.no|sauherad\\.no|sel\\.no|selbu\\.no|selje\\.no|seljord\\.no|sigdal\\.no|siljan\\.no|sirdal\\.no|skaun\\.no|skedsmo\\.no|ski\\.no|skien\\.no|skiptvet\\.no|skjervoy\\.no|skjerv\xc3\xb8y\\.no|skierva\\.no|skierv\xc3\xa1\\.no|skjak\\.no|skj\xc3\xa5k\\.no|skodje\\.no|skanland\\.no|sk\xc3\xa5nland\\.no|skanit\\.no|sk\xc3\xa1nit\\.no|smola\\.no|sm\xc3\xb8la\\.no|snillfjord\\.no|snasa\\.no|sn\xc3\xa5sa\\.no|snoasa\\.no|snaase\\.no|sn\xc3\xa5ase\\.no|sogndal\\.no|sokndal\\.no|sola\\.no|solund\\.no|songdalen\\.no|sortland\\.no|spydeberg\\.no|stange\\.no|stavanger\\.no|steigen\\.no|steinkjer\\.no|stjordal\\.no|stj\xc3\xb8rdal\\.no|stokke\\.no|stor-elvdal\\.no|stord\\.no|stordal\\.no|storfjord\\.no|omasvuotna\\.no|strand\\.no|stranda\\.no|stryn\\.no|sula\\.no|suldal\\.no|sund\\.no|sunndal\\.no|surnadal\\.no|sveio\\.no|svelvik\\.no|sykkylven\\.no|sogne\\.no|s\xc3\xb8gne\\.no|somna\\.no|s\xc3\xb8mna\\.no|sondre-land\\.no|s\xc3\xb8ndre-land\\.no|sor-aurdal\\.no|s\xc3\xb8r-aurdal\\.no|sor-fron\\.no|s\xc3\xb8r-fron\\.no|sor-odal\\.no|s\xc3\xb8r-odal\\.no|sor-varanger\\.no|s\xc3\xb8r-varanger\\.no|matta-varjjat\\.no|m\xc3\xa1tta-v\xc3\xa1rjjat\\.no|sorfold\\.no|s\xc3\xb8rfold\\.no|sorreisa\\.no|s\xc3\xb8rreisa\\.no|sorum\\.no|s\xc3\xb8rum\\.no|tana\\.no|deatnu\\.no|time\\.no|tingvoll\\.no|tinn\\.no|tjeldsund\\.no|dielddanuorri\\.no|tjome\\.no|tj\xc3\xb8me\\.no|tokke\\.no|tolga\\.no|torsken\\.no|tranoy\\.no|tran\xc3\xb8y\\.no|tromso\\.no|troms\xc3\xb8\\.no|tromsa\\.no|romsa\\.no|trondheim\\.no|troandin\\.no|trysil\\.no|trana\\.no|tr\xc3\xa6na\\.no|trogstad\\.no|tr\xc3\xb8gstad\\.no|tvedestrand\\.no|tydal\\.no|tynset\\.no|tysfjord\\.no|divtasvuodna\\.no|divttasvuotna\\.no|tysnes\\.no|tysvar\\.no|tysv\xc3\xa6r\\.no|tonsberg\\.no|t\xc3\xb8nsberg\\.no|ullensaker\\.no|ullensvang\\.no|ulvik\\.no|utsira\\.no|vadso\\.no|vads\xc3\xb8\\.no|cahcesuolo\\.no|\xc4\x8d\xc3\xa1hcesuolo\\.no|vaksdal\\.no|valle\\.no|vang\\.no|vanylven\\.no|vardo\\.no|vard\xc3\xb8\\.no|varggat\\.no|v\xc3\xa1rgg\xc3\xa1t\\.no|vefsn\\.no|vaapste\\.no|vega\\.no|vegarshei\\.no|veg\xc3\xa5rshei\\.no|vennesla\\.no|verdal\\.no|verran\\.no|vestby\\.no|vestnes\\.no|vestre-slidre\\.no|vestre-toten\\.no|vestvagoy\\.no|vestv\xc3\xa5g\xc3\xb8y\\.no|vevelstad\\.no|vik\\.no|vikna\\.no|vindafjord\\.no|volda\\.no|voss\\.no|varoy\\.no|v\xc3\xa6r\xc3\xb8y\\.no|vagan\\.no|v\xc3\xa5gan\\.no|voagat\\.no|vagsoy\\.no|v\xc3\xa5gs\xc3\xb8y\\.no|vaga\\.no|v\xc3\xa5g\xc3\xa5\\.no|valer\\.ostfold\\.no|v\xc3\xa5ler\\.\xc3\xb8stfold\\.no|valer\\.hedmark\\.no|v\xc3\xa5ler\\.hedmark\\.no|np|nr|biz\\.nr|info\\.nr|gov\\.nr|edu\\.nr|org\\.nr|net\\.nr|com\\.nr|nu|nz|om|org|ae\\.org|pa|pe|edu\\.pe|gob\\.pe|nom\\.pe|mil\\.pe|org\\.pe|com\\.pe|net\\.pe|pf|com\\.pf|org\\.pf|edu\\.pf|pg|ph|com\\.ph|net\\.ph|org\\.ph|gov\\.ph|edu\\.ph|ngo\\.ph|mil\\.ph|i\\.ph|pk|com\\.pk|net\\.pk|edu\\.pk|org\\.pk|fam\\.pk|biz\\.pk|web\\.pk|gov\\.pk|gob\\.pk|gok\\.pk|gon\\.pk|gop\\.pk|gos\\.pk|info\\.pk|pl|aid\\.pl|agro\\.pl|atm\\.pl|auto\\.pl|biz\\.pl|com\\.pl|edu\\.pl|gmina\\.pl|gsm\\.pl|info\\.pl|mail\\.pl|miasta\\.pl|media\\.pl|mil\\.pl|net\\.pl|nieruchomosci\\.pl|nom\\.pl|org\\.pl|pc\\.pl|powiat\\.pl|priv\\.pl|realestate\\.pl|rel\\.pl|sex\\.pl|shop\\.pl|sklep\\.pl|sos\\.pl|szkola\\.pl|targi\\.pl|tm\\.pl|tourism\\.pl|travel\\.pl|turystyka\\.pl|6bone\\.pl|art\\.pl|mbone\\.pl|gov\\.pl|uw\\.gov\\.pl|um\\.gov\\.pl|ug\\.gov\\.pl|upow\\.gov\\.pl|starostwo\\.gov\\.pl|so\\.gov\\.pl|sr\\.gov\\.pl|po\\.gov\\.pl|pa\\.gov\\.pl|med\\.pl|ngo\\.pl|irc\\.pl|usenet\\.pl|augustow\\.pl|babia-gora\\.pl|bedzin\\.pl|beskidy\\.pl|bialowieza\\.pl|bialystok\\.pl|bielawa\\.pl|bieszczady\\.pl|boleslawiec\\.pl|bydgoszcz\\.pl|bytom\\.pl|cieszyn\\.pl|czeladz\\.pl|czest\\.pl|dlugoleka\\.pl|elblag\\.pl|elk\\.pl|glogow\\.pl|gniezno\\.pl|gorlice\\.pl|grajewo\\.pl|ilawa\\.pl|jaworzno\\.pl|jelenia-gora\\.pl|jgora\\.pl|kalisz\\.pl|kazimierz-dolny\\.pl|karpacz\\.pl|kartuzy\\.pl|kaszuby\\.pl|katowice\\.pl|kepno\\.pl|ketrzyn\\.pl|klodzko\\.pl|kobierzyce\\.pl|kolobrzeg\\.pl|konin\\.pl|konskowola\\.pl|kutno\\.pl|lapy\\.pl|lebork\\.pl|legnica\\.pl|lezajsk\\.pl|limanowa\\.pl|lomza\\.pl|lowicz\\.pl|lubin\\.pl|lukow\\.pl|malbork\\.pl|malopolska\\.pl|mazowsze\\.pl|mazury\\.pl|mielec\\.pl|mielno\\.pl|mragowo\\.pl|naklo\\.pl|nowaruda\\.pl|nysa\\.pl|olawa\\.pl|olecko\\.pl|olkusz\\.pl|olsztyn\\.pl|opoczno\\.pl|opole\\.pl|ostroda\\.pl|ostroleka\\.pl|ostrowiec\\.pl|ostrowwlkp\\.pl|pila\\.pl|pisz\\.pl|podhale\\.pl|podlasie\\.pl|polkowice\\.pl|pomorze\\.pl|pomorskie\\.pl|prochowice\\.pl|pruszkow\\.pl|przeworsk\\.pl|pulawy\\.pl|radom\\.pl|rawa-maz\\.pl|rybnik\\.pl|rzeszow\\.pl|sanok\\.pl|sejny\\.pl|slask\\.pl|slupsk\\.pl|sosnowiec\\.pl|stalowa-wola\\.pl|skoczow\\.pl|starachowice\\.pl|stargard\\.pl|suwalki\\.pl|swidnica\\.pl|swiebodzin\\.pl|swinoujscie\\.pl|szczecin\\.pl|szczytno\\.pl|tarnobrzeg\\.pl|tgory\\.pl|turek\\.pl|tychy\\.pl|ustka\\.pl|walbrzych\\.pl|warmia\\.pl|warszawa\\.pl|waw\\.pl|wegrow\\.pl|wielun\\.pl|wlocl\\.pl|wloclawek\\.pl|wodzislaw\\.pl|wolomin\\.pl|wroclaw\\.pl|zachpomor\\.pl|zagan\\.pl|zarow\\.pl|zgora\\.pl|zgorzelec\\.pl|gda\\.pl|gdansk\\.pl|gdynia\\.pl|sopot\\.pl|gliwice\\.pl|krakow\\.pl|poznan\\.pl|wroc\\.pl|zakopane\\.pl|pn|gov\\.pn|co\\.pn|org\\.pn|edu\\.pn|net\\.pn|pr|com\\.pr|net\\.pr|org\\.pr|gov\\.pr|edu\\.pr|isla\\.pr|pro\\.pr|biz\\.pr|info\\.pr|name\\.pr|est\\.pr|prof\\.pr|ac\\.pr|pro|aca\\.pro|bar\\.pro|cpa\\.pro|jur\\.pro|law\\.pro|med\\.pro|eng\\.pro|ps|edu\\.ps|gov\\.ps|sec\\.ps|plo\\.ps|com\\.ps|org\\.ps|net\\.ps|pt|net\\.pt|gov\\.pt|org\\.pt|edu\\.pt|int\\.pt|publ\\.pt|com\\.pt|nome\\.pt|pw|co\\.pw|ne\\.pw|or\\.pw|ed\\.pw|go\\.pw|belau\\.pw|py|qa|re|com\\.re|asso\\.re|nom\\.re|ro|com\\.ro|org\\.ro|tm\\.ro|nt\\.ro|nom\\.ro|info\\.ro|rec\\.ro|arts\\.ro|firm\\.ro|store\\.ro|www\\.ro|rs|co\\.rs|org\\.rs|edu\\.rs|ac\\.rs|gov\\.rs|in\\.rs|ru|ac\\.ru|com\\.ru|net\\.ru|org\\.ru|pp\\.ru|int\\.ru|adygeya\\.ru|altai\\.ru|amur\\.ru|arkhangelsk\\.ru|astrakhan\\.ru|bashkiria\\.ru|belgorod\\.ru|bir\\.ru|bryansk\\.ru|buryatia\\.ru|cbg\\.ru|chel\\.ru|chelyabinsk\\.ru|chita\\.ru|chukotka\\.ru|chuvashia\\.ru|dagestan\\.ru|dudinka\\.ru|e-burg\\.ru|grozny\\.ru|irkutsk\\.ru|ivanovo\\.ru|izhevsk\\.ru|jar\\.ru|joshkar-ola\\.ru|kalmykia\\.ru|kaluga\\.ru|kamchatka\\.ru|karelia\\.ru|kazan\\.ru|kchr\\.ru|kemerovo\\.ru|khabarovsk\\.ru|khakassia\\.ru|khv\\.ru|kirov\\.ru|koenig\\.ru|komi\\.ru|kostroma\\.ru|krasnoyarsk\\.ru|kuban\\.ru|kurgan\\.ru|kursk\\.ru|lipetsk\\.ru|magadan\\.ru|mari-el\\.ru|marine\\.ru|mari\\.ru|mordovia\\.ru|mosreg\\.ru|msk\\.ru|murmansk\\.ru|nalchik\\.ru|nnov\\.ru|novosibirsk\\.ru|nov\\.ru|nsk\\.ru|omsk\\.ru|orenburg\\.ru|oryol\\.ru|palana\\.ru|penza\\.ru|perm\\.ru|pskov\\.ru|ptz\\.ru|rnd\\.ru|ryazan\\.ru|sakhalin\\.ru|samara\\.ru|saratov\\.ru|simbirsk\\.ru|smolensk\\.ru|spb\\.ru|stavropol\\.ru|stv\\.ru|surgut\\.ru|tambov\\.ru|tatarstan\\.ru|tom\\.ru|tomsk\\.ru|tsaritsyn\\.ru|tsk\\.ru|tula\\.ru|tuva\\.ru|tver\\.ru|tyumen\\.ru|udm\\.ru|udmurtia\\.ru|ulan-ude\\.ru|vladikavkaz\\.ru|vladimir\\.ru|vladivostok\\.ru|volgograd\\.ru|vologda\\.ru|voronezh\\.ru|vrn\\.ru|vyatka\\.ru|yakutia\\.ru|yamal\\.ru|yaroslavl\\.ru|yekaterinburg\\.ru|yuzhno-sakhalinsk\\.ru|amursk\\.ru|baikal\\.ru|cmw\\.ru|fareast\\.ru|jamal\\.ru|kms\\.ru|k-uralsk\\.ru|kustanai\\.ru|kuzbass\\.ru|magnitka\\.ru|mytis\\.ru|nakhodka\\.ru|nkz\\.ru|norilsk\\.ru|oskol\\.ru|pyatigorsk\\.ru|rubtsovsk\\.ru|snz\\.ru|syzran\\.ru|tagil\\.ru|vdonsk\\.ru|zgrad\\.ru|rw|gov\\.rw|net\\.rw|edu\\.rw|ac\\.rw|com\\.rw|co\\.rw|int\\.rw|mil\\.rw|gouv\\.rw|sa|sb|com\\.sb|edu\\.sb|gov\\.sb|net\\.sb|org\\.sb|sc|com\\.sc|gov\\.sc|net\\.sc|org\\.sc|edu\\.sc|sd|com\\.sd|net\\.sd|org\\.sd|edu\\.sd|med\\.sd|gov\\.sd|info\\.sd|se|a\\.se|ac\\.se|b\\.se|bd\\.se|brand\\.se|c\\.se|d\\.se|e\\.se|f\\.se|fh\\.se|fhsk\\.se|fhv\\.se|g\\.se|h\\.se|i\\.se|k\\.se|komforb\\.se|kommunalforbund\\.se|komvux\\.se|l\\.se|lanbib\\.se|m\\.se|n\\.se|naturbruksgymn\\.se|o\\.se|org\\.se|p\\.se|parti\\.se|pp\\.se|press\\.se|r\\.se|s\\.se|sshn\\.se|t\\.se|tm\\.se|u\\.se|w\\.se|x\\.se|y\\.se|z\\.se|sg|com\\.sg|net\\.sg|org\\.sg|gov\\.sg|edu\\.sg|per\\.sg|sh|si|sk|sl|com\\.sl|net\\.sl|edu\\.sl|gov\\.sl|org\\.sl|sm|sn|sr|st|gov\\.st|saotome\\.st|principe\\.st|consulado\\.st|org\\.st|edu\\.st|net\\.st|com\\.st|store\\.st|mil\\.st|co\\.st|su|sv|sy|edu\\.sy|gov\\.sy|net\\.sy|mil\\.sy|com\\.sy|org\\.sy|sz|co\\.sz|ac\\.sz|org\\.sz|tc|td|tel|tf|tg|th|ac\\.th|co\\.th|go\\.th|in\\.th|mi\\.th|net\\.th|or\\.th|tj|ac\\.tj|biz\\.tj|com\\.tj|co\\.tj|edu\\.tj|int\\.tj|name\\.tj|net\\.tj|org\\.tj|web\\.tj|gov\\.tj|go\\.tj|mil\\.tj|tk|tl|gov\\.tl|tm|tn|com\\.tn|ens\\.tn|fin\\.tn|gov\\.tn|ind\\.tn|intl\\.tn|nat\\.tn|net\\.tn|org\\.tn|info\\.tn|perso\\.tn|tourism\\.tn|edunet\\.tn|rnrt\\.tn|rns\\.tn|rnu\\.tn|mincom\\.tn|agrinet\\.tn|defense\\.tn|turen\\.tn|to|com\\.to|gov\\.to|net\\.to|org\\.to|edu\\.to|mil\\.to|tr|travel|tt|co\\.tt|com\\.tt|org\\.tt|net\\.tt|biz\\.tt|info\\.tt|pro\\.tt|int\\.tt|coop\\.tt|jobs\\.tt|mobi\\.tt|travel\\.tt|museum\\.tt|aero\\.tt|name\\.tt|gov\\.tt|edu\\.tt|tv|com\\.tv|net\\.tv|org\\.tv|gov\\.tv|tw|edu\\.tw|gov\\.tw|mil\\.tw|com\\.tw|net\\.tw|org\\.tw|idv\\.tw|game\\.tw|ebiz\\.tw|club\\.tw|\xe7\xb6\xb2\xe8\xb7\xaf\\.tw|\xe7\xb5\x84\xe7\xb9\x94\\.tw|\xe5\x95\x86\xe6\xa5\xad\\.tw|ac\\.tz|co\\.tz|go\\.tz|ne\\.tz|or\\.tz|ua|com\\.ua|edu\\.ua|gov\\.ua|net\\.ua|org\\.ua|cherkassy\\.ua|chernigov\\.ua|chernovtsy\\.ua|ck\\.ua|cn\\.ua|crimea\\.ua|cv\\.ua|dn\\.ua|dnepropetrovsk\\.ua|donetsk\\.ua|dp\\.ua|if\\.ua|ivano-frankivsk\\.ua|kh\\.ua|kharkov\\.ua|kherson\\.ua|khmelnitskiy\\.ua|kiev\\.ua|kirovograd\\.ua|km\\.ua|kr\\.ua|ks\\.ua|kv\\.ua|lg\\.ua|lugansk\\.ua|lutsk\\.ua|lviv\\.ua|mk\\.ua|nikolaev\\.ua|od\\.ua|odessa\\.ua|pl\\.ua|poltava\\.ua|rovno\\.ua|rv\\.ua|sebastopol\\.ua|sumy\\.ua|te\\.ua|ternopil\\.ua|vinnica\\.ua|vn\\.ua|zaporizhzhe\\.ua|zp\\.ua|uzhgorod\\.ua|zhitomir\\.ua|zt\\.ua|ug|co\\.ug|ac\\.ug|sc\\.ug|go\\.ug|ne\\.ug|or\\.ug|uk|sch\\.uk|us|dni\\.us|fed\\.us|isa\\.us|kids\\.us|nsn\\.us|ak\\.us|al\\.us|ar\\.us|as\\.us|az\\.us|ca\\.us|co\\.us|ct\\.us|dc\\.us|de\\.us|fl\\.us|ga\\.us|gu\\.us|hi\\.us|ia\\.us|id\\.us|il\\.us|in\\.us|ks\\.us|ky\\.us|la\\.us|ma\\.us|md\\.us|me\\.us|mi\\.us|mn\\.us|mo\\.us|ms\\.us|mt\\.us|nc\\.us|nd\\.us|ne\\.us|nh\\.us|nj\\.us|nm\\.us|nv\\.us|ny\\.us|oh\\.us|ok\\.us|or\\.us|pa\\.us|pr\\.us|ri\\.us|sc\\.us|sd\\.us|tn\\.us|tx\\.us|ut\\.us|vi\\.us|vt\\.us|va\\.us|wa\\.us|wi\\.us|wv\\.us|wy\\.us|uy|uz|com\\.uz|co\\.uz|va|vc|com\\.vc|net\\.vc|org\\.vc|gov\\.vc|mil\\.vc|edu\\.vc|ve|vg|vi|com\\.vi|org\\.vi|edu\\.vi|gov\\.vi|vn|com\\.vn|net\\.vn|org\\.vn|edu\\.vn|gov\\.vn|int\\.vn|ac\\.vn|biz\\.vn|info\\.vn|name\\.vn|pro\\.vn|health\\.vn|vu|ws|com\\.ws|net\\.ws|org\\.ws|gov\\.ws|edu\\.ws|ye|yu|za|zm|zw))[ \\[(\\n\\t]'	1073

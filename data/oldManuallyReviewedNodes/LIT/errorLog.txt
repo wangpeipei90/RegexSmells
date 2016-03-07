@@ -1,0 +1,22 @@
+
+current node: T1
+
+
+current node: T2
+
+
+current node: T3
+
+partial cover already contains: \x1b\[[0]{0,1}m	498 in node: T2
+partial cover already contains: \x1b\[[0]{0,1}m	498 in node: T3
+partial cover already contains: (^(\x00|\n|\r| |:|<)|[\x00\n\r\x80-\xff]+|[ ]+$)	585 in node: T2
+partial cover already contains: (^(\x00|\n|\r| |:|<)|[\x00\n\r\x80-\xff]+|[ ]+$)	585 in node: T3
+partial cover already contains: ^[A-Za-z0-9\xc2\xb5 /()'>-]+\s+\([0-9A-Fx]+,[0-9A-F]+\)\s+[1-3][C]*\s+(.*)$	1432 in node: T2
+partial cover already contains: ^[A-Za-z0-9\xc2\xb5 /()'>-]+\s+\([0-9A-Fx]+,[0-9A-F]+\)\s+[1-3][C]*\s+(.*)$	1432 in node: T3
+
+current node: T4
+
+partial cover already contains: ^(?:\s*(?:,\s*)?([^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+)\s*=\s*\"?((?<=\")(?:[^\0-\x08\x0A-\x1f\x7f-\xff\\\"]|\\[\0-\x7f])*?(?=\")|(?<!\")[^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+(?!\"))\"?)(.*)$	220,323,355,436,510,559,814,925,927,936,995,1003,1068,1104,1150,1211,1269,1301,1328,1439,1469,1495,1498,1536,1555 in node: T2
+partial cover already contains: ^(?:\s*(?:,\s*)?([^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+)\s*=\s*\"?((?<=\")(?:[^\0-\x08\x0A-\x1f\x7f-\xff\\\"]|\\[\0-\x7f])*?(?=\")|(?<!\")[^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+(?!\"))\"?)(.*)$	220,323,355,436,510,559,814,925,927,936,995,1003,1068,1104,1150,1211,1269,1301,1328,1439,1469,1495,1498,1536,1555 in node: T4
+partial cover already contains: /{0,2}[^]\0\t\r\v\n ()<>{}/%[]+	642,776,971,1203 in node: T3
+partial cover already contains: /{0,2}[^]\0\t\r\v\n ()<>{}/%[]+	642,776,971,1203 in node: T4

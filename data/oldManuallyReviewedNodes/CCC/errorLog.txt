@@ -1,0 +1,1118 @@
+
+current node: C4
+
+
+current node: C5
+
+partial cover already contains: ([-\w]+)\s*:\s*([^:;]*)	220,454,666,707,927,1003,1122,1247,1263,1290,1469,1580,1594 in node: C4
+partial cover already contains: ([-\w]+)\s*:\s*([^:;]*)	220,454,666,707,927,1003,1122,1247,1263,1290,1469,1580,1594 in node: C5
+partial cover already contains: (?P<option>[^:=\s][^:=]*)\s*(?P<vi>[:=])\s*(?P<value>.*)$	12,287,381,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C4
+partial cover already contains: (?P<option>[^:=\s][^:=]*)\s*(?P<vi>[:=])\s*(?P<value>.*)$	12,287,381,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C5
+partial cover already contains: (?P<delim>[^\w\n"\'])(?P<space> ?)(?P<quote>["\']).*?(?P=quote)(?P=delim)	12,287,412,602,759,852,961,1054,1087,1221,1509,1511,1580 in node: C4
+partial cover already contains: (?P<delim>[^\w\n"\'])(?P<space> ?)(?P<quote>["\']).*?(?P=quote)(?P=delim)	12,287,412,602,759,852,961,1054,1087,1221,1509,1511,1580 in node: C5
+partial cover already contains: (::|\.\.|\(\)|[/.*:\[\]\(\)@=])|((?:\{[^}]+\})?[^/:\[\]\(\)@=\s]+)|\s+	12,147,245,287,305,602,1248,1317,1501,1505,1509,1638 in node: C4
+partial cover already contains: (::|\.\.|\(\)|[/.*:\[\]\(\)@=])|((?:\{[^}]+\})?[^/:\[\]\(\)@=\s]+)|\s+	12,147,245,287,305,602,1248,1317,1501,1505,1509,1638 in node: C5
+partial cover already contains: ^\s*([-\w]+\s*:[^:;]*(;\s*|$))*$	220,927,1122,1263,1290,1469,1580,1594 in node: C4
+partial cover already contains: ^\s*([-\w]+\s*:[^:;]*(;\s*|$))*$	220,927,1122,1263,1290,1469,1580,1594 in node: C5
+partial cover already contains: \s*[-\w]+\s*:\s*[^:;]*;?	220,454,666,707,927,1003,1247 in node: C4
+partial cover already contains: \s*[-\w]+\s*:\s*[^:;]*;?	220,454,666,707,927,1003,1247 in node: C5
+partial cover already contains: ([\d.]+)[^(]*(?:\((.+)\))?	12,412,759,852,961,1221,1511 in node: C4
+partial cover already contains: ([\d.]+)[^(]*(?:\((.+)\))?	12,412,759,852,961,1221,1511 in node: C5
+partial cover already contains: (\s+|[^\s\w]*\w{2,}-(?=\w{2,})|(?<=[\w\!\"\\'\&\.\,\?])-{2,}(?=\w))	322,467,505,534,743,1216,1466 in node: C4
+partial cover already contains: (\s+|[^\s\w]*\w{2,}-(?=\w{2,})|(?<=[\w\!\"\\'\&\.\,\?])-{2,}(?=\w))	322,467,505,534,743,1216,1466 in node: C5
+partial cover already contains: <\/([\w\:\-]+)[^>]*>	305,407,1025,1322,1326,1505 in node: C4
+partial cover already contains: <\/([\w\:\-]+)[^>]*>	305,407,1025,1322,1326,1505 in node: C5
+partial cover already contains: ^#import[\s\t]*([^\s^\t]*)[\s\t]*$	546,830,1028,1039,1223,1420 in node: C4
+partial cover already contains: ^#import[\s\t]*([^\s^\t]*)[\s\t]*$	546,830,1028,1039,1223,1420 in node: C5
+partial cover already contains: (.*?[^\s\]\}\)]+.*?)([\]\}\)],?)\s*$	306,322,534,896,1007,1466 in node: C4
+partial cover already contains: (.*?[^\s\]\}\)]+.*?)([\]\}\)],?)\s*$	306,322,534,896,1007,1466 in node: C5
+partial cover already contains: \([^()]*\b(?:[\w:]|<[^()]*>)+(\s?&|&\s?)\w+	322,416,467,505,534,1466 in node: C4
+partial cover already contains: \([^()]*\b(?:[\w:]|<[^()]*>)+(\s?&|&\s?)\w+	322,416,467,505,534,1466 in node: C5
+partial cover already contains: ([sS][eE][tT]\s*\()\s*([^\s]+)\s+"([^"]+)"\)	322,467,505,534,1216,1466 in node: C4
+partial cover already contains: ([sS][eE][tT]\s*\()\s*([^\s]+)\s+"([^"]+)"\)	322,467,505,534,1216,1466 in node: C5
+partial cover already contains: \([^()]*\b(?:[\w:]|<[^()]*>)+\s+const(\s?&|&\s?)[\w]+	322,416,467,505,534,1466 in node: C4
+partial cover already contains: \([^()]*\b(?:[\w:]|<[^()]*>)+\s+const(\s?&|&\s?)[\w]+	322,416,467,505,534,1466 in node: C5
+partial cover already contains: ([\w.+]+)\s*\(#(\d+),\s*([\w ]+),\s*([\w :]+)\)\s*\[([^\]]+)\]?	412,759,852,961,1221,1511 in node: C4
+partial cover already contains: ([\w.+]+)\s*\(#(\d+),\s*([\w ]+),\s*([\w :]+)\)\s*\[([^\]]+)\]?	412,759,852,961,1221,1511 in node: C5
+partial cover already contains: \([^()]*\bconst\s+(?:typename\s+)?(?:struct\s+)?(?:[\w:]|<[^()]*>)+(\s?&|&\s?)\w+	322,416,467,505,534,1466 in node: C4
+partial cover already contains: \([^()]*\bconst\s+(?:typename\s+)?(?:struct\s+)?(?:[\w:]|<[^()]*>)+(\s?&|&\s?)\w+	322,416,467,505,534,1466 in node: C5
+partial cover already contains: <\/?[\w:\-]+(?:\s+[\w\-:]+(?:\s*=\s*(?:(?:"[^"]*")|(?:\\'[^\\']*\\')|[^>\s]+))?)*\s*(\/?)>$	305,407,1025,1322,1326,1505 in node: C4
+partial cover already contains: <\/?[\w:\-]+(?:\s+[\w\-:]+(?:\s*=\s*(?:(?:"[^"]*")|(?:\\'[^\\']*\\')|[^>\s]+))?)*\s*(\/?)>$	305,407,1025,1322,1326,1505 in node: C5
+partial cover already contains: <([\w\:\-]+)((?:\s+[\w\-:]+(?:\s*=\s*(?:(?:"[^"]*")|(?:\\'[^\\']*\\')|[^>\s]+))?)*)\s*(\/?)>	305,407,1025,1322,1326,1505 in node: C4
+partial cover already contains: <([\w\:\-]+)((?:\s+[\w\-:]+(?:\s*=\s*(?:(?:"[^"]*")|(?:\\'[^\\']*\\')|[^>\s]+))?)*)\s*(\/?)>	305,407,1025,1322,1326,1505 in node: C5
+partial cover already contains: ^%[%!\w]([^:]*)[ \t]*$	441,628,1054,1204,1580 in node: C4
+partial cover already contains: ^%[%!\w]([^:]*)[ \t]*$	441,628,1054,1204,1580 in node: C5
+partial cover already contains: (\s*<[^>]+>[\s\n\r]*)$	143,188,213,1094,1583 in node: C4
+partial cover already contains: (\s*<[^>]+>[\s\n\r]*)$	143,188,213,1094,1583 in node: C5
+partial cover already contains: (.+) release ([\d.]+)[^(]*(?:\((.+)\))?	287,602,1054,1087,1509 in node: C4
+partial cover already contains: (.+) release ([\d.]+)[^(]*(?:\((.+)\))?	287,602,1054,1087,1509 in node: C5
+partial cover already contains: ([\w.+]+)\s*\(#?([^,]+),\s*([\w ]+),\s*([\w :]+)\)\s*\[([^\]]+)\]?	12,287,602,1054,1509 in node: C4
+partial cover already contains: ([\w.+]+)\s*\(#?([^,]+),\s*([\w ]+),\s*([\w :]+)\)\s*\[([^\]]+)\]?	12,287,602,1054,1509 in node: C5
+partial cover already contains: \s*((?<=[\\'"\s])[^\s/>][^\s/=>]*)(\s*=+\s*(\\'[^\\']*\\'|"[^"]*"|(?![\\'"])[^>\s]*))?	873,927,1469,1580,1592 in node: C4
+partial cover already contains: \s*((?<=[\\'"\s])[^\s/>][^\s/=>]*)(\s*=+\s*(\\'[^\\']*\\'|"[^"]*"|(?![\\'"])[^>\s]*))?	873,927,1469,1580,1592 in node: C5
+partial cover already contains: ^<([\w\:\-]+)((?:\s+[\w\-:]+(?:\s*=\s*(?:(?:"[^"]*")|(?:\'[^\']*\')|[^>\s]+))?)*)\s*(\/?)>	305,1025,1322,1326,1505 in node: C4
+partial cover already contains: ^<([\w\:\-]+)((?:\s+[\w\-:]+(?:\s*=\s*(?:(?:"[^"]*")|(?:\'[^\']*\')|[^>\s]+))?)*)\s*(\/?)>	305,1025,1322,1326,1505 in node: C5
+partial cover already contains: ([<>]|&(?![^\s]+;))	60,64,881,928 in node: C4
+partial cover already contains: ([<>]|&(?![^\s]+;))	60,64,881,928 in node: C5
+partial cover already contains: \b((?:([\w-]+):(/{1,3})|www[.])(?:(?:(?:[^\s&()]|&amp;|&quot;)*(?:[^!"#$%&\'()*+,.:;<=>?@\[\]^`{|}~\s]))|(?:\((?:[^\s&()]|&amp;|&quot;)*\)))+)	552,606,800,1469 in node: C4
+partial cover already contains: \b((?:([\w-]+):(/{1,3})|www[.])(?:(?:(?:[^\s&()]|&amp;|&quot;)*(?:[^!"#$%&\'()*+,.:;<=>?@\[\]^`{|}~\s]))|(?:\((?:[^\s&()]|&amp;|&quot;)*\)))+)	552,606,800,1469 in node: C5
+partial cover already contains: ^([^:]+): (\w+) \(([\w\.]+)\)	122,1015,1032 in node: C4
+partial cover already contains: ^([^:]+): (\w+) \(([\w\.]+)\)	122,1015,1032 in node: C5
+partial cover already contains: (?:[^\s])(\s*)(?:[-+*/|!<=>%&^]+)(\s*)	640,945,1505 in node: C4
+partial cover already contains: (?:[^\s])(\s*)(?:[-+*/|!<=>%&^]+)(\s*)	640,945,1505 in node: C5
+partial cover already contains: (?P<name>[\w-]+)\s*\(\s*(==\s*)?(?P<ver>[^)]+)\)$	1263,1580,1594 in node: C4
+partial cover already contains: (?P<name>[\w-]+)\s*\(\s*(==\s*)?(?P<ver>[^)]+)\)$	1263,1580,1594 in node: C5
+partial cover already contains: (?P<option>[^:=\s][^:=]*)\s*(?:(?P<vi>[:=])\s*(?P<value>.*))?$	381,1054,1087 in node: C4
+partial cover already contains: (?P<option>[^:=\s][^:=]*)\s*(?:(?P<vi>[:=])\s*(?P<value>.*))?$	381,1054,1087 in node: C5
+partial cover already contains: (\'[^\']*\'|"[^"]*"|::|//?|\.\.|\(\)|[/.*:\[\]\(\)@=])|((?:\{[^}]+\})?[^/\[\]\(\)@=\s]+)|\s+	1054,1087,1580 in node: C4
+partial cover already contains: (\'[^\']*\'|"[^"]*"|::|//?|\.\.|\(\)|[/.*:\[\]\(\)@=])|((?:\{[^}]+\})?[^/\[\]\(\)@=\s]+)|\s+	1054,1087,1580 in node: C5
+partial cover already contains: (?x)\n    ^\n    (?: (\w+):                     )?  # optional label at start of line\n        \s* (\.?\w+)                   # optional spaces, (pseudo-)opcode\n    (?: \s+ ([+-]?\w+ | \([^)]*\)) )?  # optional first immediate operand\n    (?: \s+ ([\w,-]+  | \([^)]*\)) )?  # optional second immediate operand\n    (?: \s* (?:\#.*)               )?  # optional spaces and comment\n    $	1007,1015,1032 in node: C4
+partial cover already contains: (?x)\n    ^\n    (?: (\w+):                     )?  # optional label at start of line\n        \s* (\.?\w+)                   # optional spaces, (pseudo-)opcode\n    (?: \s+ ([+-]?\w+ | \([^)]*\)) )?  # optional first immediate operand\n    (?: \s+ ([\w,-]+  | \([^)]*\)) )?  # optional second immediate operand\n    (?: \s* (?:\#.*)               )?  # optional spaces and comment\n    $	1007,1015,1032 in node: C5
+partial cover already contains: ^[\s\t\n]*([^\n]*)	640,659 in node: C4
+partial cover already contains: ^[\s\t\n]*([^\n]*)	640,659 in node: C5
+partial cover already contains: ([:\-\w]*){([^}]+)}	753,942 in node: C4
+partial cover already contains: ([:\-\w]*){([^}]+)}	753,942 in node: C5
+partial cover already contains: ([\w\-\.]+)="([^"]+)"	640,662 in node: C4
+partial cover already contains: ([\w\-\.]+)="([^"]+)"	640,662 in node: C5
+partial cover already contains: ([\w\-\.]+)='([^']+)'	640,662 in node: C4
+partial cover already contains: ([\w\-\.]+)='([^']+)'	640,662 in node: C5
+partial cover already contains: ([\w]*)([^:=]*:?=?)([sif]?)	602,747 in node: C4
+partial cover already contains: ([\w]*)([^:=]*:?=?)([sif]?)	602,747 in node: C5
+partial cover already contains: ^([\w\.]+) \.\.\. \[([^\]]+)\]$	1015,1032 in node: C4
+partial cover already contains: ^([\w\.]+) \.\.\. \[([^\]]+)\]$	1015,1032 in node: C5
+partial cover already contains: (([wum]asser(t|ted)))\s*\(([^\d]*)(\d+)\s*,?()	1459,1531 in node: C4
+partial cover already contains: (([wum]asser(t|ted)))\s*\(([^\d]*)(\d+)\s*,?()	1459,1531 in node: C5
+partial cover already contains: (?P<name>[\w .-]+)\s*\(\s*(?P<ver>[^\s)]+)\)$	1263,1580 in node: C4
+partial cover already contains: (?P<name>[\w .-]+)\s*\(\s*(?P<ver>[^\s)]+)\)$	1263,1580 in node: C5
+partial cover already contains: ^\s*([\w\s\*]+)\(\s*\*\s*(\w+)\s*\)\s*\(([^()]*)\);	1054,1198 in node: C4
+partial cover already contains: ^\s*([\w\s\*]+)\(\s*\*\s*(\w+)\s*\)\s*\(([^()]*)\);	1054,1198 in node: C5
+partial cover already contains: \b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))	274,573 in node: C4
+partial cover already contains: \b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))	274,573 in node: C5
+partial cover already contains: ([\w.+]+)\s*\(#?([^,]+),\s*([\w ]+),\s*([\w :]+)\)\s*\[PyPy [^\]]+\]?	1054,1087 in node: C4
+partial cover already contains: ([\w.+]+)\s*\(#?([^,]+),\s*([\w ]+),\s*([\w :]+)\)\s*\[PyPy [^\]]+\]?	1054,1087 in node: C5
+partial cover already contains: ^((http[s]?):\/)#?\/?([^:\/\s]+)((\/[\w\-\.]+)*\/)*([\w\-\.]+[^#?\s]+)	1028,1039 in node: C4
+partial cover already contains: ^((http[s]?):\/)#?\/?([^:\/\s]+)((\/[\w\-\.]+)*\/)*([\w\-\.]+[^#?\s]+)	1028,1039 in node: C5
+partial cover already contains: ^((?P<retval>[^=]+?)\s*=|class)?\s*(?P<head>[\w\.]+\s?\(.*?\))\s*(?P<sep>[:<>=-]*)\s*(?P<tail>.*)$	305,1505 in node: C4
+partial cover already contains: ^((?P<retval>[^=]+?)\s*=|class)?\s*(?P<head>[\w\.]+\s?\(.*?\))\s*(?P<sep>[:<>=-]*)\s*(?P<tail>.*)$	305,1505 in node: C5
+partial cover already contains: (\'[^\']*\'|"[^"]*"|::|//?|\.\.|\(\)|[/.*:\[\]\(\)@=])|((?:\{[^}]+\})?[^/:\[\]\(\)@=\s]+)|\s+	72,1087 in node: C4
+partial cover already contains: (\'[^\']*\'|"[^"]*"|::|//?|\.\.|\(\)|[/.*:\[\]\(\)@=])|((?:\{[^}]+\})?[^/:\[\]\(\)@=\s]+)|\s+	72,1087 in node: C5
+partial cover already contains: ^(?P<filetype>.)(?P<perms>.{9})\s+(?P<nlinks>\d*)\s*(?P<owner>\S+)\s+(?P<group>\S+)\s+(?P<size>\d+)\s+(?P<date>...\s+\d+\s+[\d:]+)\s+(?P<filename>([^ ]|\\ )*?)( -> (?P<linktarget>[^\r]*))?\r?$	1223,1420 in node: C4
+partial cover already contains: ^(?P<filetype>.)(?P<perms>.{9})\s+(?P<nlinks>\d*)\s*(?P<owner>\S+)\s+(?P<group>\S+)\s+(?P<size>\d+)\s+(?P<date>...\s+\d+\s+[\d:]+)\s+(?P<filename>([^ ]|\\ )*?)( -> (?P<linktarget>[^\r]*))?\r?$	1223,1420 in node: C5
+partial cover already contains: [\w]+="[^"]+"	1076 in node: C4
+partial cover already contains: [\w]+="[^"]+"	1076 in node: C5
+partial cover already contains: ^[^:]*[\d:]+$	741 in node: C4
+partial cover already contains: ^[^:]*[\d:]+$	741 in node: C5
+partial cover already contains: ([\d.]+)([^\s]+)	899 in node: C4
+partial cover already contains: ([\d.]+)([^\s]+)	899 in node: C5
+partial cover already contains: ^Name:[ ]*([^\s]*)	122 in node: C4
+partial cover already contains: ^Name:[ ]*([^\s]*)	122 in node: C5
+partial cover already contains: ^[\s]*==([^=]+)==	1100 in node: C4
+partial cover already contains: ^[\s]*==([^=]+)==	1100 in node: C5
+partial cover already contains: ([^<]*)<([\w]*|/)>	363 in node: C4
+partial cover already contains: ([^<]*)<([\w]*|/)>	363 in node: C5
+partial cover already contains: (?:^|[^%])%([\w-]+)	1571 in node: C4
+partial cover already contains: (?:^|[^%])%([\w-]+)	1571 in node: C5
+partial cover already contains: ^[\w\<][^\n]*(\n+)	485 in node: C4
+partial cover already contains: ^[\w\<][^\n]*(\n+)	485 in node: C5
+partial cover already contains: [^_]+_toy-([\w-]*)-x86	1068 in node: C4
+partial cover already contains: [^_]+_toy-([\w-]*)-x86	1068 in node: C5
+partial cover already contains: ([\w\.-]+)\s+([^(]+).*	1501 in node: C4
+partial cover already contains: ([\w\.-]+)\s+([^(]+).*	1501 in node: C5
+partial cover already contains: (%(\([^\s\)]*\))?[sd])	162 in node: C4
+partial cover already contains: (%(\([^\s\)]*\))?[sd])	162 in node: C5
+partial cover already contains: ([^\-\.]*)-([\d+.\-]+)$	1248 in node: C4
+partial cover already contains: ([^\-\.]*)-([\d+.\-]+)$	1248 in node: C5
+partial cover already contains: \s*([^\s\=]+)[\s=]+(.*)	1412 in node: C4
+partial cover already contains: \s*([^\s\=]+)[\s=]+(.*)	1412 in node: C5
+partial cover already contains: ^[\w|\s.]+\(([^)]*)\).*	1580 in node: C4
+partial cover already contains: ^[\w|\s.]+\(([^)]*)\).*	1580 in node: C5
+partial cover already contains: ([^,(\s]+[.]spacesaver[(][)])	356 in node: C4
+partial cover already contains: ([^,(\s]+[.]spacesaver[(][)])	356 in node: C5
+partial cover already contains: [^\s]*?[\'|"].*?[\'|"]|[^\s]+	560 in node: C4
+partial cover already contains: [^\s]*?[\'|"].*?[\'|"]|[^\s]+	560 in node: C5
+partial cover already contains: (/[\w/]*)|([^/ ][^: ]*)(:(\d+)){,1}	897 in node: C4
+partial cover already contains: (/[\w/]*)|([^/ ][^: ]*)(:(\d+)){,1}	897 in node: C5
+partial cover already contains: ([^%]|^)\\makeindex(\[([\w]+)\])?	31 in node: C4
+partial cover already contains: ([^%]|^)\\makeindex(\[([\w]+)\])?	31 in node: C5
+partial cover already contains: (?<![\(\[])(http://[^\s\'"\]\)]+)	200 in node: C4
+partial cover already contains: (?<![\(\[])(http://[^\s\'"\]\)]+)	200 in node: C5
+partial cover already contains: (?i)(?:.+?://)?(?:www[\d]*\.)?([^/:#?]*)	200 in node: C4
+partial cover already contains: (?i)(?:.+?://)?(?:www[\d]*\.)?([^/:#?]*)	200 in node: C5
+partial cover already contains: (?:[^,\s])(\s*)(?:[-+*/|!<=>%&^]+)(\s*)	1025 in node: C4
+partial cover already contains: (?:[^,\s])(\s*)(?:[-+*/|!<=>%&^]+)(\s*)	1025 in node: C5
+partial cover already contains: [ \t]*([^<>\s]+?)[ \t]*<p="([^"]*"?)"/>	1248 in node: C4
+partial cover already contains: [ \t]*([^<>\s]+?)[ \t]*<p="([^"]*"?)"/>	1248 in node: C5
+partial cover already contains: \s*([^\\'"\s{},=][^{},=]*?)\s*([},=]|$)	727 in node: C4
+partial cover already contains: \s*([^\\'"\s{},=][^{},=]*?)\s*([},=]|$)	727 in node: C5
+partial cover already contains: (?i)(?:.+?://)?(?:www[\d]*\.)?([^#]*[^#/])/?	200 in node: C4
+partial cover already contains: (?i)(?:.+?://)?(?:www[\d]*\.)?([^#]*[^#/])/?	200 in node: C5
+partial cover already contains: ^==== ([^\s]+) \(([^\)]+)\) ==([ACIMR])==$	1426 in node: C4
+partial cover already contains: ^==== ([^\s]+) \(([^\)]+)\) ==([ACIMR])==$	1426 in node: C5
+partial cover already contains: \s*([+-]?)([^\s\(\)<>"\\'\-=\[\],]+)\s*	1248 in node: C4
+partial cover already contains: \s*([+-]?)([^\s\(\)<>"\\'\-=\[\],]+)\s*	1248 in node: C5
+partial cover already contains: <\w+[^>]*>|</\w+>|[\w\']+|\s+|[^\w\'\s<>/]+	55 in node: C4
+partial cover already contains: <\w+[^>]*>|</\w+>|[\w\']+|\s+|[^\w\'\s<>/]+	55 in node: C5
+partial cover already contains: ^\s*((?P<title>[^\s]*?)\s+)?(?P<tags>:[\w_:@]+:)$	624 in node: C4
+partial cover already contains: ^\s*((?P<title>[^\s]*?)\s+)?(?P<tags>:[\w_:@]+:)$	624 in node: C5
+partial cover already contains: \s*([bB]asic|[dD]igest)\s+(?:[\w]+="[^"]+",?\s*)?	1076 in node: C4
+partial cover already contains: \s*([bB]asic|[dD]igest)\s+(?:[\w]+="[^"]+",?\s*)?	1076 in node: C5
+partial cover already contains: ^(?:Doctest: )?([\w\.]+) \.\.\. \[([^\]]+)\]$	122 in node: C4
+partial cover already contains: ^(?:Doctest: )?([\w\.]+) \.\.\. \[([^\]]+)\]$	122 in node: C5
+partial cover already contains: (<[\s]*script[^>]*>[\s\S]*?<\/[\s]*script[\s]*>)	168 in node: C4
+partial cover already contains: (<[\s]*script[^>]*>[\s\S]*?<\/[\s]*script[\s]*>)	168 in node: C5
+partial cover already contains: ((^|\n)[^%]*?)(\\input|\\include)\{([\w /\.\-]+)\}	31 in node: C4
+partial cover already contains: ((^|\n)[^%]*?)(\\input|\\include)\{([\w /\.\-]+)\}	31 in node: C5
+partial cover already contains: (?P<option>[^:=\s][^:=]*)\s*(?P<vi>[:=]?)\s*(?P<value>.*)$	1108 in node: C4
+partial cover already contains: (?P<option>[^:=\s][^:=]*)\s*(?P<vi>[:=]?)\s*(?P<value>.*)$	1108 in node: C5
+partial cover already contains: \s*(?P<option>[^:=\s][^:=]*)\s*(?P<vi>[:=])\s*(?P<value>.*)$	599 in node: C4
+partial cover already contains: \s*(?P<option>[^:=\s][^:=]*)\s*(?P<vi>[:=])\s*(?P<value>.*)$	599 in node: C5
+partial cover already contains: \s?(?P<option>[^:=\s][^:=]*)\s*(?P<vi>[:=])\s*(?P<value>.*)$	599 in node: C4
+partial cover already contains: \s?(?P<option>[^:=\s][^:=]*)\s*(?P<vi>[:=])\s*(?P<value>.*)$	599 in node: C5
+partial cover already contains: ((^|\n)[^%]*?)\\usepackage(\[[\w, \-]+\])?\{([\w,\-]+)\}	31 in node: C4
+partial cover already contains: ((^|\n)[^%]*?)\\usepackage(\[[\w, \-]+\])?\{([\w,\-]+)\}	31 in node: C5
+partial cover already contains: (?P<file>[-/\.\w<>]+):((?P<line>\d+):)?(\d+:)? warning: (?P<msg>[^ ].*)$	635 in node: C4
+partial cover already contains: (?P<file>[-/\.\w<>]+):((?P<line>\d+):)?(\d+:)? warning: (?P<msg>[^ ].*)$	635 in node: C5
+partial cover already contains: ([\w.+]+)\s*.*\(#?([^,]+),\s*([\w ]+),\s*([\w :]+)\)\s*\[([^\]]+)\]?	1087 in node: C4
+partial cover already contains: ([\w.+]+)\s*.*\(#?([^,]+),\s*([\w ]+),\s*([\w :]+)\)\s*\[([^\]]+)\]?	1087 in node: C5
+partial cover already contains: (\'[^\']*\'|"[^"]*"|//?|\(\)|==?|[/.*\[\]\(\)@])|([^/\[\]\(\)@=\s]+)|\s+	1621 in node: C4
+partial cover already contains: (\'[^\']*\'|"[^"]*"|//?|\(\)|==?|[/.*\[\]\(\)@])|([^/\[\]\(\)@=\s]+)|\s+	1621 in node: C5
+partial cover already contains: <[\s]*script(?P<attributes>[^>]*)>[\s]*(?P<data>[\s\S]*?)<\/[\s]*script[\s]*>	168 in node: C4
+partial cover already contains: <[\s]*script(?P<attributes>[^>]*)>[\s]*(?P<data>[\s\S]*?)<\/[\s]*script[\s]*>	168 in node: C5
+partial cover already contains: \s*[ur]{0,2}(?:"""[\s\S]*?"""|"[^"\n]+?"|\'\'\'[\s\S]*?\'\'\'|\'[^\'\n]+?\')\s*	1248 in node: C4
+partial cover already contains: \s*[ur]{0,2}(?:"""[\s\S]*?"""|"[^"\n]+?"|\'\'\'[\s\S]*?\'\'\'|\'[^\'\n]+?\')\s*	1248 in node: C5
+partial cover already contains: ((,([\s\r\n]*)(\]))|(,([\s\r\n]*)(\})))|("(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|.[^,"\']*)	1025 in node: C4
+partial cover already contains: ((,([\s\r\n]*)(\]))|(,([\s\r\n]*)(\})))|("(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|.[^,"\']*)	1025 in node: C5
+partial cover already contains: ((?<=[\\'"\s/])[^\s/>][^\s/=>]*)(\s*=+\s*(\\'[^\\']*\\'|"[^"]*"|(?![\\'"])[^>\s]*))?(?:\s|/(?!>))*	1580 in node: C4
+partial cover already contains: ((?<=[\\'"\s/])[^\s/>][^\s/=>]*)(\s*=+\s*(\\'[^\\']*\\'|"[^"]*"|(?![\\'"])[^>\s]*))?(?:\s|/(?!>))*	1580 in node: C5
+partial cover already contains: ^<([\w\-]+(?:\:[\w\-]+)?)((?:\s+[\w\-]+(?:\s*=\s*(?:(?:"[^"]*")|(?:\\'[^\\']*\\')|[^>\s]+))?)*)\s*(\/?)>	407 in node: C4
+partial cover already contains: ^<([\w\-]+(?:\:[\w\-]+)?)((?:\s+[\w\-]+(?:\s*=\s*(?:(?:"[^"]*")|(?:\\'[^\\']*\\')|[^>\s]+))?)*)\s*(\/?)>	407 in node: C5
+partial cover already contains: \b((?:([\w-]+):(/{1,3})|www[.])(?:(?:(?:[^\s&()]|&amp;|&quo\nt;)*(?:[^!"#$%&\'()*+,.:;<=>?@\[\]^`{|}~\s]))|(?:\((?:[^\s&()]|&amp;|&quot;)*\)))+)	1055 in node: C4
+partial cover already contains: \b((?:([\w-]+):(/{1,3})|www[.])(?:(?:(?:[^\s&()]|&amp;|&quo\nt;)*(?:[^!"#$%&\'()*+,.:;<=>?@\[\]^`{|}~\s]))|(?:\((?:[^\s&()]|&amp;|&quot;)*\)))+)	1055 in node: C5
+partial cover already contains: ^(?P<filetype>.)(?P<perms>.{9})\s+(?P<nlinks>\d*)\s*(?P<owner>\S+)\s+(?P<group>\S+)\s+(?P<size>\d+)\s+(?P<date>...\s+\d+\s+[\d:]+)\s+(?P<filename>.{1,}?)( -> (?P<linktarget>[^\r]*))?\r?$	557 in node: C4
+partial cover already contains: ^(?P<filetype>.)(?P<perms>.{9})\s+(?P<nlinks>\d*)\s*(?P<owner>\S+)\s+(?P<group>\S+)\s+(?P<size>\d+)\s+(?P<date>...\s+\d+\s+[\d:]+)\s+(?P<filename>.{1,}?)( -> (?P<linktarget>[^\r]*))?\r?$	557 in node: C5
+partial cover already contains: \[(?P<escapeopen>\[?)(?P<name>[\w\d\_-]+)\b(?P<arguments>[^\]\/]*(?:\/(?!\])[^\]\/]*)*?)(?:(?P<selfclosing>\/)\]|\](?:(?P<content>[^\[]*(?:\[(?!\/(?P=name)\])[^\[]*)*)\[\/(?P=name)\])?)(?P<escapeclose>\]?)	934 in node: C4
+partial cover already contains: \[(?P<escapeopen>\[?)(?P<name>[\w\d\_-]+)\b(?P<arguments>[^\]\/]*(?:\/(?!\])[^\]\/]*)*?)(?:(?P<selfclosing>\/)\]|\](?:(?P<content>[^\[]*(?:\[(?!\/(?P=name)\])[^\[]*)*)\[\/(?P=name)\])?)(?P<escapeclose>\]?)	934 in node: C5
+partial cover already contains: ^ ([\w.]+\.)?            # class name(s)\n          ([^\s(]+)  \s*         # thing name\n          (?: \((.*)\)           # optional: arguments\n           (?:\s* -> \s* (.*))?  #           return annotation\n          )? $                   # and nothing more\n          	898 in node: C4
+partial cover already contains: ^ ([\w.]+\.)?            # class name(s)\n          ([^\s(]+)  \s*         # thing name\n          (?: \((.*)\)           # optional: arguments\n           (?:\s* -> \s* (.*))?  #           return annotation\n          )? $                   # and nothing more\n          	898 in node: C5
+partial cover already contains: ^ ([\w.]*\.)?            # class name(s)\n          ([^\s(]+)  \s*         # thing name\n          (?: \((.*)\)           # optional: arguments\n           (?:\s* -> \s* (.*))?  #           return annotation\n          )? $                   # and nothing more\n          	1551 in node: C4
+partial cover already contains: ^ ([\w.]*\.)?            # class name(s)\n          ([^\s(]+)  \s*         # thing name\n          (?: \((.*)\)           # optional: arguments\n           (?:\s* -> \s* (.*))?  #           return annotation\n          )? $                   # and nothing more\n          	1551 in node: C5
+partial cover already contains: \n        # Include these so we can skip them:\n        (?P<COMMENT>        <!--.*?-->                          )|\n        (?P<CDATA>          <![CDATA[.*?]]>                     )|\n        (?P<PI>             <\?.*?\?>                           )|\n        (?P<DOCTYPE>        <!DOCTYPE\s+[^\[]*(\[[^\]]*])?\s*>  )|\n        # These are the ones we actually care about:\n        (?P<EMPTY_ELT_TAG>  <\s*[^>/\?!\s][^>]*/\s*>            )|\n        (?P<START_TAG>      <\s*[^>/\?!\s][^>]*>                )|\n        (?P<END_TAG>        <\s*/[^>/\?!\s][^>]*>               )	1248 in node: C4
+partial cover already contains: \n        # Include these so we can skip them:\n        (?P<COMMENT>        <!--.*?-->                          )|\n        (?P<CDATA>          <![CDATA[.*?]]>                     )|\n        (?P<PI>             <\?.*?\?>                           )|\n        (?P<DOCTYPE>        <!DOCTYPE\s+[^\[]*(\[[^\]]*])?\s*>  )|\n        # These are the ones we actually care about:\n        (?P<EMPTY_ELT_TAG>  <\s*[^>/\?!\s][^>]*/\s*>            )|\n        (?P<START_TAG>      <\s*[^>/\?!\s][^>]*>                )|\n        (?P<END_TAG>        <\s*/[^>/\?!\s][^>]*>               )	1248 in node: C5
+partial cover already contains: \n                 (?x)( # verbose identify URLs within text\n     (http|ftp|gopher) # make sure we find a resource type\n                   :// # ...needs to be followed by colon-slash-slash\n        (\w+[:.]?){2,} # at least two domain groups, e.g. (gnosis.)(cx)\n                  (/?| # could be just the domain name (maybe w/ slash)\n            [^ \n\r"]+ # or stuff then space, newline, tab, quote\n                [\w/]) # resource name ends in alphanumeric or slash\n     (?=[\s\.,>)\'"\]]) # assert: followed by white or clause ending\n                     ) # end of match group\n                       	962 in node: C4
+partial cover already contains: \n                 (?x)( # verbose identify URLs within text\n     (http|ftp|gopher) # make sure we find a resource type\n                   :// # ...needs to be followed by colon-slash-slash\n        (\w+[:.]?){2,} # at least two domain groups, e.g. (gnosis.)(cx)\n                  (/?| # could be just the domain name (maybe w/ slash)\n            [^ \n\r"]+ # or stuff then space, newline, tab, quote\n                [\w/]) # resource name ends in alphanumeric or slash\n     (?=[\s\.,>)\'"\]]) # assert: followed by white or clause ending\n                     ) # end of match group\n                       	962 in node: C5
+
+current node: C6
+
+partial cover already contains: \b((http|ftp)://\S+[\w/]|RFC[- ]?(\d+)|PEP[- ]?(\d+)|(self\.)?((?:\w|\.)+))\b	12,287,412,602,759,852,961,1054,1087,1221,1509,1511,1580 in node: C5
+partial cover already contains: \b((http|ftp)://\S+[\w/]|RFC[- ]?(\d+)|PEP[- ]?(\d+)|(self\.)?((?:\w|\.)+))\b	12,287,412,602,759,852,961,1054,1087,1221,1509,1511,1580 in node: C6
+partial cover already contains: <!ENTITY +(\w+) +CDATA +"([^"]+)" +-- +((?:.|\n)+?) *-->	12,412,759,852,961,1054,1087,1221,1511,1580 in node: C4
+partial cover already contains: <!ENTITY +(\w+) +CDATA +"([^"]+)" +-- +((?:.|\n)+?) *-->	12,412,759,852,961,1054,1087,1221,1511,1580 in node: C6
+partial cover already contains: ([^"\\]|\\(.|$))+	322,467,505,534,1466 in node: C4
+partial cover already contains: ([^"\\]|\\(.|$))+	322,467,505,534,1466 in node: C6
+partial cover already contains: ([^'\\]|\\(.|$))+	322,467,505,534,1466 in node: C4
+partial cover already contains: ([^'\\]|\\(.|$))+	322,467,505,534,1466 in node: C6
+partial cover already contains: (\s*[\w\W]*?\.)(\s|$)	757,1087 in node: C5
+partial cover already contains: (\s*[\w\W]*?\.)(\s|$)	757,1087 in node: C6
+partial cover already contains: enum\s*{([^}]*)}\s*([A-Z][A-Za-z]*)(\s|;)	1054,1198 in node: C4
+partial cover already contains: enum\s*{([^}]*)}\s*([A-Z][A-Za-z]*)(\s|;)	1054,1198 in node: C6
+partial cover already contains: enum\s*{([^}]*)}\s*([A-Z][A-Za-z]*)(\s|;)	1054,1198 in node: C1
+partial cover already contains: \n            ^\n            \s*\n            (={1,5})\n            \s*\n            (?P<name>(?:!=+|\n                        [^=!]+|\n                        !)+?\n            )\n            \s*\n            \1\n            (?:\s|\#|$)\n         	305,1505 in node: C4
+partial cover already contains: \n            ^\n            \s*\n            (={1,5})\n            \s*\n            (?P<name>(?:!=+|\n                        [^=!]+|\n                        !)+?\n            )\n            \s*\n            \1\n            (?:\s|\#|$)\n         	305,1505 in node: C6
+partial cover already contains: ^\n\s*((?:-|\w|\&|\*)+)   # return type\n\s*                    # skip whitespace\n\(\s*\*\s*             # opening (\n([a-z]\w+)\)           # match the function name until the closing )\n\s*\(\s*([^)]*)\).*      # group the function arguments\n$	1054,1198 in node: C4
+partial cover already contains: ^\n\s*((?:-|\w|\&|\*)+)   # return type\n\s*                    # skip whitespace\n\(\s*\*\s*             # opening (\n([a-z]\w+)\)           # match the function name until the closing )\n\s*\(\s*([^)]*)\).*      # group the function arguments\n$	1054,1198 in node: C6
+partial cover already contains: ^\n\s*((?:-|\w|\&|\*)+)   # return type\n\s*                    # skip whitespace\n\(\s*\*\s*             # opening (\n([a-z]\w+)\)           # match the function name until the closing )\n\s*\(\s*([^)]*)\).*      # group the function arguments\n$	1054,1198 in node: C1
+partial cover already contains: ([^\s].*?)(\s|$)	747 in node: C4
+partial cover already contains: ([^\s].*?)(\s|$)	747 in node: C6
+partial cover already contains: (^|\s)([\w]+)(\++)($|\s|\,)	1027 in node: C5
+partial cover already contains: (^|\s)([\w]+)(\++)($|\s|\,)	1027 in node: C6
+partial cover already contains: (\s*[\w\W]*?(?:\.(\s|$)|[\n][\t ]*[\n]))	1087 in node: C5
+partial cover already contains: (\s*[\w\W]*?(?:\.(\s|$)|[\n][\t ]*[\n]))	1087 in node: C6
+partial cover already contains: \b(?P<name>\S+?)/(?P<version>[^\(\s]+)(?P<default>\(default\))?(?:\s|$)	1384 in node: C4
+partial cover already contains: \b(?P<name>\S+?)/(?P<version>[^\(\s]+)(?P<default>\(default\))?(?:\s|$)	1384 in node: C6
+partial cover already contains: (?<!\w|\<|/|:)/[^\s/]([^/]*[^\s/])?/(?!\w|/|:)|(?<!\w)_[^\s_]([^_]*[^\s_])?_(?!\w)	18 in node: C4
+partial cover already contains: (?<!\w|\<|/|:)/[^\s/]([^/]*[^\s/])?/(?!\w|/|:)|(?<!\w)_[^\s_]([^_]*[^\s_])?_(?!\w)	18 in node: C6
+
+current node: C1
+
+partial cover already contains: ([\\"]|[^\ -~])	55,113,147,181,233,247,251,287,288,302,323,340,355,383,422,436,507,510,580,594,602,622,627,729,752,759,780,849,852,866,878,919,927,935,961,989,1003,1004,1007,1012,1015,1025,1032,1033,1054,1078,1086,1087,1122,1158,1184,1194,1199,1221,1247,1269,1328,1469,1495,1498,1501,1509,1511,1517,1580,1634 in node: C4
+partial cover already contains: ([\\"]|[^\ -~])	55,113,147,181,233,247,251,287,288,302,323,340,355,383,422,436,507,510,580,594,602,622,627,729,752,759,780,849,852,866,878,919,927,935,961,989,1003,1004,1007,1012,1015,1025,1032,1033,1054,1078,1086,1087,1122,1158,1184,1194,1199,1221,1247,1269,1328,1469,1495,1498,1501,1509,1511,1517,1580,1634 in node: C1
+partial cover already contains: [^]]+?\] +([0-9.]+): (\w+) <-(\w+)	271,279,280,282,318,346,367,406,442,495,569,586,590,601,652,667,751,762,791,799,848,855,876,937,952,1018,1040,1041,1098,1103,1105,1106,1116,1131,1167,1206,1236,1237,1306,1333,1334,1356,1360,1370,1390,1400,1440,1467,1514,1556,1562,1568,1581,1599,1610,1622,1624,1626,1627,1643 in node: C4
+partial cover already contains: [^]]+?\] +([0-9.]+): (\w+) <-(\w+)	271,279,280,282,318,346,367,406,442,495,569,586,590,601,652,667,751,762,791,799,848,855,876,937,952,1018,1040,1041,1098,1103,1105,1106,1116,1131,1167,1206,1236,1237,1306,1333,1334,1356,1360,1370,1390,1400,1440,1467,1514,1556,1562,1568,1581,1599,1610,1622,1624,1626,1627,1643 in node: C1
+partial cover already contains: <([^>]*)>: \[0x([0-9a-f]+)-0x([0-9a-f]+)\]	271,279,280,282,318,346,367,406,442,495,569,586,590,601,652,667,751,762,791,799,848,855,876,937,952,1018,1041,1098,1103,1105,1106,1116,1131,1167,1206,1236,1237,1306,1333,1334,1356,1360,1370,1390,1440,1467,1514,1556,1562,1581,1599,1610,1622,1624,1626,1627,1643 in node: C4
+partial cover already contains: <([^>]*)>: \[0x([0-9a-f]+)-0x([0-9a-f]+)\]	271,279,280,282,318,346,367,406,442,495,569,586,590,601,652,667,751,762,791,799,848,855,876,937,952,1018,1041,1098,1103,1105,1106,1116,1131,1167,1206,1236,1237,1306,1333,1334,1356,1360,1370,1390,1440,1467,1514,1556,1562,1581,1599,1610,1622,1624,1626,1627,1643 in node: C1
+partial cover already contains: ^(?:\s*(?:,\s*)?([^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+)\s*=\s*\"?((?<=\")(?:[^\0-\x08\x0A-\x1f\x7f-\xff\\\"]|\\[\0-\x7f])*?(?=\")|(?<!\")[^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+(?!\"))\"?)(.*)$	220,323,355,436,510,559,814,925,927,936,995,1003,1068,1104,1150,1211,1269,1301,1328,1439,1469,1495,1498,1536,1555 in node: C4
+partial cover already contains: ^(?:\s*(?:,\s*)?([^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+)\s*=\s*\"?((?<=\")(?:[^\0-\x08\x0A-\x1f\x7f-\xff\\\"]|\\[\0-\x7f])*?(?=\")|(?<!\")[^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+(?!\"))\"?)(.*)$	220,323,355,436,510,559,814,925,927,936,995,1003,1068,1104,1150,1211,1269,1301,1328,1439,1469,1495,1498,1536,1555 in node: C1
+partial cover already contains: ^(?:\s*(?:,\s*)?([^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+)\s*=\s*\"?((?<=\")(?:[^\0-\x08\x0A-\x1f\x7f-\xff\\\"]|\\[\0-\x7f])*?(?=\")|(?<!\")[^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+(?!\"))\"?)(.*)$	220,323,355,436,510,559,814,925,927,936,995,1003,1068,1104,1150,1211,1269,1301,1328,1439,1469,1495,1498,1536,1555 in node: C2
+partial cover already contains: \n        \$(?:\n          (?P<escaped>\$)              |   # Two $ signs\n          (?P<named>[_a-z][_a-z0-9]*)  |   # $name format\n          {(?P<braced>[^}]*)}              # ${name} format\n        )\n        	119,332,436,602,642,689,730,747,927,971,1003,1007,1015,1032,1203,1256,1269,1498 in node: C4
+partial cover already contains: \n        \$(?:\n          (?P<escaped>\$)              |   # Two $ signs\n          (?P<named>[_a-z][_a-z0-9]*)  |   # $name format\n          {(?P<braced>[^}]*)}              # ${name} format\n        )\n        	119,332,436,602,642,689,730,747,927,971,1003,1007,1015,1032,1203,1256,1269,1498 in node: C1
+partial cover already contains: &([a-zA-Z][-.a-zA-Z0-9]*)[^a-zA-Z0-9]	12,43,287,381,412,510,602,759,774,852,961,1054,1087,1221,1509,1511,1580 in node: C4
+partial cover already contains: &([a-zA-Z][-.a-zA-Z0-9]*)[^a-zA-Z0-9]	12,43,287,381,412,510,602,759,774,852,961,1054,1087,1221,1509,1511,1580 in node: C1
+partial cover already contains: &([a-zA-Z][a-zA-Z0-9]*|#[0-9]*)?|<([a-zA-Z][^<>]*|/([a-zA-Z][^<>]*)?|![^<>]*)?	12,287,412,413,510,602,759,774,852,961,1054,1076,1087,1221,1509,1511 in node: C4
+partial cover already contains: &([a-zA-Z][a-zA-Z0-9]*|#[0-9]*)?|<([a-zA-Z][^<>]*|/([a-zA-Z][^<>]*)?|![^<>]*)?	12,287,412,413,510,602,759,774,852,961,1054,1076,1087,1221,1509,1511 in node: C1
+partial cover already contains: &#(?:[0-9]+|[xX][0-9a-fA-F]+)[^0-9a-fA-F]	12,43,287,381,412,602,759,852,961,1054,1087,1221,1509,1511,1580 in node: C4
+partial cover already contains: &#(?:[0-9]+|[xX][0-9a-fA-F]+)[^0-9a-fA-F]	12,43,287,381,412,602,759,852,961,1054,1087,1221,1509,1511,1580 in node: C1
+partial cover already contains: &#([0-9]+)[^0-9]	12,287,412,413,602,759,852,961,1054,1076,1087,1221,1509,1511 in node: C4
+partial cover already contains: &#([0-9]+)[^0-9]	12,287,412,413,602,759,852,961,1054,1076,1087,1221,1509,1511 in node: C1
+partial cover already contains: <([a-zA-Z][-.a-zA-Z0-9]*)/([^/]*)/	12,287,412,510,602,759,774,852,961,1054,1087,1221,1509,1511 in node: C4
+partial cover already contains: <([a-zA-Z][-.a-zA-Z0-9]*)/([^/]*)/	12,287,412,510,602,759,774,852,961,1054,1087,1221,1509,1511 in node: C1
+partial cover already contains: (.*/|)([^/]+\.[a-z]+:\d+):(\d+:)? warning:	1040,1103,1105,1106,1131,1237,1306,1356,1400,1556,1610,1622,1624,1627 in node: C4
+partial cover already contains: (.*/|)([^/]+\.[a-z]+:\d+):(\d+:)? warning:	1040,1103,1105,1106,1131,1237,1306,1356,1400,1556,1610,1622,1624,1627 in node: C1
+partial cover already contains: \s*([a-zA-Z_][-:.a-zA-Z_0-9]*)(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[][\-a-zA-Z0-9./,:;+*%?!&$\(\)_#=~\\'"@]*))?	12,287,412,510,602,759,774,852,961,1054,1087,1221,1509,1511 in node: C4
+partial cover already contains: \s*([a-zA-Z_][-:.a-zA-Z_0-9]*)(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[][\-a-zA-Z0-9./,:;+*%?!&$\(\)_#=~\\'"@]*))?	12,287,412,510,602,759,774,852,961,1054,1087,1221,1509,1511 in node: C1
+partial cover already contains: &#(?P<char>[0-9]+[^0-9]|x[0-9a-fA-F]+[^0-9a-fA-F])	12,287,381,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C4
+partial cover already contains: &#(?P<char>[0-9]+[^0-9]|x[0-9a-fA-F]+[^0-9a-fA-F])	12,287,381,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C1
+partial cover already contains: \s*([a-zA-Z_][-.:a-zA-Z_0-9]*)(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[-a-zA-Z0-9./,:;+*%?!&$\(\)_#=~@]*))?	12,287,381,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C4
+partial cover already contains: \s*([a-zA-Z_][-.:a-zA-Z_0-9]*)(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[-a-zA-Z0-9./,:;+*%?!&$\(\)_#=~@]*))?	12,287,381,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C1
+partial cover already contains: \[(?P<type>[A-Z-]+)( (?P<data>[^\]]*))?\]	12,287,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C4
+partial cover already contains: \[(?P<type>[A-Z-]+)( (?P<data>[^\]]*))?\]	12,287,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C1
+partial cover already contains: (\s+|[^\s\w]*\w+[a-zA-Z]-(?=\w+[a-zA-Z])|(?<=[\w\!\"\\'\&\.\,\?])-{2,}(?=\w))	12,287,412,602,636,759,852,961,1125,1221,1509,1511 in node: C4
+partial cover already contains: (\s+|[^\s\w]*\w+[a-zA-Z]-(?=\w+[a-zA-Z])|(?<=[\w\!\"\\'\&\.\,\?])-{2,}(?=\w))	12,287,412,602,636,759,852,961,1125,1221,1509,1511 in node: C1
+partial cover already contains: ([\\"/]|[^\ -~])	41,82,89,101,200,560,1004,1074,1075,1300,1495 in node: C4
+partial cover already contains: ([\\"/]|[^\ -~])	41,82,89,101,200,560,1004,1074,1075,1300,1495 in node: C1
+partial cover already contains: ^const\s+([a-zA-Z0-9_]+)\s*=\s*([^;]*);$	306,322,464,467,505,534,883,1007,1300,1404,1466 in node: C4
+partial cover already contains: ^const\s+([a-zA-Z0-9_]+)\s*=\s*([^;]*);$	306,322,464,467,505,534,883,1007,1300,1404,1466 in node: C1
+partial cover already contains: ^(?P<proto>inet):(?P<host>[^:]+)(:(?P<port>[0-9]+))?$	100,190,200,619,658,950,1247,1399,1403,1485,1570 in node: C4
+partial cover already contains: ^(?P<proto>inet):(?P<host>[^:]+)(:(?P<port>[0-9]+))?$	100,190,200,619,658,950,1247,1399,1403,1485,1570 in node: C1
+partial cover already contains: ^macro\s+([a-zA-Z0-9_]+)\s*\(([^)]*)\)\s*=\s*([^;]*);$	306,322,464,467,505,534,883,1007,1300,1404,1466 in node: C4
+partial cover already contains: ^macro\s+([a-zA-Z0-9_]+)\s*\(([^)]*)\)\s*=\s*([^;]*);$	306,322,464,467,505,534,883,1007,1300,1404,1466 in node: C1
+partial cover already contains: ^python\s+macro\s+([a-zA-Z0-9_]+)\s*\(([^)]*)\)\s*=\s*([^;]*);$	306,322,464,467,505,534,883,1007,1300,1404,1466 in node: C4
+partial cover already contains: ^python\s+macro\s+([a-zA-Z0-9_]+)\s*\(([^)]*)\)\s*=\s*([^;]*);$	306,322,464,467,505,534,883,1007,1300,1404,1466 in node: C1
+partial cover already contains: ^\s*(?P<kw>[a-z]+)(\s+(?P<id>[a-zA-Z_]\w*))?[^\w]	12,412,759,852,961,1054,1087,1221,1511 in node: C4
+partial cover already contains: ^\s*(?P<kw>[a-z]+)(\s+(?P<id>[a-zA-Z_]\w*))?[^\w]	12,412,759,852,961,1054,1087,1221,1511 in node: C1
+partial cover already contains: ^\s*#?\s*end\s+(?P<kw>[a-z]+)(\s+(?P<id>[a-zA-Z_]\w*))?[^\w]	12,412,759,852,961,1054,1087,1221,1511 in node: C4
+partial cover already contains: ^\s*#?\s*end\s+(?P<kw>[a-z]+)(\s+(?P<id>[a-zA-Z_]\w*))?[^\w]	12,412,759,852,961,1054,1087,1221,1511 in node: C1
+partial cover already contains: <a href="([^"#]+)">([^<]+)</a>\n\s+\(<a (?:title="MD5 hash"\n\s+)href="[^?]+\?:action=show_md5&amp;digest=([0-9a-f]{32})">md5</a>\)	662,1033,1087,1257,1415,1536,1580,1594,1634 in node: C4
+partial cover already contains: <a href="([^"#]+)">([^<]+)</a>\n\s+\(<a (?:title="MD5 hash"\n\s+)href="[^?]+\?:action=show_md5&amp;digest=([0-9a-f]{32})">md5</a>\)	662,1033,1087,1257,1415,1536,1580,1594,1634 in node: C1
+partial cover already contains: [\\"]|[^ -~]	306,322,467,505,534,896,1007,1466 in node: C4
+partial cover already contains: [\\"]|[^ -~]	306,322,467,505,534,896,1007,1466 in node: C1
+partial cover already contains: &#(x?[0-9A-Fa-f]+)[^0-9A-Fa-f]	147,181,190,325,582,622,915,1597 in node: C4
+partial cover already contains: &#(x?[0-9A-Fa-f]+)[^0-9A-Fa-f]	147,181,190,325,582,622,915,1597 in node: C1
+partial cover already contains: \s*([a-zA-Z_][-.:a-zA-Z_0-9]*)(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[-a-zA-Z0-9./:;+*%?!&$\(\)_#=~]*))?	43,330,412,759,852,961,1221,1511 in node: C4
+partial cover already contains: \s*([a-zA-Z_][-.:a-zA-Z_0-9]*)(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[-a-zA-Z0-9./:;+*%?!&$\(\)_#=~]*))?	43,330,412,759,852,961,1221,1511 in node: C1
+partial cover already contains: (\\*)(?:(?::([a-zA-Z_][a-zA-Z_0-9]*)?()(?:#(.*?)#)?)|(?:<([a-zA-Z_][a-zA-Z_0-9]*)?(?::([a-zA-Z_]*)(?::((?:\\.|[^\\>]+)+)?)?)?>))	559,921,1047,1095,1234,1277,1580,1592 in node: C4
+partial cover already contains: (\\*)(?:(?::([a-zA-Z_][a-zA-Z_0-9]*)?()(?:#(.*?)#)?)|(?:<([a-zA-Z_][a-zA-Z_0-9]*)?(?::([a-zA-Z_]*)(?::((?:\\.|[^\\>]+)+)?)?)?>))	559,921,1047,1095,1234,1277,1580,1592 in node: C1
+partial cover already contains: (?smx)\n    (<\?.*?\?>)?\s*\n    <!DOCTYPE\s+(\n     [a-zA-Z_][a-zA-Z0-9]*\s+\n     [a-zA-Z_][a-zA-Z0-9]*\s+\n     "[^"]*")\n     [^>]*>\n	113,147,181,251,498,1087,1267,1555 in node: C4
+partial cover already contains: (?smx)\n    (<\?.*?\?>)?\s*\n    <!DOCTYPE\s+(\n     [a-zA-Z_][a-zA-Z0-9]*\s+\n     [a-zA-Z_][a-zA-Z0-9]*\s+\n     "[^"]*")\n     [^>]*>\n	113,147,181,251,498,1087,1267,1555 in node: C1
+partial cover already contains: &#(x?[0-9a-fA-F]+)[^0-9a-fA-F]	55,225,287,510,602,774,1509 in node: C4
+partial cover already contains: &#(x?[0-9a-fA-F]+)[^0-9a-fA-F]	55,225,287,510,602,774,1509 in node: C1
+partial cover already contains: ^(?P<host>[^:]+):(?P<port>[0-9]+)$	100,190,200,950,1403,1485,1570 in node: C4
+partial cover already contains: ^(?P<host>[^:]+):(?P<port>[0-9]+)$	100,190,200,950,1403,1485,1570 in node: C1
+partial cover already contains: (?:\x1b\[([0-9?;]*)([a-zA-Z])|([^\x1b]+))	322,467,505,534,712,1216,1466 in node: C4
+partial cover already contains: (?:\x1b\[([0-9?;]*)([a-zA-Z])|([^\x1b]+))	322,467,505,534,712,1216,1466 in node: C1
+partial cover already contains: \x1b\[((?:\d|;)*)([a-zA-Z])	1263,1290,1580,1594,1612,1633 in node: C6
+partial cover already contains: \x1b\[((?:\d|;)*)([a-zA-Z])	1263,1290,1580,1594,1612,1633 in node: C1
+partial cover already contains: <h2>.+?Revision ([0-9]*): ([^<]*)</h2>	412,759,852,961,1221,1511 in node: C4
+partial cover already contains: <h2>.+?Revision ([0-9]*): ([^<]*)</h2>	412,759,852,961,1221,1511 in node: C1
+partial cover already contains: ,\s*([^\s;,\n]+)(?:[^,]*?;\s*q=([0-9.]*))?	82,89,1004,1074,1075,1495 in node: C4
+partial cover already contains: ,\s*([^\s;,\n]+)(?:[^,]*?;\s*q=([0-9.]*))?	82,89,1004,1074,1075,1495 in node: C1
+partial cover already contains: ([a-zA-Z][a-zA-Z_-]*)\s*(?:=(?:"([^"]*)"|([^ \t",;]*)))?	82,89,1004,1074,1075,1495 in node: C4
+partial cover already contains: ([a-zA-Z][a-zA-Z_-]*)\s*(?:=(?:"([^"]*)"|([^ \t",;]*)))?	82,89,1004,1074,1075,1495 in node: C1
+partial cover already contains: ([a-zA-Z_]\w*(?:\.[a-zA-Z_]\w*)*)(?:\s*\(\s*([^)\s]+)\s*\))?$	12,287,602,1054,1087,1509 in node: C4
+partial cover already contains: ([a-zA-Z_]\w*(?:\.[a-zA-Z_]\w*)*)(?:\s*\(\s*([^)\s]+)\s*\))?$	12,287,602,1054,1087,1509 in node: C1
+partial cover already contains: <a class="ot-revision-link" href="/p/[^/]+/source/detail\?r=[0-9]+">([^<]+)</a>	412,759,852,961,1221,1511 in node: C4
+partial cover already contains: <a class="ot-revision-link" href="/p/[^/]+/source/detail\?r=[0-9]+">([^<]+)</a>	412,759,852,961,1221,1511 in node: C1
+partial cover already contains: ["&<>]|[^\x00-\x7f]	433,927,1003,1202,1350 in node: C4
+partial cover already contains: ["&<>]|[^\x00-\x7f]	433,927,1003,1202,1350 in node: C1
+partial cover already contains: ([a-z]*) ([^ \r\n]*)	441,628,1054,1204,1580 in node: C4
+partial cover already contains: ([a-z]*) ([^ \r\n]*)	441,628,1054,1204,1580 in node: C1
+partial cover already contains: ^([A-Za-z][^:]*):[ \t]*(.*)[ \t]*$	441,628,1054,1204,1580 in node: C4
+partial cover already contains: ^([A-Za-z][^:]*):[ \t]*(.*)[ \t]*$	441,628,1054,1204,1580 in node: C1
+partial cover already contains: ([^0-9]+)(?: release )?([\d.]+)[^(]*(?:\((.+)\))?	287,602,1054,1087,1509 in node: C4
+partial cover already contains: ([^0-9]+)(?: release )?([\d.]+)[^(]*(?:\((.+)\))?	287,602,1054,1087,1509 in node: C1
+partial cover already contains: \s*#define[ \t]+[^_]*_width[ \t]+(?P<width>[0-9]+)[\r\n]+#define[ \t]+[^_]*_height[ \t]+(?P<height>[0-9]+)[\r\n]+(?P<hotspot>#define[ \t]+[^_]*_x_hot[ \t]+(?P<xhot>[0-9]+)[\r\n]+#define[ \t]+[^_]*_y_hot[ \t]+(?P<yhot>[0-9]+)[\r\n]+)?[\000-\377]*_bits\[\]	441,628,1054,1204,1580 in node: C4
+partial cover already contains: \s*#define[ \t]+[^_]*_width[ \t]+(?P<width>[0-9]+)[\r\n]+#define[ \t]+[^_]*_height[ \t]+(?P<height>[0-9]+)[\r\n]+(?P<hotspot>#define[ \t]+[^_]*_x_hot[ \t]+(?P<xhot>[0-9]+)[\r\n]+#define[ \t]+[^_]*_y_hot[ \t]+(?P<yhot>[0-9]+)[\r\n]+)?[\000-\377]*_bits\[\]	441,628,1054,1204,1580 in node: C1
+partial cover already contains: ^(?P<host>[^:]+)(:(?P<port>[0-9]+))?$	619,658,1247,1399 in node: C4
+partial cover already contains: ^(?P<host>[^:]+)(:(?P<port>[0-9]+))?$	619,658,1247,1399 in node: C1
+partial cover already contains: %[^0-9A-Fa-f]|%[0-9A-Fa-f][^0-9A-Fa-f]	927,1292,1399,1469 in node: C4
+partial cover already contains: %[^0-9A-Fa-f]|%[0-9A-Fa-f][^0-9A-Fa-f]	927,1292,1399,1469 in node: C1
+partial cover already contains: \$\{?[a-zA-Z_][a-zA-Z0-9_]*(\([^)]*\))?(\.[a-zA-Z0-9_]+(\([^)]*\))?)*\}?	251,498,1087,1555 in node: C4
+partial cover already contains: \$\{?[a-zA-Z_][a-zA-Z0-9_]*(\([^)]*\))?(\.[a-zA-Z0-9_]+(\([^)]*\))?)*\}?	251,498,1087,1555 in node: C1
+partial cover already contains: (\s+|[^\s\w]*\w+[^0-9\W]-(?=\w+[^0-9\W])|(?<=[\w\!\"\\'\&\.\,\?])-{2,}(?=\w))	381,1054,1087,1580 in node: C4
+partial cover already contains: (\s+|[^\s\w]*\w+[^0-9\W]-(?=\w+[^0-9\W])|(?<=[\w\!\"\\'\&\.\,\?])-{2,}(?=\w))	381,1054,1087,1580 in node: C1
+partial cover already contains: ([^\"\'=\s])(\s*)#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])	568,807,1144,1247 in node: C4
+partial cover already contains: ([^\"\'=\s])(\s*)#([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])([0-9a-fA-F])	568,807,1144,1247 in node: C1
+partial cover already contains: ^(WebSocket-Protocol: [\x20-\x7e]+\r\n)?(Cookie: [^\r]*\r\n)*(Cookie2: [^\r]*\r\n)?(Cookie: [^\r]*\r\n)*\r\n	1007,1015,1032,1300 in node: C4
+partial cover already contains: ^(WebSocket-Protocol: [\x20-\x7e]+\r\n)?(Cookie: [^\r]*\r\n)*(Cookie2: [^\r]*\r\n)?(Cookie: [^\r]*\r\n)*\r\n	1007,1015,1032,1300 in node: C1
+partial cover already contains: ^[a-zA-Z]+(\s|$)	1007,1015,1032 in node: C6
+partial cover already contains: ^[a-zA-Z]+(\s|$)	1007,1015,1032 in node: C1
+partial cover already contains: ([A-Z][a-z]+[A-Z][^ ]+)	1269,1469,1498 in node: C4
+partial cover already contains: ([A-Z][a-z]+[A-Z][^ ]+)	1269,1469,1498 in node: C1
+partial cover already contains: \\x0([0-7])(?=[^0-7]|$)	1269,1469,1498 in node: C4
+partial cover already contains: \\x0([0-7])(?=[^0-7]|$)	1269,1469,1498 in node: C1
+partial cover already contains: (?P<key>[A-Z]+)="(?P<val>[^"]+)	1007,1015,1032 in node: C4
+partial cover already contains: (?P<key>[A-Z]+)="(?P<val>[^"]+)	1007,1015,1032 in node: C1
+partial cover already contains: &#([xX]?[0-9a-fA-F]+)[^0-9a-fA-F]	31,476,732 in node: C4
+partial cover already contains: &#([xX]?[0-9a-fA-F]+)[^0-9a-fA-F]	31,476,732 in node: C1
+partial cover already contains: ([^ ]+) ([^ ]+)(( HTTP/([0-9.]+))$|$)	107,1225,1638 in node: C4
+partial cover already contains: ([^ ]+) ([^ ]+)(( HTTP/([0-9.]+))$|$)	107,1225,1638 in node: C1
+partial cover already contains: ^(.+)[ \._\-]([0-9]{1})([0-9]{2})[\._ -][^\/]*$	506,1269,1498 in node: C4
+partial cover already contains: ^(.+)[ \._\-]([0-9]{1})([0-9]{2})[\._ -][^\/]*$	506,1269,1498 in node: C1
+partial cover already contains: ^(.+)[ \._\-]([0-9]{2})([0-9]{2,3})[\._ -][^\/]*$	506,1269,1498 in node: C4
+partial cover already contains: ^(.+)[ \._\-]([0-9]{2})([0-9]{2,3})[\._ -][^\/]*$	506,1269,1498 in node: C1
+partial cover already contains: ^([MACDRUG_ ][MACDRUG_ ])(.)(.)   .   [^0-9-]+(\d+|-)(.{23})(.+)	241,874,1249 in node: C4
+partial cover already contains: ^([MACDRUG_ ][MACDRUG_ ])(.)(.)   .   [^0-9-]+(\d+|-)(.{23})(.+)	241,874,1249 in node: C1
+partial cover already contains: [a-zA-Z_][0-9a-zA-Z_+-]*|[0-9+-][0-9a-zA-Z_.+-]*|"([^"\n\\]|\\.)*("|\\?$)|\'([^\'\n\\]|\\.)*(\'|\\?$)	1004,1495,1580 in node: C4
+partial cover already contains: [a-zA-Z_][0-9a-zA-Z_+-]*|[0-9+-][0-9a-zA-Z_.+-]*|"([^"\n\\]|\\.)*("|\\?$)|\'([^\'\n\\]|\\.)*(\'|\\?$)	1004,1495,1580 in node: C1
+partial cover already contains: \n                            \s* ([^\s;]+) \s*            #content-coding\n                            (;\s* q \s*=\s* ([0-9\.]+))? #q\n                            	1054,1087,1580 in node: C4
+partial cover already contains: \n                            \s* ([^\s;]+) \s*            #content-coding\n                            (;\s* q \s*=\s* ([0-9\.]+))? #q\n                            	1054,1087,1580 in node: C1
+partial cover already contains: \n    (?P<escape_hex>\{\#x(?P<escape_hex_val>[0-9a-fA-F]+)\})\n  | (?P<escape_dec>\{\#(?P<escape_dec_val>[0-9]+)\})\n  | (?P<escape_lbrace>\{\{)\n  | (?P<escape_rbrace>\}\})\n  | (?P<attr>\{\n        (?P<attr_name>[^ \{\}]+)\s+\n        (?P<attr_val>[^\}]+)\})\n  | (?P<nl_hard1>\n(?=[ \t]))\n  | (?P<nl_hard2>\{\}\n)\n  | (?P<nl_soft>\n(?=\S))\n  | (?P<nl_para>\n\n+)\n  | (?P<text>[^\{\}\n]+)\n    	518,757,787 in node: C4
+partial cover already contains: \n    (?P<escape_hex>\{\#x(?P<escape_hex_val>[0-9a-fA-F]+)\})\n  | (?P<escape_dec>\{\#(?P<escape_dec_val>[0-9]+)\})\n  | (?P<escape_lbrace>\{\{)\n  | (?P<escape_rbrace>\}\})\n  | (?P<attr>\{\n        (?P<attr_name>[^ \{\}]+)\s+\n        (?P<attr_val>[^\}]+)\})\n  | (?P<nl_hard1>\n(?=[ \t]))\n  | (?P<nl_hard2>\{\}\n)\n  | (?P<nl_soft>\n(?=\S))\n  | (?P<nl_para>\n\n+)\n  | (?P<text>[^\{\}\n]+)\n    	518,757,787 in node: C1
+partial cover already contains: (?x)\n        ^ OPDEF \( (JSOP_\w+),         \s*  # op\n                   ([0-9]+),           \s*  # val\n                   ("[^"]+" | [\w_]+), \s*  # name\n                   ("[^"]+" | [\w_]+), \s*  # image\n                   (-1|[0-9]+),        \s*  # len\n                   (-1|[0-9]+),        \s*  # uses\n                   (-1|[0-9]+),        \s*  # defs\n                   ([0-9]+),           \s*  # prec\n                   ([\w_| ]+)          \s*  # format\n                \) \s* $	1007,1015,1032 in node: C4
+partial cover already contains: (?x)\n        ^ OPDEF \( (JSOP_\w+),         \s*  # op\n                   ([0-9]+),           \s*  # val\n                   ("[^"]+" | [\w_]+), \s*  # name\n                   ("[^"]+" | [\w_]+), \s*  # image\n                   (-1|[0-9]+),        \s*  # len\n                   (-1|[0-9]+),        \s*  # uses\n                   (-1|[0-9]+),        \s*  # defs\n                   ([0-9]+),           \s*  # prec\n                   ([\w_| ]+)          \s*  # format\n                \) \s* $	1007,1015,1032 in node: C1
+partial cover already contains: \n    (?:\n        ([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*list\(\n            (\n                (?:\n                    \s*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\s\)][^,\)]*?)  # unquoted\n                    )\n                    \s*,\s*\n                )*\n                (?:\n                    (?:".*?")|              # double quotes\n                    (?:\'.*?\')|              # single quotes\n                    (?:[^\'",\s\)][^,\)]*?)  # unquoted\n                )?                          # last one\n            )\n        \)\n    )\n	332,689,1007 in node: C4
+partial cover already contains: \n    (?:\n        ([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*list\(\n            (\n                (?:\n                    \s*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\s\)][^,\)]*?)  # unquoted\n                    )\n                    \s*,\s*\n                )*\n                (?:\n                    (?:".*?")|              # double quotes\n                    (?:\'.*?\')|              # single quotes\n                    (?:[^\'",\s\)][^,\)]*?)  # unquoted\n                )?                          # last one\n            )\n        \)\n    )\n	332,689,1007 in node: C1
+partial cover already contains: \n    (?:\n        (\n            (?:\n                [a-zA-Z_][a-zA-Z0-9_]*\s*=\s*list\(\n                    (?:\n                        \s*\n                        (?:\n                            (?:".*?")|              # double quotes\n                            (?:\'.*?\')|              # single quotes\n                            (?:[^\'",\s\)][^,\)]*?)       # unquoted\n                        )\n                        \s*,\s*\n                    )*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\s\)][^,\)]*?)       # unquoted\n                    )?                              # last one\n                \)\n            )|\n            (?:\n                (?:".*?")|              # double quotes\n                (?:\'.*?\')|              # single quotes\n                (?:[^\'",\s=][^,=]*?)|       # unquoted\n                (?:                         # keyword argument\n                    [a-zA-Z_][a-zA-Z0-9_]*\s*=\s*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\s=][^,=]*?)       # unquoted\n                    )\n                )\n            )\n        )\n        (?:\n            (?:\s*,\s*)|(?:\s*$)            # comma\n        )\n    )\n    	332,689,1007 in node: C4
+partial cover already contains: \n    (?:\n        (\n            (?:\n                [a-zA-Z_][a-zA-Z0-9_]*\s*=\s*list\(\n                    (?:\n                        \s*\n                        (?:\n                            (?:".*?")|              # double quotes\n                            (?:\'.*?\')|              # single quotes\n                            (?:[^\'",\s\)][^,\)]*?)       # unquoted\n                        )\n                        \s*,\s*\n                    )*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\s\)][^,\)]*?)       # unquoted\n                    )?                              # last one\n                \)\n            )|\n            (?:\n                (?:".*?")|              # double quotes\n                (?:\'.*?\')|              # single quotes\n                (?:[^\'",\s=][^,=]*?)|       # unquoted\n                (?:                         # keyword argument\n                    [a-zA-Z_][a-zA-Z0-9_]*\s*=\s*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\s=][^,=]*?)       # unquoted\n                    )\n                )\n            )\n        )\n        (?:\n            (?:\s*,\s*)|(?:\s*$)            # comma\n        )\n    )\n    	332,689,1007 in node: C1
+partial cover already contains: ^\n    (?:\n        (\n            (?:\n                [a-zA-Z_][a-zA-Z0-9_]*\s*=\s*list\(\n                    (?:\n                        \s*\n                        (?:\n                            (?:".*?")|              # double quotes\n                            (?:\'.*?\')|              # single quotes\n                            (?:[^\'",\s\)][^,\)]*?)       # unquoted\n                        )\n                        \s*,\s*\n                    )*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\s\)][^,\)]*?)       # unquoted\n                    )?                              # last one\n                \)\n            )|\n            (?:\n                (?:".*?")|              # double quotes\n                (?:\'.*?\')|              # single quotes\n                (?:[^\'",\s=][^,=]*?)|       # unquoted\n                (?:                         # keyword argument\n                    [a-zA-Z_][a-zA-Z0-9_]*\s*=\s*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\s=][^,=]*?)       # unquoted\n                    )\n                )\n            )\n        )\n        (?:\n            (?:\s*,\s*)|(?:\s*$)            # comma\n        )\n    )\n    *	332,689,1007 in node: C4
+partial cover already contains: ^\n    (?:\n        (\n            (?:\n                [a-zA-Z_][a-zA-Z0-9_]*\s*=\s*list\(\n                    (?:\n                        \s*\n                        (?:\n                            (?:".*?")|              # double quotes\n                            (?:\'.*?\')|              # single quotes\n                            (?:[^\'",\s\)][^,\)]*?)       # unquoted\n                        )\n                        \s*,\s*\n                    )*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\s\)][^,\)]*?)       # unquoted\n                    )?                              # last one\n                \)\n            )|\n            (?:\n                (?:".*?")|              # double quotes\n                (?:\'.*?\')|              # single quotes\n                (?:[^\'",\s=][^,=]*?)|       # unquoted\n                (?:                         # keyword argument\n                    [a-zA-Z_][a-zA-Z0-9_]*\s*=\s*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\s=][^,=]*?)       # unquoted\n                    )\n                )\n            )\n        )\n        (?:\n            (?:\s*,\s*)|(?:\s*$)            # comma\n        )\n    )\n    *	332,689,1007 in node: C1
+partial cover already contains: ([^A-Z])([A-Z])	1054,1198 in node: C4
+partial cover already contains: ([^A-Z])([A-Z])	1054,1198 in node: C1
+partial cover already contains: (="[^"]+")([a-zA-Z])	109,182 in node: C4
+partial cover already contains: (="[^"]+")([a-zA-Z])	109,182 in node: C1
+partial cover already contains: /dev/disk([0-9]+)[^s]	1246,1540 in node: C4
+partial cover already contains: /dev/disk([0-9]+)[^s]	1246,1540 in node: C1
+partial cover already contains: ^([A-Z][^A-Z]*?\.\s)	251,1087 in node: C4
+partial cover already contains: ^([A-Z][^A-Z]*?\.\s)	251,1087 in node: C1
+partial cover already contains: ^([A-Z].*?\.(?:\s|$))	332,689 in node: C6
+partial cover already contains: ^([A-Z].*?\.(?:\s|$))	332,689 in node: C1
+partial cover already contains: __([a-z]+)__ = '([^']+)'	429,1582 in node: C4
+partial cover already contains: __([a-z]+)__ = '([^']+)'	429,1582 in node: C1
+partial cover already contains: h(e)l[A-Z]lo.*th[^e]*e(r)e	171,1381 in node: C4
+partial cover already contains: h(e)l[A-Z]lo.*th[^e]*e(r)e	171,1381 in node: C1
+partial cover already contains: ^([^: \t\n]+):([1-9][0-9]*):	12,1087 in node: C4
+partial cover already contains: ^([^: \t\n]+):([1-9][0-9]*):	12,1087 in node: C1
+partial cover already contains: Linux version ([0-9.]+-[^ ]+)	1116,1141 in node: C4
+partial cover already contains: Linux version ([0-9.]+-[^ ]+)	1116,1141 in node: C1
+partial cover already contains: ^([a-zA-Z]:[^(]*)\(([0-9]+)\)	602,1054 in node: C4
+partial cover already contains: ^([a-zA-Z]:[^(]*)\(([0-9]+)\)	602,1054 in node: C1
+partial cover already contains: <([a-zA-Z][a-zA-Z0-9]*)/([^/]*)/	413,1076 in node: C4
+partial cover already contains: <([a-zA-Z][a-zA-Z0-9]*)/([^/]*)/	413,1076 in node: C1
+partial cover already contains: ^[-_a-zA-Z0-9.]+:(//[^/]*)?/[^/]*$	55,908 in node: C4
+partial cover already contains: ^[-_a-zA-Z0-9.]+:(//[^/]*)?/[^/]*$	55,908 in node: C1
+partial cover already contains: &([a-zA-Z][a-zA-Z0-9]*)[^a-zA-Z0-9]	413,1076 in node: C4
+partial cover already contains: &([a-zA-Z][a-zA-Z0-9]*)[^a-zA-Z0-9]	413,1076 in node: C1
+partial cover already contains: [^[]+\[(\d+/[A-Za-z]+/\d+):[^\d]*	1004,1075 in node: C4
+partial cover already contains: [^[]+\[(\d+/[A-Za-z]+/\d+):[^\d]*	1004,1075 in node: C1
+partial cover already contains: [a-z]::[^=]|:[a-z]+:|`|\.\.\s*\w+:	1087,1580 in node: C4
+partial cover already contains: [a-z]::[^=]|:[a-z]+:|`|\.\.\s*\w+:	1087,1580 in node: C1
+partial cover already contains: ([A-Za-z0-9_.-]*|"[^"]*")\s+(\S+)\s+(.*)	241,1249 in node: C4
+partial cover already contains: ([A-Za-z0-9_.-]*|"[^"]*")\s+(\S+)\s+(.*)	241,1249 in node: C1
+partial cover already contains: enum\s*{([^}]*)}\s*([A-Z][A-Za-z]*)(\s|;)	1054,1198 in node: C4
+partial cover already contains: enum\s*{([^}]*)}\s*([A-Z][A-Za-z]*)(\s|;)	1054,1198 in node: C6
+partial cover already contains: enum\s*{([^}]*)}\s*([A-Z][A-Za-z]*)(\s|;)	1054,1198 in node: C1
+partial cover already contains: \([^)]+\)\s*(([A-Za-z0-9_][A-Za-z0-9_]*))	31,324 in node: C4
+partial cover already contains: \([^)]+\)\s*(([A-Za-z0-9_][A-Za-z0-9_]*))	31,324 in node: C1
+partial cover already contains: @/([^/\\]*(?:\\.[^/\\]*)*)*/[a-z]*(?ms)	96,252 in node: C4
+partial cover already contains: @/([^/\\]*(?:\\.[^/\\]*)*)*/[a-z]*(?ms)	96,252 in node: C1
+partial cover already contains: ^(.*) ?\[([^ ]*) \+(0x[0-9A-F]{1,8})\](.*)$	1015,1032 in node: C4
+partial cover already contains: ^(.*) ?\[([^ ]*) \+(0x[0-9A-F]{1,8})\](.*)$	1015,1032 in node: C1
+partial cover already contains: /(?:[^/\\]*(?:\\.[^/\\]*)*)/[a-zA-Z]*(?s)	636,1125 in node: C4
+partial cover already contains: /(?:[^/\\]*(?:\\.[^/\\]*)*)/[a-zA-Z]*(?s)	636,1125 in node: C1
+partial cover already contains: ^(.+?)[ \._\-]\[?([0-9]+)((?:[x-]\d+)+)[^\/]*$	1269,1498 in node: C4
+partial cover already contains: ^(.+?)[ \._\-]\[?([0-9]+)((?:[x-]\d+)+)[^\/]*$	1269,1498 in node: C1
+partial cover already contains: ^([ \|0-9-]*)(.*) ?\[([^ ]*) \+(0x[0-9A-F]{1,8})\](.*)$	1015,1032 in node: C4
+partial cover already contains: ^([ \|0-9-]*)(.*) ?\[([^ ]*) \+(0x[0-9A-F]{1,8})\](.*)$	1015,1032 in node: C1
+partial cover already contains: ^(.+?)[ \._\-][Ss]([0-9]+)((?:[\.\-_ ]?[Ee]\d+)+)[^\/]*$	1269,1498 in node: C4
+partial cover already contains: ^(.+?)[ \._\-][Ss]([0-9]+)((?:[\.\-_ ]?[Ee]\d+)+)[^\/]*$	1269,1498 in node: C1
+partial cover already contains: ([^:]*):\s+scsi([0-9]+)\s+channel=([0-9]+)\s+id=([0-9]+)\s+lun=([0-9]+)	779,1407 in node: C4
+partial cover already contains: ([^:]*):\s+scsi([0-9]+)\s+channel=([0-9]+)\s+id=([0-9]+)\s+lun=([0-9]+)	779,1407 in node: C1
+partial cover already contains: (\s+|(?<=\s)(?::[a-z-]+:)?`\S+|[^\s\w]*\w+[a-zA-Z]-(?=\w+[a-zA-Z])|(?<=[\w\!\"\\'\&\.\,\?])-{2,}(?=\w))	251,1087 in node: C4
+partial cover already contains: (\s+|(?<=\s)(?::[a-z-]+:)?`\S+|[^\s\w]*\w+[a-zA-Z]-(?=\w+[a-zA-Z])|(?<=[\w\!\"\\'\&\.\,\?])-{2,}(?=\w))	251,1087 in node: C1
+partial cover already contains: \s*([a-zA-Z_][-:.a-zA-Z_0-9]*)[$]?(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[][\-a-zA-Z0-9./,:;+*%?!&$\(\)_#=~\\'"@]*))?	666,707 in node: C4
+partial cover already contains: \s*([a-zA-Z_][-:.a-zA-Z_0-9]*)[$]?(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[][\-a-zA-Z0-9./,:;+*%?!&$\(\)_#=~\\'"@]*))?	666,707 in node: C1
+partial cover already contains: (?P<name>\w+)\s+(?P<type>[A-Za-z]+|\(.*?\))\s+(?P<default>#REQUIRED|#IMPLIED|\w+|(?:#FIXED)?((?:")([^"]*?)(?:")|(?:\')([^\']*?)(?:\')))\s*(?:--(?P<comment>.*?)--)?	305,1505 in node: C4
+partial cover already contains: (?P<name>\w+)\s+(?P<type>[A-Za-z]+|\(.*?\))\s+(?P<default>#REQUIRED|#IMPLIED|\w+|(?:#FIXED)?((?:")([^"]*?)(?:")|(?:\')([^\']*?)(?:\')))\s*(?:--(?P<comment>.*?)--)?	305,1505 in node: C1
+partial cover already contains: <[a-zA-Z][-_.:a-zA-Z0-9]*\s*(\s*([a-zA-Z_][-:.a-zA-Z_0-9]*)(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[-a-zA-Z0-9./,:;+*%?!&$\(\)_#=~@][][\-a-zA-Z0-9./,:;+*%?!&$\(\)_#=~\\'"@]*(?=[\s>/<])))?)*\s*/?\s*(?=[<>])	1087,1580 in node: C4
+partial cover already contains: <[a-zA-Z][-_.:a-zA-Z0-9]*\s*(\s*([a-zA-Z_][-:.a-zA-Z_0-9]*)(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[-a-zA-Z0-9./,:;+*%?!&$\(\)_#=~@][][\-a-zA-Z0-9./,:;+*%?!&$\(\)_#=~\\'"@]*(?=[\s>/<])))?)*\s*/?\s*(?=[<>])	1087,1580 in node: C1
+partial cover already contains: \n    ::(?=[^=])|            # two :: (but NOT ::=)\n    :[a-zA-Z][a-zA-Z0-9]+| # :foo\n    `|                     # ` (seldom used by itself)\n    (?<!\.)\.\.[ \t]*\w+:  # .. foo: (but NOT ... else:)\n    	1087,1580 in node: C4
+partial cover already contains: \n    ::(?=[^=])|            # two :: (but NOT ::=)\n    :[a-zA-Z][a-zA-Z0-9]+| # :foo\n    `|                     # ` (seldom used by itself)\n    (?<!\.)\.\.[ \t]*\w+:  # .. foo: (but NOT ... else:)\n    	1087,1580 in node: C1
+partial cover already contains: ^\n\s*((?:-|\w|\&|\*)+)   # return type\n\s*                    # skip whitespace\n\(\s*\*\s*             # opening (\n([a-z]\w+)\)           # match the function name until the closing )\n\s*\(\s*([^)]*)\).*      # group the function arguments\n$	1054,1198 in node: C4
+partial cover already contains: ^\n\s*((?:-|\w|\&|\*)+)   # return type\n\s*                    # skip whitespace\n\(\s*\*\s*             # opening (\n([a-z]\w+)\)           # match the function name until the closing )\n\s*\(\s*([^)]*)\).*      # group the function arguments\n$	1054,1198 in node: C6
+partial cover already contains: ^\n\s*((?:-|\w|\&|\*)+)   # return type\n\s*                    # skip whitespace\n\(\s*\*\s*             # opening (\n([a-z]\w+)\)           # match the function name until the closing )\n\s*\(\s*([^)]*)\).*      # group the function arguments\n$	1054,1198 in node: C1
+partial cover already contains: \n        ^\n        \s*\n        (?P<operator>(~=|==|!=|<=|>=|<|>|===))\n        (?P<version>\n            (?:\n                # The identity operators allow for an escape hatch that will\n                # do an exact string match of the version you wish to install.\n                # This will not be parsed by PEP 440 and we cannot determine\n                # any semantic meaning from it. This operator is discouraged\n                # but included entirely as an escape hatch.\n                (?<====)  # Only match for the identity operator\n                \s*\n                [^\s]*    # We just match everything, except for whitespace\n                          # since we are only testing for strict identity.\n            )\n            |\n            (?:\n                # The (non)equality operators allow for wild card and local\n                # versions to be specified so we have to define these two\n                # operators separately to enable that.\n                (?<===|!=)            # Only match for equals and not equals\n\n                \s*\n                v?\n                (?:[0-9]+!)?          # epoch\n                [0-9]+(?:\.[0-9]+)*   # release\n                (?:                   # pre release\n                    [-_\.]?\n                    (a|b|c|rc|alpha|beta|pre|preview)\n                    [-_\.]?\n                    [0-9]*\n                )?\n                (?:                   # post release\n                    (?:-[0-9]+)|(?:[-_\.]?(post|rev|r)[-_\.]?[0-9]*)\n                )?\n\n                # You cannot use a wild card and a dev or local version\n                # together so group them with a | and make them optional.\n                (?:\n                    (?:[-_\.]?dev[-_\.]?[0-9]*)?         # dev release\n                    (?:\+[a-z0-9]+(?:[-_\.][a-z0-9]+)*)? # local\n                    |\n                    \.\*  # Wild card syntax of .*\n                )?\n            )\n            |\n            (?:\n                # The compatible operator requires at least two digits in the\n                # release segment.\n                (?<=~=)               # Only match for the compatible operator\n\n                \s*\n                v?\n                (?:[0-9]+!)?          # epoch\n                [0-9]+(?:\.[0-9]+)+   # release  (We have a + instead of a *)\n                (?:                   # pre release\n                    [-_\.]?\n                    (a|b|c|rc|alpha|beta|pre|preview)\n                    [-_\.]?\n                    [0-9]*\n                )?\n                (?:                                   # post release\n                    (?:-[0-9]+)|(?:[-_\.]?(post|rev|r)[-_\.]?[0-9]*)\n                )?\n                (?:[-_\.]?dev[-_\.]?[0-9]*)?          # dev release\n            )\n            |\n            (?:\n                # All other operators only allow a sub set of what the\n                # (non)equality operators do. Specifically they do not allow\n                # local versions to be specified nor do they allow the prefix\n                # matching wild cards.\n                (?<!==|!=|~=)         # We have special cases for these\n                                      # operators so we want to make sure they\n                                      # don't match here.\n\n                \s*\n                v?\n                (?:[0-9]+!)?          # epoch\n                [0-9]+(?:\.[0-9]+)*   # release\n                (?:                   # pre release\n                    [-_\.]?\n                    (a|b|c|rc|alpha|beta|pre|preview)\n                    [-_\.]?\n                    [0-9]*\n                )?\n                (?:                                   # post release\n                    (?:-[0-9]+)|(?:[-_\.]?(post|rev|r)[-_\.]?[0-9]*)\n                )?\n                (?:[-_\.]?dev[-_\.]?[0-9]*)?          # dev release\n            )\n        )\n        \s*\n        $\n        	1263,1580 in node: C4
+partial cover already contains: \n        ^\n        \s*\n        (?P<operator>(~=|==|!=|<=|>=|<|>|===))\n        (?P<version>\n            (?:\n                # The identity operators allow for an escape hatch that will\n                # do an exact string match of the version you wish to install.\n                # This will not be parsed by PEP 440 and we cannot determine\n                # any semantic meaning from it. This operator is discouraged\n                # but included entirely as an escape hatch.\n                (?<====)  # Only match for the identity operator\n                \s*\n                [^\s]*    # We just match everything, except for whitespace\n                          # since we are only testing for strict identity.\n            )\n            |\n            (?:\n                # The (non)equality operators allow for wild card and local\n                # versions to be specified so we have to define these two\n                # operators separately to enable that.\n                (?<===|!=)            # Only match for equals and not equals\n\n                \s*\n                v?\n                (?:[0-9]+!)?          # epoch\n                [0-9]+(?:\.[0-9]+)*   # release\n                (?:                   # pre release\n                    [-_\.]?\n                    (a|b|c|rc|alpha|beta|pre|preview)\n                    [-_\.]?\n                    [0-9]*\n                )?\n                (?:                   # post release\n                    (?:-[0-9]+)|(?:[-_\.]?(post|rev|r)[-_\.]?[0-9]*)\n                )?\n\n                # You cannot use a wild card and a dev or local version\n                # together so group them with a | and make them optional.\n                (?:\n                    (?:[-_\.]?dev[-_\.]?[0-9]*)?         # dev release\n                    (?:\+[a-z0-9]+(?:[-_\.][a-z0-9]+)*)? # local\n                    |\n                    \.\*  # Wild card syntax of .*\n                )?\n            )\n            |\n            (?:\n                # The compatible operator requires at least two digits in the\n                # release segment.\n                (?<=~=)               # Only match for the compatible operator\n\n                \s*\n                v?\n                (?:[0-9]+!)?          # epoch\n                [0-9]+(?:\.[0-9]+)+   # release  (We have a + instead of a *)\n                (?:                   # pre release\n                    [-_\.]?\n                    (a|b|c|rc|alpha|beta|pre|preview)\n                    [-_\.]?\n                    [0-9]*\n                )?\n                (?:                                   # post release\n                    (?:-[0-9]+)|(?:[-_\.]?(post|rev|r)[-_\.]?[0-9]*)\n                )?\n                (?:[-_\.]?dev[-_\.]?[0-9]*)?          # dev release\n            )\n            |\n            (?:\n                # All other operators only allow a sub set of what the\n                # (non)equality operators do. Specifically they do not allow\n                # local versions to be specified nor do they allow the prefix\n                # matching wild cards.\n                (?<!==|!=|~=)         # We have special cases for these\n                                      # operators so we want to make sure they\n                                      # don't match here.\n\n                \s*\n                v?\n                (?:[0-9]+!)?          # epoch\n                [0-9]+(?:\.[0-9]+)*   # release\n                (?:                   # pre release\n                    [-_\.]?\n                    (a|b|c|rc|alpha|beta|pre|preview)\n                    [-_\.]?\n                    [0-9]*\n                )?\n                (?:                                   # post release\n                    (?:-[0-9]+)|(?:[-_\.]?(post|rev|r)[-_\.]?[0-9]*)\n                )?\n                (?:[-_\.]?dev[-_\.]?[0-9]*)?          # dev release\n            )\n        )\n        \s*\n        $\n        	1263,1580 in node: C1
+partial cover already contains: [A-Z][^A-Z]*	596 in node: C4
+partial cover already contains: [A-Z][^A-Z]*	596 in node: C1
+partial cover already contains: [a-z]*[^A-Z]	596 in node: C4
+partial cover already contains: [a-z]*[^A-Z]	596 in node: C1
+partial cover already contains: ^A[0-9][^ ]+$	439 in node: C4
+partial cover already contains: ^A[0-9][^ ]+$	439 in node: C1
+partial cover already contains: [^ ]*\.[A-Z]{3}	1045 in node: C4
+partial cover already contains: [^ ]*\.[A-Z]{3}	1045 in node: C1
+partial cover already contains: [^a-z0-9_]|^[0-9]	1520 in node: C4
+partial cover already contains: [^a-z0-9_]|^[0-9]	1520 in node: C1
+partial cover already contains: <[a-zA-Z\/][^>]*>	175 in node: C4
+partial cover already contains: <[a-zA-Z\/][^>]*>	175 in node: C1
+partial cover already contains: <[a-zA-Z\/][^>]*?>	175 in node: C4
+partial cover already contains: <[a-zA-Z\/][^>]*?>	175 in node: C1
+partial cover already contains: [^a-z]([a-z]+)[^a-z]	472 in node: C4
+partial cover already contains: [^a-z]([a-z]+)[^a-z]	472 in node: C1
+partial cover already contains: ^([a-z-]*) +([^ ].*)	1618 in node: C4
+partial cover already contains: ^([a-z-]*) +([^ ].*)	1618 in node: C1
+partial cover already contains: ([^\w.@+-/]|[,;?!])*	585 in node: C4
+partial cover already contains: ([^\w.@+-/]|[,;?!])*	585 in node: C1
+partial cover already contains: [^\\]\$([a-z]+)\b	375 in node: C4
+partial cover already contains: [^\\]\$([a-z]+)\b	375 in node: C1
+partial cover already contains: ^(scsi|ide)[0-9]+[^:]	562 in node: C4
+partial cover already contains: ^(scsi|ide)[0-9]+[^:]	562 in node: C1
+partial cover already contains: ([^a-z]+)\s*([a-z]+)?	729 in node: C4
+partial cover already contains: ([^a-z]+)\s*([a-z]+)?	729 in node: C1
+partial cover already contains: ^[^,]+,([0-9A-F]+),.*$	1432 in node: C4
+partial cover already contains: ^[^,]+,([0-9A-F]+),.*$	1432 in node: C1
+partial cover already contains: ^([^ ]+) = ([0-9\.]+)$	1510 in node: C4
+partial cover already contains: ^([^ ]+) = ([0-9\.]+)$	1510 in node: C1
+partial cover already contains: [^0-9]([0-9]{4})[^0-9]	1469 in node: C4
+partial cover already contains: [^0-9]([0-9]{4})[^0-9]	1469 in node: C1
+partial cover already contains: [^0-9]([0-9]{3,4})[^0-9]	1469 in node: C4
+partial cover already contains: [^0-9]([0-9]{3,4})[^0-9]	1469 in node: C1
+partial cover already contains: [A-Z]{([^}<]*)(<[^>}]*>)?}	1248 in node: C4
+partial cover already contains: [A-Z]{([^}<]*)(<[^>}]*>)?}	1248 in node: C1
+partial cover already contains: ([A-Za-z0-9-]+): ([^\r\n]+)	1638 in node: C4
+partial cover already contains: ([A-Za-z0-9-]+): ([^\r\n]+)	1638 in node: C1
+partial cover already contains: ^([^:]+):.([0-9]+).Watts.*$	225 in node: C4
+partial cover already contains: ^([^:]+):.([0-9]+).Watts.*$	225 in node: C1
+partial cover already contains: Line ([0-9]*) of "([^"]*)".*	1007 in node: C4
+partial cover already contains: Line ([0-9]*) of "([^"]*)".*	1007 in node: C1
+partial cover already contains: [0-9]+(?:\.[0-9]+)?|[^0-9]+	1436 in node: C4
+partial cover already contains: [0-9]+(?:\.[0-9]+)?|[^0-9]+	1436 in node: C1
+partial cover already contains: OS=(\w+\s+[^A-Z]+)\s+[A-Z]	681 in node: C4
+partial cover already contains: OS=(\w+\s+[^A-Z]+)\s+[A-Z]	681 in node: C1
+partial cover already contains: "([^"]+)"\s*(0x[0-9a-fA-F]+)	633 in node: C4
+partial cover already contains: "([^"]+)"\s*(0x[0-9a-fA-F]+)	633 in node: C1
+partial cover already contains: [a-zA-Z][^\t\n\r\x0c />\x00]*	1580 in node: C4
+partial cover already contains: [a-zA-Z][^\t\n\r\x0c />\x00]*	1580 in node: C1
+partial cover already contains: HTTP/1.[01] ([0-9]+) ([^\r]*)	606 in node: C4
+partial cover already contains: HTTP/1.[01] ([0-9]+) ([^\r]*)	606 in node: C1
+partial cover already contains: (([^@]+)@)?([^:]+)(:([0-9]+))?	1510 in node: C4
+partial cover already contains: (([^@]+)@)?([^:]+)(:([0-9]+))?	1510 in node: C1
+partial cover already contains: (<([a-z0-9\:\-_]+)\s+[^>]+>)	1326 in node: C4
+partial cover already contains: (<([a-z0-9\:\-_]+)\s+[^>]+>)	1326 in node: C1
+partial cover already contains: ([a-z]+)=(".*?"|[^,]*)(?:\Z|, *)	1495 in node: C4
+partial cover already contains: ([a-z]+)=(".*?"|[^,]*)(?:\Z|, *)	1495 in node: C1
+partial cover already contains: ("[^"]*"|0x[0-9A-Fa-f]{1,4}|\d+)	804 in node: C4
+partial cover already contains: ("[^"]*"|0x[0-9A-Fa-f]{1,4}|\d+)	804 in node: C1
+partial cover already contains: ^-([a-z]*)\|--([a-z]*) +([^ ].*)	1618 in node: C4
+partial cover already contains: ^-([a-z]*)\|--([a-z]*) +([^ ].*)	1618 in node: C1
+partial cover already contains: (\s*)([A-F0-9]*) /\* ([^ ]+) \*/	820 in node: C4
+partial cover already contains: (\s*)([A-F0-9]*) /\* ([^ ]+) \*/	820 in node: C1
+partial cover already contains: ^\\[a-zA-Z]+[ ]?|^\\[^a-zA-Z][ ]?	899 in node: C4
+partial cover already contains: ^\\[a-zA-Z]+[ ]?|^\\[^a-zA-Z][ ]?	899 in node: C1
+partial cover already contains: ^(\S+) == (u?'[^']*'|\([0-9, ]+\))$	220 in node: C4
+partial cover already contains: ^(\S+) == (u?'[^']*'|\([0-9, ]+\))$	220 in node: C1
+partial cover already contains: ^(https?://)?(?P<host>[^:]+)(:[0-9]+)?$	420 in node: C4
+partial cover already contains: ^(https?://)?(?P<host>[^:]+)(:[0-9]+)?$	420 in node: C1
+partial cover already contains: --[0-9]+-- ([^(:]*) \((0x[0-9a-f]+)\)	1007 in node: C4
+partial cover already contains: --[0-9]+-- ([^(:]*) \((0x[0-9a-f]+)\)	1007 in node: C1
+partial cover already contains: (%(\([^\)]+\))?([\d\.]+)?[a-zA-Z])	200 in node: C4
+partial cover already contains: (%(\([^\)]+\))?([\d\.]+)?[a-zA-Z])	200 in node: C1
+partial cover already contains: \s*<?([^@\s]+\@[a-zA-Z0-9-.]+)>?\s*	329 in node: C4
+partial cover already contains: \s*<?([^@\s]+\@[a-zA-Z0-9-.]+)>?\s*	329 in node: C1
+partial cover already contains: ^([A-Z])/([^\(]+)\(([^\)]+)\): (.*)$	1505 in node: C4
+partial cover already contains: ^([A-Z])/([^\(]+)\(([^\)]+)\): (.*)$	1505 in node: C1
+partial cover already contains: (^|\s+|[^\\])@([a-zA-Z_][a-zA-Z0-9_]*)	44 in node: C4
+partial cover already contains: (^|\s+|[^\\])@([a-zA-Z_][a-zA-Z0-9_]*)	44 in node: C1
+partial cover already contains: ([^\:])\:([a-zA-Z_0-9]*)(\s*)=\>(\s*)	1025 in node: C4
+partial cover already contains: ([^\:])\:([a-zA-Z_0-9]*)(\s*)=\>(\s*)	1025 in node: C1
+partial cover already contains: ((\([^\)]+\))?([\d\.]+)?[a-zA-Z])(.*)	200 in node: C4
+partial cover already contains: ((\([^\)]+\))?([\d\.]+)?[a-zA-Z])(.*)	200 in node: C1
+partial cover already contains: event-str ([^ ]+) ([^ ]+) ([^ ]+) ([0-9]+)	1216 in node: C4
+partial cover already contains: event-str ([^ ]+) ([^ ]+) ([^ ]+) ([0-9]+)	1216 in node: C1
+partial cover already contains: ^/lib/modules/(2\.[23456]\.[0-9]+[^/]*?)/	1226 in node: C4
+partial cover already contains: ^/lib/modules/(2\.[23456]\.[0-9]+[^/]*?)/	1226 in node: C1
+partial cover already contains: event-int ([^ ]+) ([^ ]+) ([0-9]+) ([0-9]+)	1216 in node: C4
+partial cover already contains: event-int ([^ ]+) ([^ ]+) ([0-9]+) ([0-9]+)	1216 in node: C1
+partial cover already contains: ^/usr(?:/share)?/man/man[^/]+/(.+)\.[1-9n]	1226 in node: C4
+partial cover already contains: ^/usr(?:/share)?/man/man[^/]+/(.+)\.[1-9n]	1226 in node: C1
+partial cover already contains: ^http://www.justin.tv/([a-zA-Z0-9_]+)[^/]*$	200 in node: C4
+partial cover already contains: ^http://www.justin.tv/([a-zA-Z0-9_]+)[^/]*$	200 in node: C1
+partial cover already contains: name="base\.version" value="([0-9.]+)[^"]*"	1057 in node: C4
+partial cover already contains: name="base\.version" value="([0-9.]+)[^"]*"	1057 in node: C1
+partial cover already contains: (\n\[\[[a-z][a-z][\w-]*:[^:\]]+\]\])+$	1454 in node: C4
+partial cover already contains: (\n\[\[[a-z][a-z][\w-]*:[^:\]]+\]\])+$	1454 in node: C1
+partial cover already contains: \$\{([_a-zA-Z][_a-zA-Z0-9]+)(\?[^}]+)?\}	1495 in node: C4
+partial cover already contains: \$\{([_a-zA-Z][_a-zA-Z0-9]+)(\?[^}]+)?\}	1495 in node: C1
+partial cover already contains: url\([\\'"]?([^\s)]+\.[a-z]+)[\\'"]?\)	1240 in node: C4
+partial cover already contains: url\([\\'"]?([^\s)]+\.[a-z]+)[\\'"]?\)	1240 in node: C1
+partial cover already contains: ([^a-zA-Z0-9]*)([a-zA-Z0-9]+)([^a-zA-Z0-9]*)	1076 in node: C4
+partial cover already contains: ([^a-zA-Z0-9]*)([a-zA-Z0-9]+)([^a-zA-Z0-9]*)	1076 in node: C1
+partial cover already contains: ^(.+?)[ \._\-]\[?([0-9]+)x([0-9]+)[^\/]*$	506 in node: C4
+partial cover already contains: ^(.+?)[ \._\-]\[?([0-9]+)x([0-9]+)[^\/]*$	506 in node: C1
+partial cover already contains: ^[-+]\s+\([^\)]+\)\s+[A-Za-z0-9_]+[^;]*$	1426 in node: C4
+partial cover already contains: ^[-+]\s+\([^\)]+\)\s+[A-Za-z0-9_]+[^;]*$	1426 in node: C1
+partial cover already contains: [a-zA-Z_]+(@[0-9]+)?|[0-9]+(\.[0-9]+)?|[^ \n]	533 in node: C4
+partial cover already contains: [a-zA-Z_]+(@[0-9]+)?|[0-9]+(\.[0-9]+)?|[^ \n]	533 in node: C1
+partial cover already contains: (\{[_a-zA-Z][^{}]*(?:\{[^{}]*\}[^{}]*)*\})	1268 in node: C4
+partial cover already contains: (\{[_a-zA-Z][^{}]*(?:\{[^{}]*\}[^{}]*)*\})	1268 in node: C1
+partial cover already contains: range ([^ ]+) ([^ ]+) ([^ ]+) ([0-9]+) ([0-9]+)	1216 in node: C4
+partial cover already contains: range ([^ ]+) ([^ ]+) ([^ ]+) ([0-9]+) ([0-9]+)	1216 in node: C1
+partial cover already contains: ^(.*) ?\[([^ ]*) \+(0x[0-9A-F]{1,16})\](.*)$	1007 in node: C4
+partial cover already contains: ^(.*) ?\[([^ ]*) \+(0x[0-9A-F]{1,16})\](.*)$	1007 in node: C1
+partial cover already contains: ^((?:[^-]+|-(?![0-9]))+)-([0-9][^-]*)(?:-(.*))?$	1491 in node: C4
+partial cover already contains: ^((?:[^-]+|-(?![0-9]))+)-([0-9][^-]*)(?:-(.*))?$	1491 in node: C1
+partial cover already contains: macro\s+([a-zA-Z0-9_]+)\s*\(([^)]*)\)\s*\n	534 in node: C4
+partial cover already contains: macro\s+([a-zA-Z0-9_]+)\s*\(([^)]*)\)\s*\n	534 in node: C1
+partial cover already contains: ^(.*) ?\[([^ ]*) \+(0x[0-9a-fA-F]{1,8})\](.*)$	1007 in node: C4
+partial cover already contains: ^(.*) ?\[([^ ]*) \+(0x[0-9a-fA-F]{1,8})\](.*)$	1007 in node: C1
+partial cover already contains: const\s+([a-zA-Z0-9_]+)\s*=\s*([^;\n]+)[;\n]	534 in node: C4
+partial cover already contains: const\s+([a-zA-Z0-9_]+)\s*=\s*([^;\n]+)[;\n]	534 in node: C1
+partial cover already contains: ^.*?([0-9/]{8}\s+[0-9:]{8}):\s+?([^:]+):\s(.*)$	1027 in node: C4
+partial cover already contains: ^.*?([0-9/]{8}\s+[0-9:]{8}):\s+?([^:]+):\s(.*)$	1027 in node: C1
+partial cover already contains: ^START WAL LOCATION: [^\s]+ \(file ([0-9A-Z]+)\)$	1520 in node: C4
+partial cover already contains: ^START WAL LOCATION: [^\s]+ \(file ([0-9A-Z]+)\)$	1520 in node: C1
+partial cover already contains: ([A-Za-z0-9_]+\s+)+([*A-Za-z0-9_::]+)\s*\([^)]*\)	498 in node: C4
+partial cover already contains: ([A-Za-z0-9_]+\s+)+([*A-Za-z0-9_::]+)\s*\([^)]*\)	498 in node: C1
+partial cover already contains: summary\.php\?cid=([A-Z0-9]+)&cycle=\d+\" ?>([^<]+)	55 in node: C4
+partial cover already contains: summary\.php\?cid=([A-Z0-9]+)&cycle=\d+\" ?>([^<]+)	55 in node: C1
+partial cover already contains: interface[\s]*\[[^\]]*Conditional=([\_0-9a-zA-Z&|]*)	1300 in node: C4
+partial cover already contains: interface[\s]*\[[^\]]*Conditional=([\_0-9a-zA-Z&|]*)	1300 in node: C1
+partial cover already contains: ed2k://\|file\|([^|]*)\|(\d+)\|([a-fA-F0-9]{32})\|	1569 in node: C4
+partial cover already contains: ed2k://\|file\|([^|]*)\|(\d+)\|([a-fA-F0-9]{32})\|	1569 in node: C1
+partial cover already contains: ^(.+?)[ \._\-][Ss]([0-9]+)[\.\- ]?[Ee]([0-9]+)[^\/]*$	506 in node: C4
+partial cover already contains: ^(.+?)[ \._\-][Ss]([0-9]+)[\.\- ]?[Ee]([0-9]+)[^\/]*$	506 in node: C1
+partial cover already contains: url\([\\'"]?([^\s)]+\.[a-z]+[\?\#\d\w]*)[\\'"]?\)	1240 in node: C4
+partial cover already contains: url\([\\'"]?([^\s)]+\.[a-z]+[\?\#\d\w]*)[\\'"]?\)	1240 in node: C1
+partial cover already contains: ([A-Za-z0-9_]+\s+)+([A-Za-z0-9_:]+)\s*\([^)]*\){0,1}\s*	498 in node: C4
+partial cover already contains: ([A-Za-z0-9_]+\s+)+([A-Za-z0-9_:]+)\s*\([^)]*\){0,1}\s*	498 in node: C1
+partial cover already contains: ==[0-9]+==\s*[#0-9]+\s*([0-9A-Fa-fx]+):(?:[^ ]* )*([^ :\n]+)	1007 in node: C4
+partial cover already contains: ==[0-9]+==\s*[#0-9]+\s*([0-9A-Fa-fx]+):(?:[^ ]* )*([^ :\n]+)	1007 in node: C1
+partial cover already contains: ^(.+?)[ \._\-]\[[Ss]([0-9]+?)\]_\[[Ee]([0-9]+?)\]?[^\/]*$	506 in node: C4
+partial cover already contains: ^(.+?)[ \._\-]\[[Ss]([0-9]+?)\]_\[[Ee]([0-9]+?)\]?[^\/]*$	506 in node: C1
+partial cover already contains: (ATTRS?|ENV|TEST){([a-zA-Z0-9/_.*%-]+)}\s*(?:=|!)=\s*"([^"]*)"$	722 in node: C4
+partial cover already contains: (ATTRS?|ENV|TEST){([a-zA-Z0-9/_.*%-]+)}\s*(?:=|!)=\s*"([^"]*)"$	722 in node: C1
+partial cover already contains: (ATTRS?|ENV|TEST){([a-zA-Z0-9/_.*%-]+)}\s*(?:=|!)=\s*"([^"]*)"$	722 in node: C3
+partial cover already contains: code-creation,([^,]+),(0x[a-f0-9]+),(\d+),\"(.*)\"(?:,(\d+))?	464 in node: C4
+partial cover already contains: code-creation,([^,]+),(0x[a-f0-9]+),(\d+),\"(.*)\"(?:,(\d+))?	464 in node: C1
+partial cover already contains: (?P<wikilink>(^|(?<=[^A-Za-z]))[!]?[A-Z][a-z/]+(?:[A-Z][a-z/]+)+)	1258 in node: C4
+partial cover already contains: (?P<wikilink>(^|(?<=[^A-Za-z]))[!]?[A-Z][a-z/]+(?:[A-Z][a-z/]+)+)	1258 in node: C1
+partial cover already contains: [^ ]+ \(([0-9]+\.[0-9]+\.[0-9]+)-[0-9]+\) [^ ]+; urgency=[^ ]+	735 in node: C4
+partial cover already contains: [^ ]+ \(([0-9]+\.[0-9]+\.[0-9]+)-[0-9]+\) [^ ]+; urgency=[^ ]+	735 in node: C1
+partial cover already contains: ([A-Za-z]+://)?(([A-Za-z0-9]+)(:[^:@]+)?@)?([^:/]+)(:[0-9]+)?(/.*)?	1051 in node: C4
+partial cover already contains: ([A-Za-z]+://)?(([A-Za-z0-9]+)(:[^:@]+)?@)?([^:/]+)(:[0-9]+)?(/.*)?	1051 in node: C1
+partial cover already contains: [^0-9](?P<year>[0-9]{4})(?P<month>[0-9]{2})(?P<day>[0-9]{2})[^0-9]	1469 in node: C4
+partial cover already contains: [^0-9](?P<year>[0-9]{4})(?P<month>[0-9]{2})(?P<day>[0-9]{2})[^0-9]	1469 in node: C1
+partial cover already contains: color ([^ ]+) #([a-fA-F0-9]{2,2})([a-fA-F0-9]{2,2})([a-fA-F0-9]{2,2})	1216 in node: C4
+partial cover already contains: color ([^ ]+) #([a-fA-F0-9]{2,2})([a-fA-F0-9]{2,2})([a-fA-F0-9]{2,2})	1216 in node: C1
+partial cover already contains: (\$[\$\(\)]|\$[_a-zA-Z][\.\w]*|\${[^}]*}|\s+|[^\s\$]+|\$)	743 in node: C4
+partial cover already contains: (\$[\$\(\)]|\$[_a-zA-Z][\.\w]*|\${[^}]*}|\s+|[^\s\$]+|\$)	743 in node: C1
+partial cover already contains: (ATTR|ENV|IMPORT|RUN){([a-zA-Z0-9/_.*%-]+)}\s*(=|\+=)\s*"([^"]*)"$	722 in node: C4
+partial cover already contains: (ATTR|ENV|IMPORT|RUN){([a-zA-Z0-9/_.*%-]+)}\s*(=|\+=)\s*"([^"]*)"$	722 in node: C1
+partial cover already contains:  ( " ( "" | [^"]+ )* " ) | ( [a-z_][a-z0-9_]* ) | [.] | (?P<err> .)  	1520 in node: C4
+partial cover already contains:  ( " ( "" | [^"]+ )* " ) | ( [a-z_][a-z0-9_]* ) | [.] | (?P<err> .)  	1520 in node: C1
+partial cover already contains: (?P<prefix>^\s*function\s+)(?P<main>[^$]+[&a-zA-Z0-9_]+)(?P<suffix>.*$)	31 in node: C4
+partial cover already contains: (?P<prefix>^\s*function\s+)(?P<main>[^$]+[&a-zA-Z0-9_]+)(?P<suffix>.*$)	31 in node: C1
+partial cover already contains: (www\.(?!\.)|[a-z][a-z0-9+.-]*://)[^\s<>\'\"]+[^!,\.\s<>\)\'\"\]]	18 in node: C4
+partial cover already contains: (www\.(?!\.)|[a-z][a-z0-9+.-]*://)[^\s<>\'\"]+[^!,\.\s<>\)\'\"\]]	18 in node: C1
+partial cover already contains: ^http://(?:www.)?(.*?)(?:\:[0-9]+)?/.*/([0-9B][0-9A-Z]{9})(?:[^0-9A-Z]|$)	913 in node: C4
+partial cover already contains: ^http://(?:www.)?(.*?)(?:\:[0-9]+)?/.*/([0-9B][0-9A-Z]{9})(?:[^0-9A-Z]|$)	913 in node: C1
+partial cover already contains: ([A-Za-z0-9_*&]+\s+)+([&*~A-Za-z0-9_:]+)\s*\([^)]*\)\s*(const)*\s*\{	498 in node: C4
+partial cover already contains: ([A-Za-z0-9_*&]+\s+)+([&*~A-Za-z0-9_:]+)\s*\([^)]*\)\s*(const)*\s*\{	498 in node: C1
+partial cover already contains: ^\s+(?P<address>[0-9a-fA-F]+)\s+(?P<symbol>.*)\s+\((?P<module>[^)]*)\)$	1576 in node: C4
+partial cover already contains: ^\s+(?P<address>[0-9a-fA-F]+)\s+(?P<symbol>.*)\s+\((?P<module>[^)]*)\)$	1576 in node: C1
+partial cover already contains: (?i)(?:https?://)?(?:www\.)?dailymotion\.[a-z]{2,3}/video/([^_/]+)_([^/]+)	386 in node: C4
+partial cover already contains: (?i)(?:https?://)?(?:www\.)?dailymotion\.[a-z]{2,3}/video/([^_/]+)_([^/]+)	386 in node: C1
+partial cover already contains: '?([^']*)'?!((\$([A-Za-z]+))?\$([0-9]+)(:(\$([A-Za-z]+))?(\$([0-9]+)))?)$	729 in node: C4
+partial cover already contains: '?([^']*)'?!((\$([A-Za-z]+))?\$([0-9]+)(:(\$([A-Za-z]+))?(\$([0-9]+)))?)$	729 in node: C1
+partial cover already contains: (public|private|protected)\s([A-Za-z0-9_]+\s+)+([A-Za-z0-9_]+)\s*\([^)]*\)	498 in node: C4
+partial cover already contains: (public|private|protected)\s([A-Za-z0-9_]+\s+)+([A-Za-z0-9_]+)\s*\([^)]*\)	498 in node: C1
+partial cover already contains: [^\d]+ (\d+)\.(\d+)\.(\d+)\s*\((?P<datetime>.+?)\)\s*(?P<type>[a-z]+)?	1247 in node: C4
+partial cover already contains: [^\d]+ (\d+)\.(\d+)\.(\d+)\s*\((?P<datetime>.+?)\)\s*(?P<type>[a-z]+)?	1247 in node: C1
+partial cover already contains: ((?P<h>[0-9]+))([^0-9 ]+(?P<m>[0-9 ]+))?([^0-9ap ]+(?P<s>[0-9]*))?((?P<d>[ap]m))?	1247 in node: C4
+partial cover already contains: ((?P<h>[0-9]+))([^0-9 ]+(?P<m>[0-9 ]+))?([^0-9ap ]+(?P<s>[0-9]*))?((?P<d>[ap]m))?	1247 in node: C1
+partial cover already contains: \s*([a-zA-Z_][-.a-zA-Z_0-9]*)(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[^ \t\n<>]*))?	413 in node: C4
+partial cover already contains: \s*([a-zA-Z_][-.a-zA-Z_0-9]*)(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[^ \t\n<>]*))?	413 in node: C1
+partial cover already contains: ^(?P<user>[^:]+)(\:(?P<password>[^@]*))?@(?P<host>[^\:@]+)(\:(?P<port>[0-9]+))?$	1247 in node: C4
+partial cover already contains: ^(?P<user>[^:]+)(\:(?P<password>[^@]*))?@(?P<host>[^\:@]+)(\:(?P<port>[0-9]+))?$	1247 in node: C1
+partial cover already contains: ^class\s*(.*_EXPORT|\s*) (vtk[A-Z0-9_][^ :\n]*)\s*:\s*public\s*(vtk[^ \n\{]*)	557 in node: C4
+partial cover already contains: ^class\s*(.*_EXPORT|\s*) (vtk[A-Z0-9_][^ :\n]*)\s*:\s*public\s*(vtk[^ \n\{]*)	557 in node: C1
+partial cover already contains: \s*([a-zA-Z_][-.:a-zA-Z_0-9]*)(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[^\s"\\'=<>`]*))?	1580 in node: C4
+partial cover already contains: \s*([a-zA-Z_][-.:a-zA-Z_0-9]*)(\s*=\s*(\\'[^\\']*\\'|"[^"]*"|[^\s"\\'=<>`]*))?	1580 in node: C1
+partial cover already contains: ^class(\s+[^\s]*_EXPORT)?\s+(vtk[A-Z0-9_][^ :\n]*)\s*:\s*public\s+(vtk[^ \n\{]*)	557 in node: C4
+partial cover already contains: ^class(\s+[^\s]*_EXPORT)?\s+(vtk[A-Z0-9_][^ :\n]*)\s*:\s*public\s+(vtk[^ \n\{]*)	557 in node: C1
+partial cover already contains: ^.*: \[GC (?P<start_size>[0-9]+)K\((?P<heap_size>[^ ]+)\), (?P<gc_time>[^ ]+) secs\]$	778 in node: C4
+partial cover already contains: ^.*: \[GC (?P<start_size>[0-9]+)K\((?P<heap_size>[^ ]+)\), (?P<gc_time>[^ ]+) secs\]$	778 in node: C1
+partial cover already contains: ^(([^:/?#]+):)?(//(([^:]+)(:(.+))?@)?([^/?#:]*)(:([0-9]+))?)?([^?#]*)(\?([^#]*))?(#(.*))?	826 in node: C4
+partial cover already contains: ^(([^:/?#]+):)?(//(([^:]+)(:(.+))?@)?([^/?#:]*)(:([0-9]+))?)?([^?#]*)(\?([^#]*))?(#(.*))?	826 in node: C1
+partial cover already contains: [ \t\n]*([a-zA-Z_][-.a-zA-Z_0-9]*)([ \t\n]*=[ \t\n]*(\\'[^\\']*\\'|"[^"]*"|[^ \t\n]*))?	413 in node: C4
+partial cover already contains: [ \t\n]*([a-zA-Z_][-.a-zA-Z_0-9]*)([ \t\n]*=[ \t\n]*(\\'[^\\']*\\'|"[^"]*"|[^ \t\n]*))?	413 in node: C1
+partial cover already contains: ^(?:\d{4}-\d{2}-\d{2} |)\[?(\d{2}:\d{2}:\d{2})\]? \[?(?:[^\]]+?/|)([A-Z]+)\]:? (.*)	1463 in node: C4
+partial cover already contains: ^(?:\d{4}-\d{2}-\d{2} |)\[?(\d{2}:\d{2}:\d{2})\]? \[?(?:[^\]]+?/|)([A-Z]+)\]:? (.*)	1463 in node: C1
+partial cover already contains: ^(?P<user>[^:@]+)(\:(?P<password>[^@]*))?@(?P<host>[^\:/]+)(\:(?P<port>[0-9]+))?/(?P<db>.+)$	1247 in node: C4
+partial cover already contains: ^(?P<user>[^:@]+)(\:(?P<password>[^@]*))?@(?P<host>[^\:/]+)(\:(?P<port>[0-9]+))?/(?P<db>.+)$	1247 in node: C1
+partial cover already contains: %[^0-9A-Fa-f]{2}|%[^0-9A-Fa-f][0-9A-Fa-f]|%[0-9A-Fa-f][^0-9A-Fa-f]|%$|%[0-9A-Fa-f]$|%[^0-9A-Fa-f]$	1247 in node: C4
+partial cover already contains: %[^0-9A-Fa-f]{2}|%[^0-9A-Fa-f][0-9A-Fa-f]|%[0-9A-Fa-f][^0-9A-Fa-f]|%$|%[0-9A-Fa-f]$|%[^0-9A-Fa-f]$	1247 in node: C1
+partial cover already contains: Release (?P<release>\w+).*\(BB=(?P<bb>[a-zA-Z0-9:]+),RF=(?P<radio>[a-zA-Z0-9:]+)(?P<var>[^)]*)\)	1626 in node: C4
+partial cover already contains: Release (?P<release>\w+).*\(BB=(?P<bb>[a-zA-Z0-9:]+),RF=(?P<radio>[a-zA-Z0-9:]+)(?P<var>[^)]*)\)	1626 in node: C1
+partial cover already contains: (?P<prefix>^[\s]*)(?P<main>([\*\s]+(html|body)\s+)?[a-zA-Z_\.,#]+[\sa-zA-Z_\.,#\{:]*)(?P<suffix>[^;]+)$	31 in node: C4
+partial cover already contains: (?P<prefix>^[\s]*)(?P<main>([\*\s]+(html|body)\s+)?[a-zA-Z_\.,#]+[\sa-zA-Z_\.,#\{:]*)(?P<suffix>[^;]+)$	31 in node: C1
+partial cover already contains: ^.*VariadicOperatorMatcherFunc\s*<\s*([^,]+),\s*([^\s>]+)\s*>\s*\n              ([a-zA-Z]*)\s*=\s*{.*};$	1244 in node: C4
+partial cover already contains: ^.*VariadicOperatorMatcherFunc\s*<\s*([^,]+),\s*([^\s>]+)\s*>\s*\n              ([a-zA-Z]*)\s*=\s*{.*};$	1244 in node: C1
+partial cover already contains: <link rel=\'image_src\' href=\'(http://is[0-9].myvideo\.de/de/movie[0-9]+/[a-f0-9]+)/thumbs/[^.]+\.jpg\' />	1181 in node: C4
+partial cover already contains: <link rel=\'image_src\' href=\'(http://is[0-9].myvideo\.de/de/movie[0-9]+/[a-f0-9]+)/thumbs/[^.]+\.jpg\' />	1181 in node: C1
+partial cover already contains: (cimport +([0-9a-zA-Z_.]+)\b)|(from +([0-9a-zA-Z_.]+) +cimport)|(include +'([^']+)')|(cdef +extern +from +'([^']+)')	1621 in node: C4
+partial cover already contains: (cimport +([0-9a-zA-Z_.]+)\b)|(from +([0-9a-zA-Z_.]+) +cimport)|(include +'([^']+)')|(cdef +extern +from +'([^']+)')	1621 in node: C1
+partial cover already contains: [ \t\r\n]*([a-zA-Z_][-.a-zA-Z_0-9]*)([ \t\r\n]*=[ \t\r\n]*(\\'[^\\']*\\'|"[^"]*"|[-a-zA-Z0-9./:+*%?!\(\)_#=~]*))?	1076 in node: C4
+partial cover already contains: [ \t\r\n]*([a-zA-Z_][-.a-zA-Z_0-9]*)([ \t\r\n]*=[ \t\r\n]*(\\'[^\\']*\\'|"[^"]*"|[-a-zA-Z0-9./:+*%?!\(\)_#=~]*))?	1076 in node: C1
+partial cover already contains: ^(?P<user>[^:@]+)(\:(?P<password>[^@]*))?@(?P<host>[^\:/]+)(\:(?P<port>[0-9]+))?/(?P<db>[^\?]+)(\?(?P<urlargs>.*))?$	1247 in node: C4
+partial cover already contains: ^(?P<user>[^:@]+)(\:(?P<password>[^@]*))?@(?P<host>[^\:/]+)(\:(?P<port>[0-9]+))?/(?P<db>[^\?]+)(\?(?P<urlargs>.*))?$	1247 in node: C1
+partial cover already contains: ^<(!\[CDATA\[[\s\S]*?\]\]|[a-zA-Z:0-9]+|\{[^{}]*\})\s*([a-zA-Z:0-9]+=(\{[^{}]*\}|"[^"]*"|\'[^\']*\')\s*)*\/?\s*>	1025 in node: C4
+partial cover already contains: ^<(!\[CDATA\[[\s\S]*?\]\]|[a-zA-Z:0-9]+|\{[^{}]*\})\s*([a-zA-Z:0-9]+=(\{[^{}]*\}|"[^"]*"|\'[^\']*\')\s*)*\/?\s*>	1025 in node: C1
+partial cover already contains: ^(?P<user>[^:@]+)(\:(?P<password>[^@]*))?@(?P<host>[^\:@]+)(\:(?P<port>[0-9]+))?/(?P<db>[^\?]+)(\?sslmode=(?P<sslmode>.+))?$	1247 in node: C4
+partial cover already contains: ^(?P<user>[^:@]+)(\:(?P<password>[^@]*))?@(?P<host>[^\:@]+)(\:(?P<port>[0-9]+))?/(?P<db>[^\?]+)(\?sslmode=(?P<sslmode>.+))?$	1247 in node: C1
+partial cover already contains: ^! (((2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?)\.){3}(2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?)(/(3[12]|[12]?[0-9])))[\t\s]+([^\t]+)$	735 in node: C4
+partial cover already contains: ^! (((2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?)\.){3}(2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?)(/(3[12]|[12]?[0-9])))[\t\s]+([^\t]+)$	735 in node: C1
+partial cover already contains: ^(?P<user>[^:@]+)(\:(?P<password>[^@]*))?@(?P<host>[^\:/]+)(\:(?P<port>[0-9]+))?/(?P<db>.+?)(\?set_encoding=(?P<charset>\w+))?$	1247 in node: C4
+partial cover already contains: ^(?P<user>[^:@]+)(\:(?P<password>[^@]*))?@(?P<host>[^\:/]+)(\:(?P<port>[0-9]+))?/(?P<db>.+?)(\?set_encoding=(?P<charset>\w+))?$	1247 in node: C1
+partial cover already contains: <(\/?)(!\[CDATA\[[\s\S]*?\]\]|[a-zA-Z:0-9]+|\{[^{}]*\})\s*([a-zA-Z:0-9]+=(\{[^{}]*\}|"[^"]*"|\'[^\']*\')\s*)*(\/?)\s*>	1025 in node: C4
+partial cover already contains: <(\/?)(!\[CDATA\[[\s\S]*?\]\]|[a-zA-Z:0-9]+|\{[^{}]*\})\s*([a-zA-Z:0-9]+=(\{[^{}]*\}|"[^"]*"|\'[^\']*\')\s*)*(\/?)\s*>	1025 in node: C1
+partial cover already contains: ^(?P<user>[^:@]+)(\:(?P<password>[^@]*))?@(?P<host>[^\:/]+)(\:(?P<port>[0-9]+))?/(?P<db>[^?]+)(\?set_encoding=(?P<charset>\w+))?$	1247 in node: C4
+partial cover already contains: ^(?P<user>[^:@]+)(\:(?P<password>[^@]*))?@(?P<host>[^\:/]+)(\:(?P<port>[0-9]+))?/(?P<db>[^?]+)(\?set_encoding=(?P<charset>\w+))?$	1247 in node: C1
+partial cover already contains: //\s?[\-]*\s(?P<desc>.*?)\*/\W*?struct\s(?:ASSIMP_API\s)?(?P<name>[a-z][a-z0-9_]\w+\b)[^{]*?\{(?P<code>.*?)\}\s*(PACK_STRUCT)?;	706 in node: C4
+partial cover already contains: //\s?[\-]*\s(?P<desc>.*?)\*/\W*?struct\s(?:ASSIMP_API\s)?(?P<name>[a-z][a-z0-9_]\w+\b)[^{]*?\{(?P<code>.*?)\}\s*(PACK_STRUCT)?;	706 in node: C1
+partial cover already contains: ^(optimized.)?group(?P<year>[0-9]{2}).(?P<group>[^.]+).mc(?P<prodyear>[0-9]{2})[_]?(?P<energy>[0-9]{1,2})(TeV)?.(?P<run>[0-9]+).(?P<name>).(?P<tag>[^.]+).(?P<suffix>.+)$	270 in node: C4
+partial cover already contains: ^(optimized.)?group(?P<year>[0-9]{2}).(?P<group>[^.]+).mc(?P<prodyear>[0-9]{2})[_]?(?P<energy>[0-9]{1,2})(TeV)?.(?P<run>[0-9]+).(?P<name>).(?P<tag>[^.]+).(?P<suffix>.+)$	270 in node: C1
+partial cover already contains: ^Line (?P<line>\d+) of "(?P<filename>[\w\\/\.\-+:]*)" starts at address\s+0x[0-9a-f]+ <(?P<sym>\w+)\+\d+> and ends at 0x[0-9a-f]+ <(?P<symend>[^+]+)(\+\d+)?>.	108 in node: C4
+partial cover already contains: ^Line (?P<line>\d+) of "(?P<filename>[\w\\/\.\-+:]*)" starts at address\s+0x[0-9a-f]+ <(?P<sym>\w+)\+\d+> and ends at 0x[0-9a-f]+ <(?P<symend>[^+]+)(\+\d+)?>.	108 in node: C1
+partial cover already contains: \n(^|\s) # start of string or has whitespace before it\n(https?://[:/.?=&;a-zA-Z0-9_-]+) # the URL itself, http or https only\n(\s|$) # trailing whitespace or end of string\n	485 in node: C6
+partial cover already contains: \n(^|\s) # start of string or has whitespace before it\n(https?://[:/.?=&;a-zA-Z0-9_-]+) # the URL itself, http or https only\n(\s|$) # trailing whitespace or end of string\n	485 in node: C1
+partial cover already contains: (?P<indent>^\s*)(?P<visibility>(final|abstract)?\s?(public|private|protected)?\s?(static)?\s*)(?P<entity>(function|class|interface)\s+)(?P<name>[^$]+[&a-zA-Z0-9_]+)(?P<args>.*$)	31 in node: C4
+partial cover already contains: (?P<indent>^\s*)(?P<visibility>(final|abstract)?\s?(public|private|protected)?\s?(static)?\s*)(?P<entity>(function|class|interface)\s+)(?P<name>[^$]+[&a-zA-Z0-9_]+)(?P<args>.*$)	31 in node: C1
+partial cover already contains: ^(?P<scheme>[a-zA-Z0-9]+)://                         # scheme\n                        ((?P<avatar>[^:@]+)(:(?P<password>[^@]+))?@)?       # avatar name and password (optional)\n                        (?P<host>[^:/]+)(:(?P<port>\d+))?                   # host, port (optional)\n                        (?P<path>/.*)                                       # path\n                       $	926 in node: C4
+partial cover already contains: ^(?P<scheme>[a-zA-Z0-9]+)://                         # scheme\n                        ((?P<avatar>[^:@]+)(:(?P<password>[^@]+))?@)?       # avatar name and password (optional)\n                        (?P<host>[^:/]+)(:(?P<port>\d+))?                   # host, port (optional)\n                        (?P<path>/.*)                                       # path\n                       $	926 in node: C1
+partial cover already contains: ((?<=\()[A-Za-z][A-Za-z0-9\+\.\-]*:([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+(?=\)))|([A-Za-z][A-Za-z0-9\+\.\-]*:([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+)|\bmailto:\S*[^\s\W]|\b\S+@\S+\.\S*[^\s\W]|((?<=\()(www|ftp)\.([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+(?=\)))|((www|ftp)\.([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+\.([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+)	18 in node: C4
+partial cover already contains: ((?<=\()[A-Za-z][A-Za-z0-9\+\.\-]*:([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+(?=\)))|([A-Za-z][A-Za-z0-9\+\.\-]*:([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+)|\bmailto:\S*[^\s\W]|\b\S+@\S+\.\S*[^\s\W]|((?<=\()(www|ftp)\.([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+(?=\)))|((www|ftp)\.([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+\.([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+)	18 in node: C1
+
+current node: C2
+
+partial cover already contains: ^(?:\s*(?:,\s*)?([^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+)\s*=\s*\"?((?<=\")(?:[^\0-\x08\x0A-\x1f\x7f-\xff\\\"]|\\[\0-\x7f])*?(?=\")|(?<!\")[^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+(?!\"))\"?)(.*)$	220,323,355,436,510,559,814,925,927,936,995,1003,1068,1104,1150,1211,1269,1301,1328,1439,1469,1495,1498,1536,1555 in node: C4
+partial cover already contains: ^(?:\s*(?:,\s*)?([^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+)\s*=\s*\"?((?<=\")(?:[^\0-\x08\x0A-\x1f\x7f-\xff\\\"]|\\[\0-\x7f])*?(?=\")|(?<!\")[^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+(?!\"))\"?)(.*)$	220,323,355,436,510,559,814,925,927,936,995,1003,1068,1104,1150,1211,1269,1301,1328,1439,1469,1495,1498,1536,1555 in node: C1
+partial cover already contains: ^(?:\s*(?:,\s*)?([^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+)\s*=\s*\"?((?<=\")(?:[^\0-\x08\x0A-\x1f\x7f-\xff\\\"]|\\[\0-\x7f])*?(?=\")|(?<!\")[^\0-\x1f\x7f-\xff()<>@,;:\\\"/[\]?={} \t]+(?!\"))\"?)(.*)$	220,323,355,436,510,559,814,925,927,936,995,1003,1068,1104,1150,1211,1269,1301,1328,1439,1469,1495,1498,1536,1555 in node: C2
+partial cover already contains: ((^|[^%])(%%)*%[sy])	302,323,355,422,425,849,866,878,1004,1012,1086,1158,1184,1495,1517,1580,1634 in node: C4
+partial cover already contains: ((^|[^%])(%%)*%[sy])	302,323,355,422,425,849,866,878,1004,1012,1086,1158,1184,1495,1517,1580,1634 in node: C2
+partial cover already contains: [ \t]*([^ \t]+)[ \t]+realm="([^"]*)"	12,287,412,602,759,852,961,1054,1087,1221,1495,1509,1511 in node: C4
+partial cover already contains: [ \t]*([^ \t]+)[ \t]+realm="([^"]*)"	12,287,412,602,759,852,961,1054,1087,1221,1495,1509,1511 in node: C2
+partial cover already contains: ^([^ \t]+)[ \t]+(.*)$	12,287,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C4
+partial cover already contains: ^([^ \t]+)[ \t]+(.*)$	12,287,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C2
+partial cover already contains: ^(?P<group>[^ \t]+)[ \t]+(.*)$	12,287,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C4
+partial cover already contains: ^(?P<group>[^ \t]+)[ \t]+(.*)$	12,287,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C2
+partial cover already contains: \n  =\?                   # literal =?\n  (?P<charset>[^?]*?)   # non-greedy up to the next ? is the charset\n  \?                    # literal ?\n  (?P<encoding>[qb])    # either a "q" or a "b", case insensitive\n  \?                    # literal ?\n  (?P<atom>.*?)         # non-greedy up to the next ?= is the atom\n  \?=                   # literal ?=\n  	12,287,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C4
+partial cover already contains: \n  =\?                   # literal =?\n  (?P<charset>[^?]*?)   # non-greedy up to the next ? is the charset\n  \?                    # literal ?\n  (?P<encoding>[qb])    # either a "q" or a "b", case insensitive\n  \?                    # literal ?\n  (?P<atom>.*?)         # non-greedy up to the next ?= is the atom\n  \?=                   # literal ?=\n  	12,287,412,602,759,852,961,1054,1087,1221,1509,1511 in node: C2
+partial cover already contains: encoding\s*=\s*[\'"]([^"\']+)["\']	12,73,287,412,602,759,852,961,1221,1509,1511 in node: C4
+partial cover already contains: encoding\s*=\s*[\'"]([^"\']+)["\']	12,73,287,412,602,759,852,961,1221,1509,1511 in node: C2
+partial cover already contains: [\t ]+(?![^{]*})	308,322,389,467,505,534,743,1216,1466 in node: C4
+partial cover already contains: [\t ]+(?![^{]*})	308,322,389,467,505,534,743,1216,1466 in node: C2
+partial cover already contains: ^\s*#\s*include\s*([<"])([^>"]*)[>"].*$	322,416,467,505,534,1199,1300,1404,1466 in node: C4
+partial cover already contains: ^\s*#\s*include\s*([<"])([^>"]*)[>"].*$	322,416,467,505,534,1199,1300,1404,1466 in node: C2
+partial cover already contains: ^\* ([^:]*):(:|[ \t]*([^\t,\n.]+)([^ \t\n]*))[ \t\n]*	12,412,759,852,961,1054,1087,1221,1511 in node: C4
+partial cover already contains: ^\* ([^:]*):(:|[ \t]*([^\t,\n.]+)([^ \t\n]*))[ \t\n]*	12,412,759,852,961,1054,1087,1221,1511 in node: C2
+partial cover already contains: ^([^.]*)\.([^:]*):[\t ]+(.*)	12,412,759,852,961,1087,1221,1511 in node: C4
+partial cover already contains: ^([^.]*)\.([^:]*):[\t ]+(.*)	12,412,759,852,961,1087,1221,1511 in node: C2
+partial cover already contains: \n    ((?P<name>\w+)\s*=\s*)?\n    (?P<value>\n        True|False|\n        \d+.\d+|\n        \d+.|\n        \d+|\n        \w+|\n        [urUR]?(?P<stringval>"[^"]*?"|\'[^\']*\')\n    )\s*,\n	992,1104,1257,1386,1415,1469,1536,1580 in node: C4
+partial cover already contains: \n    ((?P<name>\w+)\s*=\s*)?\n    (?P<value>\n        True|False|\n        \d+.\d+|\n        \d+.|\n        \d+|\n        \w+|\n        [urUR]?(?P<stringval>"[^"]*?"|\'[^\']*\')\n    )\s*,\n	992,1104,1257,1386,1415,1469,1536,1580 in node: C2
+partial cover already contains: \n  =\?                   # literal =?\n  (?P<charset>[^?]*?)   # non-greedy up to the next ? is the charset\n  \?                    # literal ?\n  (?P<encoding>[qb])    # either a "q" or a "b", case insensitive\n  \?                    # literal ?\n  (?P<encoded>.*?)      # non-greedy up to the next ?= is the encoded string\n  \?=                   # literal ?=\n  	43,412,759,852,961,1221,1511,1580 in node: C4
+partial cover already contains: \n  =\?                   # literal =?\n  (?P<charset>[^?]*?)   # non-greedy up to the next ? is the charset\n  \?                    # literal ?\n  (?P<encoding>[qb])    # either a "q" or a "b", case insensitive\n  \?                    # literal ?\n  (?P<encoded>.*?)      # non-greedy up to the next ?= is the encoded string\n  \?=                   # literal ?=\n  	43,412,759,852,961,1221,1511,1580 in node: C2
+partial cover already contains: [\\]end{([^}]*)}	12,412,759,852,961,1221,1511 in node: C4
+partial cover already contains: [\\]end{([^}]*)}	12,412,759,852,961,1221,1511 in node: C2
+partial cover already contains: [\\]begin{([^}]*)}	12,412,759,852,961,1221,1511 in node: C4
+partial cover already contains: [\\]begin{([^}]*)}	12,412,759,852,961,1221,1511 in node: C2
+partial cover already contains: [ \n]*{(([^{}}]|{[^}]*})*)}	12,412,759,852,961,1221,1511 in node: C4
+partial cover already contains: [ \n]*{(([^{}}]|{[^}]*})*)}	12,412,759,852,961,1221,1511 in node: C2
+partial cover already contains: ([^\'"<>]|"[^"]*"(?=>|/|\s|\w+=)|\'[^\']*\'(?=>|/|\s|\w+=))*(?=[<>])|.*?(?=[<>])	220,454,666,707,927,1003,1247 in node: C4
+partial cover already contains: ([^\'"<>]|"[^"]*"(?=>|/|\s|\w+=)|\'[^\']*\'(?=>|/|\s|\w+=))*(?=[<>])|.*?(?=[<>])	220,454,666,707,927,1003,1247 in node: C2
+partial cover already contains: ^\n        (?P<prefix>(?:[^\r\n|\n|\r])*?)\n        [\ \t]*Local\ Variables:[\ \t]*\n        (?P<suffix>.*?)(?:\r\n|\n|\r)\n        (?P<content>.*?\1End:)\n        	305,552,606,1223,1247,1420,1505 in node: C4
+partial cover already contains: ^\n        (?P<prefix>(?:[^\r\n|\n|\r])*?)\n        [\ \t]*Local\ Variables:[\ \t]*\n        (?P<suffix>.*?)(?:\r\n|\n|\r)\n        (?P<content>.*?\1End:)\n        	305,552,606,1223,1247,1420,1505 in node: C2
+partial cover already contains: ^(["\\'])((?:(?!\1)[^\\]|\\.)*)\1	305,407,1025,1322,1326,1505 in node: C4
+partial cover already contains: ^(["\\'])((?:(?!\1)[^\\]|\\.)*)\1	305,407,1025,1322,1326,1505 in node: C2
+partial cover already contains: (?P<q>[\\'"])(.*?)(?<![^\\][\\])(?P=q)	306,322,534,896,1007,1466 in node: C4
+partial cover already contains: (?P<q>[\\'"])(.*?)(?<![^\\][\\])(?P=q)	306,322,534,896,1007,1466 in node: C2
+partial cover already contains: \n  =\?                   # literal =?\n  (?P<charset>[^?]*?)   # non-greedy up to the next ? is the charset\n  \?                    # literal ?\n  (?P<encoding>[qb])    # either a "q" or a "b", case insensitive\n  \?                    # literal ?\n  (?P<encoded>.*?)      # non-greedy up to the next ?= is the encoded string\n  \?=                   # literal ?=\n  (?=[ \t]|$)           # whitespace or the end of the string\n  	12,287,602,1054,1087,1509 in node: C4
+partial cover already contains: \n  =\?                   # literal =?\n  (?P<charset>[^?]*?)   # non-greedy up to the next ? is the charset\n  \?                    # literal ?\n  (?P<encoding>[qb])    # either a "q" or a "b", case insensitive\n  \?                    # literal ?\n  (?P<encoded>.*?)      # non-greedy up to the next ?= is the encoded string\n  \?=                   # literal ?=\n  (?=[ \t]|$)           # whitespace or the end of the string\n  	12,287,602,1054,1087,1509 in node: C2
+partial cover already contains: ^%%([^:]*):[ \t]*(.*)[ \t]*$	441,628,1054,1204,1580 in node: C4
+partial cover already contains: ^%%([^:]*):[ \t]*(.*)[ \t]*$	441,628,1054,1204,1580 in node: C2
+partial cover already contains: [*]\[(?P<abbr>[^\]]*)\][ ]?:\s*(?P<title>.*)	236,247,919,1007,1395 in node: C4
+partial cover already contains: [*]\[(?P<abbr>[^\]]*)\][ ]?:\s*(?P<title>.*)	236,247,919,1007,1395 in node: C2
+partial cover already contains: ^[ \t]*[^# \t]	433,927,1003,1202 in node: C4
+partial cover already contains: ^[ \t]*[^# \t]	433,927,1003,1202 in node: C2
+partial cover already contains: [()]|\s=[^=]|[^=!<>]=\s	304,662,842,1322 in node: C4
+partial cover already contains: [()]|\s=[^=]|[^=!<>]=\s	304,662,842,1322 in node: C2
+partial cover already contains: <base\s+href\s*=\s*[\'"]?([^\'">]+)	1263,1290,1580,1594 in node: C4
+partial cover already contains: <base\s+href\s*=\s*[\'"]?([^\'">]+)	1263,1290,1580,1594 in node: C2
+partial cover already contains: ^[= ]([*> ]) ([^- ]+)-([^ ]+) \[ (.*) \]	614,947,996,1491 in node: C4
+partial cover already contains: ^[= ]([*> ]) ([^- ]+)-([^ ]+) \[ (.*) \]	614,947,996,1491 in node: C2
+partial cover already contains: .*[\\/]([^\\/]+)[\\/][^\\/]+[\\/]scons[\\/]?$	592,896,1301,1403 in node: C4
+partial cover already contains: .*[\\/]([^\\/]+)[\\/][^\\/]+[\\/]scons[\\/]?$	592,896,1301,1403 in node: C2
+partial cover already contains: (?P<prefix>[|+ ]*)(?P<samples>\d+), (?P<symbol>[^,]+), (?P<image>.*)	851,1269,1561,1576 in node: C4
+partial cover already contains: (?P<prefix>[|+ ]*)(?P<samples>\d+), (?P<symbol>[^,]+), (?P<image>.*)	851,1269,1561,1576 in node: C2
+partial cover already contains: (?ms)^(?P<package>[^#]\S+)[\t ]+(?P<question>\S+)[\t ]+(?P<type>\S+)[\t ]+(?P<value>[^\n]*)$	614,947,996,1491 in node: C4
+partial cover already contains: (?ms)^(?P<package>[^#]\S+)[\t ]+(?P<question>\S+)[\t ]+(?P<type>\S+)[\t ]+(?P<value>[^\n]*)$	614,947,996,1491 in node: C2
+partial cover already contains: [\/][^\/]+[\/]?$	532,577,1314 in node: C4
+partial cover already contains: [\/][^\/]+[\/]?$	532,577,1314 in node: C2
+partial cover already contains: ^([^<]+)[<]?(.*)[>]?$	241,874,1249 in node: C4
+partial cover already contains: ^([^<]+)[<]?(.*)[>]?$	241,874,1249 in node: C2
+partial cover already contains: ^[ \t]*import[ \t]+([^#]+)	12,1054,1087 in node: C4
+partial cover already contains: ^[ \t]*import[ \t]+([^#]+)	12,1054,1087 in node: C2
+partial cover already contains: ^([^.]+)[.]([^.]+)[.]?([^.]*)	241,874,1249 in node: C4
+partial cover already contains: ^([^.]+)[.]([^.]+)[.]?([^.]*)	241,874,1249 in node: C2
+partial cover already contains: ^[ \t]*from[ \t]+([^ \t]+)[ \t]+	12,1054,1087 in node: C4
+partial cover already contains: ^[ \t]*from[ \t]+([^ \t]+)[ \t]+	12,1054,1087 in node: C2
+partial cover already contains: ([^<>= ]+)(?:\s*([<>=]{1,2})\s*(.*))?$	242,930,1323 in node: C4
+partial cover already contains: ([^<>= ]+)(?:\s*([<>=]{1,2})\s*(.*))?$	242,930,1323 in node: C2
+partial cover already contains: \s?((["][^"]*["]|[\'][^\']*[\'])\s+dluohs)	1025,1215,1423 in node: C4
+partial cover already contains: \s?((["][^"]*["]|[\'][^\']*[\'])\s+dluohs)	1025,1215,1423 in node: C2
+partial cover already contains: goog\.provide\s*\(\s*[\'"]([^\)]+)[\'"]\s*\)	240,343,1336 in node: C4
+partial cover already contains: goog\.provide\s*\(\s*[\'"]([^\)]+)[\'"]\s*\)	240,343,1336 in node: C2
+partial cover already contains: goog\.require\s*\(\s*[\'"]([^\)]+)[\'"]\s*\)	240,343,1336 in node: C4
+partial cover already contains: goog\.require\s*\(\s*[\'"]([^\)]+)[\'"]\s*\)	240,343,1336 in node: C2
+partial cover already contains: (^|\n)\d+-\d+-\d+[ \t]+((\w|[.-])+[ \t]+)+<[^\n>]+>(?=$|\n)	526,1046,1642 in node: C4
+partial cover already contains: (^|\n)\d+-\d+-\d+[ \t]+((\w|[.-])+[ \t]+)+<[^\n>]+>(?=$|\n)	526,1046,1642 in node: C2
+partial cover already contains: (^|\n)\d+-\d+-\d+[ \t]+((\w|[.-])+[ \t]+)+<[^\n>]+>(?=$|\n)	526,1046,1642 in node: C3
+partial cover already contains: ^([^/]|/[^/])*\bvoid\s+([Tt]est\w+)\s*\(\s*(void)?\s*\)	0,139,785 in node: C4
+partial cover already contains: ^([^/]|/[^/])*\bvoid\s+([Tt]est\w+)\s*\(\s*(void)?\s*\)	0,139,785 in node: C2
+partial cover already contains: ^((?:|sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)?|\[\S+[@:][^\n]+\].+)[$#%])(.*\n?)	251,498,1267 in node: C4
+partial cover already contains: ^((?:|sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)?|\[\S+[@:][^\n]+\].+)[$#%])(.*\n?)	251,498,1267 in node: C2
+partial cover already contains: ([=!]=|is|is\s+not)\s*type(?:s\.(\w+)Type|\(\s*(\(\s*\)|[^)]*[^ )])\s*\))	640,945,1505 in node: C4
+partial cover already contains: ([=!]=|is|is\s+not)\s*type(?:s\.(\w+)Type|\(\s*(\(\s*\)|[^)]*[^ )])\s*\))	640,945,1505 in node: C2
+partial cover already contains: ([^,;]+[,;]?)	1007,1301 in node: C4
+partial cover already contains: ([^,;]+[,;]?)	1007,1301 in node: C2
+partial cover already contains: ^(.*[/#])([^/#]+)$	210,253 in node: C4
+partial cover already contains: ^(.*[/#])([^/#]+)$	210,253 in node: C2
+partial cover already contains: (.*) ([(][^()]*[)])	251,1087 in node: C4
+partial cover already contains: (.*) ([(][^()]*[)])	251,1087 in node: C2
+partial cover already contains: ^[aeiouy][^aeiouy]$	866,1184 in node: C4
+partial cover already contains: ^[aeiouy][^aeiouy]$	866,1184 in node: C2
+partial cover already contains: [$][{]\d+:([^}]+)[}]	1025,1322 in node: C4
+partial cover already contains: [$][{]\d+:([^}]+)[}]	1025,1322 in node: C2
+partial cover already contains: [^%]+%[^.]+[.](compile)	241,1249 in node: C4
+partial cover already contains: [^%]+%[^.]+[.](compile)	241,1249 in node: C2
+partial cover already contains: [/*?]|\[[^]]*/[^]]*\]	737,1315 in node: C4
+partial cover already contains: [/*?]|\[[^]]*/[^]]*\]	737,1315 in node: C2
+partial cover already contains: [^%]+%[^.]+[.](link|archive)	241,1249 in node: C4
+partial cover already contains: [^%]+%[^.]+[.](link|archive)	241,1249 in node: C2
+partial cover already contains: [&?]versionId=([^&]+)($|=|&)	1223,1420 in node: C4
+partial cover already contains: [&?]versionId=([^&]+)($|=|&)	1223,1420 in node: C2
+partial cover already contains: [&?]versionId=([^&]+)($|=|&)	1223,1420 in node: C3
+partial cover already contains: (?<!\\)/.*?[^\\]/[gims]*	1025,1322 in node: C4
+partial cover already contains: (?<!\\)/.*?[^\\]/[gims]*	1025,1322 in node: C2
+partial cover already contains: (<[^<>]+(?:href|src)=(["\'])/)	1228,1231 in node: C4
+partial cover already contains: (<[^<>]+(?:href|src)=(["\'])/)	1228,1231 in node: C2
+partial cover already contains: ^[\\'\"][^\\'\"]+[\\'\"]$	247,1007 in node: C4
+partial cover already contains: ^[\\'\"][^\\'\"]+[\\'\"]$	247,1007 in node: C2
+partial cover already contains: version *= *([\'"][^\'"]*[\'"])	222,1486 in node: C4
+partial cover already contains: version *= *([\'"][^\'"]*[\'"])	222,1486 in node: C2
+partial cover already contains: .*[^aeiouy][aeiouy][^aeiouywxY]$	866,1184 in node: C4
+partial cover already contains: .*[^aeiouy][aeiouy][^aeiouywxY]$	866,1184 in node: C2
+partial cover already contains: [^%]+%testing[.](capture-output)	241,1249 in node: C4
+partial cover already contains: [^%]+%testing[.](capture-output)	241,1249 in node: C2
+partial cover already contains: [^aeiouy]*[aeiouy]+[^aeiouy](\w*)	866,1184 in node: C4
+partial cover already contains: [^aeiouy]*[aeiouy]+[^aeiouy](\w*)	866,1184 in node: C2
+partial cover already contains: \smarkdown(=[\\'"]?[^> ]*[\\'"]?)?	236,1395 in node: C4
+partial cover already contains: \smarkdown(=[\\'"]?[^> ]*[\\'"]?)?	236,1395 in node: C2
+partial cover already contains: [\?#&](?P<name>[^&=]+)=(?P<value>[^&=]+)	1263,1580 in node: C4
+partial cover already contains: [\?#&](?P<name>[^&=]+)=(?P<value>[^&=]+)	1263,1580 in node: C2
+partial cover already contains: ^([^<]*)<([^>]*)>\s+(\d+\s+[+-]\d{4})$	103,130 in node: C4
+partial cover already contains: ^([^<]*)<([^>]*)>\s+(\d+\s+[+-]\d{4})$	103,130 in node: C2
+partial cover already contains: ^(..[^\(:]+)?[\(:](\d+)[\):]:?\s*(.*)	602,1054 in node: C4
+partial cover already contains: ^(..[^\(:]+)?[\(:](\d+)[\):]:?\s*(.*)	602,1054 in node: C2
+partial cover already contains: importScripts\([\\'"]([^\\'"]+)[\\'"]\)	896,1300 in node: C4
+partial cover already contains: importScripts\([\\'"]([^\\'"]+)[\\'"]\)	896,1300 in node: C2
+partial cover already contains: flashvars: [\\'"](?:.*&)?file=(http[^\\'"&]*)	386,1181 in node: C4
+partial cover already contains: flashvars: [\\'"](?:.*&)?file=(http[^\\'"&]*)	386,1181 in node: C2
+partial cover already contains: [^%]+%testing[.](expect-failure|expect-success)	241,1249 in node: C4
+partial cover already contains: [^%]+%testing[.](expect-failure|expect-success)	241,1249 in node: C2
+partial cover already contains: ([+-]\(.*?\)|\(.*?\)[\*\+]|\(.*?\))(?:\s|$)	305,1505 in node: C6
+partial cover already contains: ([+-]\(.*?\)|\(.*?\)[\*\+]|\(.*?\))(?:\s|$)	305,1505 in node: C2
+partial cover already contains:  (SENATOR|REPRESENTATIVE)\([Ss]\) ([^,]+(,[^,]+){0,})	109,182 in node: C4
+partial cover already contains:  (SENATOR|REPRESENTATIVE)\([Ss]\) ([^,]+(,[^,]+){0,})	109,182 in node: C2
+partial cover already contains: ((?:[^{}]?[<>=^])?)([-+ ]?)(#?)(\d*)(,?)((?:\.\d+)?)(.?)$	568,1144 in node: C4
+partial cover already contains: ((?:[^{}]?[<>=^])?)([-+ ]?)(#?)(\d*)(,?)((?:\.\d+)?)(.?)$	568,1144 in node: C2
+partial cover already contains: /\* \[([^\]]*.*?)] \*/[ \t](.*[* ]+)(\w+)(\[ *])?[\),]	602,1054 in node: C4
+partial cover already contains: /\* \[([^\]]*.*?)] \*/[ \t](.*[* ]+)(\w+)(\[ *])?[\),]	602,1054 in node: C2
+partial cover already contains: ^(.+?)[ \._\-]\[[Ss](\d+)\]((?:_\[[Ee]\d+\])+)[^\/]*$	1269,1498 in node: C4
+partial cover already contains: ^(.+?)[ \._\-]\[[Ss](\d+)\]((?:_\[[Ee]\d+\])+)[^\/]*$	1269,1498 in node: C2
+partial cover already contains: (([wum]asser(t|ted))) *\(( *)(\d+) *,\s*("\S[^"]+\S")\s*,?.*	1459,1531 in node: C4
+partial cover already contains: (([wum]asser(t|ted))) *\(( *)(\d+) *,\s*("\S[^"]+\S")\s*,?.*	1459,1531 in node: C2
+partial cover already contains: (?<![\\'\"])require\s*\(\s*[\\'\"]([^\\'\"]+?)[\\'\"]\s*\)	247,1007 in node: C4
+partial cover already contains: (?<![\\'\"])require\s*\(\s*[\\'\"]([^\\'\"]+?)[\\'\"]\s*\)	247,1007 in node: C2
+partial cover already contains: [ ]*(?P<arg>.*?=(?:(?:[^"\']*?)|(?:"[^"]*")|(?:\'[^\']*\')))[ ]*[,\r\n]	1232,1233 in node: C4
+partial cover already contains: [ ]*(?P<arg>.*?=(?:(?:[^"\']*?)|(?:"[^"]*")|(?:\'[^\']*\')))[ ]*[,\r\n]	1232,1233 in node: C2
+partial cover already contains: \b((http|ftp)://[^ \t\n\r\f\v<\'"]+|RFC[- ]?(\d+)|PEP[- ]?(\d+))	305,1505 in node: C4
+partial cover already contains: \b((http|ftp)://[^ \t\n\r\f\v<\'"]+|RFC[- ]?(\d+)|PEP[- ]?(\d+))	305,1505 in node: C2
+partial cover already contains: (?P<before>.*?)[\(]host (?P<host>\S+) (?P<action>[^:]+): (?P<message>.*)[\)]	440,542 in node: C4
+partial cover already contains: (?P<before>.*?)[\(]host (?P<host>\S+) (?P<action>[^:]+): (?P<message>.*)[\)]	440,542 in node: C2
+partial cover already contains: (require|define)\s*\(\s*([\\'\"][^\\'\"]+[\\'\"]\s*,)?\s*\[([^\]]+)\]	247,1007 in node: C4
+partial cover already contains: (require|define)\s*\(\s*([\\'\"][^\\'\"]+[\\'\"]\s*,)?\s*\[([^\]]+)\]	247,1007 in node: C2
+partial cover already contains: <meta[^>]*content\s*=\s*[\'"]?text/html;\s*charset\s*=\s*([^ \'">]+)\s*[\'"]?[^>]*>	1228,1231 in node: C4
+partial cover already contains: <meta[^>]*content\s*=\s*[\'"]?text/html;\s*charset\s*=\s*([^ \'">]+)\s*[\'"]?[^>]*>	1228,1231 in node: C2
+partial cover already contains: ^((?:\(\S+\))?(?:|sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)?|\[\S+[@:][^\n]+\].+)[$#%])(.*\n?)	1087,1555 in node: C4
+partial cover already contains: ^((?:\(\S+\))?(?:|sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)?|\[\S+[@:][^\n]+\].+)[$#%])(.*\n?)	1087,1555 in node: C2
+partial cover already contains: [$][^$]	592 in node: C4
+partial cover already contains: [$][^$]	592 in node: C2
+partial cover already contains: ([$]{[^}]*})	313 in node: C4
+partial cover already contains: ([$]{[^}]*})	313 in node: C2
+partial cover already contains: [,]?([^,=]+)=	1068 in node: C4
+partial cover already contains: [,]?([^,=]+)=	1068 in node: C2
+partial cover already contains: ^[ ]{0,3}[^ :]	236 in node: C4
+partial cover already contains: ^[ ]{0,3}[^ :]	236 in node: C2
+partial cover already contains: [*]|--|[^+*-]+	1248 in node: C4
+partial cover already contains: [*]|--|[^+*-]+	1248 in node: C2
+partial cover already contains: ^["]([^"]+)["]$	502 in node: C4
+partial cover already contains: ^["]([^"]+)["]$	502 in node: C2
+partial cover already contains: <[Bb][Rr][^>]*>	110 in node: C4
+partial cover already contains: <[Bb][Rr][^>]*>	110 in node: C2
+partial cover already contains: int\s*[(][^)]*[)]	356 in node: C4
+partial cover already contains: int\s*[(][^)]*[)]	356 in node: C2
+partial cover already contains: [^(]+[(]([^)]+)[)]	602 in node: C4
+partial cover already contains: [^(]+[(]([^)]+)[)]	602 in node: C2
+partial cover already contains: ^([^ \t]+)[ \t]*	813 in node: C4
+partial cover already contains: ^([^ \t]+)[ \t]*	813 in node: C2
+partial cover already contains: [ \t]*(#[^\n]*)?$	908 in node: C4
+partial cover already contains: [ \t]*(#[^\n]*)?$	908 in node: C2
+partial cover already contains: ([\'"][^\'"]*[\'"])	1054 in node: C4
+partial cover already contains: ([\'"][^\'"]*[\'"])	1054 in node: C2
+partial cover already contains: bool\s*[(][^)]*[)]	356 in node: C4
+partial cover already contains: bool\s*[(][^)]*[)]	356 in node: C2
+partial cover already contains: ([\\'"])[^\1]*\1	1469 in node: C4
+partial cover already contains: ([\\'"])[^\1]*\1	1469 in node: C2
+partial cover already contains:  \([=<>]* [^ )]*\)	1143 in node: C4
+partial cover already contains:  \([=<>]* [^ )]*\)	1143 in node: C2
+partial cover already contains: float\s*[(][^)]*[)]	356 in node: C4
+partial cover already contains: float\s*[(][^)]*[)]	356 in node: C2
+partial cover already contains: [ \t]*\n([^\r\n])	1025 in node: C4
+partial cover already contains: [ \t]*\n([^\r\n])	1025 in node: C2
+partial cover already contains: \s*([^,;]+?)\s*[,;]	1522 in node: C4
+partial cover already contains: \s*([^,;]+?)\s*[,;]	1522 in node: C2
+partial cover already contains: [name|class]="([^"]*)"	1249 in node: C4
+partial cover already contains: [name|class]="([^"]*)"	1249 in node: C2
+partial cover already contains: [(]([^)]*)[)]\*(\d+)	356 in node: C4
+partial cover already contains: [(]([^)]*)[)]\*(\d+)	356 in node: C2
+partial cover already contains: ^([^=]+)[ ]*=[ ]*(.+)$	502 in node: C4
+partial cover already contains: ^([^=]+)[ ]*=[ ]*(.+)$	502 in node: C2
+partial cover already contains: unicode\s*[(][^)]*[)]	356 in node: C4
+partial cover already contains: unicode\s*[(][^)]*[)]	356 in node: C2
+partial cover already contains: complex\s*[(][^)]*[)]	356 in node: C4
+partial cover already contains: complex\s*[(][^)]*[)]	356 in node: C2
+partial cover already contains: \A<[^>]*?href=["\']\Z	245 in node: C4
+partial cover already contains: \A<[^>]*?href=["\']\Z	245 in node: C2
+partial cover already contains: [ \t]*(#[^\n]*)?\r?\n	908 in node: C4
+partial cover already contains: [ \t]*(#[^\n]*)?\r?\n	908 in node: C2
+partial cover already contains: ^([+\-])?\$([^\$\{\}]+)$	557 in node: C4
+partial cover already contains: ^([+\-])?\$([^\$\{\}]+)$	557 in node: C2
+partial cover already contains: ^([^ ]+)[ ]+([^ ]+)[ ]+([^ ]+)	1491 in node: C4
+partial cover already contains: ^([^ ]+)[ ]+([^ ]+)[ ]+([^ ]+)	1491 in node: C2
+partial cover already contains: AC_INIT[(][^,]*,\s+([^)]*)[)]	1520 in node: C4
+partial cover already contains: AC_INIT[(][^,]*,\s+([^)]*)[)]	1520 in node: C2
+partial cover already contains: /[*]+(?:[^*]+|[*]+[^/*])*[*]+/	1023 in node: C4
+partial cover already contains: /[*]+(?:[^*]+|[*]+[^/*])*[*]+/	1023 in node: C2
+partial cover already contains: version[ \t]+([^ \t\r\n]+)	1252 in node: C4
+partial cover already contains: version[ \t]+([^ \t\r\n]+)	1252 in node: C2
+partial cover already contains: ([.#])((?:[^ \t\.#]|\.\.)+)	338 in node: C4
+partial cover already contains: ([.#])((?:[^ \t\.#]|\.\.)+)	338 in node: C2
+partial cover already contains: revision[ \t]+([^ \t\r\n]+)	1252 in node: C4
+partial cover already contains: revision[ \t]+([^ \t\r\n]+)	1252 in node: C2
+partial cover already contains: value=[\\'"]([^\\'"]+)[\\'"]	966 in node: C4
+partial cover already contains: value=[\\'"]([^\\'"]+)[\\'"]	966 in node: C2
+partial cover already contains: ^Synset\([\'"]([^\)]*)[\'"]\)	1230 in node: C4
+partial cover already contains: ^Synset\([\'"]([^\)]*)[\'"]\)	1230 in node: C2
+partial cover already contains: <[wc](?: [^>]*){0,1}>(.*?)</[wc]>	1248 in node: C4
+partial cover already contains: <[wc](?: [^>]*){0,1}>(.*?)</[wc]>	1248 in node: C2
+partial cover already contains: \[\[[Ii]mage:([^.]*)(.*?)\]\]	1454 in node: C4
+partial cover already contains: \[\[[Ii]mage:([^.]*)(.*?)\]\]	1454 in node: C2
+partial cover already contains: ^\s*#\s*include\s*["<]([^>"]+)	557 in node: C4
+partial cover already contains: ^\s*#\s*include\s*["<]([^>"]+)	557 in node: C2
+partial cover already contains: ([^!]+)(?:!([^+-]+)?([+-]\S+)?)?	8 in node: C4
+partial cover already contains: ([^!]+)(?:!([^+-]+)?([+-]\S+)?)?	8 in node: C2
+partial cover already contains: <[^>]* alt=[\'"]([^\'"]*)[\'"].*?>	220 in node: C4
+partial cover already contains: <[^>]* alt=[\'"]([^\'"]*)[\'"].*?>	220 in node: C2
+partial cover already contains: ^[./]*resolve[Uu]id/([^/]*)/?(.*)$	988 in node: C4
+partial cover already contains: ^[./]*resolve[Uu]id/([^/]*)/?(.*)$	988 in node: C2
+partial cover already contains: [ ]{0,3}\[\^([^\]]*)\]:\s*(.*)	1395 in node: C4
+partial cover already contains: [ ]{0,3}\[\^([^\]]*)\]:\s*(.*)	1395 in node: C2
+partial cover already contains: <([wc](?: [^>]*){0,1}>)(.*?)</[wc]>	1248 in node: C4
+partial cover already contains: <([wc](?: [^>]*){0,1}>)(.*?)</[wc]>	1248 in node: C2
+partial cover already contains: (\S+\s*)[.]shape\s*=[^=]\s*(.+)	356 in node: C4
+partial cover already contains: (\S+\s*)[.]shape\s*=[^=]\s*(.+)	356 in node: C2
+partial cover already contains: <[^>]* term=[\'"]([^\'"]*)[\'"].*?>	220 in node: C4
+partial cover already contains: <[^>]* term=[\'"]([^\'"]*)[\'"].*?>	220 in node: C2
+partial cover already contains: [-d]  (setuptools|distribute)-[^-]+-	313 in node: C4
+partial cover already contains: [-d]  (setuptools|distribute)-[^-]+-	313 in node: C2
+partial cover already contains: (^build|[^/]+\.egg-info|.*.py[co]$)	884 in node: C4
+partial cover already contains: (^build|[^/]+\.egg-info|.*.py[co]$)	884 in node: C2
+partial cover already contains: <[^>]* title=[\'"]([^\'"]*)[\'"].*?>	220 in node: C4
+partial cover already contains: <[^>]* title=[\'"]([^\'"]*)[\'"].*?>	220 in node: C2
+partial cover already contains: (\*\*)(?=\S)([^\r]*?\S[*_]*)\1	888 in node: C4
+partial cover already contains: (\*\*)(?=\S)([^\r]*?\S[*_]*)\1	888 in node: C2
+partial cover already contains: ^((?:\[?\S+@[^$#%]+)[$#%])(.*\n?)	1555 in node: C4
+partial cover already contains: ^((?:\[?\S+@[^$#%]+)[$#%])(.*\n?)	1555 in node: C2
+partial cover already contains: <[^>]* label=[\'"]([^\'"]*)[\'"].*?>	220 in node: C4
+partial cover already contains: <[^>]* label=[\'"]([^\'"]*)[\'"].*?>	220 in node: C2
+partial cover already contains: (<[^>]*?href=["\']|http://[^"\' \t]+)	245 in node: C4
+partial cover already contains: (<[^>]*?href=["\']|http://[^"\' \t]+)	245 in node: C2
+partial cover already contains: goog\.require\([\'"]([^\)]+)[\'"]\)	168 in node: C4
+partial cover already contains: goog\.require\([\'"]([^\)]+)[\'"]\)	168 in node: C2
+partial cover already contains: <[Tt]d class=AgendaText>([^<]+)</[Tt]d>	126 in node: C4
+partial cover already contains: <[Tt]d class=AgendaText>([^<]+)</[Tt]d>	126 in node: C2
+partial cover already contains: goog\.provide\([\'"]([^\)]+)[\'"]\)	168 in node: C4
+partial cover already contains: goog\.provide\([\'"]([^\)]+)[\'"]\)	168 in node: C2
+partial cover already contains: [^#]*(\S+)([ \*]+)(\S+)\s*\([^\)]*	413 in node: C4
+partial cover already contains: [^#]*(\S+)([ \*]+)(\S+)\s*\([^\)]*	413 in node: C2
+partial cover already contains: (?P<whitespace>[ \n]*)(?P<entry>[^ \n]+)	623 in node: C4
+partial cover already contains: (?P<whitespace>[ \n]*)(?P<entry>[^ \n]+)	623 in node: C2
+partial cover already contains: (\'[^\']\'|[-=]+>|"[^"]+"|\'[^\']+\'|\|)	1248 in node: C4
+partial cover already contains: (\'[^\']\'|[-=]+>|"[^"]+"|\'[^\']+\'|\|)	1248 in node: C2
+partial cover already contains: ^[ >]+ +(?P<name>[^ ]+) +(?P<value>[^ ]+)$	439 in node: C4
+partial cover already contains: ^[ >]+ +(?P<name>[^ ]+) +(?P<value>[^ ]+)$	439 in node: C2
+partial cover already contains: \s*(([\\'"])(.*?[^\\])\2)\s*([},=]|$)	727 in node: C4
+partial cover already contains: \s*(([\\'"])(.*?[^\\])\2)\s*([},=]|$)	727 in node: C2
+partial cover already contains: ^==== ([^#]+)#(\d+) ==([AMD])== (.*) ====$	1426 in node: C4
+partial cover already contains: ^==== ([^#]+)#(\d+) ==([AMD])== (.*) ====$	1426 in node: C2
+partial cover already contains: [ \t\r\n]*(?:(?:#[^\n]*)?\r?(?:$|\n))?	55 in node: C4
+partial cover already contains: [ \t\r\n]*(?:(?:#[^\n]*)?\r?(?:$|\n))?	55 in node: C2
+partial cover already contains: [ \t\r\n]*(?:(?:#[^\n]*)?\r?(?:$|\n))?	55 in node: C3
+partial cover already contains: [^#]*(\S+)([ \*]+)(\S+)\s*\([^\)]*\);	413 in node: C4
+partial cover already contains: [^#]*(\S+)([ \*]+)(\S+)\s*\([^\)]*\);	413 in node: C2
+partial cover already contains: ([^=]+)=(\w+(?:[.]\w+)*):(\w+(?:[.]\w+)*)$	313 in node: C4
+partial cover already contains: ([^=]+)=(\w+(?:[.]\w+)*):(\w+(?:[.]\w+)*)$	313 in node: C2
+partial cover already contains: (\w+(?:/\w+)?|[-=]+>|"[^"]+"|\'[^\']+\'|\|)	1248 in node: C4
+partial cover already contains: (\w+(?:/\w+)?|[-=]+>|"[^"]+"|\'[^\']+\'|\|)	1248 in node: C2
+partial cover already contains: type\s*[(]([^)]*)[)]\s+(?:is|==)\s+(.*?float)	356 in node: C4
+partial cover already contains: type\s*[(]([^)]*)[)]\s+(?:is|==)\s+(.*?float)	356 in node: C2
+partial cover already contains: (?P<group>[^,]+?)[.](?P<name>.+?):(?P<value>\d+)	440 in node: C4
+partial cover already contains: (?P<group>[^,]+?)[.](?P<name>.+?):(?P<value>\d+)	440 in node: C2
+partial cover already contains: ^(?:.:)?[^:]+:(\d+): \[([EWRCI]+)[^\]]*\] (.*)$	640 in node: C4
+partial cover already contains: ^(?:.:)?[^:]+:(\d+): \[([EWRCI]+)[^\]]*\] (.*)$	640 in node: C2
+partial cover already contains: (?s)(?<=\n)([|][|].*?[|][|])(?=\n[^|]|\n[|][^|])	138 in node: C4
+partial cover already contains: (?s)(?<=\n)([|][|].*?[|][|])(?=\n[^|]|\n[|][^|])	138 in node: C2
+partial cover already contains: <![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)>	347 in node: C4
+partial cover already contains: <![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)>	347 in node: C2
+partial cover already contains: ^\s*_*version\s*_*\s*=\s*["\\']([^"\\']+)["\\'].*	1621 in node: C4
+partial cover already contains: ^\s*_*version\s*_*\s*=\s*["\\']([^"\\']+)["\\'].*	1621 in node: C2
+partial cover already contains: ^[^\'"]*[\'"]([^\'"]*)[\'"]\s*:\s*[\'"]([^\'"]*)[\'"].*$	1247 in node: C4
+partial cover already contains: ^[^\'"]*[\'"]([^\'"]*)[\'"]\s*:\s*[\'"]([^\'"]*)[\'"].*$	1247 in node: C2
+partial cover already contains: ^(?P<key>[^ =]+) *= *[\"\']?(?P<value>[^\"\']*)[\"\']?$	826 in node: C4
+partial cover already contains: ^(?P<key>[^ =]+) *= *[\"\']?(?P<value>[^\"\']*)[\"\']?$	826 in node: C2
+partial cover already contains: <link\s*rel=[\'"]stylesheet[\'"]\s*href=[\'"]([^=>]*)[\'"]>	1007 in node: C4
+partial cover already contains: <link\s*rel=[\'"]stylesheet[\'"]\s*href=[\'"]([^=>]*)[\'"]>	1007 in node: C2
+partial cover already contains: ([^@#:]*)[@:]([^#:]+)?(?::(\d+(?:-\d+)?(?:,\d+(?:-\d+)?)*))?	1258 in node: C4
+partial cover already contains: ([^@#:]*)[@:]([^#:]+)?(?::(\d+(?:-\d+)?(?:,\d+(?:-\d+)?)*))?	1258 in node: C2
+partial cover already contains: (\w+(?:/\w+)?|\[[01]?\.\d+\]|[-=]+>|"[^"]+"|\'[^\']+\'|\|)	1248 in node: C4
+partial cover already contains: (\w+(?:/\w+)?|\[[01]?\.\d+\]|[-=]+>|"[^"]+"|\'[^\']+\'|\|)	1248 in node: C2
+partial cover already contains: (?P<all>\{\{\s*include\s+[\'"](?P<name>[^\'"]*)[\'"]\s*\}\})	1247 in node: C4
+partial cover already contains: (?P<all>\{\{\s*include\s+[\'"](?P<name>[^\'"]*)[\'"]\s*\}\})	1247 in node: C2
+partial cover already contains: (?P<pbs>\\*)(?P<escSeq>(?P<inv>[\^])?\\(?P<pP>[pP]){(?P<id>[^}]*)})	866 in node: C4
+partial cover already contains: (?P<pbs>\\*)(?P<escSeq>(?P<inv>[\^])?\\(?P<pP>[pP]){(?P<id>[^}]*)})	866 in node: C2
+partial cover already contains: (?:[=!]=|is(?:\s+not)?)\s*type(?:s.\w+Type|\s*\(\s*([^)]*[^ )])\s*\))	1025 in node: C4
+partial cover already contains: (?:[=!]=|is(?:\s+not)?)\s*type(?:s.\w+Type|\s*\(\s*([^)]*[^ )])\s*\))	1025 in node: C2
+partial cover already contains: \n^\ncreate \s+ (?: or \s+ replace \s+ )?\nfunction ( [^(]+ )\n[(] ( [^)]* ) [)]\n	1520 in node: C4
+partial cover already contains: \n^\ncreate \s+ (?: or \s+ replace \s+ )?\nfunction ( [^(]+ )\n[(] ( [^)]* ) [)]\n	1520 in node: C2
+partial cover already contains: (\s*DRI_CONF_ENUM\s*\([^,]+,\s*)(gettext\s*\(\s*")(.*)("\s*\))(\s*\)[ \t]*\\?)$	533 in node: C4
+partial cover already contains: (\s*DRI_CONF_ENUM\s*\([^,]+,\s*)(gettext\s*\(\s*")(.*)("\s*\))(\s*\)[ \t]*\\?)$	533 in node: C2
+partial cover already contains: (?P<line>([^"]*["][^"]*["][^"!]*|[^\\']*\\'[^\\']*\\'[^\\'!]*|[^!\\'"]*))!{1}(?P<rest>.*)	356 in node: C4
+partial cover already contains: (?P<line>([^"]*["][^"]*["][^"!]*|[^\\']*\\'[^\\']*\\'[^\\'!]*|[^!\\'"]*))!{1}(?P<rest>.*)	356 in node: C2
+partial cover already contains: \n        (?:^[^ ].*\n                       # non-blank line\n            (?:[ ]*\n |                    # blank line or\n               [ ]+.*\n)*)                 #   indented line\n        	1248 in node: C4
+partial cover already contains: \n        (?:^[^ ].*\n                       # non-blank line\n            (?:[ ]*\n |                    # blank line or\n               [ ]+.*\n)*)                 #   indented line\n        	1248 in node: C2
+partial cover already contains: \n        [^<]*\n        (\n          ((<!--.*?-->)                         |  # comment\n           (<![CDATA[.*?]])                     |  # raw character data\n           (<!DOCTYPE\s+[^\[]*(\[[^\]]*])?\s*>) |  # doctype decl\n           (<[^>]*>))                              # tag or PI\n          [^<]*)*\n        \Z	1248 in node: C4
+partial cover already contains: \n        [^<]*\n        (\n          ((<!--.*?-->)                         |  # comment\n           (<![CDATA[.*?]])                     |  # raw character data\n           (<!DOCTYPE\s+[^\[]*(\[[^\]]*])?\s*>) |  # doctype decl\n           (<[^>]*>))                              # tag or PI\n          [^<]*)*\n        \Z	1248 in node: C2
+partial cover already contains: <!-- \*\*\* Reference number \*\*\* -->.*?<font face="arial,helvetica" size=2>(<[BI]>)?(.*?)</FONT>.*?<!-- \*\*\* Motion title \*\*\* -->.*?<A HREF="(.*?)" TARGET="_parent">\s*<font face="arial,helvetica" size=2>(?:<[BI]>)?([^<]*?)</font></A>\s*</TD>\s*<!-- \*\*\* Signatures -->.*?(?:<font face="arial,helvetica" size=2>(?:<[BI]>)?(\d+) &nbsp;&nbsp;</font>\s*)?</TD>\s*<!-- \*\*\* Motion date \*\*\* -->.*?<font face="arial,helvetica" size=2>(?:<[BI]>)?(\d\d)\.(\d\d)\.(\d\d)</FONT>(?s)	32 in node: C4
+partial cover already contains: <!-- \*\*\* Reference number \*\*\* -->.*?<font face="arial,helvetica" size=2>(<[BI]>)?(.*?)</FONT>.*?<!-- \*\*\* Motion title \*\*\* -->.*?<A HREF="(.*?)" TARGET="_parent">\s*<font face="arial,helvetica" size=2>(?:<[BI]>)?([^<]*?)</font></A>\s*</TD>\s*<!-- \*\*\* Signatures -->.*?(?:<font face="arial,helvetica" size=2>(?:<[BI]>)?(\d+) &nbsp;&nbsp;</font>\s*)?</TD>\s*<!-- \*\*\* Motion date \*\*\* -->.*?<font face="arial,helvetica" size=2>(?:<[BI]>)?(\d\d)\.(\d\d)\.(\d\d)</FONT>(?s)	32 in node: C2
+
+current node: C3
+
+partial cover already contains: ^/([\w-]+)(/|$)	849,878,1012,1086,1158,1495,1580,1634 in node: C5
+partial cover already contains: ^/([\w-]+)(/|$)	849,878,1012,1086,1158,1495,1580,1634 in node: C3
+partial cover already contains: ^([a-f0-9]+)\s(?:t|T)\s(\S+)$	306,322,464,467,505,534,1404,1466 in node: C1
+partial cover already contains: ^([a-f0-9]+)\s(?:t|T)\s(\S+)$	306,322,464,467,505,534,1404,1466 in node: C3
+partial cover already contains: (^|\n)[ ]{0,3}:[ ]{1,3}(.*?)(\n|$)	236,247,919,1007 in node: C2
+partial cover already contains: (^|\n)[ ]{0,3}:[ ]{1,3}(.*?)(\n|$)	236,247,919,1007 in node: C3
+partial cover already contains: ^(DISTRIB_(?:ID|RELEASE|CODENAME|DESCRIPTION))=(?:\'|")?([\w\s\.-_]+)(?:\'|")?	614,947,996,1491 in node: C1
+partial cover already contains: ^(DISTRIB_(?:ID|RELEASE|CODENAME|DESCRIPTION))=(?:\'|")?([\w\s\.-_]+)(?:\'|")?	614,947,996,1491 in node: C3
+partial cover already contains: (^|\n)svn path=[^\n]+revision=\d+(?=$|\n)	526,1046,1642 in node: C4
+partial cover already contains: (^|\n)svn path=[^\n]+revision=\d+(?=$|\n)	526,1046,1642 in node: C3
+partial cover already contains: (^|\n)\d+-\d+-\d+[ \t]+((\w|[.-])+[ \t]+)+<[^\n>]+>(?=$|\n)	526,1046,1642 in node: C4
+partial cover already contains: (^|\n)\d+-\d+-\d+[ \t]+((\w|[.-])+[ \t]+)+<[^\n>]+>(?=$|\n)	526,1046,1642 in node: C2
+partial cover already contains: (^|\n)\d+-\d+-\d+[ \t]+((\w|[.-])+[ \t]+)+<[^\n>]+>(?=$|\n)	526,1046,1642 in node: C3
+partial cover already contains: (\d{4})-([^-]+)-(\d{,2})T(\d{,2}):(\d{2})((\+|-)(\d{,2}:\d{2}))	220,1003,1247 in node: C4
+partial cover already contains: (\d{4})-([^-]+)-(\d{,2})T(\d{,2}):(\d{2})((\+|-)(\d{,2}:\d{2}))	220,1003,1247 in node: C3
+partial cover already contains: [&?]acl($|=|&)	1223,1420 in node: C2
+partial cover already contains: [&?]acl($|=|&)	1223,1420 in node: C3
+partial cover already contains: <([^ ]+)(>| ).*	558,1326 in node: C4
+partial cover already contains: <([^ ]+)(>| ).*	558,1326 in node: C3
+partial cover already contains: [&?]torrent($|=|&)	1223,1420 in node: C2
+partial cover already contains: [&?]torrent($|=|&)	1223,1420 in node: C3
+partial cover already contains: [&?]logging($|=|&)	1223,1420 in node: C2
+partial cover already contains: [&?]logging($|=|&)	1223,1420 in node: C3
+partial cover already contains: [&?]location($|=|&)	1223,1420 in node: C2
+partial cover already contains: [&?]location($|=|&)	1223,1420 in node: C3
+partial cover already contains: [&?]versions($|=|&)	1223,1420 in node: C2
+partial cover already contains: [&?]versions($|=|&)	1223,1420 in node: C3
+partial cover already contains: [&?]versioning($|=|&)	1223,1420 in node: C2
+partial cover already contains: [&?]versioning($|=|&)	1223,1420 in node: C3
+partial cover already contains: ^(Y|X|A|N) ([\S ]+)$	109,182 in node: C5
+partial cover already contains: ^(Y|X|A|N) ([\S ]+)$	109,182 in node: C3
+partial cover already contains: ^([a-zA-Z0-9_]+):( |$)	116,124 in node: C1
+partial cover already contains: ^([a-zA-Z0-9_]+):( |$)	116,124 in node: C3
+partial cover already contains: \s*([^=:]+)(=|:)\s*(.*)	919,1007 in node: C4
+partial cover already contains: \s*([^=:]+)(=|:)\s*(.*)	919,1007 in node: C3
+partial cover already contains: [&?]requestPayment($|=|&)	1223,1420 in node: C2
+partial cover already contains: [&?]requestPayment($|=|&)	1223,1420 in node: C3
+partial cover already contains: (^| )`\w([^`]*?\w)?`($| )	1087,1580 in node: C4
+partial cover already contains: (^| )`\w([^`]*?\w)?`($| )	1087,1580 in node: C3
+partial cover already contains: [&?]versionId=([^&]+)($|=|&)	1223,1420 in node: C4
+partial cover already contains: [&?]versionId=([^&]+)($|=|&)	1223,1420 in node: C2
+partial cover already contains: [&?]versionId=([^&]+)($|=|&)	1223,1420 in node: C3
+partial cover already contains: ^application/x-java-((applet|bean)(;jpi-version=1\.5|;version=(1\.(1(\.[1-3])?|(2|4)(\.[1-2])?|3(\.1)?|5)))?|vm)$	391,872 in node: C1
+partial cover already contains: ^application/x-java-((applet|bean)(;jpi-version=1\.5|;version=(1\.(1(\.[1-3])?|(2|4)(\.[1-2])?|3(\.1)?|5)))?|vm)$	391,872 in node: C3
+partial cover already contains: \$[^/]+(/|$)	1315 in node: C4
+partial cover already contains: \$[^/]+(/|$)	1315 in node: C3
+partial cover already contains: [^\n]*(\n|$)	727 in node: C4
+partial cover already contains: [^\n]*(\n|$)	727 in node: C3
+partial cover already contains: [a-zA-Z]:(/|\\)	1025 in node: C1
+partial cover already contains: [a-zA-Z]:(/|\\)	1025 in node: C3
+partial cover already contains: (\+|-)?(\d|\.)+	340 in node: C6
+partial cover already contains: (\+|-)?(\d|\.)+	340 in node: C3
+partial cover already contains: \.([a-z]{2,3})(?:\?|$)	913 in node: C1
+partial cover already contains: \.([a-z]{2,3})(?:\?|$)	913 in node: C3
+partial cover already contains: .*[<]KILLLINE[>].*(\n|$)	356 in node: C2
+partial cover already contains: .*[<]KILLLINE[>].*(\n|$)	356 in node: C3
+partial cover already contains: ^([0-9a-fA-F]{2}(:|$)){6}$	1644 in node: C1
+partial cover already contains: ^([0-9a-fA-F]{2}(:|$)){6}$	1644 in node: C3
+partial cover already contains: (?<=\(|\))[a-z|A-Z]*(?=\()	152 in node: C1
+partial cover already contains: (?<=\(|\))[a-z|A-Z]*(?=\()	152 in node: C3
+partial cover already contains: AJS\.([\w_$]*?)(?:\(|,|\.)	56 in node: C5
+partial cover already contains: AJS\.([\w_$]*?)(?:\(|,|\.)	56 in node: C3
+partial cover already contains: ^([^}{]*?[^;,}{\s])\s*(?=\n|$)	1025 in node: C4
+partial cover already contains: ^([^}{]*?[^;,}{\s])\s*(?=\n|$)	1025 in node: C3
+partial cover already contains: ((?:\[|&lt;)[a-z0-9]+?(?:\]|>))	169 in node: C1
+partial cover already contains: ((?:\[|&lt;)[a-z0-9]+?(?:\]|>))	169 in node: C3
+partial cover already contains: [\d]+(-|/)[\d]+(((-|/)[\d]+)*)	330 in node: C5
+partial cover already contains: [\d]+(-|/)[\d]+(((-|/)[\d]+)*)	330 in node: C3
+partial cover already contains: (?<=\(|\))?[a-z|A-Z|0-9]*(?=\()	152 in node: C1
+partial cover already contains: (?<=\(|\))?[a-z|A-Z|0-9]*(?=\()	152 in node: C3
+partial cover already contains: ^([a-zA-Z_]\w*)(\.|:)([a-zA-Z_]\w*)$	975 in node: C1
+partial cover already contains: ^([a-zA-Z_]\w*)(\.|:)([a-zA-Z_]\w*)$	975 in node: C3
+partial cover already contains: <[^>]*?id\s*=\s*("|\')(.*?)("|\')[^>]*?>	719 in node: C4
+partial cover already contains: <[^>]*?id\s*=\s*("|\')(.*?)("|\')[^>]*?>	719 in node: C3
+partial cover already contains: [ \t\r\n]*(?:(?:#[^\n]*)?\r?(?:$|\n))?	55 in node: C4
+partial cover already contains: [ \t\r\n]*(?:(?:#[^\n]*)?\r?(?:$|\n))?	55 in node: C2
+partial cover already contains: [ \t\r\n]*(?:(?:#[^\n]*)?\r?(?:$|\n))?	55 in node: C3
+partial cover already contains: \s*([^\s\(\)"\\'\-=,\[\]/]*)\s*(\[|/)	1248 in node: C4
+partial cover already contains: \s*([^\s\(\)"\\'\-=,\[\]/]*)\s*(\[|/)	1248 in node: C3
+partial cover already contains: (^(\x00|\n|\r| |:|<)|[\x00\n\r\x80-\xff]+|[ ]+$)	585 in node: C1
+partial cover already contains: (^(\x00|\n|\r| |:|<)|[\x00\n\r\x80-\xff]+|[ ]+$)	585 in node: C3
+partial cover already contains: https?://?([-\w.]*\.)?digg\.com/\w+\.\w+(/|$)	200 in node: C5
+partial cover already contains: https?://?([-\w.]*\.)?digg\.com/\w+\.\w+(/|$)	200 in node: C3
+partial cover already contains: ^\-?([0-9]+\.?[0-9]*|[0-9]*\.?[0-9]+)((E|e)\-?[0-9]+)?$	729 in node: C1
+partial cover already contains: ^\-?([0-9]+\.?[0-9]*|[0-9]*\.?[0-9]+)((E|e)\-?[0-9]+)?$	729 in node: C3
+partial cover already contains: (ATTRS?|ENV|TEST){([a-zA-Z0-9/_.*%-]+)}\s*(?:=|!)=\s*"([^"]*)"$	722 in node: C4
+partial cover already contains: (ATTRS?|ENV|TEST){([a-zA-Z0-9/_.*%-]+)}\s*(?:=|!)=\s*"([^"]*)"$	722 in node: C1
+partial cover already contains: (ATTRS?|ENV|TEST){([a-zA-Z0-9/_.*%-]+)}\s*(?:=|!)=\s*"([^"]*)"$	722 in node: C3
+partial cover already contains: ^(?P<keyword>.*?)\t(?P<remainder>.*\t(?P<kind>[a-zA-Z])(?:\t|$).*)	1583 in node: C1
+partial cover already contains: ^(?P<keyword>.*?)\t(?P<remainder>.*\t(?P<kind>[a-zA-Z])(?:\t|$).*)	1583 in node: C3
+partial cover already contains: (ACTION|DEVPATH|KERNELS?|NAME|SYMLINK|SUBSYSTEMS?|DRIVERS?|TAG|RESULT|TEST)\s*(?:=|!)=\s*"([^"]*)"$	722 in node: C4
+partial cover already contains: (ACTION|DEVPATH|KERNELS?|NAME|SYMLINK|SUBSYSTEMS?|DRIVERS?|TAG|RESULT|TEST)\s*(?:=|!)=\s*"([^"]*)"$	722 in node: C3
+partial cover already contains: (?:<FONT SIZE="-1">|<font face="arial,helvetica" size=2><(?:B|I)>)([^<]*?)/([^<]*?)(?:</(?:B|I)></font>|</FONT>)	32 in node: C4
+partial cover already contains: (?:<FONT SIZE="-1">|<font face="arial,helvetica" size=2><(?:B|I)>)([^<]*?)/([^<]*?)(?:</(?:B|I)></font>|</FONT>)	32 in node: C3
+partial cover already contains: (?:http://)?(?:\w+\.)?youtube.com/(?:(?:view_play_list|my_playlists|artist)\?.*?(p|a)=|user/.*?/user/|p/|user/.*?#[pg]/c/)([0-9A-Za-z]+)(?:/.*?/([0-9A-Za-z_-]+))?.*	386 in node: C1
+partial cover already contains: (?:http://)?(?:\w+\.)?youtube.com/(?:(?:view_play_list|my_playlists|artist)\?.*?(p|a)=|user/.*?/user/|p/|user/.*?#[pg]/c/)([0-9A-Za-z]+)(?:/.*?/([0-9A-Za-z_-]+))?.*	386 in node: C3
+partial cover already contains: \n\t\t\t\t\t\t\t\t#^diff[ ]--git\n\t\t\t\t\t\t\t\t\t[ ]a/(?P<a_path>.+?)[ ]b/(?P<b_path>.+?)\n\n\t\t\t\t\t\t\t\t(?:^similarity[ ]index[ ](?P<similarity_index>\d+)%\n\n\t\t\t\t\t\t\t\t   ^rename[ ]from[ ](?P<rename_from>\S+)\n\n\t\t\t\t\t\t\t\t   ^rename[ ]to[ ](?P<rename_to>\S+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^old[ ]mode[ ](?P<old_mode>\d+)\n\n\t\t\t\t\t\t\t\t   ^new[ ]mode[ ](?P<new_mode>\d+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^new[ ]file[ ]mode[ ](?P<new_file_mode>.+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^deleted[ ]file[ ]mode[ ](?P<deleted_file_mode>.+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^index[ ](?P<a_blob_id>[0-9A-Fa-f]+)\n\t\t\t\t\t\t\t\t\t\.\.(?P<b_blob_id>[0-9A-Fa-f]+)[ ]?(?P<b_mode>.+)?(?:\n|$))?\n\t\t\t\t\t\t\t	599 in node: C1
+partial cover already contains: \n\t\t\t\t\t\t\t\t#^diff[ ]--git\n\t\t\t\t\t\t\t\t\t[ ]a/(?P<a_path>.+?)[ ]b/(?P<b_path>.+?)\n\n\t\t\t\t\t\t\t\t(?:^similarity[ ]index[ ](?P<similarity_index>\d+)%\n\n\t\t\t\t\t\t\t\t   ^rename[ ]from[ ](?P<rename_from>\S+)\n\n\t\t\t\t\t\t\t\t   ^rename[ ]to[ ](?P<rename_to>\S+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^old[ ]mode[ ](?P<old_mode>\d+)\n\n\t\t\t\t\t\t\t\t   ^new[ ]mode[ ](?P<new_mode>\d+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^new[ ]file[ ]mode[ ](?P<new_file_mode>.+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^deleted[ ]file[ ]mode[ ](?P<deleted_file_mode>.+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^index[ ](?P<a_blob_id>[0-9A-Fa-f]+)\n\t\t\t\t\t\t\t\t\t\.\.(?P<b_blob_id>[0-9A-Fa-f]+)[ ]?(?P<b_mode>.+)?(?:\n|$))?\n\t\t\t\t\t\t\t	599 in node: C3
+partial cover already contains: \n\t\t\t\t\t\t\t\t#^diff[ ]--git\n\t\t\t\t\t\t\t\t\t[ ]a/(?P<a_path>\S+)[ ]b/(?P<b_path>\S+)\n\n\t\t\t\t\t\t\t\t(?:^similarity[ ]index[ ](?P<similarity_index>\d+)%\n\n\t\t\t\t\t\t\t\t   ^rename[ ]from[ ](?P<rename_from>\S+)\n\n\t\t\t\t\t\t\t\t   ^rename[ ]to[ ](?P<rename_to>\S+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^old[ ]mode[ ](?P<old_mode>\d+)\n\n\t\t\t\t\t\t\t\t   ^new[ ]mode[ ](?P<new_mode>\d+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^new[ ]file[ ]mode[ ](?P<new_file_mode>.+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^deleted[ ]file[ ]mode[ ](?P<deleted_file_mode>.+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^index[ ](?P<a_blob_id>[0-9A-Fa-f]+)\n\t\t\t\t\t\t\t\t\t\.\.(?P<b_blob_id>[0-9A-Fa-f]+)[ ]?(?P<b_mode>.+)?(?:\n|$))?\n\t\t\t\t\t\t\t	599 in node: C1
+partial cover already contains: \n\t\t\t\t\t\t\t\t#^diff[ ]--git\n\t\t\t\t\t\t\t\t\t[ ]a/(?P<a_path>\S+)[ ]b/(?P<b_path>\S+)\n\n\t\t\t\t\t\t\t\t(?:^similarity[ ]index[ ](?P<similarity_index>\d+)%\n\n\t\t\t\t\t\t\t\t   ^rename[ ]from[ ](?P<rename_from>\S+)\n\n\t\t\t\t\t\t\t\t   ^rename[ ]to[ ](?P<rename_to>\S+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^old[ ]mode[ ](?P<old_mode>\d+)\n\n\t\t\t\t\t\t\t\t   ^new[ ]mode[ ](?P<new_mode>\d+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^new[ ]file[ ]mode[ ](?P<new_file_mode>.+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^deleted[ ]file[ ]mode[ ](?P<deleted_file_mode>.+)(?:\n|$))?\n\t\t\t\t\t\t\t\t(?:^index[ ](?P<a_blob_id>[0-9A-Fa-f]+)\n\t\t\t\t\t\t\t\t\t\.\.(?P<b_blob_id>[0-9A-Fa-f]+)[ ]?(?P<b_mode>.+)?(?:\n|$))?\n\t\t\t\t\t\t\t	599 in node: C3

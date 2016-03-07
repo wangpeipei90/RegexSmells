@@ -1,0 +1,35 @@
+name         	description              	nPatterns	%Patterns	nProjects	%Projects	example
+C1           	CCC and RNG               	2510     	0.18     	818      	0.53     	'^[1-9][0-9]*$'
+C2           	CCC, no RNG or defaults   	1283     	0.09     	551      	0.36     	'[aeiouy]'
+C3           	OR of single chars        	156      	0.01     	174      	0.11     	'\\(t|n|r|"|\\)'
+C4           	Contains NCCC             	1935     	0.14     	776      	0.50     	'[^0-9]'
+C5           	CCC and defaults, no RNG  	675      	0.05     	382      	0.25     	'[-+\d.]'
+C6           	OR containing defaults    	90       	0.01     	131      	0.08     	'(\s|_)+'
+CCC_REMAINDER	Not found in any CCC Nodes	7491     	0.55     	1223     	0.79     	'^\s*$'
+
+D1           	DBB other than {0,1}      	279      	0.02     	212      	0.14     	'^x{1,4}$'
+D2           	DBB exactly {0,1}         	23       	0.00     	25       	0.02     	'^[\n\r]{0,1}'
+D3           	Contains QST              	1871     	0.14     	646      	0.42     	'^https?://\S+$'
+D4           	OR expressing repetition  	10       	0.00     	27       	0.02     	'^(Q|QQ)\<(.+)\>$'
+DBB_REMAINDER	Not found in any DBB Nodes	11491    	0.85     	1473     	0.95     	'^[1-9][0-9]*$'
+
+LIT_REMAINDER	Not found in any LIT Nodes	319      	0.02     	538      	0.35     	'(\w+)\s+(\d+)'
+T1           	no HEX, OCT or CCC-wrapped	12482    	0.92     	1485     	0.96     	'get_tag'
+T2           	Contains HEX literal      	479      	0.04     	243      	0.16     	'(\x1b|~{)'
+T3           	Contains CCC-wrapped      	307      	0.02     	268      	0.17     	'[$][{]\d+:([^}]+)[}]'
+T4           	Contains OCT literal      	14       	0.00     	37       	0.02     	'[\041-\176]+:$'
+
+L1           	LWB like {M,}, M>0        	91       	0.01     	166      	0.11     	'^_{2,}.*[^_]+_?$'
+L2           	Contains KLE              	6017     	0.44     	1097     	0.71     	'^(.*?)'''\s*(#.*)?$'
+L3           	Contains ADD              	6003     	0.44     	1207     	0.78     	'[A-Z][a-z]+'
+LWB_REMAINDER	Not found in any LWB Nodes	3979     	0.29     	944      	0.61     	'-py([123]\.[0-9])$'
+
+OR_REMAINDER 	Not found in any OR Nodes 	11495    	0.85     	1489     	0.96     	'^[012TF\*]{9}$'
+R1           	OR with prefix or suffix  	1529     	0.11     	603      	0.39     	'^(def|class)\s+'
+R2           	top-level OR              	573      	0.04     	396      	0.26     	'([ ]+_)|(_[ ]+)|([ ]+)'
+
+S1           	Contains SNG              	581      	0.04     	340      	0.22     	'[^ ]*\.[A-Z]{3}'
+S2           	Repeated non-literals     	927      	0.07     	497      	0.32     	'ff:ff:ff:ff:ff:ff'
+S3           	DBB like {M,M}            	27       	0.00     	32       	0.02     	'U[\dA-F]{5,5}'
+SNG_REMAINDER	Not found in any SNG Nodes	12209    	0.90     	1498     	0.97     	'@@BINARYDIR@@'
+

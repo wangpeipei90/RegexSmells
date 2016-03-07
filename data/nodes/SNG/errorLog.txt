@@ -1,0 +1,377 @@
+
+current node: S1
+
+
+current node: S2
+
+partial cover already contains: (\d{4})-(\d\d?)-(\d\d?)$	302,323,355,422,430,672,849,866,878,1004,1012,1086,1158,1184,1481,1495,1517,1538,1580,1634 in node: S1
+partial cover already contains: (\d{4})-(\d\d?)-(\d\d?)$	302,323,355,422,430,672,849,866,878,1004,1012,1086,1158,1184,1481,1495,1517,1538,1580,1634 in node: S2
+partial cover already contains: ^(?:1-?)?(\d{3})[-\.]?(\d{3})[-\.]?(\d{4})$	82,89,302,323,355,422,849,866,878,1004,1012,1074,1075,1086,1158,1184,1495,1517,1634 in node: S1
+partial cover already contains: ^(?:1-?)?(\d{3})[-\.]?(\d{3})[-\.]?(\d{4})$	82,89,302,323,355,422,849,866,878,1004,1012,1074,1075,1086,1158,1184,1495,1517,1634 in node: S2
+partial cover already contains: ^GEO-\d{3}FREE	302,323,355,422,849,866,878,1004,1012,1086,1158,1184,1495,1517,1580,1634 in node: S1
+partial cover already contains: ^GEO-\d{3}FREE	302,323,355,422,849,866,878,1004,1012,1086,1158,1184,1495,1517,1580,1634 in node: S2
+partial cover already contains: ([0-9a-f][0-9a-f]-){5}[0-9a-f][0-9a-f]	12,71,83,174,287,381,422,602,1054,1087,1205,1246,1509,1540,1580,1644 in node: S1
+partial cover already contains: ([0-9a-f][0-9a-f]-){5}[0-9a-f][0-9a-f]	12,71,83,174,287,381,422,602,1054,1087,1205,1246,1509,1540,1580,1644 in node: S2
+partial cover already contains: ^(\d{3})-(\d{3})-(\d{3})$	302,323,355,422,849,866,878,1004,1012,1086,1158,1184,1495,1517,1634 in node: S1
+partial cover already contains: ^(\d{3})-(\d{3})-(\d{3})$	302,323,355,422,849,866,878,1004,1012,1086,1158,1184,1495,1517,1634 in node: S2
+partial cover already contains: ^(\d{2})[-\.]?(\d{4})[-\.]?(\d{4})$	302,323,355,422,849,866,878,1004,1012,1086,1158,1184,1495,1517,1634 in node: S1
+partial cover already contains: ^(\d{2})[-\.]?(\d{4})[-\.]?(\d{4})$	302,323,355,422,849,866,878,1004,1012,1086,1158,1184,1495,1517,1634 in node: S2
+partial cover already contains: ^(?P<yy>\d\d)(?P<mm>\d\d)(?P<dd>\d\d)(?P<mid>\d{4})(?P<end>\d{3})	302,323,355,422,849,866,878,1004,1012,1086,1158,1184,1495,1517,1634 in node: S1
+partial cover already contains: ^(?P<yy>\d\d)(?P<mm>\d\d)(?P<dd>\d\d)(?P<mid>\d{4})(?P<end>\d{3})	302,323,355,422,849,866,878,1004,1012,1086,1158,1184,1495,1517,1634 in node: S2
+partial cover already contains: ^(\d{9}|(00|\+)\d*)$	302,323,355,422,849,866,878,1004,1012,1086,1158,1495,1517,1634 in node: S1
+partial cover already contains: ^(\d{9}|(00|\+)\d*)$	302,323,355,422,849,866,878,1004,1012,1086,1158,1495,1517,1634 in node: S2
+partial cover already contains: ^(?P<initial>\d{1})(?P<yy>\d\d)(?P<mm>\d\d)(?P<dd>\d\d)(?P<mid>\d{4})(?P<checksum>\d{1})	302,323,355,422,849,866,878,1004,1012,1086,1158,1495,1517,1634 in node: S1
+partial cover already contains: ^(?P<initial>\d{1})(?P<yy>\d\d)(?P<mm>\d\d)(?P<dd>\d\d)(?P<mid>\d{4})(?P<checksum>\d{1})	302,323,355,422,849,866,878,1004,1012,1086,1158,1495,1517,1634 in node: S2
+partial cover already contains: ^\d{4}-\d\d-\d\d \d\d:\d\d:\d\dZ$	12,412,759,774,852,961,1087,1221,1511,1580 in node: S1
+partial cover already contains: ^\d{4}-\d\d-\d\d \d\d:\d\d:\d\dZ$	12,412,759,774,852,961,1087,1221,1511,1580 in node: S2
+partial cover already contains: ^\d{4}-\d{1,2}-\d{1,2}$	302,323,355,422,866,1004,1184,1495,1517 in node: S1
+partial cover already contains: ^\d{4}-\d{1,2}-\d{1,2}$	302,323,355,422,866,1004,1184,1495,1517 in node: S2
+partial cover already contains: ^(\d{2})(\d{2})(\d{3})(\d{2})(\d{3})(\d)$	302,849,878,1012,1086,1158,1495,1634 in node: S1
+partial cover already contains: ^(\d{2})(\d{2})(\d{3})(\d{2})(\d{3})(\d)$	302,849,878,1012,1086,1158,1495,1634 in node: S2
+partial cover already contains: ^(?:[78]-?)?(\d{3})[-\.]?(\d{3})[-\.]?(\d{4})$	302,849,878,1012,1086,1158,1495,1634 in node: S1
+partial cover already contains: ^(?:[78]-?)?(\d{3})[-\.]?(\d{3})[-\.]?(\d{4})$	302,849,878,1012,1086,1158,1495,1634 in node: S2
+partial cover already contains: \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(?:\.\d+)?	302,849,878,1004,1012,1086,1158,1495 in node: S1
+partial cover already contains: \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(?:\.\d+)?	302,849,878,1004,1012,1086,1158,1495 in node: S2
+partial cover already contains: ^(\+385|00385|0)(?P<prefix>\d{2})(?P<number>\d{6,7})$	302,849,878,1012,1086,1158,1495,1634 in node: S1
+partial cover already contains: ^(\+385|00385|0)(?P<prefix>\d{2})(?P<number>\d{6,7})$	302,849,878,1012,1086,1158,1495,1634 in node: S2
+partial cover already contains:  0001:[0-9a-fA-F]{8}\s*([_\?@$0-9a-zA-Z]*)\s*([0-9a-fA-F]{8}).*	306,322,464,467,505,534,1300,1466 in node: S1
+partial cover already contains:  0001:[0-9a-fA-F]{8}\s*([_\?@$0-9a-zA-Z]*)\s*([0-9a-fA-F]{8}).*	306,322,464,467,505,534,1300,1466 in node: S2
+partial cover already contains: ^([a-f0-9]+)\s(.{7})\s(\S+)\s+([a-f0-9]+)\s+(?:\.hidden\s+)?(.*)$	306,322,464,467,505,534,1404,1466 in node: S1
+partial cover already contains: ^([a-f0-9]+)\s(.{7})\s(\S+)\s+([a-f0-9]+)\s+(?:\.hidden\s+)?(.*)$	306,322,464,467,505,534,1404,1466 in node: S2
+partial cover already contains: \A\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ	147,181,278,296,432,819,1366 in node: S1
+partial cover already contains: \A\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ	147,181,278,296,432,819,1366 in node: S2
+partial cover already contains: ([0-9]{4}-[0-9]{2}-[0-9]{2})  ([0-9]{4,5}) {1,2}(.*)	412,759,852,961,1221,1511 in node: S1
+partial cover already contains: ([0-9]{4}-[0-9]{2}-[0-9]{2})  ([0-9]{4,5}) {1,2}(.*)	412,759,852,961,1221,1511 in node: S2
+partial cover already contains: irb\([a-zA-Z_][a-zA-Z0-9_]*\):\d{3}:\d+[>*"\'] |>> |\?> 	113,251,498,1087,1267,1555 in node: S1
+partial cover already contains: irb\([a-zA-Z_][a-zA-Z0-9_]*\):\d{3}:\d+[>*"\'] |>> |\?> 	113,251,498,1087,1267,1555 in node: S2
+partial cover already contains: ([A-Z]{3}_ERROR_[A-Z_0-9]+)\s+=?\s*\(?([A-Z_0-9-][A-Z_0-9-+ ]+[A-Z_0-9])	412,759,852,961,1221,1511 in node: S1
+partial cover already contains: ([A-Z]{3}_ERROR_[A-Z_0-9]+)\s+=?\s*\(?([A-Z_0-9-][A-Z_0-9-+ ]+[A-Z_0-9])	412,759,852,961,1221,1511 in node: S2
+partial cover already contains: ^<logentry.*?revision="([0-9]{4,})".*?<date>([0-9]{4}-[0-9]{2}-[0-9]{2})T.*?<msg>(.*?)</msg>.*?</logentry>$	412,759,852,961,1221,1511 in node: S1
+partial cover already contains: ^<logentry.*?revision="([0-9]{4,})".*?<date>([0-9]{4}-[0-9]{2}-[0-9]{2})T.*?<msg>(.*?)</msg>.*?</logentry>$	412,759,852,961,1221,1511 in node: S2
+partial cover already contains: ^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d$	852,994,1007,1511 in node: S1
+partial cover already contains: ^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d$	852,994,1007,1511 in node: S2
+partial cover already contains: ^(.*)~([+-][0-9]{2})00$	1269,1469,1498 in node: S1
+partial cover already contains: ^(.*)~([+-][0-9]{2})00$	1269,1469,1498 in node: S2
+partial cover already contains: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$	171,490,1381 in node: S1
+partial cover already contains: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$	171,490,1381 in node: S2
+partial cover already contains: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+$	422,747,1517 in node: S1
+partial cover already contains: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+$	422,747,1517 in node: S2
+partial cover already contains: ^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$	826,828,1128 in node: S1
+partial cover already contains: ^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$	826,828,1128 in node: S2
+partial cover already contains: ^([MACDRUG_ ][MACDRUG_ ])(.)(.)   .   [^0-9-]+(\d+|-)(.{23})(.+)	241,874,1249 in node: S1
+partial cover already contains: ^([MACDRUG_ ][MACDRUG_ ])(.)(.)   .   [^0-9-]+(\d+|-)(.{23})(.+)	241,874,1249 in node: S2
+partial cover already contains: (\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2}):(\d{2})(\.\d+)?	220,1003,1247 in node: S1
+partial cover already contains: (\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2}):(\d{2})(\.\d+)?	220,1003,1247 in node: S2
+partial cover already contains: ^([0-9]{4})~([01][0-9])~([0-9]{2})~([0-9]{1,2})~([0-9]{2})~([0-9]{2})$	1269,1469,1498 in node: S1
+partial cover already contains: ^([0-9]{4})~([01][0-9])~([0-9]{2})~([0-9]{1,2})~([0-9]{2})~([0-9]{2})$	1269,1469,1498 in node: S2
+partial cover already contains: ^([01]?[0-9])~([0-9]{2})~([0-9]{4})~([0-9]{1,2})~([0-9]{2})~([0-9]{2})$	1269,1469,1498 in node: S1
+partial cover already contains: ^([01]?[0-9])~([0-9]{2})~([0-9]{4})~([0-9]{1,2})~([0-9]{2})~([0-9]{2})$	1269,1469,1498 in node: S2
+partial cover already contains: ^([0-9a-f]{8})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{12})$	1007,1015,1032 in node: S1
+partial cover already contains: ^([0-9a-f]{8})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{12})$	1007,1015,1032 in node: S2
+partial cover already contains: (\w{,3}), (\d{,4})/(\d{,2})/(\d{2}) (\d{,2}):(\d{2}):(\d{2}) (\w{,3})	220,1003,1247 in node: S1
+partial cover already contains: (\w{,3}), (\d{,4})/(\d{,2})/(\d{2}) (\d{,2}):(\d{2}):(\d{2}) (\w{,3})	220,1003,1247 in node: S2
+partial cover already contains: ([^,]+),\s+(\d{2})\s+([^\s]+)\s+(\d{4})\s+(\d{2}):(\d{2}):(\d{2})\s+([^\s]+)	220,1003,1247 in node: S1
+partial cover already contains: ([^,]+),\s+(\d{2})\s+([^\s]+)\s+(\d{4})\s+(\d{2}):(\d{2}):(\d{2})\s+([^\s]+)	220,1003,1247 in node: S2
+partial cover already contains: \d{2}/\d{2}/\d{4}	109,182 in node: S1
+partial cover already contains: \d{2}/\d{2}/\d{4}	109,182 in node: S2
+partial cover already contains: \d{4}-\d{2}-\d{2}	1025,1326 in node: S1
+partial cover already contains: \d{4}-\d{2}-\d{2}	1025,1326 in node: S2
+partial cover already contains: commit [\da-f]{40}$	103,130 in node: S1
+partial cover already contains: commit [\da-f]{40}$	103,130 in node: S2
+partial cover already contains: --\d{4}-\d{2}-\d{2}	1025,1326 in node: S1
+partial cover already contains: --\d{4}-\d{2}-\d{2}	1025,1326 in node: S2
+partial cover already contains: django_compressor\.\w{12}	568,1144 in node: S1
+partial cover already contains: django_compressor\.\w{12}	568,1144 in node: S2
+partial cover already contains: (^RuntimeError:.* naughty.*){2}	12,1087 in node: S1
+partial cover already contains: (^RuntimeError:.* naughty.*){2}	12,1087 in node: S2
+partial cover already contains: (^TypeError:.* return an int.*){2}	12,1087 in node: S1
+partial cover already contains: (^TypeError:.* return an int.*){2}	12,1087 in node: S2
+partial cover already contains: ^([0-9]{4})\.([0-9]+)\.([0-9]+)$	165,1545 in node: S1
+partial cover already contains: ^([0-9]{4})\.([0-9]+)\.([0-9]+)$	165,1545 in node: S2
+partial cover already contains: (.*),\s+((\w+\.?) (\d+), (\d{4}))	109,182 in node: S1
+partial cover already contains: (.*),\s+((\w+\.?) (\d+), (\d{4}))	109,182 in node: S2
+partial cover already contains: Duration: (\d{2}):(\d{2}):(\d{2}.\d{2}),	391,872 in node: S1
+partial cover already contains: Duration: (\d{2}):(\d{2}):(\d{2}.\d{2}),	391,872 in node: S2
+partial cover already contains: ^== Rolled over to ChangeLog-\d{4}-\d{2}-\d{2} ==$	1199,1300 in node: S1
+partial cover already contains: ^== Rolled over to ChangeLog-\d{4}-\d{2}-\d{2} ==$	1199,1300 in node: S2
+partial cover already contains: <b>Added:</b> (\d{4}-\d\d-\d\d \d\d:\d\d:\d\d)	1269,1498 in node: S1
+partial cover already contains: <b>Added:</b> (\d{4}-\d\d-\d\d \d\d:\d\d:\d\d)	1269,1498 in node: S2
+partial cover already contains: ^(\s*)(, | {2})((\s*(\w+)(\s+|::)\w+\s*.*?,?)+)\s*$	241,1249 in node: S1
+partial cover already contains: ^(\s*)(, | {2})((\s*(\w+)(\s+|::)\w+\s*.*?,?)+)\s*$	241,1249 in node: S2
+partial cover already contains: [0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}	171,1381 in node: S1
+partial cover already contains: [0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}	171,1381 in node: S2
+partial cover already contains: ^(\w+)\s+(\w+)\s+(\w+)\s+(\S+)\s+(([a-fA-F0-9]{2}:?){6})	1317,1501 in node: S1
+partial cover already contains: ^(\w+)\s+(\w+)\s+(\w+)\s+(\S+)\s+(([a-fA-F0-9]{2}:?){6})	1317,1501 in node: S2
+partial cover already contains: (\d{4})\.(\d{2})\.(\d{2})\.(\d{2})\.(\d{2})\.(\d{2})$	1025,1326 in node: S1
+partial cover already contains: (\d{4})\.(\d{2})\.(\d{2})\.(\d{2})\.(\d{2})\.(\d{2})$	1025,1326 in node: S2
+partial cover already contains: (\w{3}, \d{1,2} \w{3} \d{4} \d\d:\d\d:\d\d) [\+\-]\d{4}	1269,1498 in node: S1
+partial cover already contains: (\w{3}, \d{1,2} \w{3} \d{4} \d\d:\d\d:\d\d) [\+\-]\d{4}	1269,1498 in node: S2
+partial cover already contains: ^(?P<date>\d{4}-\d{2}-\d{2})\s+(?P<name>.+?)\s+<(?P<email>[^<>]+)>$	1199,1300 in node: S1
+partial cover already contains: ^(?P<date>\d{4}-\d{2}-\d{2})\s+(?P<name>.+?)\s+<(?P<email>[^<>]+)>$	1199,1300 in node: S2
+partial cover already contains: (\d+\.\d+\.\d+\.\d+|\W:{2}\d\W):\d+,\d+\s+([\w\.\-:\d]+)	1317,1501 in node: S1
+partial cover already contains: (\d+\.\d+\.\d+\.\d+|\W:{2}\d\W):\d+,\d+\s+([\w\.\-:\d]+)	1317,1501 in node: S2
+partial cover already contains: [A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F:0-9]{2}:[A-F:0-9]{2}	171,1381 in node: S1
+partial cover already contains: [A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F:0-9]{2}:[A-F:0-9]{2}	171,1381 in node: S2
+partial cover already contains: ^class ([^,]*), addr (\d\d:\d\d.\d+), pci id (\w{4}:\w{4}) \(sub (\w{4}:\w{4})\)	1317,1501 in node: S1
+partial cover already contains: ^class ([^,]*), addr (\d\d:\d\d.\d+), pci id (\w{4}:\w{4}) \(sub (\w{4}:\w{4})\)	1317,1501 in node: S2
+partial cover already contains: ^(\w{3})\-(\d\d)\s*(\d\d)\:(\d\d):(\d\d)\s*([A-Z]+)\s*(.+?)\s*\:\:\s*(.*)$	1269,1498 in node: S1
+partial cover already contains: ^(\w{3})\-(\d\d)\s*(\d\d)\:(\d\d):(\d\d)\s*([A-Z]+)\s*(.+?)\s*\:\:\s*(.*)$	1269,1498 in node: S2
+partial cover already contains: ^(?P<filetype>.)(?P<perms>.{9})\s+(?P<nlinks>\d*)\s*(?P<owner>\S+)\s+(?P<group>\S+)\s+(?P<size>\d+)\s+(?P<date>...\s+\d+\s+[\d:]+)\s+(?P<filename>([^ ]|\\ )*?)( -> (?P<linktarget>[^\r]*))?\r?$	1223,1420 in node: S1
+partial cover already contains: ^(?P<filetype>.)(?P<perms>.{9})\s+(?P<nlinks>\d*)\s*(?P<owner>\S+)\s+(?P<group>\S+)\s+(?P<size>\d+)\s+(?P<date>...\s+\d+\s+[\d:]+)\s+(?P<filename>([^ ]|\\ )*?)( -> (?P<linktarget>[^\r]*))?\r?$	1223,1420 in node: S2
+partial cover already contains: (?P<year>[0-9]{4})(-(?P<month>[0-9]{1,2})(-(?P<day>[0-9]{1,2})((?P<separator>.)(?P<hour>[0-9]{2}):(?P<minute>[0-9]{2})(:(?P<second>[0-9]{2})(\.(?P<fraction>[0-9]+))?)?(?P<timezone>Z|(([-+])([0-9]{2}):([0-9]{2})))?)?)?)?	897,1580 in node: S1
+partial cover already contains: (?P<year>[0-9]{4})(-(?P<month>[0-9]{1,2})(-(?P<day>[0-9]{1,2})((?P<separator>.)(?P<hour>[0-9]{2}):(?P<minute>[0-9]{2})(:(?P<second>[0-9]{2})(\.(?P<fraction>[0-9]+))?)?(?P<timezone>Z|(([-+])([0-9]{2}):([0-9]{2})))?)?)?)?	897,1580 in node: S2
+partial cover already contains: ((?<!(href|.src|data)=[\'"])((http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|localhost|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\+&amp;%\$#\=~_\-]+))*))	296,819 in node: S1
+partial cover already contains: ((?<!(href|.src|data)=[\'"])((http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|localhost|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\+&amp;%\$#\=~_\-]+))*))	296,819 in node: S2
+partial cover already contains: (tt\d{7})	1469 in node: S1
+partial cover already contains: (tt\d{7})	1469 in node: S2
+partial cover already contains: \d+\.\.$|\.{4}$	1594 in node: S1
+partial cover already contains: \d+\.\.$|\.{4}$	1594 in node: S2
+partial cover already contains: &#(x\w\w|\d{3});	1076 in node: S1
+partial cover already contains: &#(x\w\w|\d{3});	1076 in node: S2
+partial cover already contains: ((?:nm|tt)[\d]{7})	1557 in node: S1
+partial cover already contains: ((?:nm|tt)[\d]{7})	1557 in node: S2
+partial cover already contains: [0-9]{20}:[0-9]:[0-9]	1055 in node: S1
+partial cover already contains: [0-9]{20}:[0-9]:[0-9]	1055 in node: S2
+partial cover already contains: 01((-[0-9a-f]{2}){6})$	1381 in node: S1
+partial cover already contains: 01((-[0-9a-f]{2}){6})$	1381 in node: S2
+partial cover already contains: ^\d{4}-\d{2}-\d{2}$	1066 in node: S1
+partial cover already contains: ^\d{4}-\d{2}-\d{2}$	1066 in node: S2
+partial cover already contains: ^\d{4}/\d{2}/\d{2}$	1066 in node: S1
+partial cover already contains: ^\d{4}/\d{2}/\d{2}$	1066 in node: S2
+partial cover already contains: <watts>[0-9]{5}</watts>	1044 in node: S1
+partial cover already contains: <watts>[0-9]{5}</watts>	1044 in node: S2
+partial cover already contains: affils.ast.\d{8}_\d{4}	1001 in node: S1
+partial cover already contains: affils.ast.\d{8}_\d{4}	1001 in node: S2
+partial cover already contains: ^[2-9]\d\d[2-9]\d{6}$	174 in node: S1
+partial cover already contains: ^[2-9]\d\d[2-9]\d{6}$	174 in node: S2
+partial cover already contains: ^1[2-9]\d\d[2-9]\d{6}$	174 in node: S1
+partial cover already contains: ^1[2-9]\d\d[2-9]\d{6}$	174 in node: S2
+partial cover already contains: abort: HTTP Error 5\d{2}	566 in node: S1
+partial cover already contains: abort: HTTP Error 5\d{2}	566 in node: S2
+partial cover already contains: \s+((\d+\.){3}\d+)\s+	560 in node: S1
+partial cover already contains: \s+((\d+\.){3}\d+)\s+	560 in node: S2
+partial cover already contains: (?<=nm|tt|ch)([0-9]{7})\b	1469 in node: S1
+partial cover already contains: (?<=nm|tt|ch)([0-9]{7})\b	1469 in node: S2
+partial cover already contains: [0-9]{4}-[0-9]{2}-[0-9]{2}	1044 in node: S1
+partial cover already contains: [0-9]{4}-[0-9]{2}-[0-9]{2}	1044 in node: S2
+partial cover already contains: (\d{2})/(\d{2})/(\d{4})	847 in node: S1
+partial cover already contains: (\d{2})/(\d{2})/(\d{4})	847 in node: S2
+partial cover already contains: ^\d{4}\.\d{2}\.\d{2}$	1569 in node: S1
+partial cover already contains: ^\d{4}\.\d{2}\.\d{2}$	1569 in node: S2
+partial cover already contains: (\d{2})(\d{2})(\w{3})\Z	80 in node: S1
+partial cover already contains: (\d{2})(\d{2})(\w{3})\Z	80 in node: S2
+partial cover already contains: ^[+/0-9A-Za-z]{21}[AQgw]==$	1007 in node: S1
+partial cover already contains: ^[+/0-9A-Za-z]{21}[AQgw]==$	1007 in node: S2
+partial cover already contains: \d{4}(/\d\d(/\d\d)?)?$	1302 in node: S1
+partial cover already contains: \d{4}(/\d\d(/\d\d)?)?$	1302 in node: S2
+partial cover already contains: \d{4}\.\d{1,2}\.\d{1,2}	126 in node: S1
+partial cover already contains: \d{4}\.\d{1,2}\.\d{1,2}	126 in node: S2
+partial cover already contains: ((\d){1,3}\.){3}(\d){1,3}	1501 in node: S1
+partial cover already contains: ((\d){1,3}\.){3}(\d){1,3}	1501 in node: S2
+partial cover already contains: \d{1,2}\.\d{1,2}\.\d{4}	126 in node: S1
+partial cover already contains: \d{1,2}\.\d{1,2}\.\d{4}	126 in node: S2
+partial cover already contains: ^\d{4}-\d{2}-\d{2}-\d{6}$	1287 in node: S1
+partial cover already contains: ^\d{4}-\d{2}-\d{2}-\d{6}$	1287 in node: S2
+partial cover already contains: 20[0-9]{2}-[0-9]{2}-[0-9]{2}_	1277 in node: S1
+partial cover already contains: 20[0-9]{2}-[0-9]{2}-[0-9]{2}_	1277 in node: S2
+partial cover already contains: \b(nm|tt|ch|co)([0-9]{7})\b	1469 in node: S1
+partial cover already contains: \b(nm|tt|ch|co)([0-9]{7})\b	1469 in node: S2
+partial cover already contains: ^(?:bt://)?([a-fA-F0-9]{40})$	1569 in node: S1
+partial cover already contains: ^(?:bt://)?([a-fA-F0-9]{40})$	1569 in node: S2
+partial cover already contains: (?:\d{2}:\d{2}:\d{2}) (.*)	1463 in node: S1
+partial cover already contains: (?:\d{2}:\d{2}:\d{2}) (.*)	1463 in node: S2
+partial cover already contains: ([0-9]{2})([0-9]{2})([0-9]{4})	226 in node: S1
+partial cover already contains: ([0-9]{2})([0-9]{2})([0-9]{4})	226 in node: S2
+partial cover already contains: (([0-9]{1,3}\.){3}[0-9]{1,3})	1563 in node: S1
+partial cover already contains: (([0-9]{1,3}\.){3}[0-9]{1,3})	1563 in node: S2
+partial cover already contains: (.{8})(.{4})(.{4})(.{4})(.{12})	1462 in node: S1
+partial cover already contains: (.{8})(.{4})(.{4})(.{4})(.{12})	1462 in node: S2
+partial cover already contains: github.com/(.+)/(.+)(?:\.git){1}	1496 in node: S1
+partial cover already contains: github.com/(.+)/(.+)(?:\.git){1}	1496 in node: S2
+partial cover already contains: \s\s\s\s+[\w]{4}.\s+\d*\Z	1302 in node: S1
+partial cover already contains: \s\s\s\s+[\w]{4}.\s+\d*\Z	1302 in node: S2
+partial cover already contains: ^(.+)(\d{3})-(\d{3})-(\d{3}).*$	182 in node: S1
+partial cover already contains: ^(.+)(\d{3})-(\d{3})-(\d{3}).*$	182 in node: S2
+partial cover already contains: ^\w+_(\d\d[A-Z]{3}\d{4}).\w+$	1397 in node: S1
+partial cover already contains: ^\w+_(\d\d[A-Z]{3}\d{4}).\w+$	1397 in node: S2
+partial cover already contains: info.log.[0-9]{4}-[0-9]{2}-[0-9]{2}	1448 in node: S1
+partial cover already contains: info.log.[0-9]{4}-[0-9]{2}-[0-9]{2}	1448 in node: S2
+partial cover already contains: inet addr:((\d{1,3}\.){3}\d{1,3})	244 in node: S1
+partial cover already contains: inet addr:((\d{1,3}\.){3}\d{1,3})	244 in node: S2
+partial cover already contains: (\d{4}-\d{2}-\d{2})-(.*).markdown	870 in node: S1
+partial cover already contains: (\d{4}-\d{2}-\d{2})-(.*).markdown	870 in node: S2
+partial cover already contains: ^([a-fA-F0-9]){3}(([a-fA-F0-9]){3})?$	200 in node: S1
+partial cover already contains: ^([a-fA-F0-9]){3}(([a-fA-F0-9]){3})?$	200 in node: S2
+partial cover already contains: ([0-9]{3})\-([0-9]{3})\-([0-9]{4})$	550 in node: S1
+partial cover already contains: ([0-9]{3})\-([0-9]{3})\-([0-9]{4})$	550 in node: S2
+partial cover already contains: \s+(([0-9A-F]{2}:){5}[0-9A-F]{2})\s+	560 in node: S1
+partial cover already contains: \s+(([0-9A-F]{2}:){5}[0-9A-F]{2})\s+	560 in node: S2
+partial cover already contains: _\d{4}-\d{2}-\d{2}_\d{2}-\d{2}\Z	962 in node: S1
+partial cover already contains: _\d{4}-\d{2}-\d{2}_\d{2}-\d{2}\Z	962 in node: S2
+partial cover already contains: /posts/([\d]{4})/([\d]{2})/([\d]{2})	68 in node: S1
+partial cover already contains: /posts/([\d]{4})/([\d]{2})/([\d]{2})	68 in node: S2
+partial cover already contains: .*Duration: (.{2}):(.{2}):(.{2})\.(.),	53 in node: S1
+partial cover already contains: .*Duration: (.{2}):(.{2}):(.{2})\.(.),	53 in node: S2
+partial cover already contains: E(\d{2})(\d{2})(\d{2})(\w{3})(.*)\Z	80 in node: S1
+partial cover already contains: E(\d{2})(\d{2})(\d{2})(\w{3})(.*)\Z	80 in node: S2
+partial cover already contains: \#?([0-9a-fA-F]{3}([0-9a-fA-F]{3})?){1}$	615 in node: S1
+partial cover already contains: \#?([0-9a-fA-F]{3}([0-9a-fA-F]{3})?){1}$	615 in node: S2
+partial cover already contains: ^\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3} 	1007 in node: S1
+partial cover already contains: ^\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3} 	1007 in node: S2
+partial cover already contains: ([0-9]{4}) \(([0-9]{2})\.([0-9]{2})\.\)	1408 in node: S1
+partial cover already contains: ([0-9]{4}) \(([0-9]{2})\.([0-9]{2})\.\)	1408 in node: S2
+partial cover already contains: http://torrentz\.eu/(?P<hash>[a-f0-9]{40})	1557 in node: S1
+partial cover already contains: http://torrentz\.eu/(?P<hash>[a-f0-9]{40})	1557 in node: S2
+partial cover already contains: http://.*imdb\.com/title/tt([0-9]{7})/quotes	1075 in node: S1
+partial cover already contains: http://.*imdb\.com/title/tt([0-9]{7})/quotes	1075 in node: S2
+partial cover already contains: (.*?)(?:\.(\d+))?(([-+]\d{1,2}):(\d{2}))?$	425 in node: S1
+partial cover already contains: (.*?)(?:\.(\d+))?(([-+]\d{1,2}):(\d{2}))?$	425 in node: S2
+partial cover already contains: (\d{4})-(\d{2})-(\d{2})[\s\t]*([0-9:, -]+)	317 in node: S1
+partial cover already contains: (\d{4})-(\d{2})-(\d{2})[\s\t]*([0-9:, -]+)	317 in node: S2
+partial cover already contains: (\d+) calls to (.{20}) required (\d+) cycles.	533 in node: S1
+partial cover already contains: (\d+) calls to (.{20}) required (\d+) cycles.	533 in node: S2
+partial cover already contains: ^[0-9a-fA-F]{4}    (([0-9a-fA-F]{2} )+)\s+(.+)$	1580 in node: S1
+partial cover already contains: ^[0-9a-fA-F]{4}    (([0-9a-fA-F]{2} )+)\s+(.+)$	1580 in node: S2
+partial cover already contains: ([NS])(\d\d)_(\d{6})([EW])(\d\d\d)_(\d{6})	1397 in node: S1
+partial cover already contains: ([NS])(\d\d)_(\d{6})([EW])(\d\d\d)_(\d{6})	1397 in node: S2
+partial cover already contains: #([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})	712 in node: S1
+partial cover already contains: #([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})	712 in node: S2
+partial cover already contains: objectname\=(\d{4}\-\w\w\-\d+-\d+\-\d+)	182 in node: S1
+partial cover already contains: objectname\=(\d{4}\-\w\w\-\d+-\d+\-\d+)	182 in node: S2
+partial cover already contains: #([a-fA-F0-9]{4})([a-fA-F0-9]{4})([a-fA-F0-9]{4})	712 in node: S1
+partial cover already contains: #([a-fA-F0-9]{4})([a-fA-F0-9]{4})([a-fA-F0-9]{4})	712 in node: S2
+partial cover already contains: ^(\d{8})(\d{2})(\d{2})(\d{2})\.(\d{6})(:)(000)	225 in node: S1
+partial cover already contains: ^(\d{8})(\d{2})(\d{2})(\d{2})\.(\d{6})(:)(000)	225 in node: S2
+partial cover already contains: (\d{4}):(\d\d):(\d\d) (\d\d):(\d\d):(\d\d)	53 in node: S1
+partial cover already contains: (\d{4}):(\d\d):(\d\d) (\d\d):(\d\d):(\d\d)	53 in node: S2
+partial cover already contains: ([0-9a-fA-F][0-9a-fA-F][:-]){2}[0-9a-fA-F][0-9a-fA-F]	1361 in node: S1
+partial cover already contains: ([0-9a-fA-F][0-9a-fA-F][:-]){2}[0-9a-fA-F][0-9a-fA-F]	1361 in node: S2
+partial cover already contains: <a href="http://ad.doubleclick.net.*?;id=(co[0-9]{7});	1469 in node: S1
+partial cover already contains: <a href="http://ad.doubleclick.net.*?;id=(co[0-9]{7});	1469 in node: S2
+partial cover already contains: ^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$	490 in node: S1
+partial cover already contains: ^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$	490 in node: S2
+partial cover already contains: (\d{4})-(\d{2})-(\d{2}) / (\d+)[\s\t]*([0-9:, -]+)	317 in node: S1
+partial cover already contains: (\d{4})-(\d{2})-(\d{2}) / (\d+)[\s\t]*([0-9:, -]+)	317 in node: S2
+partial cover already contains: ed2k://\|file\|([^|]*)\|(\d+)\|([a-fA-F0-9]{32})\|	1569 in node: S1
+partial cover already contains: ed2k://\|file\|([^|]*)\|(\d+)\|([a-fA-F0-9]{32})\|	1569 in node: S2
+partial cover already contains: /devices/.*/([0-9a-fA-F]{4}):17EF:6009\.([0-9a-fA-F]{4})	760 in node: S1
+partial cover already contains: /devices/.*/([0-9a-fA-F]{4}):17EF:6009\.([0-9a-fA-F]{4})	760 in node: S2
+partial cover already contains: cc_[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.csv	1044 in node: S1
+partial cover already contains: cc_[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.csv	1044 in node: S2
+partial cover already contains: [0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}_cc.csv	1044 in node: S1
+partial cover already contains: [0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}_cc.csv	1044 in node: S2
+partial cover already contains: ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$	772 in node: S1
+partial cover already contains: ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$	772 in node: S2
+partial cover already contains: .+/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$	1303 in node: S1
+partial cover already contains: .+/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$	1303 in node: S2
+partial cover already contains: ^(?P<area>1\d1|11\d|8\d\d)(?P<area2>\d{3})(?P<station>\d+)$	174 in node: S1
+partial cover already contains: ^(?P<area>1\d1|11\d|8\d\d)(?P<area2>\d{3})(?P<station>\d+)$	174 in node: S2
+partial cover already contains: (\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(.(\d{2}))?Z	729 in node: S1
+partial cover already contains: (\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(.(\d{2}))?Z	729 in node: S2
+partial cover already contains: <div class="published">\D+\s*(\d+)\s(\D+)\s(\d{4}).*</span>	1494 in node: S1
+partial cover already contains: <div class="published">\D+\s*(\d+)\s(\D+)\s(\d{4}).*</span>	1494 in node: S2
+partial cover already contains: -[rwx-]{9} +(\d+) (\d{4}/\d\d/\d\d \d\d:\d\d:\d\d) (.*)	560 in node: S1
+partial cover already contains: -[rwx-]{9} +(\d+) (\d{4}/\d\d/\d\d \d\d:\d\d:\d\d) (.*)	560 in node: S2
+partial cover already contains: [\s\S]*root[\s]*([\d]+)[\s]*(?:[\w]*[\s]*){6}/system/b2g/b2g	1007 in node: S1
+partial cover already contains: [\s\S]*root[\s]*([\d]+)[\s]*(?:[\w]*[\s]*){6}/system/b2g/b2g	1007 in node: S2
+partial cover already contains: [0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}(?:\.[0-9]+)?	1158 in node: S1
+partial cover already contains: [0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}(?:\.[0-9]+)?	1158 in node: S2
+partial cover already contains: B(\d{2})(\d{2})(\d{2})(\d{2})(\d{5})([NS])(\d{3})(\d{5})([EW])	80 in node: S1
+partial cover already contains: B(\d{2})(\d{2})(\d{2})(\d{2})(\d{5})([NS])(\d{3})(\d{5})([EW])	80 in node: S2
+partial cover already contains: ^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$	1420 in node: S1
+partial cover already contains: ^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$	1420 in node: S2
+partial cover already contains: ^(bp-)?([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$	1399 in node: S1
+partial cover already contains: ^(bp-)?([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$	1399 in node: S2
+partial cover already contains: \\(u[dD][89aAbB][0-9a-fA-F]{2}\\u[0-9a-fA-F]{4}|u[0-9a-fA-F]{4}|.|$)	1181 in node: S1
+partial cover already contains: \\(u[dD][89aAbB][0-9a-fA-F]{2}\\u[0-9a-fA-F]{4}|u[0-9a-fA-F]{4}|.|$)	1181 in node: S2
+partial cover already contains: ^http://(?:www.)?(.*?)(?:\:[0-9]+)?/.*/([0-9B][0-9A-Z]{9})(?:[^0-9A-Z]|$)	913 in node: S1
+partial cover already contains: ^http://(?:www.)?(.*?)(?:\:[0-9]+)?/.*/([0-9B][0-9A-Z]{9})(?:[^0-9A-Z]|$)	913 in node: S2
+partial cover already contains: ^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})\.(\d{6})([+|-])(\d{3})	225 in node: S1
+partial cover already contains: ^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})\.(\d{6})([+|-])(\d{3})	225 in node: S2
+partial cover already contains: (\d{4})-(\d{2})-(\d{2}) - (\d{4})-(\d{2})-(\d{2})[\s\t]*([0-9:, -]+)	317 in node: S1
+partial cover already contains: (\d{4})-(\d{2})-(\d{2}) - (\d{4})-(\d{2})-(\d{2})[\s\t]*([0-9:, -]+)	317 in node: S2
+partial cover already contains: ^(6553[0-5]|655[0-2]\d|65[0-4]\d\d|6[0-4]\d{3}|[1-5]\d{4}|[1-9]\d{0,3}|0)$	548 in node: S1
+partial cover already contains: ^(6553[0-5]|655[0-2]\d|65[0-4]\d\d|6[0-4]\d{3}|[1-5]\d{4}|[1-9]\d{0,3}|0)$	548 in node: S2
+partial cover already contains: ^([0-9]{4}):([0-9]{1,2}):([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2})(?::([0-9]{1,2}))?	1495 in node: S1
+partial cover already contains: ^([0-9]{4}):([0-9]{1,2}):([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2})(?::([0-9]{1,2}))?	1495 in node: S2
+partial cover already contains: (\d{4})-(\d{2})-(\d{2}) - (\d{4})-(\d{2})-(\d{2}) / (\d+)[\s\t]*([0-9:, -]+)	317 in node: S1
+partial cover already contains: (\d{4})-(\d{2})-(\d{2}) - (\d{4})-(\d{2})-(\d{2}) / (\d+)[\s\t]*([0-9:, -]+)	317 in node: S2
+partial cover already contains: ^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(\.\d{1,6})?Z?([\+\-]\d{2}:?\d{2})?$	1580 in node: S1
+partial cover already contains: ^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(\.\d{1,6})?Z?([\+\-]\d{2}:?\d{2})?$	1580 in node: S2
+partial cover already contains: (?P<prefix>^diff(\s-[a-z]{1})?(\s-[a-z]{1})?(\s-[a-z]{1})?)(?P<main>.*)(?P<suffix>$)	31 in node: S1
+partial cover already contains: (?P<prefix>^diff(\s-[a-z]{1})?(\s-[a-z]{1})?(\s-[a-z]{1})?)(?P<main>.*)(?P<suffix>$)	31 in node: S2
+partial cover already contains: (\d{4}-\d{2}-\d{2} |)(\d{2}:\d{2}:\d{2}) \[([A-Z]+)\] (?:\[Minecraft\] )?(.*)	1463 in node: S1
+partial cover already contains: (\d{4}-\d{2}-\d{2} |)(\d{2}:\d{2}:\d{2}) \[([A-Z]+)\] (?:\[Minecraft\] )?(.*)	1463 in node: S2
+partial cover already contains: (\w\w:\w\w.\w) "[^"]+ \[\w{4}\]" "[^"]+ \[(\w{4})\]" "[^"]+ \[(\w{4})\].*	1501 in node: S1
+partial cover already contains: (\w\w:\w\w.\w) "[^"]+ \[\w{4}\]" "[^"]+ \[(\w{4})\]" "[^"]+ \[(\w{4})\].*	1501 in node: S2
+partial cover already contains: ((25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)	1007 in node: S1
+partial cover already contains: ((25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)	1007 in node: S2
+partial cover already contains: ^class ([^,]*), addr (\w\w:\w\w.\w+), pci id (\w{4}:\w{4}) \(sub (\w{4}:\w{4})\)	1501 in node: S1
+partial cover already contains: ^class ([^,]*), addr (\w\w:\w\w.\w+), pci id (\w{4}:\w{4}) \(sub (\w{4}:\w{4})\)	1501 in node: S2
+partial cover already contains: ^timestamp: [a-zA-Z]{3} (\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) ([-+])(\d{2})(\d{2})$	122 in node: S1
+partial cover already contains: ^timestamp: [a-zA-Z]{3} (\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) ([-+])(\d{2})(\d{2})$	122 in node: S2
+partial cover already contains: {\s*(.+?)?\s?(\([0-9\?]{4}-[0-9\?]{1,2}-[0-9\?]{1,2}\))?\s?(\(#[0-9]+\.[0-9]+\))?}	1469 in node: S1
+partial cover already contains: {\s*(.+?)?\s?(\([0-9\?]{4}-[0-9\?]{1,2}-[0-9\?]{1,2}\))?\s?(\(#[0-9]+\.[0-9]+\))?}	1469 in node: S2
+partial cover already contains: ^(?:\d{4}-\d{2}-\d{2} |)\[?(\d{2}:\d{2}:\d{2})\]? \[?(?:[^\]]+?/|)([A-Z]+)\]:? (.*)	1463 in node: S1
+partial cover already contains: ^(?:\d{4}-\d{2}-\d{2} |)\[?(\d{2}:\d{2}:\d{2})\]? \[?(?:[^\]]+?/|)([A-Z]+)\]:? (.*)	1463 in node: S2
+partial cover already contains: (?P<line>([^"]*["][^"]*["][^"!]*|[^\\']*\\'[^\\']*\\'[^\\'!]*|[^!\\'"]*))!{1}(?P<rest>.*)	356 in node: S1
+partial cover already contains: (?P<line>([^"]*["][^"]*["][^"!]*|[^\\']*\\'[^\\']*\\'[^\\'!]*|[^!\\'"]*))!{1}(?P<rest>.*)	356 in node: S2
+partial cover already contains: B(\d{2})(\d{2})(\d{2})(\d{2})(\d{5})([NS])(\d{3})(\d{5})([EW])([AV])(\d{5})(\d{5}).*\Z	80 in node: S1
+partial cover already contains: B(\d{2})(\d{2})(\d{2})(\d{2})(\d{5})([NS])(\d{3})(\d{5})([EW])([AV])(\d{5})(\d{5}).*\Z	80 in node: S2
+partial cover already contains: (\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d+)?)(?:(Z)|([+-])(\d{2}):(\d{2}))	348 in node: S1
+partial cover already contains: (\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d+)?)(?:(Z)|([+-])(\d{2}):(\d{2}))	348 in node: S2
+partial cover already contains: http://(?:www\.)?redd(?:\.it/|it\.com/(?:tb|(?:r/[\w\.]+/)?comments)/)(\w+)(/.+/)?(\w{7})?	1463 in node: S1
+partial cover already contains: http://(?:www\.)?redd(?:\.it/|it\.com/(?:tb|(?:r/[\w\.]+/)?comments)/)(\w+)(/.+/)?(\w{7})?	1463 in node: S2
+partial cover already contains: B(\d{2})(\d{2})(\d{2})(\d{2})(\d{5})([NS])(\d{3})(\d{5})([EW])([AV])(\d{5})(\d{5})\d*\Z	80 in node: S1
+partial cover already contains: B(\d{2})(\d{2})(\d{2})(\d{2})(\d{5})([NS])(\d{3})(\d{5})([EW])([AV])(\d{5})(\d{5})\d*\Z	80 in node: S2
+partial cover already contains: !?((((2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?)\.){3}(2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?))(/(3[012]|[12]?[0-9])))	735 in node: S1
+partial cover already contains: !?((((2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?)\.){3}(2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?))(/(3[012]|[12]?[0-9])))	735 in node: S2
+partial cover already contains: Week (\d{1,2}) ending (January|February|March|April|May|June|July|August|September|October|November|December) (\d{1,2}), (\d{4})	411 in node: S1
+partial cover already contains: Week (\d{1,2}) ending (January|February|March|April|May|June|July|August|September|October|November|December) (\d{1,2}), (\d{4})	411 in node: S2
+partial cover already contains: ^! (((2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?)\.){3}(2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?)(/(3[12]|[12]?[0-9])))[\t\s]+([^\t]+)$	735 in node: S1
+partial cover already contains: ^! (((2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?)\.){3}(2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?)(/(3[12]|[12]?[0-9])))[\t\s]+([^\t]+)$	735 in node: S2
+partial cover already contains: \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3} (\d|\.)+  players: \['(?P<player1>\w+)', '(?P<player2>\w+)', '(?P<player3>\w+)', '(?P<player4>\w+)'\] winner (?P<winner>\w+)	967 in node: S1
+partial cover already contains: \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3} (\d|\.)+  players: \['(?P<player1>\w+)', '(?P<player2>\w+)', '(?P<player3>\w+)', '(?P<player4>\w+)'\] winner (?P<winner>\w+)	967 in node: S2
+partial cover already contains: ^(?P<filetype>.)(?P<perms>.{9})\s+(?P<nlinks>\d*)\s*(?P<owner>\S+)\s+(?P<group>\S+)\s+(?P<size>\d+)\s+(?P<date>...\s+\d+\s+[\d:]+)\s+(?P<filename>.{1,}?)( -> (?P<linktarget>[^\r]*))?\r?$	557 in node: S1
+partial cover already contains: ^(?P<filetype>.)(?P<perms>.{9})\s+(?P<nlinks>\d*)\s*(?P<owner>\S+)\s+(?P<group>\S+)\s+(?P<size>\d+)\s+(?P<date>...\s+\d+\s+[\d:]+)\s+(?P<filename>.{1,}?)( -> (?P<linktarget>[^\r]*))?\r?$	557 in node: S2
+partial cover already contains: ^([\w\!\#$\%\&'\*\+\-\/\=\?\^\`{\|\}\~]+\.)*[\w\!\#$\%\&'\*\+\-\/\=\?\^\`{\|\}\~]+@((((([a-z0-9]{1}[a-z0-9\-]{0,62}[a-z0-9]{1})|[a-z])\.)+[a-z]{2,6})|(\d{1,3}\.){3}\d{1,3}(\:\d{1,5})?)$	1247 in node: S1
+partial cover already contains: ^([\w\!\#$\%\&'\*\+\-\/\=\?\^\`{\|\}\~]+\.)*[\w\!\#$\%\&'\*\+\-\/\=\?\^\`{\|\}\~]+@((((([a-z0-9]{1}[a-z0-9\-]{0,62}[a-z0-9]{1})|[a-z])\.)+[a-z]{2,6})|(\d{1,3}\.){3}\d{1,3}(\:\d{1,5})?)$	1247 in node: S2
+partial cover already contains: ((?!.*::.*::)(?:(?!:)|:(?=:))(?:[0-9a-f]{0,4}(?:(?<=::)|(?<!::):)){6}(?:[0-9a-f]{0,4}(?:(?<=::)|(?<!::):)[0-9a-f]{0,4}(?:(?<=::)|(?<!:)|(?<=:)(?<!::) :)|(?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)(?: \.(?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))(?:\:(\d+))?(?:\:([\/\\w+.\w+.\-]+))?	873 in node: S1
+partial cover already contains: ((?!.*::.*::)(?:(?!:)|:(?=:))(?:[0-9a-f]{0,4}(?:(?<=::)|(?<!::):)){6}(?:[0-9a-f]{0,4}(?:(?<=::)|(?<!::):)[0-9a-f]{0,4}(?:(?<=::)|(?<!:)|(?<=:)(?<!::) :)|(?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)(?: \.(?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))(?:\:(\d+))?(?:\:([\/\\w+.\w+.\-]+))?	873 in node: S2
+partial cover already contains: \n\t\t\t       (?xi)( # allow comments, case insensitive\n\t\t\t        if\s* # begins with an if statement\n\t\t     (.*(and|or)\s*)* # predicates are possible\n\t\t       keycode\s*=\s* # keycode assignment\n\t        (?P<keycode>\w{5})\s* # \n\t  (?P<assign_name>\w+)\s*=\s* #\n(?P<assign_value>[0-9](.[0-9]+)?)\s*) #\n\t\t\t\t      	962 in node: S1
+partial cover already contains: \n\t\t\t       (?xi)( # allow comments, case insensitive\n\t\t\t        if\s* # begins with an if statement\n\t\t     (.*(and|or)\s*)* # predicates are possible\n\t\t       keycode\s*=\s* # keycode assignment\n\t        (?P<keycode>\w{5})\s* # \n\t  (?P<assign_name>\w+)\s*=\s* #\n(?P<assign_value>[0-9](.[0-9]+)?)\s*) #\n\t\t\t\t      	962 in node: S2
+partial cover already contains: \n    (?P<SN>.*?)         # NG(SN) non greedily capturing show name\n    [\W_]               # non alphanum char\n    (?P<S>\d)           # NG(S) grab 1 digit for season number\n    (?P<E>\d{2})        # NG(E) grab 2 digits for episode number\n    [\W_]               # non alphanum char\n    (?P<EN>.*)          # NG(EN) greedily trying to grab episode name	817 in node: S1
+partial cover already contains: \n    (?P<SN>.*?)         # NG(SN) non greedily capturing show name\n    [\W_]               # non alphanum char\n    (?P<S>\d)           # NG(S) grab 1 digit for season number\n    (?P<E>\d{2})        # NG(E) grab 2 digits for episode number\n    [\W_]               # non alphanum char\n    (?P<EN>.*)          # NG(EN) greedily trying to grab episode name	817 in node: S2
+partial cover already contains: ((?<=\()[A-Za-z][A-Za-z0-9\+\.\-]*:([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+(?=\)))|([A-Za-z][A-Za-z0-9\+\.\-]*:([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+)|\bmailto:\S*[^\s\W]|\b\S+@\S+\.\S*[^\s\W]|((?<=\()(www|ftp)\.([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+(?=\)))|((www|ftp)\.([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+\.([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+)	18 in node: S1
+partial cover already contains: ((?<=\()[A-Za-z][A-Za-z0-9\+\.\-]*:([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+(?=\)))|([A-Za-z][A-Za-z0-9\+\.\-]*:([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+)|\bmailto:\S*[^\s\W]|\b\S+@\S+\.\S*[^\s\W]|((?<=\()(www|ftp)\.([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+(?=\)))|((www|ftp)\.([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+\.([A-Za-z0-9\.\-_~:/\?#\[\]@!\$&'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+)	18 in node: S2
+partial cover already contains: \n                (?xm)  # verbose identify URLs in text (and multiline)\n             (?=^.{11} # Mail header matcher\n     (?<!Message-ID:|  # rule out Message-ID\'s as best possible\n        In-Reply-To))  # ...and also In-Reply-To\n               (.*?)(  # must grab to email to allow prior lookbehind\n   ([A-Za-z0-9-]+\.)?  # maybe an initial part: DAVID.mertz@gnosis.cx\n        [A-Za-z0-9-]+  # definitely some local user: MERTZ@gnosis.cx\n                    @  # ...needs an at sign in the middle\n         (\w+\.?){2,}  # at least two domain groups, e.g. (gnosis.)(cx)\n    (?=[\s\.,>)\'"\]])  # assert: followed by white or clause ending\n                     ) # end of match group\n                       	962 in node: S1
+partial cover already contains: \n                (?xm)  # verbose identify URLs in text (and multiline)\n             (?=^.{11} # Mail header matcher\n     (?<!Message-ID:|  # rule out Message-ID\'s as best possible\n        In-Reply-To))  # ...and also In-Reply-To\n               (.*?)(  # must grab to email to allow prior lookbehind\n   ([A-Za-z0-9-]+\.)?  # maybe an initial part: DAVID.mertz@gnosis.cx\n        [A-Za-z0-9-]+  # definitely some local user: MERTZ@gnosis.cx\n                    @  # ...needs an at sign in the middle\n         (\w+\.?){2,}  # at least two domain groups, e.g. (gnosis.)(cx)\n    (?=[\s\.,>)\'"\]])  # assert: followed by white or clause ending\n                     ) # end of match group\n                       	962 in node: S2
+partial cover already contains: FooDeathTest\.\n  Test1\nFoo\.\n  Bar1\n  Bar2\n  DISABLED_Bar3\nAbc\.\n  Xyz\n  Def\nFooBar\.\n  Baz\nFooTest\.\n  Test1\n  DISABLED_Test2\n  Test3\nTypedTest/0\.  # TypeParam = (VeryLo{245}|class VeryLo{239})\.\.\.\n  TestA\n  TestB\nTypedTest/1\.  # TypeParam = int\s*\*\n  TestA\n  TestB\nTypedTest/2\.  # TypeParam = .*MyArray<bool,\s*42>\n  TestA\n  TestB\nMy/TypeParamTest/0\.  # TypeParam = (VeryLo{245}|class VeryLo{239})\.\.\.\n  TestA\n  TestB\nMy/TypeParamTest/1\.  # TypeParam = int\s*\*\n  TestA\n  TestB\nMy/TypeParamTest/2\.  # TypeParam = .*MyArray<bool,\s*42>\n  TestA\n  TestB\nMyInstantiation/ValueParamTest\.\n  TestA/0  # GetParam\(\) = one line\n  TestA/1  # GetParam\(\) = two\\nlines\n  TestA/2  # GetParam\(\) = a very\\nlo{241}\.\.\.\n  TestB/0  # GetParam\(\) = one line\n  TestB/1  # GetParam\(\) = two\\nlines\n  TestB/2  # GetParam\(\) = a very\\nlo{241}\.\.\.\n	994 in node: S1
+partial cover already contains: FooDeathTest\.\n  Test1\nFoo\.\n  Bar1\n  Bar2\n  DISABLED_Bar3\nAbc\.\n  Xyz\n  Def\nFooBar\.\n  Baz\nFooTest\.\n  Test1\n  DISABLED_Test2\n  Test3\nTypedTest/0\.  # TypeParam = (VeryLo{245}|class VeryLo{239})\.\.\.\n  TestA\n  TestB\nTypedTest/1\.  # TypeParam = int\s*\*\n  TestA\n  TestB\nTypedTest/2\.  # TypeParam = .*MyArray<bool,\s*42>\n  TestA\n  TestB\nMy/TypeParamTest/0\.  # TypeParam = (VeryLo{245}|class VeryLo{239})\.\.\.\n  TestA\n  TestB\nMy/TypeParamTest/1\.  # TypeParam = int\s*\*\n  TestA\n  TestB\nMy/TypeParamTest/2\.  # TypeParam = .*MyArray<bool,\s*42>\n  TestA\n  TestB\nMyInstantiation/ValueParamTest\.\n  TestA/0  # GetParam\(\) = one line\n  TestA/1  # GetParam\(\) = two\\nlines\n  TestA/2  # GetParam\(\) = a very\\nlo{241}\.\.\.\n  TestB/0  # GetParam\(\) = one line\n  TestB/1  # GetParam\(\) = two\\nlines\n  TestB/2  # GetParam\(\) = a very\\nlo{241}\.\.\.\n	994 in node: S2
+partial cover already contains: \n        ^\n        (?:\n          # Dotted variants:\n          (?:\n            # Decimal 1-255 (no leading 0's)\n            [3-9]\d?|2(?:5[0-5]|[0-4]?\d)?|1\d{0,2}\n          |\n            0x0*[0-9a-f]{1,2}  # Hexadecimal 0x0 - 0xFF (possible leading 0's)\n          |\n            0+[1-3]?[0-7]{0,2} # Octal 0 - 0377 (possible leading 0's)\n          )\n          (?:                  # Repeat 0-3 times, separated by a dot\n            \.\n            (?:\n              [3-9]\d?|2(?:5[0-5]|[0-4]?\d)?|1\d{0,2}\n            |\n              0x0*[0-9a-f]{1,2}\n            |\n              0+[1-3]?[0-7]{0,2}\n            )\n          ){0,3}\n        |\n          0x0*[0-9a-f]{1,8}    # Hexadecimal notation, 0x0 - 0xffffffff\n        |\n          0+[0-3]?[0-7]{0,10}  # Octal notation, 0 - 037777777777\n        |\n          # Decimal notation, 1-4294967295:\n          429496729[0-5]|42949672[0-8]\d|4294967[01]\d\d|429496[0-6]\d{3}|\n          42949[0-5]\d{4}|4294[0-8]\d{5}|429[0-3]\d{6}|42[0-8]\d{7}|\n          4[01]\d{8}|[1-3]\d{0,9}|[4-9]\d{0,8}\n        )\n        $\n    	1523 in node: S1
+partial cover already contains: \n        ^\n        (?:\n          # Dotted variants:\n          (?:\n            # Decimal 1-255 (no leading 0's)\n            [3-9]\d?|2(?:5[0-5]|[0-4]?\d)?|1\d{0,2}\n          |\n            0x0*[0-9a-f]{1,2}  # Hexadecimal 0x0 - 0xFF (possible leading 0's)\n          |\n            0+[1-3]?[0-7]{0,2} # Octal 0 - 0377 (possible leading 0's)\n          )\n          (?:                  # Repeat 0-3 times, separated by a dot\n            \.\n            (?:\n              [3-9]\d?|2(?:5[0-5]|[0-4]?\d)?|1\d{0,2}\n            |\n              0x0*[0-9a-f]{1,2}\n            |\n              0+[1-3]?[0-7]{0,2}\n            )\n          ){0,3}\n        |\n          0x0*[0-9a-f]{1,8}    # Hexadecimal notation, 0x0 - 0xffffffff\n        |\n          0+[0-3]?[0-7]{0,10}  # Octal notation, 0 - 037777777777\n        |\n          # Decimal notation, 1-4294967295:\n          429496729[0-5]|42949672[0-8]\d|4294967[01]\d\d|429496[0-6]\d{3}|\n          42949[0-5]\d{4}|4294[0-8]\d{5}|429[0-3]\d{6}|42[0-8]\d{7}|\n          4[01]\d{8}|[1-3]\d{0,9}|[4-9]\d{0,8}\n        )\n        $\n    	1523 in node: S2
+partial cover already contains: \n    ^\n    \s*                         # Leading whitespace\n    (?!.*::.*::)                # Only a single wildcard allowed\n    (?:(?!:)|:(?=:))            # Colon iff it would be part of a wildcard\n    (?:                         # Repeat 6 times:\n        [0-9a-f]{0,4}           #   A group of at most four hexadecimal digits\n        (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n    ){6}                        #\n    (?:                         # Either\n        [0-9a-f]{0,4}           #   Another group\n        (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n        [0-9a-f]{0,4}           #   Last group\n        (?: (?<=::)             #   Colon iff preceeded by exacly one colon\n         |  (?<!:)              #\n         |  (?<=:) (?<!::) :    #\n         )                      # OR\n     |                          #   A v4 address with NO leading zeros \n        (?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)\n        (?: \.\n            (?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)\n        ){3}\n    )\n    \s*                         # Trailing whitespace\n    $\n	1500 in node: S1
+partial cover already contains: \n    ^\n    \s*                         # Leading whitespace\n    (?!.*::.*::)                # Only a single wildcard allowed\n    (?:(?!:)|:(?=:))            # Colon iff it would be part of a wildcard\n    (?:                         # Repeat 6 times:\n        [0-9a-f]{0,4}           #   A group of at most four hexadecimal digits\n        (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n    ){6}                        #\n    (?:                         # Either\n        [0-9a-f]{0,4}           #   Another group\n        (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n        [0-9a-f]{0,4}           #   Last group\n        (?: (?<=::)             #   Colon iff preceeded by exacly one colon\n         |  (?<!:)              #\n         |  (?<=:) (?<!::) :    #\n         )                      # OR\n     |                          #   A v4 address with NO leading zeros \n        (?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)\n        (?: \.\n            (?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)\n        ){3}\n    )\n    \s*                         # Trailing whitespace\n    $\n	1500 in node: S2
+partial cover already contains: \n        ^\n        \s*                         # Leading whitespace\n        (?!.*::.*::)                # Only a single whildcard allowed\n        (?:(?!:)|:(?=:))            # Colon iff it would be part of a wildcard\n        (?:                         # Repeat 6 times:\n            [0-9a-f]{0,4}           #   A group of at most four hexadecimal digits\n            (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n        ){6}                        #\n        (?:                         # Either\n            [0-9a-f]{0,4}           #   Another group\n            (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n            [0-9a-f]{0,4}           #   Last group\n            (?: (?<=::)             #   Colon iff preceeded by exacly one colon\n             |  (?<!:)              #\n             |  (?<=:) (?<!::) :    #\n             )                      # OR\n         |                          #   A v4 address with NO leading zeros \n            (?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)\n            (?: \.\n                (?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)\n            ){3}\n        )\n        \s*                         # Trailing whitespace\n        $\n    	1523 in node: S1
+partial cover already contains: \n        ^\n        \s*                         # Leading whitespace\n        (?!.*::.*::)                # Only a single whildcard allowed\n        (?:(?!:)|:(?=:))            # Colon iff it would be part of a wildcard\n        (?:                         # Repeat 6 times:\n            [0-9a-f]{0,4}           #   A group of at most four hexadecimal digits\n            (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n        ){6}                        #\n        (?:                         # Either\n            [0-9a-f]{0,4}           #   Another group\n            (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n            [0-9a-f]{0,4}           #   Last group\n            (?: (?<=::)             #   Colon iff preceeded by exacly one colon\n             |  (?<!:)              #\n             |  (?<=:) (?<!::) :    #\n             )                      # OR\n         |                          #   A v4 address with NO leading zeros \n            (?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)\n            (?: \.\n                (?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)\n            ){3}\n        )\n        \s*                         # Trailing whitespace\n        $\n    	1523 in node: S2
+
+current node: S3
+
+partial cover already contains:     # mere offset\n                ^\n                &?                                          # possible ampersand\n                (       0                                       # just zero\n                |       [1-9]{1,1}[0-9]*        # decimal\n                |       0[0-7]+                         # octal\n                |       0x[0-9a-f]+                     # hex\n                )\n                $\n                	1007,1015,1032 in node: S2
+partial cover already contains:     # mere offset\n                ^\n                &?                                          # possible ampersand\n                (       0                                       # just zero\n                |       [1-9]{1,1}[0-9]*        # decimal\n                |       0[0-7]+                         # octal\n                |       0x[0-9a-f]+                     # hex\n                )\n                $\n                	1007,1015,1032 in node: S3
+partial cover already contains:     # indirect offset\n                ^\(\n                (?P<base>&?0                  # just zero\n                        |&?[1-9]{1,1}[0-9]* # decimal\n                        |&?0[0-7]*          # octal\n                        |&?0x[0-9A-F]+      # hex\n                )\n                (?P<type>\n                        \.         # this dot might be alone\n                        [BSL]? # one of this chars in either case\n                )?\n                (?P<sign>\n                        [-+]{0,1}\n                )?\n                (?P<off>0              # just zero\n                        |[1-9]{1,1}[0-9]*  # decimal\n                        |0[0-7]*           # octal\n                        |0x[0-9a-f]+       # hex\n                )?\n                \)$	1007,1015,1032 in node: S2
+partial cover already contains:     # indirect offset\n                ^\(\n                (?P<base>&?0                  # just zero\n                        |&?[1-9]{1,1}[0-9]* # decimal\n                        |&?0[0-7]*          # octal\n                        |&?0x[0-9A-F]+      # hex\n                )\n                (?P<type>\n                        \.         # this dot might be alone\n                        [BSL]? # one of this chars in either case\n                )?\n                (?P<sign>\n                        [-+]{0,1}\n                )?\n                (?P<off>0              # just zero\n                        |[1-9]{1,1}[0-9]*  # decimal\n                        |0[0-7]*           # octal\n                        |0x[0-9a-f]+       # hex\n                )?\n                \)$	1007,1015,1032 in node: S3
+partial cover already contains: \d{1,2}/\d{1,2}/\d{4,4}	109,182 in node: S2
+partial cover already contains: \d{1,2}/\d{1,2}/\d{4,4}	109,182 in node: S3
+partial cover already contains: \d\d-[a-zA-Z]{3,3}-\d\d\d\d \d\d:\d\d	1015,1032 in node: S2
+partial cover already contains: \d\d-[a-zA-Z]{3,3}-\d\d\d\d \d\d:\d\d	1015,1032 in node: S3
+partial cover already contains: (\d{1,2}/\d{1,2}/\d{4,4})	182 in node: S2
+partial cover already contains: (\d{1,2}/\d{1,2}/\d{4,4})	182 in node: S3
+partial cover already contains: (\d{4,4})[\.|\s](\d+)[\.|\s](\d+)	126 in node: S2
+partial cover already contains: (\d{4,4})[\.|\s](\d+)[\.|\s](\d+)	126 in node: S3
+partial cover already contains: (?im)(x-eyeconnect-token *: *([0-9a-fA-F]{32,32}))	859 in node: S2
+partial cover already contains: (?im)(x-eyeconnect-token *: *([0-9a-fA-F]{32,32}))	859 in node: S3
+partial cover already contains: ^(\d{4,4}-\d{2,2}-\d{2,2}T\d{2,2}:\d{2,2}:\d{2,2})\.\d*Z$	1500 in node: S2
+partial cover already contains: ^(\d{4,4}-\d{2,2}-\d{2,2}T\d{2,2}:\d{2,2}:\d{2,2})\.\d*Z$	1500 in node: S3
+partial cover already contains: color ([^ ]+) #([a-fA-F0-9]{2,2})([a-fA-F0-9]{2,2})([a-fA-F0-9]{2,2})	1216 in node: S2
+partial cover already contains: color ([^ ]+) #([a-fA-F0-9]{2,2})([a-fA-F0-9]{2,2})([a-fA-F0-9]{2,2})	1216 in node: S3

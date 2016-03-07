@@ -1,0 +1,181 @@
+Age,Education,Familiarity,Gender,Experience,cleanNComposed,cleanNRead
+39,Bachelors degree,Somewhat familiar,Male,Yes,10,20
+20,Some college no degree,Not familiar at all,Male,No,0,0
+19,Some High School,Somewhat not familiar,Male,No,0,0
+44,Bachelors degree,Very familiar,Male,Yes,100,100
+27,Bachelors degree,Somewhat familiar,Male,Yes,0,5
+20,Some college no degree,Somewhat familiar,Female,No,0,0
+24,Some college no degree,Somewhat familiar,Male,Yes,5,12
+36,Some college no degree,Somewhat not familiar,Male,No,0,0
+23,Some High School,Very familiar,Male,Yes,5,10
+33,Bachelors degree,Somewhat familiar,Male,Yes,0,0
+30,Bachelors degree,Somewhat not familiar,Male,Yes,100,200
+29,Graduate degree (Masters Doctorate etc.),Very familiar,Male,Yes,100,100
+22,Bachelors degree,Somewhat familiar,Male,Yes,100,100
+27,Bachelors degree,Somewhat familiar,Male,No,50,10
+30,Graduate degree (Masters Doctorate etc.),Very familiar,Male,Yes,100,100
+40,Bachelors degree,Somewhat not familiar,Female,Yes,10,10
+26,Bachelors degree,Somewhat familiar,Male,No,2,50
+21,Associates degree,Somewhat familiar,Female,Yes,10,30
+31,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,100,100
+26,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,5,10
+27,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,No,500,1500
+23,Some college no degree,Somewhat familiar,Male,Yes,NA,10
+42,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,15,20
+33,Some college no degree,Somewhat not familiar,Female,Yes,0,NA
+27,Bachelors degree,Somewhat familiar,Male,No,20,5
+47,Associates degree,Somewhat familiar,Male,Yes,10,30
+42,Bachelors degree,Very familiar,Male,Yes,200,250
+59,Bachelors degree,Somewhat familiar,Male,Yes,20,50
+36,Graduate degree (Masters Doctorate etc.),Very familiar,Male,Yes,30,6
+48,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,50,100
+20,Some college no degree,Somewhat familiar,Male,Yes,0,0
+28,Bachelors degree,Somewhat familiar,Male,Yes,25,100
+23,Some college no degree,Somewhat familiar,Male,Yes,30,100
+34,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Female,Yes,25,5
+28,Some college no degree,Somewhat familiar,Male,Yes,10,25
+23,Bachelors degree,Somewhat not familiar,Male,Yes,4,10
+35,Bachelors degree,Somewhat familiar,Male,Yes,20,50
+31,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,50,50
+20,Associates degree,Somewhat familiar,Secret,Yes,5,25
+33,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Female,Yes,50,100
+NA,Bachelors degree,Somewhat familiar,Male,No,0,5
+NA,Some college no degree,Somewhat not familiar,Male,No,3,10
+27,Graduate degree (Masters Doctorate etc.),Very familiar,Male,No,100,NA
+39,Bachelors degree,Somewhat familiar,Male,Yes,6,20
+24,Bachelors degree,Somewhat not familiar,Female,Yes,5,10
+32,Some college no degree,Somewhat familiar,Male,Yes,200,50
+24,Bachelors degree,Somewhat familiar,Female,Yes,1000,100
+31,Bachelors degree,Somewhat familiar,Male,Yes,15,20
+28,Some college no degree,Somewhat not familiar,Male,No,0,0
+20,Some college no degree,Somewhat familiar,Male,Yes,50,100
+53,Associates degree,Very familiar,Male,Yes,100,100
+45,Bachelors degree,Very familiar,Male,Yes,5,10
+44,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,5,5
+36,Bachelors degree,Somewhat familiar,Female,Yes,5,0
+25,Bachelors degree,Very familiar,Male,Yes,25,50
+51,Graduate degree (Masters Doctorate etc.),Very familiar,Male,Yes,5,2
+26,Bachelors degree,Somewhat familiar,Male,Yes,1000,1000
+62,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,20,20
+20,Associates degree,Somewhat familiar,Male,Yes,10,8
+31,Bachelors degree,Somewhat familiar,Female,No,50,50
+34,Bachelors degree,Somewhat familiar,Male,Yes,5,10
+32,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Female,Yes,1,1
+22,Some college no degree,Somewhat not familiar,Male,Yes,1,1
+27,Some college no degree,Somewhat familiar,Male,No,3,10
+28,Associates degree,Somewhat familiar,Male,Yes,NA,NA
+28,Associates degree,Somewhat familiar,Male,No,10,10
+30,Bachelors degree,Somewhat familiar,Male,Yes,30,20
+28,Bachelors degree,Somewhat familiar,Female,No,0,20
+23,Bachelors degree,Somewhat familiar,Male,Yes,10,20
+23,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,100,100
+42,Graduate degree (Masters Doctorate etc.),Very familiar,Male,Yes,100,50
+28,Associates degree,Somewhat familiar,Male,Yes,2,10
+30,Some college no degree,Somewhat not familiar,Male,Yes,0,50
+41,Bachelors degree,Somewhat familiar,Male,Yes,10,100
+39,Bachelors degree,Somewhat familiar,Male,Yes,2,2
+24,Bachelors degree,Somewhat familiar,Male,Yes,200,500
+21,Some college no degree,Somewhat familiar,Male,Yes,15,50
+31,Bachelors degree,Very familiar,Male,Yes,300,500
+20,Some college no degree,Somewhat familiar,Male,Yes,100,200
+42,Graduate degree (Masters Doctorate etc.),Very familiar,Male,Yes,1000,1000
+26,Bachelors degree,Somewhat familiar,Male,Yes,25,30
+24,Bachelors degree,Somewhat familiar,Male,Yes,100,1000
+38,Some college no degree,Somewhat familiar,Female,Yes,1,10
+33,Bachelors degree,Somewhat familiar,Male,Yes,0,60
+48,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,20,50
+28,Bachelors degree,Somewhat familiar,Male,NA,20,100
+38,Some college no degree,Very familiar,Male,Yes,100,50
+26,Bachelors degree,Somewhat familiar,Female,Yes,25,100
+21,Associates degree,Somewhat familiar,Male,Yes,0,NA
+35,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,10,100
+53,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,0,0
+22,Some college no degree,Somewhat familiar,Male,Yes,25,50
+21,Some college no degree,Not familiar at all,Male,No,0,0
+30,Some college no degree,Somewhat familiar,Male,Yes,100,100
+31,Bachelors degree,Somewhat familiar,Male,Yes,100,800
+24,Bachelors degree,Very familiar,Male,Yes,100,500
+25,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Female,Yes,10,10
+NA,Bachelors degree,Very familiar,Male,Yes,10,10
+20,Some college no degree,Somewhat familiar,Male,Yes,5,10
+20,Some college no degree,Very familiar,Male,Yes,0,10
+59,Associates degree,Somewhat familiar,Male,Yes,100,200
+31,Bachelors degree,Very familiar,Female,Yes,200,400
+24,Bachelors degree,Very familiar,Male,Yes,365,1000
+21,Some college no degree,Very familiar,Male,Yes,25,12
+33,Some High School,Somewhat familiar,Male,Yes,0,0
+31,Bachelors degree,Somewhat familiar,Male,Yes,10,5
+19,Some college no degree,Somewhat familiar,Female,Yes,20,0
+39,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,2,200
+43,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,1,1
+30,Bachelors degree,Somewhat not familiar,Female,Yes,100,500
+36,Bachelors degree,Very familiar,Male,Yes,50,10
+43,Bachelors degree,Somewhat familiar,Male,Yes,50,5
+49,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,3,5
+33,Bachelors degree,Somewhat familiar,Male,No,0,0
+22,Some college no degree,Somewhat familiar,Male,Yes,100,500
+33,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,30,10
+25,Bachelors degree,Very familiar,Male,Yes,100,500
+56,Bachelors degree,Somewhat familiar,Female,Yes,10,20
+24,Bachelors degree,Somewhat familiar,Male,Yes,20,50
+21,Some college no degree,Very familiar,Male,Yes,0,20
+30,Bachelors degree,Very familiar,Secret,Yes,150,20
+30,Bachelors degree,Somewhat familiar,Male,Yes,50,100
+34,Bachelors degree,Very familiar,Male,Yes,20,10
+35,Bachelors degree,Very familiar,Male,Yes,10,20
+30,Some college no degree,Somewhat familiar,Male,Yes,50,100
+38,Some college no degree,Somewhat familiar,Male,No,2,4
+32,Bachelors degree,Somewhat familiar,Male,Yes,5,20
+21,Bachelors degree,Somewhat familiar,Male,Yes,50,200
+27,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,50,100
+22,Bachelors degree,Somewhat familiar,Male,Yes,NA,NA
+33,Associates degree,Somewhat familiar,Male,Yes,0,12
+21,Some college no degree,Somewhat familiar,Male,Yes,25,50
+36,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,5,5
+29,Bachelors degree,Somewhat familiar,Female,Yes,0,0
+28,Bachelors degree,Very familiar,Male,Yes,NA,NA
+43,Associates degree,Not familiar at all,Female,No,0,0
+55,Bachelors degree,Somewhat familiar,Male,Yes,25,200
+29,Associates degree,Not familiar at all,Male,No,0,0
+32,Bachelors degree,Somewhat familiar,Female,No,40,6
+27,Graduate degree (Masters Doctorate etc.),Very familiar,Male,Yes,50,50
+32,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,12,12
+33,Some college no degree,Not sure,Male,Yes,5,1
+21,Some college no degree,Somewhat familiar,Male,Yes,5,0
+19,Some college no degree,Somewhat familiar,Male,Yes,NA,NA
+20,Associates degree,Somewhat not familiar,Secret,No,10,10
+33,Some college no degree,Somewhat familiar,Male,Yes,100,30
+47,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,0,30
+37,Some college no degree,Somewhat familiar,Male,Yes,2,10
+38,Some college no degree,Somewhat familiar,Male,Yes,30,100
+35,Bachelors degree,Somewhat familiar,Male,Yes,100,40
+19,Some college no degree,Very familiar,Secret,Yes,100,30
+21,Bachelors degree,Somewhat familiar,Male,Yes,10,NA
+31,Graduate degree (Masters Doctorate etc.),Very familiar,Male,Yes,100,20
+27,Some college no degree,Very familiar,Male,Yes,1000,1000
+22,Some college no degree,Not sure,Female,Yes,NA,NA
+30,Bachelors degree,Very familiar,Male,Yes,10,20
+34,Bachelors degree,Very familiar,Male,Yes,20,50
+24,Bachelors degree,Somewhat not familiar,Female,Yes,70,30
+35,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Male,Yes,20,0
+31,Bachelors degree,Very familiar,Male,Yes,30,5
+22,Some college no degree,Somewhat not familiar,Male,No,0,0
+52,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Female,Yes,10,50
+26,Graduate degree (Masters Doctorate etc.),Somewhat not familiar,Male,Yes,0,50
+28,Bachelors degree,Somewhat familiar,Female,Yes,1000,2000
+25,Bachelors degree,Somewhat familiar,Male,Yes,5,15
+31,Bachelors degree,Somewhat familiar,Male,Yes,0,10
+18,Some High School,Somewhat familiar,Male,Yes,0,0
+26,Bachelors degree,Somewhat familiar,Male,Yes,40,100
+36,Bachelors degree,Somewhat familiar,Male,Yes,100,50
+26,Bachelors degree,Somewhat familiar,Male,Yes,10,50
+23,Bachelors degree,Very familiar,Male,Yes,10,5
+20,Some college no degree,Somewhat familiar,Male,Yes,10,20
+40,Some college no degree,Somewhat familiar,Male,Yes,20,12
+53,Graduate degree (Masters Doctorate etc.),Somewhat familiar,Female,No,5,20
+20,Some college no degree,Somewhat familiar,Male,Yes,10,20
+31,Bachelors degree,Somewhat familiar,Male,Yes,50,20
+27,Bachelors degree,Somewhat familiar,Male,Yes,15,100
+25,Bachelors degree,Somewhat familiar,Male,Yes,10,100
+38,Some High School,Not familiar at all,Male,No,0,0
+32,Some college no degree,Somewhat familiar,Male,No,100,1000
