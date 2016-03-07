@@ -1,6 +1,9 @@
 \section{Refactorings}
 \label{sec:refactoring}
-After studying thousands of regexes from thousands of Python projects, we have defined a set of equivalence classes for regexes with refactorings that can transform among members in the classes. Figure~\ref{fig:refactoringTree} represents X equivalence classes in grey boxes and various representations of a regex that are all semantically equivalent. The lines between the representations define possible refactorings. The directions of arrows in the possible refactorings will be discussed in Section~\ref{sec:results} based on frequency of occurrence in the community and the understandability of the regexes using 180 study participants. 
+After studying over 13,000 distinct regex strings from nearly 4,000 of Python projects~\cite{chapman2016}, we have defined a set of equivalence classes for regexes with refactorings that can transform among members in the classes. For example,  \verb!AA*! and \verb!A+! are semantically identical, except one uses the star operator (indicating zero or more repetitions) and the other uses the plus operator (indicating one or more repetitions). Figure~\ref{fig:refactoringTree} represents five equivalence classes in grey boxes and various \emph{representations} of a regex in white boxes that are all semantically equivalent. 
+The undirected edges between the representations define possible refactorings. Treating the representations as nodes in a graph, most of the graphs within each equivalence classes are complete, except the CCC group. Here, the edges are placed according to small transformations that can occur between pairs of nodes, though any pair of nodes can be considered a potential for refactoring. 
+
+The directions of arrows in the possible refactorings will be discussed in Section~\ref{sec:results} based on frequency of occurrence in the community and the understandability of the regexes using 180 study participants. 
 
 Next, we describe each group in detail: 
 \paragraph{CCC Group}
@@ -44,7 +47,7 @@ Using an example from a Python project, the regex\\ \verb!`[^ ]*\.[A-Z]{3}'! is 
 
 \section{Study}
 \label{sec:study}
-After defining the possible regex refactorings as described in Section~\ref{sec:refactoring}, we wanted to know which representations in the equivalence classes are considered smelly and which are considered desirable. Desirable for regexes can be defined many ways, including maintainable and understandable. As prior work has shown that regexes are difficult to read~\cite{}, we seek to define refactorings toward understandability. 
+After defining the equivalence classes and potential  regex refactorings as described in Section~\ref{sec:refactoring}, we wanted to know which representations in the equivalence classes  are considered desirable and which might be smelly. Desirability for regexes can be defined many ways, including maintainable and understandable. As prior work has shown that regexes are difficult to read~\cite{}, we seek to define refactorings toward understandability. 
 
 We define understandability three ways. First, assuming that common programming practices are more understandable than uncommon practices, we explore the frequencies of each representation from Figure~\ref{fig:refactoringTree} using thousands of regexes scraped from Python projects. Second, we then present people with regexes exemplifying some of the more common characteristics and ask them comprehension questions along two directions: determine which of a list of strings are matched by the regex, and compose a string that is matched by the regex. 
 
@@ -108,11 +111,53 @@ Given a regex, a participant composes a string that it matches. If the participa
 \todoNow{describe how the string was tested against the regex, which libraries, etc.}
 
 \subsection{Community Study}
+To determine how common each of the regex representations is in the wile, we collected
+regexes from GitHub projects. 
 
 \subsubsection{Artifacts}
+Our goal was to collect regexes from a variety of projects to represent the breadth of how developers use the language features. 
+Using the GitHub API, we scraped 3,898 projects containing Python code.
+We did so  by dividing a range of about 8 million repo IDs 
+into 32 sections of equal size and scanning  for Python projects from the beginning of those
+segments until we ran out of memory. At that point, we felt we had enough data
+to do an analysis without further perfecting our mining techniques. We built
+the AST of each Python file in each project to find utilizations of the {\tt re} module
+functions. In most projects, almost all regex utilizations are present in the
+most recent version of a project, but to be more thorough, we also scanned up
+to 19 earlier versions. The number 20 was chosen to try and maximize returns on
+computing resources invested after observing the scanning process in many hours
+of trial scans.
+% If the project had fewer than 20 commits, then all commits were scanned.
+% The most recent commit was always included, and the spacing between all other chosen commits was determined by dividing the remaining number of commits by 19 (rounding as needed).
+All regex utilizations were obtained, sans duplicates. Within a project, a duplicate utilization was marked when two versions of the same file have the same function, pattern and flags.  In the end, we observed and recorded 13,597 non-duplicate regex utilizations in 3,898 projects.
+
+In collecting the set of distinct patterns for analysis,  we ignore the 12.7\%  of utilizations using flags, which can alter regex behavior.  An additional 6.5\% of utilizations contained patterns that could not be compiled because the pattern was non-static (e.g., used some runtime variable).
+The remaining 80.8\% (43,525) of the utilizations were collapsed into 13,711 distinct pattern strings.  Each of the pattern strings was pre-processed by removing Python quotes (\verb!`\\W!' becomes \verb!\\W!), unescaping escaped characters (\verb!\\W! becomes \verb!\W!) and parsing the resulting  string using an ANTLR-based, open source PCRE parser\footnote{\url{https://github.com/bkiers/pcre-parser}}.
+This parser was unable to support 0.5\% (73) of the patterns due to unsupported unicode characters.  Another 0.2\% (25) of the patterns used regex features that we  chose to exclude because they appeared very rarely (e.g., reference conditions).  An additional 0.1\% (16) of the patterns were excluded because they were empty or otherwise malformed so as to cause a parsing error.
+
+The 13,597 distinct pattern strings that remain were eachassigned a weight value equal to the number of distinctprojects the pattern appeared in. We refer to this set ofweighted, distinct pattern strings as the corpus.
 
 \subsubsection{Analysis}
+To understand how programmers use regular expressions in Python projects, we scraped 3,898 Python projects from GitHub, and recorded regex usages for analysis. Throughout the rest of this paper, we  employ the following terminology:\\
 
+\noindent \textbf{Utilization}: A \emph{utilization} occurs whenever a regex appears in source code.  We detect utilizations by statically analyzing source code and recording calls to the {\tt re} module in Python.
+Within a source code file, a {utilization} is composed of a function, a pattern, and 0 or more flags.  Figure~\ref{fig:exampleUsage} presents an example of one regex {utilization}, with key components labeled. The function call is {\tt re.compile}, \verb!(0|-?[1-9][0-9]*)$! is the regex string, or pattern, and {\tt re.MULTILINE} is an (optional) flag. When executed, this {utilization}  will compile a regex object in the variable {\tt r1} from the pattern \verb!(0|-?[1-9][0-9]*)$!, with the \verb!$! token matching at the end of each line because of the {\tt re.MULTILINE} flag. Thought of another way, a regex  utilization is one single invocation of the {\tt re} library.\\
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{illustrations/exampleUsage.eps}
+\vspace{-12pt}
+\caption{Example of one regex utilization}
+\vspace{-6pt}
+\label{fig:exampleUsage}
+\end{figure}
+
+\noindent \textbf{Pattern}: A \emph{pattern} is extracted from a utilization, as shown in Figure~\ref{fig:exampleUsage}. In essence, it is a string, but more formally it is an ordered series of regular expression language feature tokens.  The pattern in Figure~\ref{fig:exampleUsage}  will match if it finds a zero at the end of a line, or a (possibly negative) integer at the end of a line (i.e., due to the {\tt -?} sequence denoting zero or one instance of the {\tt -}).
+
+Note that because the vast majority of regex features are shared across most general programming languages (e.g., Java, C, C\#, or Ruby), a Python {pattern} will (almost always) behave the same when used in other languages, whereas a utilization is not universal in the same way (i.e., it may not compile in other languages, even with small modifications to function and flag names).
+As an example, the {\tt re.MULTILINE} flag, or similar, is present in Python, Java, and C\#, but  the Python {\tt re.DOTALL} flag is not present in C\# though it has an equivalent flag in Java.
+
+In this work, we primarily focus on patterns since they are cross-cutting across languages and are the primary way of specifying the matching behavior. Next, we describe the research questions, data set collection and analysis.
 
 \subsection{Understandability Study}
 
