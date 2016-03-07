@@ -7,13 +7,14 @@ The directions of arrows in the possible refactorings will be discussed in Secti
 
 Next, we describe each group in detail: 
 \paragraph{CCC Group}
+\todoNow{describe me}
 
 \paragraph{DBB Group}
-
+\todoNow{describe me}
 \paragraph{LIT Group}
-
+\todoNow{describe me}
 \paragraph{LWB Group}
-
+\todoNow{describe me}
 \paragraph{SNG Group} This equivalence class contains  three representations of a regex that  deal with repetition of a single element in the regex, represents by \verb!S!. The representation in \emph{S1}, \verb!S{3}!, states that S appears exactly three times in sequence. This can alternately be expressed with a double-bound where the upper and lower bounds are the same, as in \emph{S3}. Removing the repetition symbols in either \emph{S1} or \emph{S3} yields \emph{S2} which is represented explicitly as  \verb!SSS!.  
 
 Using an example from a Python project, the regex\\ \verb!`[^ ]*\.[A-Z]{3}'! is a member of \emph{S1} and could be refactored to \emph{S3} as \verb!`[^ ]*\.[A-Z]{3,3}'!  or to \emph{S2} as \verb!`[^ ]*\.[A-Z][A-Z][A-Z]'!, depending on programmer preferences.
@@ -228,9 +229,9 @@ For each of the 26 groups of regexes, we used Hampi~\cite{hampi} to identify fiv
 
 Once all the regexes and matching strings were collected, we created tasks for the MTurk participants as follows: randomly select a regex from ten of the 26 groups. Randomize the order of the regexes, as well as the order of the matching strings for each regex. After adding a question asking the participant to compose a string that the regex matches, this creates one task on MTurk. This process was completed until each of the 60 regexes appeared in 30 HITs, resulting in a total of 180 HITs. 
 
-Workers were pre-qualified by answering questions regarding some basics of regex knowledge. \todoNow{Describe qualification - Basic regex knowledge test. 4/5 correct to pass. }
+Workers were pre-qualified by answering questions regarding some basics of regex knowledge. These questions were multiple-choice and asked the worker to describe what the following regexes mean: \verb!a+!, \verb!`(r|z)'!, \verb!`\d'!, \verb!`q*'!, and \verb![p-s]'!. To pass the qualification, workers had to answer four of the five questions correctly. Of all workers who took the test, \todoNow{x\%} passed. 
 
-Workers were paid \todoNow{How much?} for completing a HIT. 
+Workers were paid \todoNow{How much?} for successfully completing a HIT. 
 The average completion time was \todoNow{X:YZ}. 
 In total, X HITs were rejected due to \todoNow{rejection reason} and rejected HITs were returned to MTurk to be completed by others. 
 
