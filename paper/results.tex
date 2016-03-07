@@ -14,21 +14,21 @@ Using the pattern frequency as a guide, we can create refactoring recommendation
 \begin{table}[t]
 \caption{Summary of Refactoring Directions \label{summaryResults}}
 \begin{center}
-\begin{tabular}{|c@{ }c | c  l l |} \hline
+\begin{tabular}{|c@{ }c | c  l l @{}|} \hline
 \multicolumn{2}{|c|}{\textbf{Pair}} & \textbf{Com} & \textbf{Match} & \textbf{Compose} \\ \hline \hline
-C1 & C2 & $\Leftarrow$  & $\Leftarrow$ (E1) $\Rightarrow$ (E2,  E3) & $\Leftarrow$ (E1) $\Rightarrow$ (E2, E3)\\
+C1 & C2 & $\Leftarrow$  & $\Leftarrow$ (E1) $\Rightarrow$ (E2,E3) & $\Leftarrow$ (E1) $\Rightarrow$ (E2,E3)\\
 C1 & C3 & $\Leftarrow$ & & \\
-C1 & C4 & $\Leftarrow$ & $\equiv$ (E4) & $\Leftarrow$  (E4)\\
+\textbf{C1} & C4 & $\Leftarrow$ & $\equiv$ (E4) & $\Leftarrow$  (E4)\\
 C1 & C5 & $\Leftarrow$ & $\Leftarrow$ (E5) & $\Rightarrow$ (E5) \\
 C2 & C3 & $\Rightarrow$ & & \\
 C2 & C4 & $\Leftarrow$ & $\Rightarrow$ (E6) & $\Rightarrow$ (E6)\\
-C2 & C5 & $\Leftarrow$ & $\Rightarrow$ (E7, E8) & $\Rightarrow$ (E7, E8)\\
+C2 & C5 & $\Leftarrow$ & $\Rightarrow$ (E7,E8) & $\Rightarrow$ (E7,E8)\\
 C3 & C4 & $\Leftarrow$ & & \\
 C3 & C5 & $\Leftarrow$ & & \\
 C4 & C5 & $\Leftarrow$ & & \\
 \hline
 D1 & D2 & $\Rightarrow$ & $\Leftarrow$ (E9)& $\Leftarrow$ (E9) \\
-D1 & D3 & $\Rightarrow$ & $\Rightarrow$ (E10)& $\Rightarrow$ (E10) \\
+D1 & \textbf{D3} & $\Rightarrow$ & $\Rightarrow$ (E10)& $\Rightarrow$ (E10) \\
 D2 & D3 & $\Leftarrow$ & $\Rightarrow$ (E11) & $\Rightarrow$ (E11) \\
 \hline
 L1 & L2 & $\Rightarrow$ & & \\
@@ -39,11 +39,11 @@ S1 & S2 & $\Rightarrow$ & $\Leftarrow$ (E13) & $\Leftarrow$ (E13) \\
 S1 & S3 & $\Leftarrow$ & & \\
 S2 & S3 & $\Leftarrow$ & & \\
 \hline 
-T1 & T2 & $\Leftarrow$  & $\Leftarrow$ (E2)& $\Leftarrow$ (E2) \\
+\textbf{T1} & T2 & $\Leftarrow$  & $\Leftarrow$ (E2)& $\Leftarrow$ (E2) \\
 T1 & T3 & $\Leftarrow$ & $\Leftarrow$ (E14) & $\Rightarrow$ (E14)\\
-T1 & T4 & $\Leftarrow$ & $\Leftarrow$ (E15, E8, E3) & $\Leftarrow$ (E15, E8, E3)\\
+\textbf{T1} & T4 & $\Leftarrow$ & $\Leftarrow$ (E3,E8,E15) & $\Leftarrow$ (E3,E8,E15)\\
 T2 & T3 & $\Leftarrow$ & & \\
-T2 & T4 & $\Leftarrow$ & $\Leftarrow$ (E16) & $\Leftarrow$ (E16)\\
+\textbf{T2} & T4 & $\Leftarrow$ & $\Leftarrow$ (E16) & $\Leftarrow$ (E16)\\
 T3 & T4 & $\Leftarrow$ & & \\
 \hline
 %1 & 2 &  & & \\
@@ -57,7 +57,7 @@ T3 & T4 & $\Leftarrow$ & & \\
 
 
 \subsection{RQ2: Understandability via Matching}
-Table~\ref{table:testedEdgesTable} shows average understandability values. 
+Table~\ref{table:testedEdgesTable} shows average understandability values. \todoNow{What is the nExp column?}
 
 \input{table/testedEdgesTable}
 
@@ -66,37 +66,54 @@ Table~\ref{table:testedEdgesTable} shows average understandability values.
 
 \subsection{RQ4: Overlap in Refactorings}
 
+\paragraph{CCC Group}
+This group is full of disagreement among the metrics. Five pairs were evaluated by all methods and only one pair, $C1 \Leftarrow C4$, has a somewhat clear winner with C1 (note that the matching metric is equivalent). All the others have disagreement between the community and understandability, or between the understandability metrics, matching and composition. 
 
-(for rough draft...)
 
-Looks like M6 and M8 are the best meta-refactorings according to ANOVA.
-If you peek at MTResults Processing.csv on google docs, M6 has the best refactoring...every OCTAL type should be converted to an OR or preferably a CCC.
+\paragraph{DBB Group}
+D2 has the most community support appearing in nearly 14\% of the patterns, yet the understandability metrics favor both D1 and D3 over D2. The results are consistent across the board that D3 is always favorable to D1. 
 
-M8 has a weak P value, but still ok in one case (0.12) and consistently says that 'aa*' should be written as 'a+'.
+\paragraph{LWB Group}
 
-Looks like M0, M1, M2, M3 and M9 are very dependent on the regex chosen, so regex-specific refactorings like:
-0.1401 \verb!&d([aeiou][aeiou])z'    &d([aeiou]{2})z'!
-0.075   \verb![\t\r\f\n ]'    [\s]'!
-0.1024  \verb![a-f]([0-9]+)[a-f]' [a-f](\d+)[a-f]'!
-0.1271  \verb![\{][\$](\d+[.]\d)[}]'!
-\verb!\\\{\\\$(\d+\.\d)\}'!
-(from M0,M1,M2,M9 respectively)
+\paragraph{LIT Group}
 
-have okay P-values and may indicate regex-specific refactorings, but do not indicate an overall trend for that type of refactoring.
-Notice that M3 does not even have a strong p-value candidate, but this may be thrown off because of the very confusing regex chosen for CCC:
-0.78    0.79
-\verb!xyz[_\[\]`\^\\]'!    \verb!xyz[\x5b-\x5f]'!
-which has a lot of escape characters, so that the hex group was easier to understand than the CCC.
+\paragraph{SNG Group}
 
 
 
-Meanwhile M4,M5 and M7 have both ambiguous p-values and anova results.  But this is still a finding: that no refactoring is needed between things like:
-\verb!(q4fab|ab)'! (\verb!(q4f){0,1}ab)'!
-\verb!tri[abcdef]3'!   \verb!tri(a|b|c|d|e|f)3'!
-\verb!&(\w+);'!    \verb!&([A-Za-z0-9_]+);'!
-(from M4,M5,M7 respectively)
 
-Although one refactoring from M5 might be of slight interest:
-0.1196  FALSE   \verb!tri[a-f]3'!  \verb!tri(a|b|c|d|e|f)3'!
 
-\todoMid{more data from the composition problems}
+%
+%(for rough draft...)
+%
+%Looks like M6 and M8 are the best meta-refactorings according to ANOVA.
+%If you peek at MTResults Processing.csv on google docs, M6 has the best refactoring...every OCTAL type should be converted to an OR or preferably a CCC.
+%
+%M8 has a weak P value, but still ok in one case (0.12) and consistently says that 'aa*' should be written as 'a+'.
+%
+%Looks like M0, M1, M2, M3 and M9 are very dependent on the regex chosen, so regex-specific refactorings like:
+%0.1401 \verb!&d([aeiou][aeiou])z'    &d([aeiou]{2})z'!
+%0.075   \verb![\t\r\f\n ]'    [\s]'!
+%0.1024  \verb![a-f]([0-9]+)[a-f]' [a-f](\d+)[a-f]'!
+%0.1271  \verb![\{][\$](\d+[.]\d)[}]'!
+%\verb!\\\{\\\$(\d+\.\d)\}'!
+%(from M0,M1,M2,M9 respectively)
+%
+%have okay P-values and may indicate regex-specific refactorings, but do not indicate an overall trend for that type of refactoring.
+%Notice that M3 does not even have a strong p-value candidate, but this may be thrown off because of the very confusing regex chosen for CCC:
+%0.78    0.79
+%\verb!xyz[_\[\]`\^\\]'!    \verb!xyz[\x5b-\x5f]'!
+%which has a lot of escape characters, so that the hex group was easier to understand than the CCC.
+%
+%
+%
+%Meanwhile M4,M5 and M7 have both ambiguous p-values and anova results.  But this is still a finding: that no refactoring is needed between things like:
+%\verb!(q4fab|ab)'! (\verb!(q4f){0,1}ab)'!
+%\verb!tri[abcdef]3'!   \verb!tri(a|b|c|d|e|f)3'!
+%\verb!&(\w+);'!    \verb!&([A-Za-z0-9_]+);'!
+%(from M4,M5,M7 respectively)
+%
+%Although one refactoring from M5 might be of slight interest:
+%0.1196  FALSE   \verb!tri[a-f]3'!  \verb!tri(a|b|c|d|e|f)3'!
+
+%\todoMid{more data from the composition problems}
