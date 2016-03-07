@@ -8,7 +8,7 @@ Table~\ref{summaryResults} summarizes the results of the RQs.  \todoMid{This tab
 \subsection{RQ1: Community Support}
 Figure~\ref{table:nodeCount} presents the frequencies with which each representation appears in a regex pattern and in a project scraped from GitHub. Recall that the patters are all unique and could appear in multiple projects, hence the project support is used to show how pervasive the representation in across the whole community. For example, representation C1 matches when a custom character class uses ranges and it appears in 2,479 (18.2\%) of all the patterns but 810 (52.5\%) of the projects. Representation D1 appears in 367 (2.7\%) of the patterns but only 242 (15.7\%) of the projects. In contrast, representation T3 appears in 60 \emph{fewer} patterns but 26 \emph{more} projects, indicating that D1 is more concentrated in a few projects and T3 is more widespread across projects. 
 
-Using the pattern frequency as a guide, we can create refactoring recommendations based on community frequency. For example, since C1 is more prevalent than C2, we could say that C2 is smelly since it could better conform to the community standard if expressed as C1. Thus, we might recommend a $C2 \Rightarrow C1$ refactoring. Table~\ref{summaryResults} presents these recommendations for each pair of representations within each equivalence class. The \emph{Com} column is populated based on the findings of \emph{RQ1}. The findings for \emph{RQ2} and \emph{RQ3} are in the \emph{Match} and \emph{Compose} columns, respectively. 
+Using the pattern frequency as a guide, we can create refactoring recommendations based on community frequency. For example, since C1 is more prevalent than C2, we could say that C2 is smelly since it could better conform to the community standard if expressed as C1. Thus, we might recommend a $C2 \Rightarrow C1$ refactoring. Table~\ref{summaryResults} presents these recommendations for each pair of representations within each equivalence class. The \emph{Comm} column is populated based on the findings of \emph{RQ1}. The findings for \emph{RQ2} and \emph{RQ3} are in the \emph{Match} and \emph{Compose} columns, respectively. 
 
 
 \subsection{RQ2: Understandability via Matching}
@@ -17,19 +17,34 @@ Using the pattern frequency as a guide, we can create refactoring recommendation
 
 \subsection{RQ4: Overlap in Refactorings}
 
-\begin{table}
+\begin{table}[t]
 \caption{Summary of Refactoring Directions \label{summaryResults}}
 \begin{center}
 \begin{tabular}{|cc | c c c|} \hline
-\multicolumn{2}{|c|}{\textbf{Pair}} & \textbf{Com} & \textbf{Match} & \textbf{Compose} \\ \hline \hline
+\multicolumn{2}{|c|}{\textbf{Pair}} & \textbf{Comm} & \textbf{Match} & \textbf{Compose} \\ \hline \hline
+C1 & C2 & $\Leftarrow$  & $\Leftarrow$ & $\Leftarrow$ \\
+C1 & C3 & $\Leftarrow$ & & \\
+C1 & C4 & $\Leftarrow$ & & \\
+C1 & C5 & $\Leftarrow$ & & \\
+C2 & C3 & $\Rightarrow$ & & \\
+C2 & C4 & $\Leftarrow$ & & \\
+C2 & C5 & $\Leftarrow$ & & \\
+C3 & C4 & $\Leftarrow$ & & \\
+C3 & C5 & $\Leftarrow$ & & \\
+C4 & C5 & $\Leftarrow$ & & \\
+\hline
+D1 & D2 & $\Rightarrow$ & & \\
+D1 & D3 & $\Rightarrow$ & & \\
+D2 & D3 & $\Leftarrow$ & & \\
+\hline
+L1 & L2 & $\Rightarrow$ & & \\
+L1 & L3 & $\Leftarrow$ & & \\
+L2 & L3 & $\Leftarrow$ & & \\
+\hline 
 S1 & S2 & $\Rightarrow$ & & \\
 S1 & S3 & $\Leftarrow$ & & \\
 S2 & S3 & $\Leftarrow$ & & \\
 \hline 
-L1 & L2 & $\Rightarrow$ & & \\
-L1 & L3 & $\Rightarrow$ & & \\
-L2 & L3 & $\Leftarrow$ & & \\
-\hline
 T1 & T2 & $\Leftarrow$  & & \\
 T1 & T3 & $\Leftarrow$ & & \\
 T1 & T4 & $\Leftarrow$ & & \\
