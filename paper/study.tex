@@ -79,10 +79,31 @@ Our overall research questions are:
 %
 
 \subsection{Metrics}
-We measure community support using the frequency of regex patterns that match each of the representations in Figure~\ref{fig:refactoringTree}. We measure the understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}.
+We measure community support using the frequency of regex patterns that match each of the representations in Figure~\ref{fig:refactoringTree}. We measure the understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}. 
 
 \textbf{Frequency:}
-\todoNow{describe patterns, utilizations, etc. here}
+To determine how often each representation appears in the wild, we extract regex patterns from source code and measure if a representation matches (part of) the pattern.
+
+A regex {utilization} is one single invocation of a regex library.
+Figure~\ref{fig:exampleUsage} presents an example of one regex {utilization} from Python, the language used in our artifact analysis (Section~\ref{communitystudy}), with key components labeled. The function call is {\tt re.compile}, \verb!(0|-?[1-9][0-9]*)$! is the regex string, or pattern, and {\tt re.MULTILINE} is an (optional) flag. When executed, this {utilization}  will compile a regex object in the variable {\tt r1} from the pattern \verb!(0|-?[1-9][0-9]*)$!, with the \verb!$! token matching at the end of each line because of the {\tt re.MULTILINE} flag. 
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{illustrations/exampleUsage.eps}
+\vspace{-12pt}
+\caption{Example of one regex utilization}
+\vspace{-6pt}
+\label{fig:exampleUsage}
+\end{figure}
+
+A \emph{pattern} is extracted from a utilization, as shown in Figure~\ref{fig:exampleUsage}. In essence, it is a string, but more formally it is an ordered series of regular expression language feature tokens.  The pattern in Figure~\ref{fig:exampleUsage}  will match if it finds a zero at the end of a line, or a (possibly negative) integer at the end of a line (i.e., due to the {\tt -?} sequence denoting zero or one instance of the {\tt -}).
+
+Matching regex representations to patterns is described in detail in Section~\ref{communityanalysis}. 
+For this frequency analysis, we focus on patterns as we did not want to bias our results by inflating instances of certain representations when they appear in common regexes, for example \todoNow{give an example of this}. 
+
+
+
+
 
 \textbf{Matching:}
  Given a regex and a set of strings, a participant determines which strings will be matched by the regex. The percentage of correct responses is the matching score. For example, consider regex \verb!`RR*'! and five strings, which comes from our study, shown in Table~\ref{matchingmetric}, and the responses from two participants in the \emph{Response 1} and \emph{Response 2} columns. The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{Response 1} answers correctly for the first three strings but incorrectly thinks the fourth string matches, so the matching score is $4/5 = 0.80$. \emph{Response 2} misses the second string, so they also scored $4/5 = 0.80$. 
@@ -111,8 +132,12 @@ Given a regex, a participant composes a string that it matches. If the participa
 \todoNow{describe how the string was tested against the regex, which libraries, etc.}
 
 \subsection{Community Study}
-To determine how common each of the regex representations is in the wile, we collected
-regexes from GitHub projects. 
+\label{communitystudy}
+To determine how common each of the regex representations is in the wild, we collected
+regexes from GitHub projects. We specifically targeted Python projects as it is a popular programming language with a strong presence on GitHub. Further, Python is the fourth most common language on GitHub (after Java, Javascript and Ruby) and Python's regex pattern
+language is close enough to other regex libraries that our conclusions are likely to generalize.
+
+
 
 \subsubsection{Artifacts}
 Our goal was to collect regexes from a variety of projects to represent the breadth of how developers use the language features. 
@@ -135,29 +160,15 @@ In collecting the set of distinct patterns for analysis,  we ignore the 12.7\%  
 The remaining 80.8\% (43,525) of the utilizations were collapsed into 13,711 distinct pattern strings.  Each of the pattern strings was pre-processed by removing Python quotes (\verb!`\\W!' becomes \verb!\\W!), unescaping escaped characters (\verb!\\W! becomes \verb!\W!) and parsing the resulting  string using an ANTLR-based, open source PCRE parser\footnote{\url{https://github.com/bkiers/pcre-parser}}.
 This parser was unable to support 0.5\% (73) of the patterns due to unsupported unicode characters.  Another 0.2\% (25) of the patterns used regex features that we  chose to exclude because they appeared very rarely (e.g., reference conditions).  An additional 0.1\% (16) of the patterns were excluded because they were empty or otherwise malformed so as to cause a parsing error.
 
-The 13,597 distinct pattern strings that remain were eachassigned a weight value equal to the number of distinctprojects the pattern appeared in. We refer to this set ofweighted, distinct pattern strings as the corpus.
+%The 13,597 distinct pattern strings that remain were each
+%assigned a weight value equal to the number of distinct
+%projects the pattern appeared in. We refer to this set of
+%weighted, distinct pattern strings as the corpus.
 
 \subsubsection{Analysis}
-To understand how programmers use regular expressions in Python projects, we scraped 3,898 Python projects from GitHub, and recorded regex usages for analysis. Throughout the rest of this paper, we  employ the following terminology:\\
+\label{communityanalysis}
+\todoNow{Describe how each representation was searched for in the corpus}
 
-\noindent \textbf{Utilization}: A \emph{utilization} occurs whenever a regex appears in source code.  We detect utilizations by statically analyzing source code and recording calls to the {\tt re} module in Python.
-Within a source code file, a {utilization} is composed of a function, a pattern, and 0 or more flags.  Figure~\ref{fig:exampleUsage} presents an example of one regex {utilization}, with key components labeled. The function call is {\tt re.compile}, \verb!(0|-?[1-9][0-9]*)$! is the regex string, or pattern, and {\tt re.MULTILINE} is an (optional) flag. When executed, this {utilization}  will compile a regex object in the variable {\tt r1} from the pattern \verb!(0|-?[1-9][0-9]*)$!, with the \verb!$! token matching at the end of each line because of the {\tt re.MULTILINE} flag. Thought of another way, a regex  utilization is one single invocation of the {\tt re} library.\\
-
-\begin{figure}[tb]
-\centering
-\includegraphics[width=\columnwidth]{illustrations/exampleUsage.eps}
-\vspace{-12pt}
-\caption{Example of one regex utilization}
-\vspace{-6pt}
-\label{fig:exampleUsage}
-\end{figure}
-
-\noindent \textbf{Pattern}: A \emph{pattern} is extracted from a utilization, as shown in Figure~\ref{fig:exampleUsage}. In essence, it is a string, but more formally it is an ordered series of regular expression language feature tokens.  The pattern in Figure~\ref{fig:exampleUsage}  will match if it finds a zero at the end of a line, or a (possibly negative) integer at the end of a line (i.e., due to the {\tt -?} sequence denoting zero or one instance of the {\tt -}).
-
-Note that because the vast majority of regex features are shared across most general programming languages (e.g., Java, C, C\#, or Ruby), a Python {pattern} will (almost always) behave the same when used in other languages, whereas a utilization is not universal in the same way (i.e., it may not compile in other languages, even with small modifications to function and flag names).
-As an example, the {\tt re.MULTILINE} flag, or similar, is present in Python, Java, and C\#, but  the Python {\tt re.DOTALL} flag is not present in C\# though it has an equivalent flag in Java.
-
-In this work, we primarily focus on patterns since they are cross-cutting across languages and are the primary way of specifying the matching behavior. Next, we describe the research questions, data set collection and analysis.
 
 \subsection{Understandability Study}
 
