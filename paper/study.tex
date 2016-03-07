@@ -79,9 +79,10 @@ Our overall research questions are:
 %
 
 \subsection{Metrics}
+\label{sec:metric}
 We measure community support using the frequency of regex patterns that match each of the representations in Figure~\ref{fig:refactoringTree}. We measure the understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}. 
 
-\textbf{Frequency:}
+\paragraph{Frequency}
 To determine how often each representation appears in the wild, we extract regex patterns from source code and measure if a representation matches (part of) the pattern.
 
 A regex {utilization} is one single invocation of a regex library.
@@ -105,7 +106,7 @@ For this frequency analysis, we focus on patterns as we did not want to bias our
 
 
 
-\textbf{Matching:}
+\paragraph{Matching}
  Given a regex and a set of strings, a participant determines which strings will be matched by the regex. The percentage of correct responses is the matching score. For example, consider regex \verb!`RR*'! and five strings, which comes from our study, shown in Table~\ref{matchingmetric}, and the responses from two participants in the \emph{Response 1} and \emph{Response 2} columns. The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{Response 1} answers correctly for the first three strings but incorrectly thinks the fourth string matches, so the matching score is $4/5 = 0.80$. \emph{Response 2} misses the second string, so they also scored $4/5 = 0.80$. 
 
 
@@ -126,7 +127,7 @@ For this frequency analysis, we focus on patterns as we did not want to bias our
 \end{center}
 \end{table}
 
-\textbf{Composition:}
+\paragraph{Composition}
 Given a regex, a participant composes a string that it matches. If the participant is accurate and the string indeed is matched by the regex, then a composition score of 1 is assigned, otherwise 0.  For example, given the regex \verb!`(q4fab|ab)'! from our study, the string, ``xyzq4fab" matches  and would get a score of 1, and the string, ``acb" does not match and would get a score of 0. 
 
 \todoNow{describe how the string was tested against the regex, which libraries, etc.}
@@ -164,26 +165,6 @@ This parser was unable to support 0.5\% (73) of the patterns due to unsupported 
 %assigned a weight value equal to the number of distinct
 %projects the pattern appeared in. We refer to this set of
 %weighted, distinct pattern strings as the corpus.
-
-\subsubsection{Analysis}
-\label{communityanalysis}
-\todoNow{Describe how each representation was searched for in the corpus}
-
-
-\subsection{Understandability Study}
-
-\subsubsection{Design}
-In Mechanical Turk, we designed a 180 tasks composed of 10 matching subtasks, so that each of the 60 CRs had 30 separate observations (each an average of 5 \emph{example string} problems).  These 1800 observations are what the analysis will focus on. The ordering of the regexes in each HIT was random to control for learning effects. 
-
-
-\todoNow{Were there qualification questions that required participants to demonstrate knowledge of regexes?}
-
-\subsubsection{Participants}
-In total, there were 180 different participants in the study. A majority were male (83\%) with an average age of 31. Most had
-at least an Associates degree (72\%) and most were at least somewhat familiar with regexes prior to the study (87\%). On average, 
-participants compose 67 regexes per year with a range of 0 to 1000. Fittingly, participants read more regexes than they write with an average of 116 and a range from 0 to 2000. Figure~\ref{participantprofile} summarizes the self-reported participant characteristics from the qualification survey. 
-
-Basic regex knowledge test. 4/5 correct to pass. 
 
 
 \begin{figure}[tp]
@@ -229,3 +210,46 @@ $\mu = 116$, $\sigma = 275$
 \caption{Participant Profiles, $n=180$ \label{participantprofile}}
 \end{small}
 \end{figure}
+\subsubsection{Analysis}
+\label{communityanalysis}
+\todoNow{Describe how each representation was searched for in the corpus}
+This addressed \emph{RQ1}. 
+
+\subsection{Understandability Study}
+To gauge the understandability of regexes, we designed and implemented a study on Amazon's Mechanical Turk with 180 participants to collect the matching and composition metrics. 
+
+\subsubsection{Platform}
+Amazon's Mechanical Turk (MTurk) is a crowdsourcing platform in which requestors can create human intelligence tasks (HITs) for completion by workers. Each HIT is designed to be completed in a fixed amount of time and workers are compensated with money if their work is satisfactory. Requesters can screen workers by requiring each to complete a qualification test prior to completing any HITs. 
+
+\subsubsection{Design}
+Using the regexes in the corpus as a guide, we created 60 regex patterns that were grouped into 26 equivalence groups, where 18 groups had two equivalent regexes each and eight groups had three equivalent regexes each. For example, one of the groups of size two had regexes, \verb!([0-9]+)\.([0-9]+)'! and \verb!(\d+)\.(\d+)'!. One of the groups of size thee contained \verb!((q4f)?ab)'!, \verb!(q4fab|ab)'!, and \verb!((q4f){0,1}ab)'!. 
+
+For each of the 26 groups of regexes, we used Hampi~\cite{hampi} to identify five strings that match the regexes. These were used for computing the composition metric. 
+
+Once all the regexes and matching strings were collected, we created tasks for the MTurk participants as follows: randomly select a regex from ten of the 26 groups. Randomize the order of the regexes, as well as the order of the matching strings for each regex. After adding a question asking the participant to compose a string that the regex matches, this creates one task on MTurk. This process was completed until each of the 60 regexes appeared in 30 HITs, resulting in a total of 180 HITs. 
+
+Workers were pre-qualified by answering questions regarding some basics of regex knowledge. \todoNow{Describe qualification - Basic regex knowledge test. 4/5 correct to pass. }
+
+Workers were paid \todoNow{How much?} for completing a HIT. 
+The average completion time was \todoNow{X:YZ}. 
+In total, X HITs were rejected due to \todoNow{rejection reason} and rejected HITs were returned to MTurk to be completed by others. 
+
+
+\todoNow{insert a screen shot of one MTurk regex and matching strings with composition question}
+
+%In Mechanical Turk, we designed a 180 tasks composed of 10 matching subtasks, so that each of the 60 CRs had 30 separate observations (each an average of 5 \emph{example string} problems).  These 1800 observations are what the analysis will focus on. The ordering of the regexes in each HIT was random to control for learning effects. 
+
+
+
+
+\subsubsection{Participants}
+
+In total, there were 180 different participants in the study. 
+A majority were male (83\%) with an average age of 31. Most had
+at least an Associates degree (72\%) and most were at least somewhat familiar with regexes prior to the study (87\%). On average, 
+participants compose 67 regexes per year with a range of 0 to 1000. Fittingly, participants read more regexes than they write with an average of 116 and a range from 0 to 2000. Figure~\ref{participantprofile} summarizes the self-reported participant characteristics from the qualification survey. 
+
+\subsubsection{Analysis}
+For each of the 60 regexes, an average matching score was computed using the metrics in Table~\ref{matchingmetric}. The average composition metric was measured using the process described in Section~\ref{sec:metric}. This addresses \emph{RQ2} and \emph{RQ3}. 
+
+

@@ -1,16 +1,4 @@
 
-\section{Results}
-\label{sec:results}
-Table~\ref{summaryResults} summarizes the results of the RQs.  \todoMid{This table does not show anything about significance... I wonder if we could do something like $\rightarrow$ for no significance (just based on averages) and $\Rightarrow$ for significance... just a thought. We could do a test of two proportions for the Com column. Some entries will be n/a for match and compose}
-
-\input{table/nodeCountTable}
-
-\subsection{RQ1: Community Support}
-Figure~\ref{table:nodeCount} presents the frequencies with which each representation appears in a regex pattern and in a project scraped from GitHub. Recall that the patters are all unique and could appear in multiple projects, hence the project support is used to show how pervasive the representation in across the whole community. For example, representation C1 matches when a custom character class uses ranges and it appears in 2,479 (18.2\%) of all the patterns but 810 (52.5\%) of the projects. Representation D1 appears in 367 (2.7\%) of the patterns but only 242 (15.7\%) of the projects. In contrast, representation T3 appears in 60 \emph{fewer} patterns but 26 \emph{more} projects, indicating that D1 is more concentrated in a few projects and T3 is more widespread across projects. 
-
-Using the pattern frequency as a guide, we can create refactoring recommendations based on community frequency. For example, since C1 is more prevalent than C2, we could say that C2 is smelly since it could better conform to the community standard if expressed as C1. Thus, we might recommend a $C2 \Rightarrow C1$ refactoring. Table~\ref{summaryResults} presents these recommendations for each pair of representations within each equivalence class. The \emph{Comm} column is populated based on the findings of \emph{RQ1}. The findings for \emph{RQ2} and \emph{RQ3} are in the \emph{Match} and \emph{Compose} columns, respectively. 
-
-
 \begin{table}[t]
 \caption{Summary of Refactoring Directions \label{summaryResults}}
 \begin{center}
@@ -54,6 +42,20 @@ T3 & T4 & $\Leftarrow$ & & \\
 \end{tabular}
 \end{center}
 \end{table}
+
+
+\section{Results}
+\label{sec:results}
+Table~\ref{summaryResults} summarizes the results of the RQs.  \todoMid{This table does not show anything about significance... I wonder if we could do something like $\rightarrow$ for no significance (just based on averages) and $\Rightarrow$ for significance... just a thought. We could do a test of two proportions for the Com column. Some entries will be n/a for match and compose}
+
+\input{table/nodeCountTable}
+
+\subsection{RQ1: Community Support}
+Figure~\ref{table:nodeCount} presents the frequencies with which each representation appears in a regex pattern and in a project scraped from GitHub. Recall that the patters are all unique and could appear in multiple projects, hence the project support is used to show how pervasive the representation in across the whole community. For example, representation C1 matches when a custom character class uses ranges and it appears in 2,479 (18.2\%) of all the patterns but 810 (52.5\%) of the projects. Representation D1 appears in 367 (2.7\%) of the patterns but only 242 (15.7\%) of the projects. In contrast, representation T3 appears in 60 \emph{fewer} patterns but 26 \emph{more} projects, indicating that D1 is more concentrated in a few projects and T3 is more widespread across projects. 
+
+Using the pattern frequency as a guide, we can create refactoring recommendations based on community frequency. For example, since C1 is more prevalent than C2, we could say that C2 is smelly since it could better conform to the community standard if expressed as C1. Thus, we might recommend a $C2 \Rightarrow C1$ refactoring. Table~\ref{summaryResults} presents these recommendations for each pair of representations within each equivalence class. The \emph{Comm} column is populated based on the findings of \emph{RQ1}. The findings for \emph{RQ2} and \emph{RQ3} are in the \emph{Match} and \emph{Compose} columns, respectively. 
+
+
 
 
 \subsection{RQ2: Understandability via Matching}
