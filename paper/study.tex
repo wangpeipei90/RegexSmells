@@ -1,21 +1,41 @@
 \section{Refactorings}
 \label{sec:refactoring}
-After studying over 13,000 distinct regex strings from nearly 4,000 of Python projects~\cite{chapman2016}, we have defined a set of equivalence classes for regexes with refactorings that can transform among members in the classes. For example,  \verb!AA*! and \verb!A+! are semantically identical, except one uses the star operator (indicating zero or more repetitions) and the other uses the plus operator (indicating one or more repetitions). Figure~\ref{fig:refactoringTree} represents five equivalence classes in grey boxes and various \emph{representations} of a regex in white boxes that are all semantically equivalent. 
-The undirected edges between the representations define possible refactorings. Treating the representations as nodes in a graph, most of the graphs within each equivalence classes are complete, except the CCC group. Here, the edges are placed according to small transformations that can occur between pairs of nodes, though any pair of nodes can be considered a potential for refactoring. 
+After studying over 13,000 distinct regex strings from nearly 4,000 Python projects~\cite{chapman2016}, we have defined a set of equivalence classes for regexes with refactorings that can transform among members in the classes. For example,  \verb!AA*! and \verb!A+! are semantically identical, except one uses the star operator (indicating zero or more repetitions) and the other uses the plus operator (indicating one or more repetitions). Figure~\ref{fig:refactoringTree} represents five equivalence classes in grey boxes and various \emph{representations} of a regex in white boxes that are all semantically equivalent.
+The undirected edges between the representations define possible refactorings. Treating the representations as nodes in a graph, most of the graphs within each equivalence classes are complete, except the CCC group. Here, the edges are placed according to small transformations that can occur between pairs of nodes, though any pair of nodes can be considered a potential for refactoring.
 
-The directions of arrows in the possible refactorings will be discussed in Section~\ref{sec:results} based on frequency of occurrence in the community and the understandability of the regexes using 180 study participants. 
+The directions of arrows in the possible refactorings will be discussed in Section~\ref{sec:results} based on frequency of occurrence in the community and the understandability of the regexes using 180 study participants.
 
-Next, we describe each group in detail: 
+Next, we describe each group in detail:
 \paragraph{CCC Group}
-\todoNow{describe me}
+The character class regex language feature is a fundamental feature found in all language flavors since GREP (check this?).  A custom character class (CCC) enables the user to specify a set of alternative characters, any of which can match.  For instance, the regex \verb!c[ao]t! will match both the word `cat' and the word `cot' because the letter between `c' and `t' can be an `a' or an `o'.  We use the term `custom' to differentiate these classes created by the user from the default character classes provided by every(check this?) regex language: \verb!\d!, \verb!\D!, \verb!\w!, \verb!\W!, \verb!\s!, \verb!\S! and \verb!.!.
+
+%\verb!\d! which represent the digits 0-9, \verb!\w! which represents all letters, numbers and the underscore character, and \verb!\s! which represents whitespace characters such as the space, tab, newline, form feed and carriage return (or more depending on the regex language).  The \verb!\d!, \verb!\W! and \verb!\S! default character classes represent the inverse of their respective lower-letter defaults.  The ANY character class, written as a period: \verb!.! represents any non-newline character.
+Any pattern using a range feature like \verb![a-f]! as shorthand for all of the characters between `a' and `f' (inclusive) belongs to the C1 node.
+
+Any pattern using some default character class such as \verb!\d! or \verb!\W! belongs to the C4 node.  Note that a pattern can belong to both C1 and C4, like the example \verb![a-f\d]!.  The edge between C1 and C4 represents the opportunity to express the same pattern as \verb![a-f0-9]! by transforming the default digit character class into a range (or visa-versa).  This transformed version would only belong to the C1 node.
+
+Node C2 contains all custom character classes that do not contain any shorthand like ranges or defaults, but express all characters explicitly.
+
+C3 contains all character classes expressed using any negated CCC, which is indicated by a caret followed by some other pattern.  For example the pattern \verb![^ao]! matches every character \emph{except} `a' or `o'.  Any non-negative character class can be represented as a negative character class if the charset is known by negating the set of characters not found in the non-negative character class, and visa versa.
+
+C5 contains all custom character classes expressed as an OR of length-one sequences, including defaults or other CCCs.  For example the character class \verb![abc]! is equivalent to the OR \verb!(a|b|c)!.
+
 
 \paragraph{DBB Group}
-\todoNow{describe me}
+The double-bounded group contains all regex patterns that use some repetition defined by a lower and upper boundary.  For example the pattern \verb!l(ol){1,3}! represents an `l' followed by one to three sequential `ol' patterns.  This will match `lol', `lolol' and `lololol'.
+
+Because \verb!l(ol){1,3}! uses the curly brace repetition with a lower and upper bound, it belongs to the D1 node.  The same functional pattern can be represented as \verb!lol(ol)?(ol)?!, because the questionable (QST) modifier is used.  One question mark is equivalent to the curly brace style with a lower bound of 0, and upper bound of 1, so \verb!X?! is equivalent to \verb!X{0,1}!.  Any regex using the QST modifier belongs to the D2 node.
+
+Whenever a repetition has a lower and upper boundary, it is possible to explode the pattern into an OR.  So using the same example, \verb!l(ol){1,3}! would become \verb!lol|lolol|lololol!, and this pattern belongs to the D3 node.  Again note that a pattern can belong to all nodes in the DBB group, for example the pattern \verb!(a|aa)X?Y{2,4}!
 \paragraph{LIT Group}
-\todoNow{describe me}
+All patterns that are not purely default character classes have to use some literal tokens to specify what characters to match.  In Python and most other regex languages, the user is able to specify literal tokens in a variety of ways.  In our example we use the ASCII charset, in which all characters can be expressed using hex and octal codes like \verb!\xF1!, and \verb!\0108!, respectively.  Any pattern using hex tokens belongs to the T2 node, and any pattern using octal tokens belongs to the T4 node.  (note we should probably mention unicode somewhere in here)  It is completely valid to wrap any literal character in brackets to form a custom character class of size one, like \verb![x][y][z]!, and this style is used most often to avoid using a backslash for a special character that requires escaping because of its significance in the regex language, like \verb![{]! which must otherwise be escaped like \verb!\{!.  Any literal wrapped in this way belongs to T3.
+Patterns that do not use any wrapped characters, octal or hex characters and also do use some literal character belong to the T1 node.
+%Although not all characters can be expressed directly using literal characters typed on the keyboard, the overwhelming majority of patterns do not belong to nodes T2, T3 or T4 because they do not use any of those special features, and so these nodes
+
+
 \paragraph{LWB Group}
 \todoNow{describe me}
-\paragraph{SNG Group} This equivalence class contains  three representations of a regex that  deal with repetition of a single element in the regex, represents by \verb!S!. The representation in \emph{S1}, \verb!S{3}!, states that S appears exactly three times in sequence. This can alternately be expressed with a double-bound where the upper and lower bounds are the same, as in \emph{S3}. Removing the repetition symbols in either \emph{S1} or \emph{S3} yields \emph{S2} which is represented explicitly as  \verb!SSS!.  
+\paragraph{SNG Group} This equivalence class contains  three representations of a regex that  deal with repetition of a single element in the regex, represents by \verb!S!. The representation in \emph{S1}, \verb!S{3}!, states that S appears exactly three times in sequence. This can alternately be expressed with a double-bound where the upper and lower bounds are the same, as in \emph{S3}. Removing the repetition symbols in either \emph{S1} or \emph{S3} yields \emph{S2} which is represented explicitly as  \verb!SSS!.
 
 Using an example from a Python project, the regex\\ \verb!`[^ ]*\.[A-Z]{3}'! is a member of \emph{S1} and could be refactored to \emph{S3} as \verb!`[^ ]*\.[A-Z]{3,3}'!  or to \emph{S2} as \verb!`[^ ]*\.[A-Z][A-Z][A-Z]'!, depending on programmer preferences.
 
@@ -48,16 +68,16 @@ Using an example from a Python project, the regex\\ \verb!`[^ ]*\.[A-Z]{3}'! is 
 
 \section{Study}
 \label{sec:study}
-After defining the equivalence classes and potential  regex refactorings as described in Section~\ref{sec:refactoring}, we wanted to know which representations in the equivalence classes  are considered desirable and which might be smelly. Desirability for regexes can be defined many ways, including maintainable and understandable. As prior work has shown that regexes are difficult to read~\cite{}, we seek to define refactorings toward understandability. 
+After defining the equivalence classes and potential  regex refactorings as described in Section~\ref{sec:refactoring}, we wanted to know which representations in the equivalence classes  are considered desirable and which might be smelly. Desirability for regexes can be defined many ways, including maintainable and understandable. As prior work has shown that regexes are difficult to read~\cite{}, we seek to define refactorings toward understandability.
 
-We define understandability three ways. First, assuming that common programming practices are more understandable than uncommon practices, we explore the frequencies of each representation from Figure~\ref{fig:refactoringTree} using thousands of regexes scraped from Python projects. Second, we then present people with regexes exemplifying some of the more common characteristics and ask them comprehension questions along two directions: determine which of a list of strings are matched by the regex, and compose a string that is matched by the regex. 
+We define understandability three ways. First, assuming that common programming practices are more understandable than uncommon practices, we explore the frequencies of each representation from Figure~\ref{fig:refactoringTree} using thousands of regexes scraped from Python projects. Second, we then present people with regexes exemplifying some of the more common characteristics and ask them comprehension questions along two directions: determine which of a list of strings are matched by the regex, and compose a string that is matched by the regex.
 
 Our overall research questions are:
 \begin{description}
 \item[RQ1:] Which refactorings have the strongest community support based on how frequently each representation appears in open source Python projects?
 \item[RQ2:] Which refactorings have the strongest support based on matching strings?
-\item[RQ3:] Which refactorings have the strongest support based on composing strings? 
-\item[RQ4:] What is the overlap in the refactoring suggested by RQ1, RQ2, and RQ3? 
+\item[RQ3:] Which refactorings have the strongest support based on composing strings?
+\item[RQ4:] What is the overlap in the refactoring suggested by RQ1, RQ2, and RQ3?
 \end{description}
 
 
@@ -81,13 +101,13 @@ Our overall research questions are:
 
 \subsection{Metrics}
 \label{sec:metric}
-We measure community support using the frequency of regex patterns that match each of the representations in Figure~\ref{fig:refactoringTree}. We measure the understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}. 
+We measure community support using the frequency of regex patterns that match each of the representations in Figure~\ref{fig:refactoringTree}. We measure the understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}.
 
 \paragraph{Frequency}
 To determine how often each representation appears in the wild, we extract regex patterns from source code and measure if a representation matches (part of) the pattern.
 
 A regex {utilization} is one single invocation of a regex library.
-Figure~\ref{fig:exampleUsage} presents an example of one regex {utilization} from Python, the language used in our artifact analysis (Section~\ref{communitystudy}), with key components labeled. The function call is {\tt re.compile}, \verb!(0|-?[1-9][0-9]*)$! is the regex string, or pattern, and {\tt re.MULTILINE} is an (optional) flag. When executed, this {utilization}  will compile a regex object in the variable {\tt r1} from the pattern \verb!(0|-?[1-9][0-9]*)$!, with the \verb!$! token matching at the end of each line because of the {\tt re.MULTILINE} flag. 
+Figure~\ref{fig:exampleUsage} presents an example of one regex {utilization} from Python, the language used in our artifact analysis (Section~\ref{communitystudy}), with key components labeled. The function call is {\tt re.compile}, \verb!(0|-?[1-9][0-9]*)$! is the regex string, or pattern, and {\tt re.MULTILINE} is an (optional) flag. When executed, this {utilization}  will compile a regex object in the variable {\tt r1} from the pattern \verb!(0|-?[1-9][0-9]*)$!, with the \verb!$! token matching at the end of each line because of the {\tt re.MULTILINE} flag.
 
 \begin{figure}[tb]
 \centering
@@ -100,15 +120,15 @@ Figure~\ref{fig:exampleUsage} presents an example of one regex {utilization} fro
 
 A \emph{pattern} is extracted from a utilization, as shown in Figure~\ref{fig:exampleUsage}. In essence, it is a string, but more formally it is an ordered series of regular expression language feature tokens.  The pattern in Figure~\ref{fig:exampleUsage}  will match if it finds a zero at the end of a line, or a (possibly negative) integer at the end of a line (i.e., due to the {\tt -?} sequence denoting zero or one instance of the {\tt -}).
 
-Matching regex representations to patterns is described in detail in Section~\ref{communityanalysis}. 
-For this frequency analysis, we focus on patterns as we did not want to bias our results by inflating instances of certain representations when they appear in common regexes, for example \todoNow{give an example of this}. 
+Matching regex representations to patterns is described in detail in Section~\ref{communityanalysis}.
+For this frequency analysis, we focus on patterns as we did not want to bias our results by inflating instances of certain representations when they appear in common regexes, for example \todoNow{give an example of this}.
 
 
 
 
 
 \paragraph{Matching}
- Given a regex and a set of strings, a participant determines which strings will be matched by the regex. The percentage of correct responses is the matching score. For example, consider regex \verb!`RR*'! and five strings, which comes from our study, shown in Table~\ref{matchingmetric}, and the responses from two participants in the \emph{Response 1} and \emph{Response 2} columns. The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{Response 1} answers correctly for the first three strings but incorrectly thinks the fourth string matches, so the matching score is $4/5 = 0.80$. \emph{Response 2} misses the second string, so they also scored $4/5 = 0.80$. 
+ Given a regex and a set of strings, a participant determines which strings will be matched by the regex. The percentage of correct responses is the matching score. For example, consider regex \verb!`RR*'! and five strings, which comes from our study, shown in Table~\ref{matchingmetric}, and the responses from two participants in the \emph{Response 1} and \emph{Response 2} columns. The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{Response 1} answers correctly for the first three strings but incorrectly thinks the fourth string matches, so the matching score is $4/5 = 0.80$. \emph{Response 2} misses the second string, so they also scored $4/5 = 0.80$.
 
 
 \begin{table}
@@ -129,7 +149,7 @@ For this frequency analysis, we focus on patterns as we did not want to bias our
 \end{table}
 
 \paragraph{Composition}
-Given a regex, a participant composes a string that it matches. If the participant is accurate and the string indeed is matched by the regex, then a composition score of 1 is assigned, otherwise 0.  For example, given the regex \verb!`(q4fab|ab)'! from our study, the string, ``xyzq4fab" matches  and would get a score of 1, and the string, ``acb" does not match and would get a score of 0. 
+Given a regex, a participant composes a string that it matches. If the participant is accurate and the string indeed is matched by the regex, then a composition score of 1 is assigned, otherwise 0.  For example, given the regex \verb!`(q4fab|ab)'! from our study, the string, ``xyzq4fab" matches  and would get a score of 1, and the string, ``acb" does not match and would get a score of 0.
 
 \todoNow{describe how the string was tested against the regex, which libraries, etc.}
 
@@ -142,9 +162,9 @@ language is close enough to other regex libraries that our conclusions are likel
 
 
 \subsubsection{Artifacts}
-Our goal was to collect regexes from a variety of projects to represent the breadth of how developers use the language features. 
+Our goal was to collect regexes from a variety of projects to represent the breadth of how developers use the language features.
 Using the GitHub API, we scraped 3,898 projects containing Python code.
-We did so  by dividing a range of about 8 million repo IDs 
+We did so  by dividing a range of about 8 million repo IDs
 into 32 sections of equal size and scanning  for Python projects from the beginning of those
 segments until we ran out of memory. At that point, we felt we had enough data
 to do an analysis without further perfecting our mining techniques. We built
@@ -172,17 +192,17 @@ This parser was unable to support 0.5\% (73) of the patterns due to unsupported 
 \begin{small}
 \fbox{\parbox{\columnwidth}{
 \begin{enumerate}
-\item 
+\item
 \begin{tabular} {lrr}
 \textbf{What is your gender?} & \textbf{n} & \textbf{\%}\\ \hline
-Male & 149 & 83\%\\ 
+Male & 149 & 83\%\\
 Female & 27& 15\%\\
 Prefer not to say & 4& 2\%
 \end{tabular}
 \item \textbf{What is your age?} \\
 $\mu = 31$, $\sigma = 9.3$
 
-\item 
+\item
 
 \begin{tabular} {l |rr}
 \textbf{Education Level?} & \textbf{n} & \textbf{\%}\\ \hline
@@ -192,11 +212,11 @@ Some college, no degree & 46 & 26\%\\
 Bachelors degree & 78 & 43\%\\
 Graduate degree & 37 & 21\%\\
 \end{tabular}
-\item 
+\item
 \begin{tabular} {lrr}
 \textbf{Familiarity with regexes?} & \textbf{n} & \textbf{\%}\\ \hline
-Not familiar at all & 5 & 3\%\\ 
-Somewhat not familiar & 16 & 9\%\\ 
+Not familiar at all & 5 & 3\%\\
+Somewhat not familiar & 16 & 9\%\\
 Not sure & 2 & 1\%\\
 Somewhat familiar & 121 & 67\%\\
 Very familiar & 36 & 20\%\\
@@ -214,43 +234,43 @@ $\mu = 116$, $\sigma = 275$
 \subsubsection{Analysis}
 \label{communityanalysis}
 \todoNow{Describe how each representation was searched for in the corpus}
-This addressed \emph{RQ1}. 
+This addressed \emph{RQ1}.
 
 \subsection{Understandability Study}
-To gauge the understandability of regexes, we designed and implemented a study on Amazon's Mechanical Turk with 180 participants to collect the matching and composition metrics. 
+To gauge the understandability of regexes, we designed and implemented a study on Amazon's Mechanical Turk with 180 participants to collect the matching and composition metrics.
 
 \subsubsection{Platform}
-Amazon's Mechanical Turk (MTurk) is a crowdsourcing platform in which requestors can create human intelligence tasks (HITs) for completion by workers. Each HIT is designed to be completed in a fixed amount of time and workers are compensated with money if their work is satisfactory. Requesters can screen workers by requiring each to complete a qualification test prior to completing any HITs. 
+Amazon's Mechanical Turk (MTurk) is a crowdsourcing platform in which requestors can create human intelligence tasks (HITs) for completion by workers. Each HIT is designed to be completed in a fixed amount of time and workers are compensated with money if their work is satisfactory. Requesters can screen workers by requiring each to complete a qualification test prior to completing any HITs.
 
 \subsubsection{Design}
-Using the regexes in the corpus as a guide, we created 60 regex patterns that were grouped into 26 equivalence groups, where 18 groups had two equivalent regexes each and eight groups had three equivalent regexes each. For example, one of the groups of size two had regexes, \verb!([0-9]+)\.([0-9]+)'! and \verb!(\d+)\.(\d+)'!. One of the groups of size thee contained \verb!((q4f)?ab)'!, \verb!(q4fab|ab)'!, and \verb!((q4f){0,1}ab)'!. 
+Using the regexes in the corpus as a guide, we created 60 regex patterns that were grouped into 26 equivalence groups, where 18 groups had two equivalent regexes each and eight groups had three equivalent regexes each. For example, one of the groups of size two had regexes, \verb!([0-9]+)\.([0-9]+)'! and \verb!(\d+)\.(\d+)'!. One of the groups of size thee contained \verb!((q4f)?ab)'!, \verb!(q4fab|ab)'!, and \verb!((q4f){0,1}ab)'!.
 
-For each of the 26 groups of regexes, we used Hampi~\cite{hampi} to identify five strings that match the regexes. These were used for computing the composition metric. 
+For each of the 26 groups of regexes, we used Hampi~\cite{hampi} to identify five strings that match the regexes. These were used for computing the composition metric.
 
-Once all the regexes and matching strings were collected, we created tasks for the MTurk participants as follows: randomly select a regex from ten of the 26 groups. Randomize the order of the regexes, as well as the order of the matching strings for each regex. After adding a question asking the participant to compose a string that the regex matches, this creates one task on MTurk. This process was completed until each of the 60 regexes appeared in 30 HITs, resulting in a total of 180 HITs. 
+Once all the regexes and matching strings were collected, we created tasks for the MTurk participants as follows: randomly select a regex from ten of the 26 groups. Randomize the order of the regexes, as well as the order of the matching strings for each regex. After adding a question asking the participant to compose a string that the regex matches, this creates one task on MTurk. This process was completed until each of the 60 regexes appeared in 30 HITs, resulting in a total of 180 HITs.
 
-Workers were pre-qualified by answering questions regarding some basics of regex knowledge. These questions were multiple-choice and asked the worker to describe what the following regexes mean: \verb!a+!, \verb!`(r|z)'!, \verb!`\d'!, \verb!`q*'!, and \verb![p-s]'!. To pass the qualification, workers had to answer four of the five questions correctly. Of all workers who took the test, \todoNow{x\%} passed. 
+Workers were pre-qualified by answering questions regarding some basics of regex knowledge. These questions were multiple-choice and asked the worker to describe what the following regexes mean: \verb!a+!, \verb!`(r|z)'!, \verb!`\d'!, \verb!`q*'!, and \verb![p-s]'!. To pass the qualification, workers had to answer four of the five questions correctly. Of all workers who took the test, \todoNow{x\%} passed.
 
-Workers were paid \todoNow{How much?} for successfully completing a HIT. 
-The average completion time was \todoNow{X:YZ}. 
-In total, X HITs were rejected due to \todoNow{rejection reason} and rejected HITs were returned to MTurk to be completed by others. 
+Workers were paid \todoNow{How much?} for successfully completing a HIT.
+The average completion time was \todoNow{X:YZ}.
+In total, X HITs were rejected due to \todoNow{rejection reason} and rejected HITs were returned to MTurk to be completed by others.
 
 
 \todoNow{insert a screen shot of one MTurk regex and matching strings with composition question}
 
-%In Mechanical Turk, we designed a 180 tasks composed of 10 matching subtasks, so that each of the 60 CRs had 30 separate observations (each an average of 5 \emph{example string} problems).  These 1800 observations are what the analysis will focus on. The ordering of the regexes in each HIT was random to control for learning effects. 
+%In Mechanical Turk, we designed a 180 tasks composed of 10 matching subtasks, so that each of the 60 CRs had 30 separate observations (each an average of 5 \emph{example string} problems).  These 1800 observations are what the analysis will focus on. The ordering of the regexes in each HIT was random to control for learning effects.
 
 
 
 
 \subsubsection{Participants}
 
-In total, there were 180 different participants in the study. 
+In total, there were 180 different participants in the study.
 A majority were male (83\%) with an average age of 31. Most had
-at least an Associates degree (72\%) and most were at least somewhat familiar with regexes prior to the study (87\%). On average, 
-participants compose 67 regexes per year with a range of 0 to 1000. Fittingly, participants read more regexes than they write with an average of 116 and a range from 0 to 2000. Figure~\ref{participantprofile} summarizes the self-reported participant characteristics from the qualification survey. 
+at least an Associates degree (72\%) and most were at least somewhat familiar with regexes prior to the study (87\%). On average,
+participants compose 67 regexes per year with a range of 0 to 1000. Fittingly, participants read more regexes than they write with an average of 116 and a range from 0 to 2000. Figure~\ref{participantprofile} summarizes the self-reported participant characteristics from the qualification survey.
 
 \subsubsection{Analysis}
-For each of the 60 regexes, an average matching score was computed using the metrics in Table~\ref{matchingmetric}. The average composition metric was measured using the process described in Section~\ref{sec:metric}. This addresses \emph{RQ2} and \emph{RQ3}. 
+For each of the 60 regexes, an average matching score was computed using the metrics in Table~\ref{matchingmetric}. The average composition metric was measured using the process described in Section~\ref{sec:metric}. This addresses \emph{RQ2} and \emph{RQ3}.
 
 
