@@ -1,15 +1,15 @@
 \section{Threats to Validity}
 
 \subsection{Internal}
-We measure understandability of regexes using two metrics, matching and composition. However, these measures may not reflect actual understanding of the regex behavior. For this reason, we chose to use two metrics and present the analysis in the context of reading and writing regexes, but the threat remains. 
+We measure understandability of regexes using two metrics, matching and composition. However, these measures may not reflect actual understanding of the regex behavior. For this reason, we chose to use two metrics and present the analysis in the context of reading and writing regexes, but the threat remains.
 
-Our community study collects regex patterns rather than utilizations, and draws conclusions about community support based on how many patterns match each regex representation. However, this misses the frequencies with which each of the patterns, so the numbers given in the analysis are underestimates of the true instances in the comminity. \todoNow{Carl - can we fix this?}
+Our community study collects regex patterns rather than utilizations, and draws conclusions about community support based on how many patterns match each regex representation. However, this misses the frequencies with which each of the patterns, so the numbers given in the analysis are underestimates of the true instances in the comminity. \todoNow{Carl - can we fix this?  Notice the nProjects and percentProjects columns - that is the ideal way to address community usage (you should ignore nUtilizations!)}
 
 
 \subsection{External}
-Participants in our survey came from MTurk, which may not be representative of people who read and write regexes on a regular basis. 
+Participants in our survey came from MTurk, which may not be representative of people who read and write regexes on a regular basis.
 
-The regexes we used in the evaluation were inspired by those commonly found in Python code, which is just one language that has library support for regexes. Thus, we may have missed opportunities for other refactorings based on how programmers use regexes in other programming languages. 
+The regexes we used in the evaluation were inspired by those commonly found in Python code, which is just one language that has library support for regexes. Thus, we may have missed opportunities for other refactorings based on how programmers use regexes in other programming languages.
 
 Our community analysis only focuses on the Python language. Note that because the vast majority of regex features are shared across most general programming languages (e.g., Java, C, C\#, or Ruby), a Python {pattern} will (almost always) behave the same when used in other languages, whereas a utilization is not universal in the same way (i.e., it may not compile in other languages, even with small modifications to function and flag names).
 As an example, the {\tt re.MULTILINE} flag, or similar, is present in Python, Java, and C\#, but  the Python {\tt re.DOTALL} flag is not present in C\# though it has an equivalent flag in Java.
