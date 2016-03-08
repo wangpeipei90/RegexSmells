@@ -17,12 +17,7 @@ C4 -> C1 [label=""]
 C3 -> C1 [label=""]
 
 
-C2 -> C1 [label="", style=dashed]
-C4 -> C1 [label="", style=dashed]
-C5 -> C1 [label="", style=dashed]
-C2 -> C4 [label="", style=dashed]
-C2 -> C5 [label="", style=dashed]
-C3 -> C4 [label="", style=dashed]
+graph [label="(a)", labelloc=b]
 }
 
 C2 -> C4 [label="", style=dashed]

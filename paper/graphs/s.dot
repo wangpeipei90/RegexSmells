@@ -9,6 +9,6 @@ S3 -> S2 [label=""]
 S3 -> S1 [label=""]
 
 
-S2 -> S1 [label="", style=dashed]
+S1 -> S2 [label="", style=dashed]
 }
 
