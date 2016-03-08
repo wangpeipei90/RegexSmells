@@ -1,0 +1,14 @@
+digraph finite_state_machine {
+layout="circo";
+graph [nodesep=“4”]
+node [shape = circle];
+overlap=false;
+
+L1 -> L2 [label=""]
+L1 -> L3 [label=""]
+L2 -> L3 [dir="none", label=""]
+
+
+L2 -> L3 [label="", style=dashed]
+}
+
