@@ -6,17 +6,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import readability_analysis.AnswerColumn;
-import readability_analysis.IOUtil;
-import readability_analysis.ProportionOutput;
-import readability_analysis.WilcoxOutput;
 
 public class ExperimentPair {
 	private final AnswerColumn[] matchingColumns;
 	private final AnswerColumn[] composingColumns;
 	private boolean isFrom2;
 	private String fileName;
-	private final WilcoxOutput matchingWilcoxOutput;
-	private final ProportionOutput compositionProportionOutput;
+	
 	public ExperimentPair(String code0, String code1,List<AnswerColumn> pairsFrom2,List<AnswerColumn> pairsFrom3,List<AnswerColumn> compositionAnswers) throws IOException {
 		this.matchingColumns = new AnswerColumn[2];
 		this.composingColumns = new AnswerColumn[2];
@@ -60,6 +56,7 @@ public class ExperimentPair {
 			}
 		}
 		for(AnswerColumn compAC : compositionAnswers){
+			System.out.println("isFrom2: "+isFrom2+" mcisNull: "+matchingColumns[0]+" compACisNull: "+compAC);
 			if(matchingColumns[0].getRegexCode().equals(compAC.getRegexCode())){
 				composingColumns[0] = compAC;
 			}
@@ -67,13 +64,6 @@ public class ExperimentPair {
 				composingColumns[1] = compAC;
 			}
 		}
-		String endFilename = fileName+".Rout";
-		String innerPath = isFrom2 ? IOUtil.P2_PATH : IOUtil.P3_PATH;
-		String matchingPath = IOUtil.dataPath + IOUtil.OUT + innerPath + endFilename;
-		this.matchingWilcoxOutput = new WilcoxOutput(IOUtil.getLines(matchingPath), endFilename);
-		
-		String compositionPath = IOUtil.dataPath + IOUtil.OUT + IOUtil.COMPOSITION + innerPath + endFilename;
-		this.compositionProportionOutput = new ProportionOutput(IOUtil.getLines(compositionPath), endFilename);
 	}
 	
 	public double getMatchingAvgLeft(){
@@ -89,13 +79,13 @@ public class ExperimentPair {
 	public double getComposingAvgRight(){
 		return composingColumns[1].getX();
 	}
-	
-	public double getMatchingPValue(){
-		return matchingWilcoxOutput.getPValue();
+
+	public AnswerColumn[] getMatchingColumns() {
+		return matchingColumns;
 	}
-	
-	public double getComposingPValue(){
-		return compositionProportionOutput.getP_value();
+
+	public AnswerColumn[] getComposingColumns() {
+		return composingColumns;
 	}
 
 	@Override
@@ -103,8 +93,6 @@ public class ExperimentPair {
 		return "ExperimentPair [matchingColumns=" +
 			Arrays.toString(matchingColumns) + ", composingColumns=" +
 			Arrays.toString(composingColumns) + ", isFrom2=" + isFrom2 +
-			", fileName=" + fileName + ", matchingWilcoxOutput=" +
-			matchingWilcoxOutput + ", compositionProportionOutput=" +
-			compositionProportionOutput + "]";
+			", fileName=" + fileName + "]";
 	}
 }

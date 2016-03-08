@@ -18,11 +18,12 @@ public class GenerateLatex {
 	private static DecimalFormat df10 = new DecimalFormat("0.000000000");
 
 	
-	private static String sourceFilename = "EXP_EDG_LST_TRANSPOSED.tsv";
+	private static String sourceFilename = "EXP_EDG_LST.tsv";
 	private static File g_out_directory = new File(IOUtil.dataPath + IOUtil.OUT +
 			IOUtil.G_PATH);
+	
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		createTestedEdgesTable();
 		createGroupTable();
 
@@ -79,7 +80,7 @@ public class GenerateLatex {
 		}
 	}
 
-	private static void createTestedEdgesTable() throws IOException{
+	private static void createTestedEdgesTable() throws IOException, InterruptedException{
 		List<AnswerColumn> pairsFrom2 = IOUtil.getColumns(IOUtil.getLines(IOUtil.dataPath +
 				IOUtil.ORIGINAL + "pairs_from_2.csv"), ",");
 			List<AnswerColumn> pairsFrom3 = IOUtil.getColumns(IOUtil.getLines(IOUtil.dataPath +
@@ -100,6 +101,7 @@ public class GenerateLatex {
 				int nPairs = (parts.length-2)/2;
 				LinkedList<ExperimentPair> experiments = new LinkedList<ExperimentPair>();
 				for(int i = 0;i<nPairs;i++){
+					System.out.println("adding new ExperimentPair with parts: "+parts[i+2]+","+parts[i+2+nPairs]);
 					experiments.add(new ExperimentPair(parts[i+2],parts[i+2+nPairs],pairsFrom2,pairsFrom3, compositionAnswers));
 				}
 				edges.add(new EdgeExperimentsList(edgeIndex,edgeDescription,experiments));
@@ -107,7 +109,7 @@ public class GenerateLatex {
 			String caption = "Averaged Info About Edges";//What Edges Between Equivalent Nodes Have Significantly Different Readability (By Matching Accuracy And Composition Tasks)?
 			String edgeTableHeader = "\\begin{table*}\\begin{small}\\begin{center}\\caption{"+caption+"}\\label{table:testedEdgesTable}\\begin{tabular}\n"+
 			"{llccccccc}\n"+
-			"index & edge & nExp & acc1 & acc2 & cmp1 & cmp2 & Pacc & Pcmp \\\\\n"+
+			"index & edge & nExp & match1 & match2 & Pmatch & comp1 & comp2 & Pcomp \\\\\n"+
 			"\\toprule[0.16em]\n";
 			String edgeTableFooter = "\\bottomrule[0.13em]\\end{tabular}\\end{center}\\end{small}\\end{table*}\n";
 			StringBuilder latexContent = new StringBuilder();

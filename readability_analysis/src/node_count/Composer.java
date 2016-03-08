@@ -117,6 +117,15 @@ public class Composer {
 		}
 		return dataS;
 	}
+	
+	public static String formatPValue(double pValue){
+		DecimalFormat df = new DecimalFormat("0.000");
+		if(pValue<0.001){
+			return "<0.001";
+		}else{
+			return df.format(pValue);
+		}
+	}
 
 	private static String commaSeparate(String[] items) {
 		if (items == null || items.length == 0) {
