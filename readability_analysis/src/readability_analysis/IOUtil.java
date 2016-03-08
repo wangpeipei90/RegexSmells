@@ -33,6 +33,7 @@ public class IOUtil {
 	public static final String CORPUS = "corpus/";
 	public static final String TABLE = "table/";
 	public static final String G_PATH = "G/";
+	public static final String E_PATH = "E/";
 	
 	
 
