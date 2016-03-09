@@ -1,5 +1,5 @@
 
-<<<<<<< HEAD
+
 %\begin{table}[t]
 %\caption{Summary of Refactoring Directions \label{summaryResults}}
 %\begin{center}
@@ -47,11 +47,11 @@
 
 \section{Results}
 \label{sec:results}
-Table~\ref{summaryResults} summarizes the results of the RQs.
+
+
 
 \input{table/nodeCountTable}
 
-\todoNow{Katie, can you please check your table and section references?  I'm finding it a little confusing, something might be missing.}
 \subsection{RQ1: Community Support}
 Figure~\ref{table:nodeCount} presents the frequencies with which each representation appears in a regex pattern and in a project scraped from GitHub. Recall that the patters are all unique and could appear in multiple projects, hence the project support is used to show how pervasive the representation in across the whole community. For example, representation C1 matches when a custom character class uses ranges and it appears in 2,479 (18.2\%) of all the patterns but 810 (52.5\%) of the projects. Representation D1 appears in 367 (2.7\%) of the patterns but only 242 (15.7\%) of the projects. In contrast, representation T3 appears in 60 \emph{fewer} patterns but 26 \emph{more} projects, indicating that D1 is more concentrated in a few projects and T3 is more widespread across projects.
 
@@ -99,9 +99,9 @@ Once the graphs are built for each equivalence class and each set of metrics, co
   \begin{algorithmic}[1]
 \State  $L \gets$ []
 \State $S \gets$ []
-\State Remove all undirected edges
+\State Remove all undirected edges (creates a DAG)
 \State Add all disconnected nodes to $L$ and remove from graph. If there are more than one, mark the tie. \label{markTie1}
-\State Add all nodes with no incoming edges to $S$ \label{addnoincomingtos}
+\State Add all nodes with no incoming edges to $S$. If there are more than one, mark the tie. \label{addnoincomingtos}
 \While {$S$ is non-empty} \label{beginwhile}
 	\State remove a node $n$ from $S$ \label{setn}
 	\State add $n$ to $L$  \label{addntoL}
@@ -111,6 +111,7 @@ Once the graphs are built for each equivalence class and each set of metrics, co
 			\State add $m$ to $S$ \label{addToS}
 		\EndIf
 	\EndFor
+	\State remove $n$ from graph
 	\State If multiple nodes were added to $S$ in this iteration, mark those as a tie \label{markTie2}
 \EndWhile
 \State For all ties in $L$, use a tiebreaker.
