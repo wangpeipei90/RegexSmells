@@ -34,6 +34,8 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 	private static final Pattern OR_WITHOUT_PREFIX_OR_SUFFIX = Pattern.compile("^OR•DOWN•");
 	private static final Pattern OR_IN_CG_FIRST_ELEMENT = Pattern.compile("^ALTERNATIVE•DOWN•ELEMENT•DOWN•CAPTURING_GROUP•DOWN•OR•DOWN•");
 
+	private static final Pattern CCC_WRAPPED_CHAR = Pattern.compile("(?<=\\[).(?=\\])");
+
 	private static final Pattern CCC_WRAPPED_ESCAPE_CHAR = Pattern.compile("(?<=\\[)([.^$*+?(){}\\\\|\\[])(?=\\])");
 	private static final Pattern CCC_WRAPPED_NONESCAPE_CHAR = Pattern.compile("(?<=\\[)([^.^$*+?(){}\\\\|\\[])(?=\\])");
 	private static final Pattern HEX_OR_OCTAL = Pattern.compile("(\\\\x[a-f0-9A-F]{2})|((\\\\0\\d*)|(\\\\\\d{3}))");
@@ -162,17 +164,14 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 	}
 
 	private static boolean matchesT1(RegexProjectSet regex) {
-
-		Matcher m1 = CCC_WRAPPED_ESCAPE_CHAR.matcher(regex.unquoted);
-		Matcher m2 = CCC_WRAPPED_NONESCAPE_CHAR.matcher(regex.unquoted);
+		Matcher m = CCC_WRAPPED_CHAR.matcher(regex.unquoted);
 		Matcher m3 = HEX_OR_OCTAL.matcher(regex.unquoted);
-		return !m1.find() && !m2.find() && !m3.find();
+		return !m.find() && !m3.find();
 	}
 
 	private static boolean matchesT3(RegexProjectSet regex) {
-		Matcher m1 = CCC_WRAPPED_ESCAPE_CHAR.matcher(regex.unquoted);
-		Matcher m2 = CCC_WRAPPED_NONESCAPE_CHAR.matcher(regex.unquoted);
-		return m1.find() || m2.find();
+		Matcher m = CCC_WRAPPED_CHAR.matcher(regex.unquoted);
+		return m.find();
 	}
 
 	// //////////helpers////////////

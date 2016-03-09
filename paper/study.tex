@@ -103,13 +103,13 @@ Our overall research questions are:
 
 \subsection{Metrics}
 \label{sec:metric}
-We measure community support using the frequency of regex patterns that match each of the representations in Figure~\ref{fig:refactoringTree}. We measure the understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}.
+We measure community support using the frequency of regex patterns that match each of the representations (nodes) in Figure~\ref{fig:refactoringTree}.  We also measure the proportion of sampled projects to contain at least one pattern belonging to a node.  We measure the understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}.
 
 \paragraph{Frequency}
 To determine how often each representation appears in the wild, we extract regex patterns from source code and measure if a representation matches (part of) the pattern.
 
 A regex {utilization} is one single invocation of a regex library.
-Figure~\ref{fig:exampleUsage} presents an example of one regex {utilization} from Python, the language used in our artifact analysis (Section~\ref{communitystudy}), with key components labeled. The function call is {\tt re.compile}, \verb!(0|-?[1-9][0-9]*)$! is the regex string, or pattern, and {\tt re.MULTILINE} is an (optional) flag. When executed, this {utilization}  will compile a regex object in the variable {\tt r1} from the pattern \verb!(0|-?[1-9][0-9]*)$!, with the \verb!$! token matching at the end of each line because of the {\tt re.MULTILINE} flag.
+Figure~\ref{fig:exampleUsage} presents an example of one regex {utilization} from Python, the language used in our artifact analysis (Section~\ref{communitystudy}), with key components labeled. The \emph{function} called is {\tt re.compile}.  The \emph{pattern} used to define what strings this utilization will match is \verb!(0|-?[1-9][0-9]*)$!.  The \emph{flag} {\tt re.MULTILINE} modifies the rules used by the regex engine when matching. When executed, this {utilization}  will compile a regex object in the variable {\tt r1} from the pattern \verb!(0|-?[1-9][0-9]*)$!, with the \verb!$! token matching at the end of each line because of the {\tt re.MULTILINE} flag.
 
 \begin{figure}[tb]
 \centering
@@ -122,13 +122,8 @@ Figure~\ref{fig:exampleUsage} presents an example of one regex {utilization} fro
 
 A \emph{pattern} is extracted from a utilization, as shown in Figure~\ref{fig:exampleUsage}. In essence, it is a string, but more formally it is an ordered series of regular expression language feature tokens.  The pattern in Figure~\ref{fig:exampleUsage}  will match if it finds a zero at the end of a line, or a (possibly negative) integer at the end of a line (i.e., due to the {\tt -?} sequence denoting zero or one instance of the {\tt -}).
 
-Matching regex representations to patterns is described in detail in Section~\ref{communityanalysis}.
+The process for deciding if a particular pattern belongs to a particular node is described in detail in Section~\ref{communityanalysis}.
 For this frequency analysis, we focus on patterns and the number of projects the patterns appear in.
-as we did not want to bias our results by inflating instances of certain representations when they appear in common regexes, for example \todoNow{give an example of this - not sure what this is looking for:  bias results by inflating instances of certain representations...?  How could we not use patterns? - and how does not using patterns create a bias?  Maybe it's not clicking right now because I'm tired or something - we can talk it out.}.
-
-
-
-
 
 \paragraph{Matching}
  Given a regex and a set of strings, a participant determines which strings will be matched by the regex. The percentage of correct responses is the matching score. For example, consider regex \verb!`RR*'! and five strings, which comes from our study, shown in Table~\ref{matchingmetric}, and the responses from two participants in the \emph{Response 1} and \emph{Response 2} columns. The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{Response 1} answers correctly for the first three strings but incorrectly thinks the fourth string matches, so the matching score is $4/5 = 0.80$. \emph{Response 2} misses the second string, so they also scored $4/5 = 0.80$.
@@ -155,7 +150,7 @@ as we did not want to bias our results by inflating instances of certain represe
 Given a regex, a participant composes a string that it matches. If the participant is accurate and the string indeed is matched by the regex, then a composition score of 1 is assigned, otherwise 0.  For example, given the regex \verb!`(q4fab|ab)'! from our study, the string, ``xyzq4fab" matches  and would get a score of 1, and the string, ``acb" does not match and would get a score of 0.
 
 Each pattern was compiled using the \emph{java.util.regex} library.
-Composed strings were grouped by the pattern participants were attempting to match, and a Matcher \verb!m! was created for each composed string.  If \verb!m.find()! returned true, then that composed string was given a score of 1, otherwise it was given a score of 0.
+Composed strings were grouped by the pattern participants were attempting to match, and a Matcher \verb!m! was created for each composed string using the compiled pattern.  If \verb!m.find()! returned true, then that composed string was given a score of 1, otherwise it was given a score of 0.
 
 \subsection{Community Study}
 \label{communitystudy}
@@ -180,16 +175,11 @@ computing resources invested after observing the scanning process in many hours
 of trial scans.
 % If the project had fewer than 20 commits, then all commits were scanned.
 % The most recent commit was always included, and the spacing between all other chosen commits was determined by dividing the remaining number of commits by 19 (rounding as needed).
-All regex utilizations were obtained, sans duplicates. Within a project, a duplicate utilization was marked when two versions of the same file have the same function, pattern and flags.  In the end, we observed and recorded 13,597 non-duplicate regex utilizations in 3,898 projects.
+All regex utilizations were obtained, sans duplicates. Within a project, a duplicate utilization was marked when two versions of the same file have the same function, pattern and flags.  In the end, we observed and recorded 53,894 non-duplicate regex utilizations in 3,898 projects.
 
 In collecting the set of distinct patterns for analysis,  we ignore the 12.7\%  of utilizations using flags, which can alter regex behavior.  An additional 6.5\% of utilizations contained patterns that could not be compiled because the pattern was non-static (e.g., used some runtime variable).
 The remaining 80.8\% (43,525) of the utilizations were collapsed into 13,711 distinct pattern strings.  Each of the pattern strings was pre-processed by removing Python quotes (\verb!`\\W!' becomes \verb!\\W!), unescaping escaped characters (\verb!\\W! becomes \verb!\W!) and parsing the resulting  string using an ANTLR-based, open source PCRE parser\footnote{\url{https://github.com/bkiers/pcre-parser}}.
-This parser was unable to support 0.5\% (73) of the patterns due to unsupported unicode characters.  Another 0.2\% (25) of the patterns used regex features that we  chose to exclude because they appeared very rarely (e.g., reference conditions).  An additional 0.1\% (16) of the patterns were excluded because they were empty or otherwise malformed so as to cause a parsing error.
-
-%The 13,597 distinct pattern strings that remain were each
-%assigned a weight value equal to the number of distinct
-%projects the pattern appeared in. We refer to this set of
-%weighted, distinct pattern strings as the corpus.
+This parser was unable to support 0.5\% (73) of the patterns due to unsupported unicode characters.  Another 0.2\% (25) of the patterns used regex features that we  chose to exclude because they appeared very rarely (e.g., reference conditions).  An additional 0.1\% (16) of the patterns were excluded because they were empty or otherwise malformed so as to cause a parsing error.  After removing all problematic patterns as described, 13,597 distinct patterns remained to be used in this study.
 
 
 \begin{figure}[tp]
@@ -237,10 +227,25 @@ $\mu = 116$, $\sigma = 275$
 \end{figure}
 \subsubsection{Analysis}
 \label{communityanalysis}
-For the nodes that only require a particular feature to be present, the features identified by the PCRE parser were used to decide membership of patterns in nodes.  These feature-requiring nodes are as follows: D1 requires DBB repetition, D2 requires QST repetition, S1 requires SNG repetition, L1 requires LWB repetition, L2 requires KLE repetition, L3 requires ADD repetition,
-For some nodes, the presence of a feature is not enough to determine membership, but the presence of a feature and a simple regex executed directly on the pattern can decide membership.  The nodes decided in this way are as follows: D3 requires an OR and a match of the regex \verb!"(?<=[|(]|^)([^ \\]+)\|\1\1"! which captures some (non-space or slash) characters at the beginning of a group, within an OR, or at the beginning of a pattern, then sees an OR-bar and then sees the captured characters repeated twice.  This technique was developed by trial and error and then the results were verified by hand looking both at the set of patterns identified by the regex for false positives, and also at the set of rejected patterns for false negatives.  No false results in either set were found (TODO-verify this again later?).
+For the nodes that only require a particular feature to be present, the features identified by the PCRE parser were used to decide membership of patterns in nodes.  These feature-requiring nodes are as follows: D1 requires DBB repetition, D2 requires QST repetition, S1 requires SNG repetition, L1 requires LWB repetition, L2 requires KLE repetition, L3 requires ADD repetition, and C3 requires the negated custom character class NCCC.
+
+For some nodes, the presence of a feature is not enough to determine membership, but the presence of a feature and a simple regex executed directly on the pattern can decide membership.  The nodes decided in this way are as follows: D3 requires an OR and a match of the regex \verb!"(?<=[|(]|^)([^ \\]+)\|\1\1"! which captures some (non-space or slash) characters at the beginning of a group, within an OR, or at the beginning of a pattern, then sees an OR-bar and then sees the captured characters repeated twice.
+
+This technique was developed by trial and error and then the results were verified by hand looking both at the set of patterns identified by the regex for false positives, and also at the set of rejected patterns for false negatives.  No false results in either set were found (TODO-verify this again later?).
+
+
 S3 requires both the DBB feature and a match of the regex \verb!\{(\d+),\1\}! which identifies curly brace repetition with identical lower and upper bounds.  These results were also hand-verified with no false results.
+
+
 T2 requires a LIT feature and must match the regex \verb!(\\x[a-f0-9A-F]{2})! which reliably identifies hex codes within a pattern.  Similarly T4 requires a LIT feature and must match the regex \verb!((\\0\d*)|(\\\d{3}))! which is specific to Python-style octal, requiring either exactly three digits after a slash, or a zero and some other digits after a slash.  One false positive was identified which was actually the lower end of a hex range using the literal \verb!\0!.
+
+T3 requires that a character is wrapped in a CCC, so the pattern \verb!(?<=\[).(?=\])! was used to find characters wrapped in brackets.  T1 requires that no characters are wrapped in brackets or are hex or octal characters, so the regex \verb!(\\x[a-f0-9A-F]{2})|((\\0\d*)|(\\\d{3}))! was used to find any hex or octal codes.  Any pattern that matched either of these regexes was not accepted as belonging to node T1, otherwise all nodes containing any LIT feature were accepted into T1.
+
+For the remaining nodes, the sequence of tokens produced by the PCRE parser was transformed into a string so that a regex could be executed on the tokenStream itself, avoiding some pitfalls with special characters or pattern nesting.  S2 requires any element to be repeated at least once, so the regex \verb!(ELEMENT•[^ ]+)\1! was used.  C1 requires
+
+Requiring the tokenStream...
+S2,C1,C2,C4,C5
+
 
 \todoNow{complex ones...S2,all CCC, T1,T3}
 
