@@ -77,7 +77,7 @@ public class Step2_CreateOutputFiles {
 			if (!gFile.isHidden()) {
 				String newFilename = gFile.getName().replaceAll("csv", "Rout");
 				File outFile = new File(g_out_directory, newFilename);
-				writeROutput(wrapTestIO(gFile.getAbsolutePath(), getANOVATest(), outFile.getAbsolutePath(), ","), scriptTempFile);
+				writeROutput(wrapTestIO(gFile.getAbsolutePath(), getGroupANOVATest(), outFile.getAbsolutePath(), ","), scriptTempFile);
 			}
 		}
 
@@ -109,6 +109,11 @@ public class Step2_CreateOutputFiles {
 
 	private static String getANOVATest() {
 		return "test_output = aov(accuracy~regex*refactoring,data=tbl)\n"
+			+ "results=summary(test_output)\n";
+	}
+	
+	private static String getGroupANOVATest() {
+		return "test_output = aov(accuracy~abstract*node,data=tbl)\n"
 			+ "results=summary(test_output)\n";
 	}
 

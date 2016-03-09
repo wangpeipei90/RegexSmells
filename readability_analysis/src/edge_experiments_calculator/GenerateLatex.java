@@ -11,6 +11,7 @@ import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import node_count.Composer;
 import readability_analysis.AnswerColumn;
 import readability_analysis.IOUtil;
 
@@ -24,7 +25,7 @@ public class GenerateLatex {
 	
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-		createTestedEdgesTable();
+		//createTestedEdgesTable();
 		createGroupTable();
 
 	}
@@ -58,9 +59,9 @@ public class GenerateLatex {
 				
 				latexContent.append(fileNameWithoutExtension);
 				latexContent.append(between);
-				latexContent.append(df10.format(pValues[counter][0]));
+				latexContent.append(Composer.formatPValue(pValues[counter][0]));
 				latexContent.append(between);
-				latexContent.append(df10.format(pValues[counter][1]));
+				latexContent.append(Composer.formatPValue(pValues[counter][1]));
 				latexContent.append(end);
 				counter++;
 			}
