@@ -6,6 +6,7 @@ The undirected edges between the representations define possible refactorings. T
 The directions of arrows in the possible refactorings will be discussed in Section~\ref{sec:results} based on frequency of occurrence in the community and the understandability of the regexes using 180 study participants.
 
 Next, we describe each group in detail:
+\todoNow{Katie, please look at these group descriptions, editing and making notes if more info is needed.}
 \paragraph{CCC Group}
 The character class regex language feature is a fundamental feature found in all language flavors since GREP (check this?).  A custom character class (CCC) enables the user to specify a set of alternative characters, any of which can match.  For instance, the regex \verb!c[ao]t! will match both the word `cat' and the word `cot' because the letter between `c' and `t' can be an `a' or an `o'.  We use the term `custom' to differentiate these classes created by the user from the default character classes provided by every(check this?) regex language: \verb!\d!, \verb!\D!, \verb!\w!, \verb!\W!, \verb!\s!, \verb!\S! and \verb!.!.
 
@@ -227,6 +228,7 @@ $\mu = 116$, $\sigma = 275$
 \end{figure}
 \subsubsection{Analysis}
 \label{communityanalysis}
+\todoNow{Katie, please look at this section about how patterns are chosen into nodes, editing and making notes if more info is needed.}
 For the nodes that only require a particular feature to be present, the features identified by the PCRE parser were used to decide membership of patterns in nodes.  These feature-requiring nodes are as follows: D1 requires DBB repetition, D2 requires QST repetition, S1 requires SNG repetition, L1 requires LWB repetition, L2 requires KLE repetition, L3 requires ADD repetition, and C3 requires the negated custom character class NCCC.
 
 For some nodes, the presence of a feature is not enough to determine membership, but the presence of a feature and a simple regex executed directly on the pattern can decide membership.  The nodes decided in this way are as follows: D3 requires an OR and a match of the regex \verb!"(?<=[|(]|^)([^ \\]+)\|\1\1"! which captures some (non-space or slash) characters at the beginning of a group, within an OR, or at the beginning of a pattern, then sees an OR-bar and then sees the captured characters repeated twice.
@@ -241,13 +243,9 @@ T2 requires a LIT feature and must match the regex \verb!(\\x[a-f0-9A-F]{2})! wh
 
 T3 requires that a character is wrapped in a CCC, so the pattern \verb!(?<=\[).(?=\])! was used to find characters wrapped in brackets.  T1 requires that no characters are wrapped in brackets or are hex or octal characters, so the regex \verb!(\\x[a-f0-9A-F]{2})|((\\0\d*)|(\\\d{3}))! was used to find any hex or octal codes.  Any pattern that matched either of these regexes was not accepted as belonging to node T1, otherwise all nodes containing any LIT feature were accepted into T1.
 
-For the remaining nodes, the sequence of tokens produced by the PCRE parser was transformed into a string so that a regex could be executed on the tokenStream itself, avoiding some pitfalls with special characters or pattern nesting.  S2 requires any element to be repeated at least once, so the regex \verb!(ELEMENT•[^ ]+)\1! was used.  C1 requires
+For the remaining nodes, the sequence of tokens produced by the PCRE parser was transformed into a bullet-delimited string so that a regex could be executed on the token sequence itself, avoiding some pitfalls with special characters and pattern nesting.  S2 requires any element to be repeated at least once, so the regex \verb!(ELEMENT!\textbullet\verb![^ ]+)\1! was used to find a repeated element.
 
-Requiring the tokenStream...
-S2,C1,C2,C4,C5
-
-
-\todoNow{complex ones...S2,all CCC, T1,T3}
+\todoNow{Carl finish complex ones...C1,C2,C4,C5}
 
 This addressed \emph{RQ1}.
 
@@ -264,14 +262,19 @@ For each of the 26 groups of regexes, we used Hampi~\cite{hampi} to identify fiv
 
 Once all the regexes and matching strings were collected, we created tasks for the MTurk participants as follows: randomly select a regex from ten of the 26 groups. Randomize the order of the regexes, as well as the order of the matching strings for each regex. After adding a question asking the participant to compose a string that the regex matches, this creates one task on MTurk. This process was completed until each of the 60 regexes appeared in 30 HITs, resulting in a total of 180 HITs.
 
-Workers were pre-qualified by answering questions regarding some basics of regex knowledge. These questions were multiple-choice and asked the worker to describe what the following regexes mean: \verb!a+!, \verb!`(r|z)'!, \verb!`\d'!, \verb!`q*'!, and \verb![p-s]'!. To pass the qualification, workers had to answer four of the five questions correctly. Of all workers who took the test, \todoNow{x\%} passed.
+Workers were pre-qualified by answering questions regarding some basics of regex knowledge. These questions were multiple-choice and asked the worker to describe what the following regexes mean: \verb!a+!, \verb!`(r|z)'!, \verb!`\d'!, \verb!`q*'!, and \verb![p-s]'!. To pass the qualification, workers had to answer four of the five questions correctly. \todoNow{How to get qualification success rate from MT interface?}
 
-Workers were paid \todoNow{How much?} for successfully completing a HIT.
-The average completion time was \todoNow{X:YZ}.
-In total, X HITs were rejected due to \todoNow{rejection reason} and rejected HITs were returned to MTurk to be completed by others.
+Workers were paid \$3.00 for successfully completing a HIT, and were clearly instructed to complete only one HIT.  The average completion time for accepted HITs was 682 seconds (11 mins, 22 secs).  A total of 241 HITs were submitted - of those 55 were rejected, and 6 duplicates were ignored, always using the first accepted submission so as to obtain a value for each of the 180 distinct tasks.
+Of the 55 rejected HITs, 48 were rushed through by one person leaving many answers blank and spending an average of 454 seconds per hit, 4 other HITs were also rejected because a worker had submitted more than one HIT, one was rejected for not answering composition sections, and one was rejected because it was missing data for 3 questions.  Rejected HITs were returned to MTurk to be completed by others.
 
-
-\todoNow{insert a screen shot of one MTurk regex and matching strings with composition question}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{illustrations/exampleQuestion}
+\vspace{-12pt}
+\caption{Example of one HIT Question}
+\vspace{-6pt}
+\label{fig:exampleQuestion}
+\end{figure}
 
 %In Mechanical Turk, we designed a 180 tasks composed of 10 matching subtasks, so that each of the 60 CRs had 30 separate observations (each an average of 5 \emph{example string} problems).  These 1800 observations are what the analysis will focus on. The ordering of the regexes in each HIT was random to control for learning effects.
 

@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 %\begin{table}[t]
 %\caption{Summary of Refactoring Directions \label{summaryResults}}
 %\begin{center}
@@ -46,21 +47,22 @@
 
 \section{Results}
 \label{sec:results}
-Table~\ref{summaryResults} summarizes the results of the RQs.  \todoMid{This table does not show anything about significance... I wonder if we could do something like $\rightarrow$ for no significance (just based on averages) and $\Rightarrow$ for significance... just a thought. We could do a test of two proportions for the Com column. Some entries will be n/a for match and compose}
+Table~\ref{summaryResults} summarizes the results of the RQs.
 
 \input{table/nodeCountTable}
 
+\todoNow{Katie, can you please check your table and section references?  I'm finding it a little confusing, something might be missing.}
 \subsection{RQ1: Community Support}
-Figure~\ref{table:nodeCount} presents the frequencies with which each representation appears in a regex pattern and in a project scraped from GitHub. Recall that the patters are all unique and could appear in multiple projects, hence the project support is used to show how pervasive the representation in across the whole community. For example, representation C1 matches when a custom character class uses ranges and it appears in 2,479 (18.2\%) of all the patterns but 810 (52.5\%) of the projects. Representation D1 appears in 367 (2.7\%) of the patterns but only 242 (15.7\%) of the projects. In contrast, representation T3 appears in 60 \emph{fewer} patterns but 26 \emph{more} projects, indicating that D1 is more concentrated in a few projects and T3 is more widespread across projects. 
+Figure~\ref{table:nodeCount} presents the frequencies with which each representation appears in a regex pattern and in a project scraped from GitHub. Recall that the patters are all unique and could appear in multiple projects, hence the project support is used to show how pervasive the representation in across the whole community. For example, representation C1 matches when a custom character class uses ranges and it appears in 2,479 (18.2\%) of all the patterns but 810 (52.5\%) of the projects. Representation D1 appears in 367 (2.7\%) of the patterns but only 242 (15.7\%) of the projects. In contrast, representation T3 appears in 60 \emph{fewer} patterns but 26 \emph{more} projects, indicating that D1 is more concentrated in a few projects and T3 is more widespread across projects.
 
-Using the pattern frequency as a guide, we can create refactoring recommendations based on community frequency. For example, since C1 is more prevalent than C2, we could say that C2 is smelly since it could better conform to the community standard if expressed as C1. Thus, we might recommend a $C2 \Rightarrow C1$ refactoring. Table~\ref{summaryResults} presents these recommendations for each pair of representations within each equivalence class. The \emph{Comm} column is populated based on the findings of \emph{RQ1}. The findings for \emph{RQ2} and \emph{RQ3} are in the \emph{Match} and \emph{Compose} columns, respectively. 
+Using the pattern frequency as a guide, we can create refactoring recommendations based on community frequency. For example, since C1 is more prevalent than C2, we could say that C2 is smelly since it could better conform to the community standard if expressed as C1. Thus, we might recommend a $C2 \Rightarrow C1$ refactoring. Table~\ref{summaryResults} presents these recommendations for each pair of representations within each equivalence class. The \emph{Comm} column is populated based on the findings of \emph{RQ1}. The findings for \emph{RQ2} and \emph{RQ3} are in the \emph{Match} and \emph{Compose} columns, respectively.
 
 
 
 
 \subsection{RQ2: Understandability}
-Table~\ref{table:testedEdgesTable} shows average understandability values. \todoNow{What is the nExp column?}
-
+Table~\ref{table:testedEdgesTable} shows average understandability.
+\todoNow{add more info about understandability results}
 \input{table/testedEdgesTable}
 
 
@@ -91,6 +93,7 @@ In the understandability graph, we represent a directed edge from $C2 \rightarro
 \subsubsection{Topological Sorting}
 Once the graphs are built for each equivalence class and each set of metrics, community standards and understandability, we apply a modified version of Kahn's topological sorting algorithm to obtain a total ordering on the nodes, as shown in Algorithm~\ref{topological}. In Kahn's algorithm, all nodes without incoming edges are added to a set $S$ (Line~\ref{addnoincomingtos}), which represents the order in which nodes are explored in the graph. For each $n$ node in $S$ (Line~\ref{beginwhile}), all edges from $n$ are removed and $n$ is added to the topologically sorted list $L$ (Line~\ref{addntoL}). If there exists a node $m$ that has no incoming edges, it is added to $S$.  In the end, $L$ is a topologically sorted list. 
 
+\todoNow{Should e be m on line 10?}
 \begin{algorithm}
   \caption{Modified Topological Sort}\label{topological}
   \begin{algorithmic}[1]
@@ -110,13 +113,13 @@ Once the graphs are built for each equivalence class and each set of metrics, co
 	\EndFor
 	\State If multiple nodes were added to $S$ in this iteration, mark those as a tie \label{markTie2}
 \EndWhile
-\State For all ties in $L$, use a tiebreaker. 
+\State For all ties in $L$, use a tiebreaker.
   \end{algorithmic}
 \end{algorithm}
 
-One downside to Kahn's algorithm is that the total ordering is not unique. Thus, we mark ties in order to identify when a tiebreaker is needed to enforce a total ordering on the nodes. For example, on the understandability graph in Figure~\ref{fig:graphsforanalysis}b, there is a tie between C3 and C2 since both have no incoming edges, so they are marked as a tie on Line~\ref{markTie1}. Further, when $n=C2$ on line~\ref{setn}, both C5 and C4 are added to $S$ on Line~\ref{addToS}, thus the tie between them is parked on line~\ref{markTie2}. In these cases, a tiebreaker is needed. 
+One downside to Kahn's algorithm is that the total ordering is not unique. Thus, we mark ties in order to identify when a tiebreaker is needed to enforce a total ordering on the nodes. For example, on the understandability graph in Figure~\ref{fig:graphsforanalysis}b, there is a tie between C3 and C2 since both have no incoming edges, so they are marked as a tie on Line~\ref{markTie1}. Further, when $n=C2$ on line~\ref{setn}, both C5 and C4 are added to $S$ on Line~\ref{addToS}, thus the tie between them is parked on line~\ref{markTie2}. In these cases, a tiebreaker is needed.
 
-Breaking ties on the community standards graph comes down to choosing the representation that appears in a larger number of projects, since it is more widespread across the community. Breaking ties in the understandability graph is trickier. Using Table~\ref{table:testedEdgesTable}, we compute the average matching score for all instances of each representation, and do the same for the composition score. For example, C4 appears in E6, E2 and E9 with an overall average matching score of 0.81 and composition score of 24.3. C5 appears in E3 and E7 (we omit E8 as C5 is confounded with T1) with an average matching of 0.87 and composition of 28.28. Thus, C5 is favored to C4 and appears higher in the sorting. 
+Breaking ties on the community standards graph comes down to choosing the representation that appears in a larger number of projects, since it is more widespread across the community. Breaking ties in the understandability graph is trickier. Using Table~\ref{table:testedEdgesTable}, we compute the average matching score for all instances of each representation, and do the same for the composition score. For example, C4 appears in E6, E2 and E9 with an overall average matching score of 0.81 and composition score of 24.3. C5 appears in E3 and E7 (we omit E8 as C5 is confounded with T1) with an average matching of 0.87 and composition of 28.28. Thus, C5 is favored to C4 and appears higher in the sorting.
 
 After running the topological sort in Algorithm~\ref{topological}, we have a total ordering on nodes for each graph. After breaking ties as described, the topological sorts for all graphs are shown in Table~\ref{topologicalResults}.  For example, given the graphs in Figure~\ref{fig:graphsforanalysis}a and Figure~\ref{fig:graphsforanalysis}b, the topological sorts are {\tt C1 C3 C2 C4 C5} and {\tt C1 C5 C4 C2 C3}, respectively. 
 
@@ -127,7 +130,6 @@ After running the topological sort in Algorithm~\ref{topological}, we have a tot
 				& CCC			& DBB 		& LBW & SNG & LIT \\ \hline
 Community Standards		& C1 C3 C2 C4 C5 	& D2 D1 D3	&  L3 L2 L1 	& S2 S1 S3 	& T1 T3 T2 T4 \\  
 Understandability 			& C1 C5 C4 C2 C3 	& D3 D1 D2 	& L3 L2		& S2 S1		& T1 T2 T4 T3 \\ 
-
 \end{tabular}
 \end{table*}
 
@@ -156,6 +158,7 @@ CCC and DBB are shuffled quite differently, and LBW and SNG don't have enough in
 
 
 
+
 %\paragraph{CCC Group}
 %This group is full of disagreement among the metrics. Five pairs were evaluated by all methods and only one pair, $C1 \Leftarrow C4$, has a somewhat clear winner with C1 (note that the matching metric is equivalent). All the others have disagreement between the community and understandability, or between the understandability metrics, matching and composition. 
 %
@@ -169,6 +172,22 @@ CCC and DBB are shuffled quite differently, and LBW and SNG don't have enough in
 %
 %\paragraph{SNG Group}
 %
+%=======
+%\paragraph{CCC Group}
+%This group is full of disagreement among the metrics. Five pairs were evaluated by all methods and only one pair, $C1 \Leftarrow C4$, has a somewhat clear winner with C1 (note that the matching metric is equivalent). All the others have disagreement between the community and understandability, or between the understandability metrics, matching and composition.
+%
+%
+%\paragraph{DBB Group}
+%D2 has the most community support appearing in nearly 14\% of the patterns, yet the understandability metrics favor both D1 and D3 over D2. The results are consistent across the board that D3 is always favorable to D1.
+%
+%\paragraph{LWB Group}
+%\todoNow{Carl filling in these and adding some observations and context}
+%
+%\paragraph{LIT Group}
+%
+%\paragraph{SNG Group}
+%
+%>>>>>>> 61b90cac1ea534594cd76837430bc23ee51cc916
 
 
 
