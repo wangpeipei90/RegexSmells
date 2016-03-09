@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,8 +26,8 @@ public class GenerateLatex {
 	
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-		//createTestedEdgesTable();
-		createGroupTable();
+		createTestedEdgesTable();
+		//createGroupTable();
 
 	}
 	
@@ -93,7 +94,7 @@ public class GenerateLatex {
 					IOUtil.ORIGINAL + "compositionAnswers.tsv"), "\t");
 				List<AnswerColumn> compositionAnswers = getCompositionAnswerColumns(codePatternMap, codeAnswerMap);
 			
-			ArrayList<EdgeExperimentsList> edges = new ArrayList<EdgeExperimentsList>(20);
+			TreeSet<EdgeExperimentsList> edges = new TreeSet<EdgeExperimentsList>();
 			List<String> sourceLines = IOUtil.getLines(IOUtil.dataPath+IOUtil.ORIGINAL+sourceFilename);
 			for(String line : sourceLines){
 				String[] parts = line.split("\t");
@@ -102,21 +103,25 @@ public class GenerateLatex {
 				int nPairs = (parts.length-2)/2;
 				LinkedList<ExperimentPair> experiments = new LinkedList<ExperimentPair>();
 				for(int i = 0;i<nPairs;i++){
-					System.out.println("adding new ExperimentPair with parts: "+parts[i+2]+","+parts[i+2+nPairs]);
 					experiments.add(new ExperimentPair(parts[i+2],parts[i+2+nPairs],pairsFrom2,pairsFrom3, compositionAnswers));
 				}
 				edges.add(new EdgeExperimentsList(edgeIndex,edgeDescription,experiments));
 			}
-			String caption = "Averaged Info About Edges";//What Edges Between Equivalent Nodes Have Significantly Different Readability (By Matching Accuracy And Composition Tasks)?
+			String caption = "Averaged Info About Edges (sorted by lowest of either P value)";//What Edges Between Equivalent Nodes Have Significantly Different Readability (By Matching Accuracy And Composition Tasks)?
 			String edgeTableHeader = "\\begin{table*}\\begin{small}\\begin{center}\\caption{"+caption+"}\\label{table:testedEdgesTable}\\begin{tabular}\n"+
 			"{llccccccc}\n"+
-			"index & edge & nExp & match1 & match2 & Pmatch & comp1 & comp2 & Pcomp \\\\\n"+
+			"Index & Representations & Pairs & Match1 & Match2 & $H_0: \\mu_{match1} = \\mu_{match2}$ & Compose1 & Compose2 &  $H_0: \\mu_{comp1} = \\mu_{comp2}$ \\\\\n"+
 			"\\toprule[0.16em]\n";
 			String edgeTableFooter = "\\bottomrule[0.13em]\\end{tabular}\\end{center}\\end{small}\\end{table*}\n";
 			StringBuilder latexContent = new StringBuilder();
 			latexContent.append(edgeTableHeader);
+			int rowCounter = 0;
 			for(EdgeExperimentsList eel : edges){
-				latexContent.append(eel.getLatexRow());
+				if(rowCounter++ == 5){
+					latexContent.append("\\midrule[0.16em]\n");
+				}
+				latexContent.append(eel.getLatexRow(rowCounter));
+	
 			}		
 			latexContent.append(edgeTableFooter);
 			File edgeTableFile = new File(IOUtil.paperPath+IOUtil.TABLE+"testedEdgesTable.tex");

@@ -56,7 +56,6 @@ public class ExperimentPair {
 			}
 		}
 		for(AnswerColumn compAC : compositionAnswers){
-			System.out.println("isFrom2: "+isFrom2+" mcisNull: "+matchingColumns[0]+" compACisNull: "+compAC);
 			if(matchingColumns[0].getRegexCode().equals(compAC.getRegexCode())){
 				composingColumns[0] = compAC;
 			}
@@ -74,10 +73,10 @@ public class ExperimentPair {
 	}
 	
 	public double getComposingAvgLeft(){
-		return composingColumns[0].getX();
+		return composingColumns[0].getX()/(composingColumns[0].getCount()+0.0);
 	}
 	public double getComposingAvgRight(){
-		return composingColumns[1].getX();
+		return composingColumns[1].getX()/(composingColumns[1].getCount()+0.0);
 	}
 
 	public AnswerColumn[] getMatchingColumns() {
