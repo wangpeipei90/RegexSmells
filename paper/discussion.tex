@@ -2,7 +2,28 @@
 \label{sec:discussion}
 
 \subsection{Further Refactoring Opportunities}
-\todoMid{discuss opportunities}
+A particular community (like Mozilla or some startup) may want to include regex refactoring into their coding standards.  We anticipate that having one preferred way to express a particular regex may increase regex understandability in the codebase for maintainers, leading to a reduction in errors related to misunderstanding regexes.
+
+We looked at 5 groups that cover the most frequently used features, but other refactorings exist that deserve further study.  Here are a few:
+\begin{description}
+\item[Single line option]  \verb!'''(.|\n)+'''! is equivalent to \verb!(?s)'''(.)+'''!
+\item[Multi line option]  \verb!(?m)G\n! is equivalent to \verb!(?m)G$!
+\item[Multi line option]  \verb!(?i)[a-z]! is equivalent to \verb![A-Za-z]!
+\item[Backreferences]  \verb!(X)q\1! is equivalent to \verb!(?P<name>X)q\g<name>!
+\item[Word Boundaries]  \verb!\bZ! is equivalent to \verb!((?<=\w)(?=\W)|(?<=\W)(?=\w))Z!
+\end{description}
+
+This is not meant to be an exhaustive list - regex languages with richer feature sets may have even more equivalence classes available.
+
+One terribly obvious application of our refactorings is to search existing codebases for regex patterns that are candidates for refactoring, allowing a person to quickly go through a list of possible changes and improve the understandability of the regexes in their codebase.
+
+Maintainers of code that is intentionally obfuscated for security purposes may want to develop regexes that they understand and then automatically transform them to equivalent but less understandable regexes.
+
+One fundamental concept is when to use regexes for simple parsing, and when to write a full-fledged parser (for example, when parsing HTML).  Regexes that are trying to parse HTML, XML or similar languages could be refactored not into a better regex, but into some code with an equivalent intention that does parsing much better.
+
+In our treatment, we have looked at all ranges as equivalent, all defaults as equivalent, and relied on many such generalizations.  By creating a much more granular model of regular expression refactorings (perhaps treating \verb!\d! and \verb!\w! quite separately), and making sure to carefully evaluate alternative representations of the most frequently used specific patterns (like \verb!\\s*! and \verb!.+!), many more strong and useful refactorings could be identified.
+
+
 
 \subsection{Threats to Validity}
 
@@ -11,7 +32,7 @@ We measure understandability of regexes using two metrics, matching and composit
 
 \todoMid{what about the threat of too few examples per node?}
 
-We treated unsure responses as omissions and did not count those against the participants. Thus, if a participant answered two strings correctly with match/not match, and marked the other three strings as unsure, then this was 2/2 correct, not 2/5. 
+We treated unsure responses as omissions and did not count those against the participants. Thus, if a participant answered two strings correctly with match/not match, and marked the other three strings as unsure, then this was 2/2 correct, not 2/5.
 
 \subsubsection{External}
 Participants in our survey came from MTurk, which may not be representative of people who read and write regexes on a regular basis.
