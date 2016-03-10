@@ -45,97 +45,97 @@
 %\end{table}
 
 
-\section{Results}
-\label{sec:results}
-
-
-
-
-
-
-\subsection{RQ3: Overlap in Refactorings}
-
-%\begin{figure}[tb]
-%\centering
-%\includegraphics[width=\columnwidth]{illustrations/exampleUsage.eps}
-%\vspace{-12pt}
-%\caption{Example of one regex utilization}
-%\vspace{-6pt}
-%\label{fig:exampleUsage}
-%\end{figure}
-
-
-
-
-
-
-
-
-
-%\paragraph{CCC Group}
-%This group is full of disagreement among the metrics. Five pairs were evaluated by all methods and only one pair, $C1 \Leftarrow C4$, has a somewhat clear winner with C1 (note that the matching metric is equivalent). All the others have disagreement between the community and understandability, or between the understandability metrics, matching and composition.
-%
-%
-%\paragraph{DBB Group}
-%D2 has the most community support appearing in nearly 14\% of the patterns, yet the understandability metrics favor both D1 and D3 over D2. The results are consistent across the board that D3 is always favorable to D1.
-%
-%\paragraph{LWB Group}
-%
-%\paragraph{LIT Group}
-%
-%\paragraph{SNG Group}
-%
-%=======
-%\paragraph{CCC Group}
-%This group is full of disagreement among the metrics. Five pairs were evaluated by all methods and only one pair, $C1 \Leftarrow C4$, has a somewhat clear winner with C1 (note that the matching metric is equivalent). All the others have disagreement between the community and understandability, or between the understandability metrics, matching and composition.
-%
-%
-%\paragraph{DBB Group}
-%D2 has the most community support appearing in nearly 14\% of the patterns, yet the understandability metrics favor both D1 and D3 over D2. The results are consistent across the board that D3 is always favorable to D1.
-%
-%\paragraph{LWB Group}
-%\todoNow{Carl filling in these and adding some observations and context}
-%
-%\paragraph{LIT Group}
-%
-%\paragraph{SNG Group}
-%
-%>>>>>>> 61b90cac1ea534594cd76837430bc23ee51cc916
-
-
-
-
-%
-%(for rough draft...)
-%
-%Looks like M6 and M8 are the best meta-refactorings according to ANOVA.
-%If you peek at MTResults Processing.csv on google docs, M6 has the best refactoring...every OCTAL type should be converted to an OR or preferably a CCC.
-%
-%M8 has a weak P value, but still ok in one case (0.12) and consistently says that 'aa*' should be written as 'a+'.
-%
-%Looks like M0, M1, M2, M3 and M9 are very dependent on the regex chosen, so regex-specific refactorings like:
-%0.1401 \verb!&d([aeiou][aeiou])z'    &d([aeiou]{2})z'!
-%0.075   \verb![\t\r\f\n ]'    [\s]'!
-%0.1024  \verb![a-f]([0-9]+)[a-f]' [a-f](\d+)[a-f]'!
-%0.1271  \verb![\{][\$](\d+[.]\d)[}]'!
-%\verb!\\\{\\\$(\d+\.\d)\}'!
-%(from M0,M1,M2,M9 respectively)
-%
-%have okay P-values and may indicate regex-specific refactorings, but do not indicate an overall trend for that type of refactoring.
-%Notice that M3 does not even have a strong p-value candidate, but this may be thrown off because of the very confusing regex chosen for CCC:
-%0.78    0.79
-%\verb!xyz[_\[\]`\^\\]'!    \verb!xyz[\x5b-\x5f]'!
-%which has a lot of escape characters, so that the hex group was easier to understand than the CCC.
+%\section{Results}
+%\label{sec:results}
 %
 %
 %
-%Meanwhile M4,M5 and M7 have both ambiguous p-values and anova results.  But this is still a finding: that no refactoring is needed between things like:
-%\verb!(q4fab|ab)'! (\verb!(q4f){0,1}ab)'!
-%\verb!tri[abcdef]3'!   \verb!tri(a|b|c|d|e|f)3'!
-%\verb!&(\w+);'!    \verb!&([A-Za-z0-9_]+);'!
-%(from M4,M5,M7 respectively)
 %
-%Although one refactoring from M5 might be of slight interest:
-%0.1196  FALSE   \verb!tri[a-f]3'!  \verb!tri(a|b|c|d|e|f)3'!
-
-%\todoMid{more data from the composition problems}
+%
+%
+%\subsection{RQ3: Overlap in Refactorings}
+%
+%%\begin{figure}[tb]
+%%\centering
+%%\includegraphics[width=\columnwidth]{illustrations/exampleUsage.eps}
+%%\vspace{-12pt}
+%%\caption{Example of one regex utilization}
+%%\vspace{-6pt}
+%%\label{fig:exampleUsage}
+%%\end{figure}
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%%\paragraph{CCC Group}
+%%This group is full of disagreement among the metrics. Five pairs were evaluated by all methods and only one pair, $C1 \Leftarrow C4$, has a somewhat clear winner with C1 (note that the matching metric is equivalent). All the others have disagreement between the community and understandability, or between the understandability metrics, matching and composition.
+%%
+%%
+%%\paragraph{DBB Group}
+%%D2 has the most community support appearing in nearly 14\% of the patterns, yet the understandability metrics favor both D1 and D3 over D2. The results are consistent across the board that D3 is always favorable to D1.
+%%
+%%\paragraph{LWB Group}
+%%
+%%\paragraph{LIT Group}
+%%
+%%\paragraph{SNG Group}
+%%
+%%=======
+%%\paragraph{CCC Group}
+%%This group is full of disagreement among the metrics. Five pairs were evaluated by all methods and only one pair, $C1 \Leftarrow C4$, has a somewhat clear winner with C1 (note that the matching metric is equivalent). All the others have disagreement between the community and understandability, or between the understandability metrics, matching and composition.
+%%
+%%
+%%\paragraph{DBB Group}
+%%D2 has the most community support appearing in nearly 14\% of the patterns, yet the understandability metrics favor both D1 and D3 over D2. The results are consistent across the board that D3 is always favorable to D1.
+%%
+%%\paragraph{LWB Group}
+%%\todoNow{Carl filling in these and adding some observations and context}
+%%
+%%\paragraph{LIT Group}
+%%
+%%\paragraph{SNG Group}
+%%
+%%>>>>>>> 61b90cac1ea534594cd76837430bc23ee51cc916
+%
+%
+%
+%
+%%
+%%(for rough draft...)
+%%
+%%Looks like M6 and M8 are the best meta-refactorings according to ANOVA.
+%%If you peek at MTResults Processing.csv on google docs, M6 has the best refactoring...every OCTAL type should be converted to an OR or preferably a CCC.
+%%
+%%M8 has a weak P value, but still ok in one case (0.12) and consistently says that 'aa*' should be written as 'a+'.
+%%
+%%Looks like M0, M1, M2, M3 and M9 are very dependent on the regex chosen, so regex-specific refactorings like:
+%%0.1401 \verb!&d([aeiou][aeiou])z'    &d([aeiou]{2})z'!
+%%0.075   \verb![\t\r\f\n ]'    [\s]'!
+%%0.1024  \verb![a-f]([0-9]+)[a-f]' [a-f](\d+)[a-f]'!
+%%0.1271  \verb![\{][\$](\d+[.]\d)[}]'!
+%%\verb!\\\{\\\$(\d+\.\d)\}'!
+%%(from M0,M1,M2,M9 respectively)
+%%
+%%have okay P-values and may indicate regex-specific refactorings, but do not indicate an overall trend for that type of refactoring.
+%%Notice that M3 does not even have a strong p-value candidate, but this may be thrown off because of the very confusing regex chosen for CCC:
+%%0.78    0.79
+%%\verb!xyz[_\[\]`\^\\]'!    \verb!xyz[\x5b-\x5f]'!
+%%which has a lot of escape characters, so that the hex group was easier to understand than the CCC.
+%%
+%%
+%%
+%%Meanwhile M4,M5 and M7 have both ambiguous p-values and anova results.  But this is still a finding: that no refactoring is needed between things like:
+%%\verb!(q4fab|ab)'! (\verb!(q4f){0,1}ab)'!
+%%\verb!tri[abcdef]3'!   \verb!tri(a|b|c|d|e|f)3'!
+%%\verb!&(\w+);'!    \verb!&([A-Za-z0-9_]+);'!
+%%(from M4,M5,M7 respectively)
+%%
+%%Although one refactoring from M5 might be of slight interest:
+%%0.1196  FALSE   \verb!tri[a-f]3'!  \verb!tri(a|b|c|d|e|f)3'!
+%
+%%\todoMid{more data from the composition problems}
