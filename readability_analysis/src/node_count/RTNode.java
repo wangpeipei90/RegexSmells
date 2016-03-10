@@ -26,7 +26,7 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 	private final Pattern filter;
 	private static final Pattern CCC_WITH_RANGE = Pattern.compile("CHARACTER_CLASS•DOWN•(((.|\\\\0x..)|(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W))•)*(RANGE•DOWN•(.|\\\\0x..)•(.|\\\\0x..)•UP•)(((.|\\\\0x..)|(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W)|(RANGE•DOWN•(.|\\\\0x..)•(.|\\\\0x..)•UP))•)*UP•");
 	private static final Pattern CCC_WITH_DEFAULT = Pattern.compile("CHARACTER_CLASS•DOWN•(((.|\\\\0x..)|(RANGE•DOWN•(.|\\\\0x..)•(.|\\\\0x..)•UP))•)*(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W)•(((.|\\\\0x..)|(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W)|(RANGE•DOWN•(.|\\\\0x..)•(.|\\\\0x..)•UP))•)*UP•");
-	private static final Pattern CCC_WITH_DEFAULT_OR_RANGE = Pattern.compile("CHARACTER_CLASS•DOWN•(((\\\\0x..){1,2}|.)•)*((RANGE•DOWN•((\\\\0x..){1,2}|.)•((\\\\0x..){1,2}|.)•UP•)|(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W)•)+(((\\\\0x..){1,2}|.|(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W)|(RANGE•DOWN•((\\\\0x..){1,2}|.)•((\\\\0x..){1,2}|.)•UP))•)*UP•");
+	private static final Pattern CCC_WITH_DEFAULT_OR_RANGE = Pattern.compile("CHARACTER_CLASS•DOWN•(((\\\\0x..)|.)•)*((RANGE•DOWN•((\\\\0x..)|.)•((\\\\0x..)|.)•UP•)|(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W)•)+(((\\\\0x..)|.|(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W)|(RANGE•DOWN•((\\\\0x..)|.)•((\\\\0x..)|.)•UP))•)*UP•");
 
 	//private static final Pattern S2_repeatingChars = Pattern.compile("(ELEMENT•DOWN•.•UP•)\\1+");
 	private static final Pattern S2_repeatingElement = Pattern.compile("(ELEMENT•[^ ]+)\\1");
@@ -39,7 +39,7 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 	private static final Pattern CCC_WRAPPED_ESCAPE_CHAR = Pattern.compile("(?<=\\[)([.^$*+?(){}\\\\|\\[])(?=\\])");
 	private static final Pattern CCC_WRAPPED_NONESCAPE_CHAR = Pattern.compile("(?<=\\[)([^.^$*+?(){}\\\\|\\[])(?=\\])");
 	private static final Pattern HEX_OR_OCTAL = Pattern.compile("(\\\\x[a-f0-9A-F]{2})|((\\\\0\\d*)|(\\\\\\d{3}))");
-	private static final Pattern C5_ORofLITERALS_OR_DEFAULTS = Pattern.compile("OR•DOWN•(ALTERNATIVE•DOWN•ELEMENT•DOWN•(.|\\\\0x..|\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W|ANY)•UP•UP•)+UP•");
+	private static final Pattern C5_ORofLITERALS_OR_DEFAULTS_OR_RANGES = Pattern.compile("OR•DOWN•(ALTERNATIVE•DOWN•ELEMENT•DOWN•(.|\\\\0x..|\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W|ANY|(RANGE•DOWN•(.|\\\\0x..)•(.|\\\\0x..)•UP•))•UP•UP•)+UP•");
 
 	public RTNode(String name, FeatureSetClass requiredFeatures, Pattern filter) {
 		super();
@@ -159,7 +159,7 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 	
 	private static boolean matchesC5(RegexProjectSet regex) {
 		String tokenStream = getTokenStream(regex);
-		Matcher m1 = C5_ORofLITERALS_OR_DEFAULTS.matcher(tokenStream);
+		Matcher m1 = C5_ORofLITERALS_OR_DEFAULTS_OR_RANGES.matcher(tokenStream);
 		return (m1.find());
 	}
 
