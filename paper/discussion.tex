@@ -1,7 +1,19 @@
 \section{Discussion}
 \label{sec:discussion}
+\subsection{Opportunities For Future Work}
+\paragraph{Reinforcing/Improving This Study}
+Future work could completely cover all edges between equivalence class nodes.  It could also focus on gathering regular expressions from a particular project type (website, application, library) or maturity level (homework, small open source project, gigantic super-project like Google Chrome) and focus on gathering understandability data from participants most relevant to the selected focus.  Future work could also directly ask some users to identify what they believe to be the more understandable between two equivalent representations.  The specific regexes used to gage understandability could be pulled directly from the target community's project set (most frequently composed regexes, most buggy regexes, regexes on the hottest execution paths, etc.)
 
-\subsection{Further Refactoring Opportunities}
+\paragraph{Exploring Equivalence Class Models}
+We looked at 5 equivalence classes, each with 3 to 5 nodes.  Future work could
+
+\paragraph{Exploring Understandability Impact}
+In another study, we did a survey where software professionals indicated that understandability of regexes they find in source code is a major pain point.  In this study, our participants indicated that they read about twice as many regexes as they compose.  What is the impact on maintainers, developers and contributors to open-source projects of not being able to understand a regex that they find in the code they are working with?  Presumably this is a frustrating experience - how much does a confusing regex slow down a software professional?  What bugs or other negative factors can be attributed to or associated with regexes that are difficult to understand.  How often does this happen and in what settings?  Future work could tailor an in-depth exploration of the overall costs of confusing regexes and the potential benefits of refactoring or other treatments for confusing regexes.
+
+\paragraph{Exploring Refactoring Applications}
+
+\paragraph{DBB Group}
+
 A particular community (like Mozilla or some startup) may want to include regex refactoring into their coding standards.  We anticipate that having one preferred way to express a particular regex may increase regex understandability in the codebase for maintainers, leading to a reduction in errors related to misunderstanding regexes.
 
 We looked at 5 groups that cover the most frequently used features, but other refactorings exist that deserve further study.  Here are a few:
