@@ -49,7 +49,7 @@ Next, we provide descriptions of each representation in this equivalence class:
 %.  For example the character class \verb![abc]! is equivalent to the OR \verb!(a|b|c)!.
 \end{description}
 
-\todoNow{Is the example in C3 also a member of C1 because it contains a range? Or does the carat trump this and throw it in C3 only?}
+\todoNow{Is the example in Figure 1 of C3 also a member of C1 because it contains a range? Or does the carat trump this and throw it in C3 only?}
 
 \paragraph{DBB Group}
 The Double-Bounded (DBB) group contains all regex patterns that use some repetition defined by a lower and upper boundary.  For example the pattern \verb!pB{1,3}s! represents a \verb!p! followed by one to three sequential \verb!B! patterns, then followed by a single \verb!s!.  This will match ``pBs", ``pBBs", and ``pBBBs".
@@ -205,7 +205,7 @@ All regex utilizations were obtained, sans duplicates. Within a project, a dupli
 
 In collecting the set of distinct patterns for analysis,  we ignore the 12.7\%  of utilizations using flags, which can alter regex behavior.  An additional 6.5\% of utilizations contained patterns that could not be compiled because the pattern was non-static (e.g., used some runtime variable).
 The remaining 80.8\% (43,525) of the utilizations were collapsed into 13,711 distinct pattern strings.  Each of the pattern strings was pre-processed by removing Python quotes (\verb!`\\W!' becomes \verb!\\W!), unescaping escaped characters (\verb!\\W! becomes \verb!\W!) and parsing the resulting  string using an ANTLR-based, open source PCRE parser\footnote{\url{https://github.com/bkiers/pcre-parser}}.
-This parser was unable to support 0.5\% (73) of the patterns due to unsupported unicode characters.  Another 0.2\% (25) of the patterns used regex features that we  chose to exclude because they appeared very rarely (e.g., reference conditions).  An additional 0.1\% (16) of the patterns were excluded because they were empty or otherwise malformed so as to cause a parsing error.  After removing all problematic patterns as described, 13,597 distinct patterns from 3,898 projects remained to be used in this study.
+This parser was unable to support 0.5\% (73) of the patterns due to unsupported unicode characters.  Another 0.2\% (25) of the patterns used regex features that we  chose to exclude because they appeared very rarely (e.g., reference conditions).  An additional 0.1\% (16) of the patterns were excluded because they were empty or otherwise malformed so as to cause a parsing error.  After removing all problematic patterns as described, 13,597 distinct patterns from 1,544 projects remained to be used in this study.
 
 
 
@@ -275,9 +275,16 @@ We recognize the start of an OR, then allow one or more literals, defaults or ra
 
 
 \subsection{Results}
-Figure~\ref{table:nodeCount} presents the frequencies with which each representation appears in a regex pattern and in a project scraped from GitHub. Recall that the patters are all unique and could appear in multiple projects, hence the project support is used to show how pervasive the representation in across the whole community. For example, representation C1 matches when a custom character class uses ranges and it appears in 2,479 (18.2\%) of all the patterns but 810 (52.5\%) of the projects. Representation D1 appears in 367 (2.7\%) of the patterns but only 242 (15.7\%) of the projects. In contrast, representation T3 appears in 60 \emph{fewer} patterns but 26 \emph{more} projects, indicating that D1 is more concentrated in a few projects and T3 is more widespread across projects.
+Table~\ref{table:nodeCount} presents the frequencies with which each representation appears in a regex pattern and in a project scraped from GitHub. The \emph{node} column references the representations in Figure~\ref{fig:refactoringTree} and the \emph{description} column briefly describes the representation, followed by an \emph{example} from the corpus. The \emph{nPatterns} column counts the patterns that belong to the representation, followed by the percent of patterns out of 13,597.
+The \emph{nProjects} column counts the projects that contain a regex belonging to the representation, 
+followed by the percentage of projects out of 1,544.  
+Recall that the patters are all unique and could appear in multiple projects, hence the project support is used to show how pervasive the representation in across the whole community.
+For example, 2,479 of the patterns belong to the C1 representation, representing 18.2\% of the patterns. These appear in 810 projects, representing 52.5\%. 
+ Representation D1 appears in 346 (2.5\%) of the patterns but only 234 (15.2\%) of the projects. In contrast, representation T3 appears in 39 \emph{fewer} patterns but 34 \emph{more} projects, indicating that D1 is more concentrated in a few projects and T3 is more widespread across projects.
 
-Using the pattern frequency as a guide, we can create refactoring recommendations based on community frequency. For example, since C1 is more prevalent than C2, we could say that C2 is smelly since it could better conform to the community standard if expressed as C1. Thus, we might recommend a $C2 \Rightarrow C1$ refactoring. Table~\ref{summaryResults} presents these recommendations for each pair of representations within each equivalence class. The \emph{Comm} column is populated based on the findings of \emph{RQ1}. The findings for \emph{RQ2} and \emph{RQ3} are in the \emph{Match} and \emph{Compose} columns, respectively.
+Using the pattern frequency as a guide, we can create refactoring recommendations based on community frequency. For example, since C1 is more prevalent than C2, we could say that C2 is smelly since it could better conform to the community standard if expressed as C1. Thus, we might recommend a C2 $\Rightarrow$ C1 refactoring. Based on patterns along, the winning representations per equivalence class are C1, D2, T1, L2, and S2. With one exception, these are the same for recommendations based on projects. The difference is that L3 appears in more projects than L2, so it is not clear which would be more desirable based on community standards. 
+
+%Table~\ref{summaryResults} presents these recommendations for each pair of representations within each equivalence class. The \emph{Comm} column is populated based on the findings of \emph{RQ1}. The findings for \emph{RQ2} and \emph{RQ3} are in the \emph{Match} and \emph{Compose} columns, respectively.
 
 
 
