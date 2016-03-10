@@ -293,7 +293,7 @@ Composed strings were grouped by the pattern participants were attempting to mat
 \todoNow{needs to be updated with respect to no C1,T1 nodes}
 Using the regexes in the corpus as a guide, we created 60 regex patterns that were grouped into 26 equivalence groups, where 18 groups had two equivalent regexes each and eight groups had three equivalent regexes each. For example, one of the groups of size two had regexes, \verb!([0-9]+)\.([0-9]+)'! and \verb!(\d+)\.(\d+)'!. One of the groups of size thee contained \verb!((q4f)?ab)'!, \verb!(q4fab|ab)'!, and \verb!((q4f){0,1}ab)'!.
 
-For each of the 26 groups of regexes, we used Hampi~\cite{hampi} to identify five strings that match the regexes. These were used for computing the composition metric.
+For each of the 26 groups of regexes, created five strings, \todoNow{how many matched and how many did not match?}. These were used for computing the composition metric.
 
 Once all the regexes and matching strings were collected, we created tasks for the MTurk participants as follows: randomly select a regex from ten of the 26 groups. Randomize the order of the regexes, as well as the order of the matching strings for each regex. After adding a question asking the participant to compose a string that the regex matches, this creates one task on MTurk. This process was completed until each of the 60 regexes appeared in 30 HITs, resulting in a total of 180 HITs.
 
