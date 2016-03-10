@@ -102,60 +102,9 @@ Our overall research questions are:
 %\todoNow{create some illustration of one matching subtask}
 %
 
-\subsection{Metrics}
-\label{sec:metric}
-We measure community support using the frequency of regex patterns that match each of the representations (nodes) in Figure~\ref{fig:refactoringTree}.  We also measure the proportion of sampled projects to contain at least one pattern belonging to a node.  We measure the understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}.
-
-\paragraph{Frequency}
-To determine how often each representation appears in the wild, we extract regex patterns from source code and measure if a representation matches (part of) the pattern.
-
-A regex {utilization} is one single invocation of a regex library.
-Figure~\ref{fig:exampleUsage} presents an example of one regex {utilization} from Python, the language used in our artifact analysis (Section~\ref{communitystudy}), with key components labeled. The \emph{function} called is {\tt re.compile}.  The \emph{pattern} used to define what strings this utilization will match is \verb!(0|-?[1-9][0-9]*)$!.  The \emph{flag} {\tt re.MULTILINE} modifies the rules used by the regex engine when matching. When executed, this {utilization}  will compile a regex object in the variable {\tt r1} from the pattern \verb!(0|-?[1-9][0-9]*)$!, with the \verb!$! token matching at the end of each line because of the {\tt re.MULTILINE} flag.
-
-\begin{figure}[tb]
-\centering
-\includegraphics[width=\columnwidth]{illustrations/exampleUsage.eps}
-\vspace{-12pt}
-\caption{Example of one regex utilization}
-\vspace{-6pt}
-\label{fig:exampleUsage}
-\end{figure}
-
-A \emph{pattern} is extracted from a utilization, as shown in Figure~\ref{fig:exampleUsage}. In essence, it is a string, but more formally it is an ordered series of regular expression language feature tokens.  The pattern in Figure~\ref{fig:exampleUsage}  will match if it finds a zero at the end of a line, or a (possibly negative) integer at the end of a line (i.e., due to the {\tt -?} sequence denoting zero or one instance of the {\tt -}).
-
-The process for deciding if a particular pattern belongs to a particular node is described in detail in Section~\ref{communityanalysis}.
-For this frequency analysis, we focus on patterns and the number of projects the patterns appear in.
-
-\paragraph{Matching}
- Given a regex and a set of strings, a participant determines which strings will be matched by the regex. The percentage of correct responses is the matching score. For example, consider regex \verb!`RR*'! and five strings, which comes from our study, shown in Table~\ref{matchingmetric}, and the responses from two participants in the \emph{Response 1} and \emph{Response 2} columns. The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{Response 1} answers correctly for the first three strings but incorrectly thinks the fourth string matches, so the matching score is $4/5 = 0.80$. \emph{Response 2} misses the second string, so they also scored $4/5 = 0.80$.
 
 
-\begin{table}
-\caption{Matching metric example \label{matchingmetric}}
-\begin{center}
-\begin{small}
-\begin{tabular} {cl | c c c}
-\textbf{String} & \verb!`RR*'! & \textbf{Oracle} & \textbf{Response 1} & \textbf{Response 2} \\ \hline
-1 & ``ARROW" 	& \checkmark	& \checkmark	& \checkmark\\
-2 & ``qRs" 		& \checkmark	& \checkmark	&\\
-3 & ``R0R" 		& \checkmark 	& \checkmark 	& \checkmark\\
-4 & ``qrs"		& 			& \checkmark 	&\\
-5 & ``98"  		& 			&			&\\ \hline
-& Score 		& 1.00		& 0.80		& 0.80 \\
-\\
-\multicolumn{5}{l}{\checkmark = match, blank = not a match, ? = unsure, -- = left blank}\\
-\end{tabular}
-\end{small}
-\end{center}
-\end{table}
-
-\paragraph{Composition}
-Given a regex, a participant composes a string that it matches. If the participant is accurate and the string indeed is matched by the regex, then a composition score of 1 is assigned, otherwise 0.  For example, given the regex \verb!`(q4fab|ab)'! from our study, the string, ``xyzq4fab" matches  and would get a score of 1, and the string, ``acb" does not match and would get a score of 0.
-
-Each pattern was compiled using the \emph{java.util.regex} library.
-Composed strings were grouped by the pattern participants were attempting to match, and a Matcher \verb!m! was created for each composed string using the compiled pattern.  If \verb!m.find()! returned true, then that composed string was given a score of 1, otherwise it was given a score of 0.
-
-\subsection{Community Study}
+\subsection{Community Study (RQ1)}
 \label{communitystudy}
 To determine how common each of the regex representations is in the wild, we collected
 regexes from GitHub projects. We specifically targeted Python projects as it is a popular programming language with a strong presence on GitHub. Further, Python is the fourth most common language on GitHub (after Java, Javascript and Ruby) and Python's regex pattern
@@ -228,6 +177,37 @@ $\mu = 116$, $\sigma = 275$
 \caption{Participant Profiles, $n=180$ \label{participantprofile}}
 \end{small}
 \end{figure}
+
+
+\subsubsection{Metrics}
+\label{sec:communitymetric}
+We measure community support using the frequency of regex patterns that match each of the representations (nodes) in Figure~\ref{fig:refactoringTree}.  We also measure the proportion of sampled projects to contain at least one pattern belonging to a node.  
+To determine how often each representation appears in the wild, we extract regex patterns from source code and measure if a representation matches (part of) the pattern.
+
+
+\paragraph{Patterns}
+A regex {utilization} is one single invocation of a regex library.
+Figure~\ref{fig:exampleUsage} presents an example of one regex {utilization} from Python, the language used in our artifact analysis (Section~\ref{communitystudy}), with key components labeled. The \emph{function} called is {\tt re.compile}.  The \emph{pattern} used to define what strings this utilization will match is \verb!(0|-?[1-9][0-9]*)$!.  The \emph{flag} {\tt re.MULTILINE} modifies the rules used by the regex engine when matching. When executed, this {utilization}  will compile a regex object in the variable {\tt r1} from the pattern \verb!(0|-?[1-9][0-9]*)$!, with the \verb!$! token matching at the end of each line because of the {\tt re.MULTILINE} flag.
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{illustrations/exampleUsage.eps}
+\vspace{-12pt}
+\caption{Example of one regex utilization}
+\vspace{-6pt}
+\label{fig:exampleUsage}
+\end{figure}
+
+A \emph{pattern} is extracted from a utilization, as shown in Figure~\ref{fig:exampleUsage}. In essence, it is a string, but more formally it is an ordered series of regular expression language feature tokens.  The pattern in Figure~\ref{fig:exampleUsage}  will match if it finds a zero at the end of a line, or a (possibly negative) integer at the end of a line (i.e., due to the {\tt -?} sequence denoting zero or one instance of the {\tt -}).
+
+\paragraph{Projects}
+
+The process for deciding if a particular pattern belongs to a particular node is described in detail in Section~\ref{communityanalysis}.
+For this frequency analysis, we focus on patterns and the number of projects the patterns appear in.
+
+
+
+
 \subsubsection{Analysis}
 \label{communityanalysis}
 \todoNow{Katie, please look at this section about how patterns are chosen into nodes, editing and making notes if more info is needed.}
@@ -251,13 +231,49 @@ For the remaining nodes, the sequence of tokens produced by the PCRE parser was 
 
 This addressed \emph{RQ1}.
 
-\subsection{Understandability Study}
+\subsection{Understandability Study (RQ2)}
 To gauge the understandability of regexes, we designed and implemented a study on Amazon's Mechanical Turk with 180 participants to collect the matching and composition metrics.
 
 \subsubsection{Platform}
 Amazon's Mechanical Turk (MTurk) is a crowdsourcing platform in which requestors can create human intelligence tasks (HITs) for completion by workers. Each HIT is designed to be completed in a fixed amount of time and workers are compensated with money if their work is satisfactory. Requesters can screen workers by requiring each to complete a qualification test prior to completing any HITs.
 
+\subsubsection{Metrics}
+\label{sec:understadningmetric}
+ We measure the understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}.
+
+
+\paragraph{Matching}
+ Given a regex and a set of strings, a participant determines which strings will be matched by the regex. The percentage of correct responses is the matching score. For example, consider regex \verb!`RR*'! and five strings, which comes from our study, shown in Table~\ref{matchingmetric}, and the responses from two participants in the \emph{Response 1} and \emph{Response 2} columns. The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{Response 1} answers correctly for the first three strings but incorrectly thinks the fourth string matches, so the matching score is $4/5 = 0.80$. \emph{Response 2} misses the second string, so they also scored $4/5 = 0.80$.
+
+
+\begin{table}
+\caption{Matching metric example \label{matchingmetric}}
+\begin{center}
+\begin{small}
+\begin{tabular} {cl | c c c}
+\textbf{String} & \verb!`RR*'! & \textbf{Oracle} & \textbf{Response 1} & \textbf{Response 2} \\ \hline
+1 & ``ARROW" 	& \checkmark	& \checkmark	& \checkmark\\
+2 & ``qRs" 		& \checkmark	& \checkmark	&\\
+3 & ``R0R" 		& \checkmark 	& \checkmark 	& \checkmark\\
+4 & ``qrs"		& 			& \checkmark 	&\\
+5 & ``98"  		& 			&			&\\ \hline
+& Score 		& 1.00		& 0.80		& 0.80 \\
+\\
+\multicolumn{5}{l}{\checkmark = match, blank = not a match, ? = unsure, -- = left blank}\\
+\end{tabular}
+\end{small}
+\end{center}
+\end{table}
+
+\paragraph{Composition}
+Given a regex, a participant composes a string that it matches. If the participant is accurate and the string indeed is matched by the regex, then a composition score of 1 is assigned, otherwise 0.  For example, given the regex \verb!`(q4fab|ab)'! from our study, the string, ``xyzq4fab" matches  and would get a score of 1, and the string, ``acb" does not match and would get a score of 0.
+
+Each pattern was compiled using the \emph{java.util.regex} library.
+Composed strings were grouped by the pattern participants were attempting to match, and a Matcher \verb!m! was created for each composed string using the compiled pattern.  If \verb!m.find()! returned true, then that composed string was given a score of 1, otherwise it was given a score of 0.
+
+
 \subsubsection{Design}
+\todoNow{needs to be updated with respect to no C1,T1 nodes}
 Using the regexes in the corpus as a guide, we created 60 regex patterns that were grouped into 26 equivalence groups, where 18 groups had two equivalent regexes each and eight groups had three equivalent regexes each. For example, one of the groups of size two had regexes, \verb!([0-9]+)\.([0-9]+)'! and \verb!(\d+)\.(\d+)'!. One of the groups of size thee contained \verb!((q4f)?ab)'!, \verb!(q4fab|ab)'!, and \verb!((q4f){0,1}ab)'!.
 
 For each of the 26 groups of regexes, we used Hampi~\cite{hampi} to identify five strings that match the regexes. These were used for computing the composition metric.
