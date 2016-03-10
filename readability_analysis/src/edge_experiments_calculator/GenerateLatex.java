@@ -121,7 +121,6 @@ public class GenerateLatex {
 					latexContent.append("\\midrule[0.16em]\n");
 				}
 				latexContent.append(eel.getLatexRow(rowCounter));
-	
 			}		
 			latexContent.append(edgeTableFooter);
 			File edgeTableFile = new File(IOUtil.paperPath+IOUtil.TABLE+"testedEdgesTable.tex");
