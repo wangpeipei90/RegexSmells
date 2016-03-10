@@ -114,6 +114,7 @@ Regex patterns often belong to multiple nodes, for example, with \verb!A+B*!,  \
 \item[S3:] Any pattern with a double-bound in which the upper and lower bounds are same belong to S3. For example, \verb!S{3,3}! states \verb!S! appears a minimum of 3 and maximum of 3 times.
 \end{description}
 
+The important factor distinguishing this group from DBB and LWB is that there is a finite number of repetitions, rather than a bounded range on the number of repetitions (DBB) or a lower bound on the number of repetitions (LWB). 
 
 \paragraph{Example}
 Using an example from a Python project, the regex\\ \verb!`[^ ]*\.[A-Z]{3}'! is a member of S1, L2, C1, C3, and T1. 
@@ -127,17 +128,17 @@ Using an example from a Python project, the regex\\ \verb!`[^ ]*\.[A-Z]{3}'! is 
 
 
 
-\section{Study}
+\section{Research Questions}
 \label{sec:study}
 After defining the equivalence classes and potential  regex refactorings as described in Section~\ref{sec:refactoring}, we wanted to know which representations in the equivalence classes  are considered desirable and which might be smelly. Desirability for regexes can be defined many ways, including maintainable and understandable. As prior work has shown that regexes are difficult to read~\cite{}, we seek to define refactorings toward understandability.
 
-We define understandability three ways. First, assuming that common programming practices are more understandable than uncommon practices, we explore the frequencies of each representation from Figure~\ref{fig:refactoringTree} using thousands of regexes scraped from Python projects. Second, we then present people with regexes exemplifying some of the more common characteristics and ask them comprehension questions along two directions: determine which of a list of strings are matched by the regex, and compose a string that is matched by the regex.
+We define understandability two ways. First, assuming that common programming practices are more understandable than uncommon practices, we explore the frequencies of each representation from Figure~\ref{fig:refactoringTree} using thousands of regexes scraped from Python projects. Second, we then present people with regexes exemplifying some of the more common characteristics and ask them comprehension questions along two directions: determine which of a list of strings are matched by the regex, and compose a string that is matched by the regex.
 
 Our overall research questions are:
 \begin{description}
-\item[RQ1:] Which refactorings have the strongest community support based on how frequently each representation appears in open source Python projects?
-\item[RQ2:] Which refactorings have the strongest support based on understandability as measured by matching strings and composing strings?
-\item[RQ3:] What is the overlap in the refactoring suggested by RQ1, RQ2, and RQ3?
+\item[RQ1:] Which refactorings have the strongest \emph{community support} based on how frequently each representation appears in regexes in open source Python projects?
+\item[RQ2:] Which refactorings have the strongest support based on \emph{understandability} as measured by matching strings and composing strings?
+\item[RQ3:] Which refactorings are most desirable based on both community support and understandability?
 \end{description}
 
 
@@ -161,7 +162,7 @@ Our overall research questions are:
 
 
 
-\subsection{Community Study (RQ1)}
+\section{Community Study (RQ1)}
 \label{communitystudy}
 To determine how common each of the regex representations is in the wild, we collected
 regexes from GitHub projects. We specifically targeted Python projects as it is a popular programming language with a strong presence on GitHub. Further, Python is the fourth most common language on GitHub (after Java, Javascript and Ruby) and Python's regex pattern
@@ -169,7 +170,7 @@ language is close enough to other regex libraries that our conclusions are likel
 
 
 
-\subsubsection{Artifacts}
+\subsection{Artifacts}
 Our goal was to collect regexes from a variety of projects to represent the breadth of how developers use the language features.
 Using the GitHub API, we scraped 3,898 projects containing Python code.
 We did so  by dividing a range of about 8 million repo IDs
@@ -236,7 +237,7 @@ $\mu = 116$, $\sigma = 275$
 \end{figure}
 
 
-\subsubsection{Metrics}
+\subsection{Metrics}
 \label{sec:communitymetric}
 We measure community support using the frequency of regex patterns that match each of the representations (nodes) in Figure~\ref{fig:refactoringTree}.  We also measure the proportion of sampled projects to contain at least one pattern belonging to a node.
 To determine how often each representation appears in the wild, we extract regex patterns from source code and measure if a representation matches (part of) the pattern.
@@ -265,7 +266,7 @@ For this frequency analysis, we focus on patterns and the number of projects the
 
 
 
-\subsubsection{Analysis}
+\subsection{Analysis}
 \label{communityanalysis}
 \todoNow{Katie, please look at this section about how patterns are chosen into nodes, editing and making notes if more info is needed.}
 For the nodes that only require a particular feature to be present, the features identified by the PCRE parser were used to decide membership of patterns in nodes.  These feature-requiring nodes are as follows: D1 requires DBB repetition, D2 requires QST repetition, S1 requires SNG repetition, L1 requires LWB repetition, L2 requires KLE repetition, L3 requires ADD repetition, and C3 requires the negated custom character class NCCC.
@@ -292,14 +293,25 @@ C5 requires an OR of length-one sequences, and so using this regex:
 \verb!OR!\textbullet\verb!DOWN!\textbullet\verb!(ALTERNATIVE!\textbullet\verb!DOWN!\textbullet\verb!ELEMENT!\textbullet\verb!DOWN!\textbullet\verb!(.|\\0x..|\\d|\\D|\\s|\\S|\\w|\\W|ANY|(RANGE!\textbullet\verb!DOWN!\textbullet\verb!(.|\\0x..)!\textbullet\verb!(.|\\0x..)!\textbullet\verb!UP!\textbullet\verb!))!\textbullet\verb!UP!\textbullet\verb!UP!\textbullet\verb!)+UP!\textbullet\verb!! we recognize the start of an OR, then allow one or more literals, defaults or ranges before the OR is completed.
 This addressed \emph{RQ1}.
 
-\subsection{Understandability Study (RQ2)}
+
+\input{table/nodeCountTable}
+
+\subsection{Results}
+Figure~\ref{table:nodeCount} presents the frequencies with which each representation appears in a regex pattern and in a project scraped from GitHub. Recall that the patters are all unique and could appear in multiple projects, hence the project support is used to show how pervasive the representation in across the whole community. For example, representation C1 matches when a custom character class uses ranges and it appears in 2,479 (18.2\%) of all the patterns but 810 (52.5\%) of the projects. Representation D1 appears in 367 (2.7\%) of the patterns but only 242 (15.7\%) of the projects. In contrast, representation T3 appears in 60 \emph{fewer} patterns but 26 \emph{more} projects, indicating that D1 is more concentrated in a few projects and T3 is more widespread across projects.
+
+Using the pattern frequency as a guide, we can create refactoring recommendations based on community frequency. For example, since C1 is more prevalent than C2, we could say that C2 is smelly since it could better conform to the community standard if expressed as C1. Thus, we might recommend a $C2 \Rightarrow C1$ refactoring. Table~\ref{summaryResults} presents these recommendations for each pair of representations within each equivalence class. The \emph{Comm} column is populated based on the findings of \emph{RQ1}. The findings for \emph{RQ2} and \emph{RQ3} are in the \emph{Match} and \emph{Compose} columns, respectively.
+
+
+
+
+\section{Understandability Study (RQ2)}
 \label{sec:understandability}
 To gauge the understandability of regexes, we designed and implemented a study on Amazon's Mechanical Turk with 180 participants to collect the matching and composition metrics.
 
-\subsubsection{Platform}
+\subsection{Platform}
 Amazon's Mechanical Turk (MTurk) is a crowdsourcing platform in which requestors can create human intelligence tasks (HITs) for completion by workers. Each HIT is designed to be completed in a fixed amount of time and workers are compensated with money if their work is satisfactory. Requesters can screen workers by requiring each to complete a qualification test prior to completing any HITs.
 
-\subsubsection{Metrics}
+\subsection{Metrics}
 \label{sec:understadningmetric}
  We measure the understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}.
 
@@ -335,7 +347,7 @@ Each pattern was compiled using the \emph{java.util.regex} library.
 Composed strings were grouped by the pattern participants were attempting to match, and a Matcher \verb!m! was created for each composed string using the compiled pattern.  If \verb!m.find()! returned true, then that composed string was given a score of 1, otherwise it was given a score of 0.
 
 
-\subsubsection{Design}
+\subsection{Design}
 \todoNow{needs to be updated with respect to no C1,T1 nodes}
 Using the regexes in the corpus as a guide, we created 60 regex patterns that were grouped into 26 equivalence groups, where 18 groups had two equivalent regexes each and eight groups had three equivalent regexes each. For example, one of the groups of size two had regexes, \verb!([0-9]+)\.([0-9]+)'! and \verb!(\d+)\.(\d+)'!. One of the groups of size thee contained \verb!((q4f)?ab)'!, \verb!(q4fab|ab)'!, and \verb!((q4f){0,1}ab)'!.
 
@@ -362,17 +374,104 @@ Of the 55 rejected HITs, 48 were rushed through by one person leaving many answe
 
 
 
-\subsubsection{Participants}
+\subsection{Participants}
 
 In total, there were 180 different participants in the study.
 A majority were male (83\%) with an average age of 31. Most had
 at least an Associates degree (72\%) and most were at least somewhat familiar with regexes prior to the study (87\%). On average,
 participants compose 67 regexes per year with a range of 0 to 1000. Fittingly, participants read more regexes than they write with an average of 116 and a range from 0 to 2000. Figure~\ref{participantprofile} summarizes the self-reported participant characteristics from the qualification survey.
 
-\subsubsection{Analysis}
+\subsection{Analysis}
 For each of the 60 regexes, an average matching score was computed using the metrics in Table~\ref{matchingmetric}. The average composition metric was measured using the process described in Section~\ref{sec:metric}. This addresses \emph{RQ2} and \emph{RQ3}.
 
 \todoNow{How to deal with unsure responses? How many were there? Carl's analysis goes here.}
 
+
+
+\subsection{Results}
+\todoNow{add more info about understandability results}
+\input{table/testedEdgesTable}
+
+
+
+
+\section{Desirable Representations (RQ3)}
+To determine the overall trends in the data, we created total orderings on the representation nodes in each equivalence class (Figure~\ref{fig:refactoringTree})  with respect to community standards (RQ1)  and understandability (RQ2).
+
+\subsection{Analysis}
+At a high level, these total orderings were achieved by building directed graphs with the representations as nodes and edge directions determined by the metrics: patterns and projects for community standards and matching and composition for understandability. Then, within each graph (10 in total), we performed a topological sort to get total node orderings.
+
+The graphs for community support are based on Table~\ref{table:nodeCount} and the graphs for understandability are based on Table~\ref{table:testedEdgesTable}.
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=0.42\columnwidth]{graphs/cart.pdf}\includegraphics[width=0.57\columnwidth]{graphs/ccom.pdf}
+\caption{Trend graphs for the CCC equivalence graph. Solid lines represent the artifact analysis. Dashed lines represent the understandability analysis.}
+\label{fig:graphsforanalysis}
+\end{figure}
+
+\subsubsection{Building the Graphs}
+In the community standards graph, we represent a directed edge from $C2 \rightarrow C1$ when  nPatterns(C1) $>$ nPatterns(C2) \emph{and}  nProjects(C1) $>$ nProjects(C2).
+When there is a conflict between nPatterns and nProjects, as is the case between L2 and L3 where L2 is found in more patterns and L3 is found in more projects, an undirected edge is used.
+This is to represent that there was no clear winner based on the two metrics used in the community standards analysis.
+After considering all pairs of nodes in each equivalence class that also have an edge in Figure~\ref{fig:refactoringTree}, we have created a graph, for example Figure~\ref{fig:graphsforanalysis}a, that represents the frequency trends among the community artifacts. Note that with the CCC group, there is no edge between C3 and C5 because there is no straightforward refactoring between those representations, as discussed in Section~\ref{sec:refactoring}.
+
+In the understandability graph, we represent a directed edge from $C2 \rightarrow C1$ when match(C1) $>$ match(C2) \emph{and} compose(C1) $>$ compose(C2). When there is a conflict between match and compose, as is the case with T1 and T3 where match(T1) is higher but compose(T3) is higher, an undirected edge is used. When one metric has a tie, as is the case with compose(C1) = compose(C5), we resort to the matching to provide the direction, in this case, C5 $\rightarrow$ C1. An example understandability graph is provided in Figure~\ref{fig:graphsforanalysis}b with the dashed arrows.
+%\footnote{When there are confounded representations, as is the case with E8, E4, and E5 which all use tranformations from the CCC and the LIT equivalence classes, we omit those from the understandability graph. This makes sense since all use a transformation between T1 and T4 strongly favoring T1. }
+
+\subsubsection{Topological Sorting}
+Once the graphs are built for each equivalence class and each set of metrics, community standards and understandability, we apply a modified version of Kahn's topological sorting algorithm to obtain a total ordering on the nodes, as shown in Algorithm~\ref{topological}. In Kahn's algorithm, all nodes without incoming edges are added to a set $S$ (Line~\ref{addnoincomingtos}), which represents the order in which nodes are explored in the graph. For each $n$ node in $S$ (Line~\ref{beginwhile}), all edges from $n$ are removed and $n$ is added to the topologically sorted list $L$ (Line~\ref{addntoL}). If there exists a node $m$ that has no incoming edges, it is added to $S$.  In the end, $L$ is a topologically sorted list.
+
+\begin{algorithm}
+  \caption{Modified Topological Sort}\label{topological}
+  \begin{algorithmic}[1]
+\State  $L \gets$ []
+\State $S \gets$ []
+\State Remove all undirected edges (creates a DAG)
+\State Add all disconnected nodes to $L$ and remove from graph. If there are more than one, mark the tie. \label{markTie1}
+\State Add all nodes with no incoming edges to $S$. If there are more than one, mark the tie. \label{addnoincomingtos}
+\While {$S$ is non-empty} \label{beginwhile}
+	\State remove a node $n$ from $S$ \label{setn}
+	\State add $n$ to $L$  \label{addntoL}
+	\For {node $m$ such that $e$ is an edge from $n \rightarrow m$}
+		\State remove $e$
+		\If{$m$ has no incoming edges}
+			\State add $m$ to $S$ \label{addToS}
+		\EndIf
+	\EndFor
+	\State remove $n$ from graph
+	\State If multiple nodes were added to $S$ in this iteration, mark those as a tie \label{markTie2}
+\EndWhile
+\State For all ties in $L$, use a tiebreaker.
+  \end{algorithmic}
+\end{algorithm}
+
+One downside to Kahn's algorithm is that the total ordering is not unique. Thus, we mark ties in order to identify when a tiebreaker is needed to enforce a total ordering on the nodes. For example, on the understandability graph in Figure~\ref{fig:graphsforanalysis}b, there is a tie between C3 and C2 since both have no incoming edges, so they are marked as a tie on Line~\ref{markTie1}. Further, when $n=C2$ on line~\ref{setn}, both C5 and C4 are added to $S$ on Line~\ref{addToS}, thus the tie between them is parked on line~\ref{markTie2}. In these cases, a tiebreaker is needed.
+
+Breaking ties on the community standards graph comes down to choosing the representation that appears in a larger number of projects, since it is more widespread across the community. Breaking ties in the understandability graph is trickier. Using Table~\ref{table:testedEdgesTable}, we compute the average matching score for all instances of each representation, and do the same for the composition score. For example, C4 appears in \todoLast{C2 -- C4}, \todoLast{C1 -- C4} and \todoLast{C3 -- C4} with an overall average matching score of 0.81 and composition score of 24.3. C5 appears in \todoLast{C1 -- C5} and \todoLast{C2 -- C5} with an average matching of 0.87 and composition of 28.28. Thus, C5 is favored to C4 and appears higher in the sorting.
+
+\subsection{Results}
+After running the topological sort in Algorithm~\ref{topological}, we have a total ordering on nodes for each graph. After breaking ties as described, the topological sorts for all graphs are shown in Table~\ref{topologicalResults}.  For example, given the graphs in Figure~\ref{fig:graphsforanalysis}a and Figure~\ref{fig:graphsforanalysis}b, the topological sorts are {\tt C1 C3 C2 C4 C5} and {\tt C1 C5 C4 C2 C3}, respectively.
+
+\begin{table*}
+\centering
+\caption{Topological Sorting, with the left-most position being highest \label{topologicalResults}}
+\begin{tabular}{|| l || l || l || l || l || l ||}
+				& CCC			& DBB 		& LBW & SNG & LIT \\ \hline
+Community Standards		& C1 C3 C2 C4 C5 	& D2 D1 D3	&  L3 L2 L1 	& S2 S1 S3 	& T1 T3 T2 T4 \\
+Understandability 			& C1 C5 C4 C2 C3 	& D3 D1 D2 	& L3 L2		& S2 S1		& T1 T2 T4 T3 \\
+\end{tabular}
+\end{table*}
+
+
+
+
+There is a clear winner in each equivalence class, with the exception of DBB.
+That is, the node sorted highest in the topological sorts for both the community standards and understandability analyses are C1 for CCC, L3 for LBW, S2 for SNG, and T1 for LIT.
+After the top rank, it is not clear who the second place winner is in any of the classes, however, having a consistent and clear winner is evidence of a preference with respect to community standards and understandability.
+
+This positive result, that the most popular representation in the corpus is also the most understandable, makes sense as people may be more likely to understand things that are familiar or well documented. However, while L3 is the winner for the LBW group, we note that L2 appears in slightly more patterns.
+
+CCC and DBB are shuffled quite differently, and LBW and SNG don't have enough information from the understandability analysis since there is just one edge. DBB is an odd one as the orderings are completely reversed depending on the analysis.
 
 
