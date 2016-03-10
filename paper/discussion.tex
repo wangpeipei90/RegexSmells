@@ -13,9 +13,15 @@ We looked at 5 groups that cover the most frequently used features, but other re
 \item[Word Boundaries]  \verb!\bZ! is equivalent to \verb!((?<=\w)(?=\W)|(?<=\W)(?=\w))Z!
 \end{description}
 
+This is not meant to be an exhaustive list - regex languages with richer feature sets may have even more equivalence classes available.
+
 One terribly obvious application of our refactorings is to search existing codebases for regex patterns that are candidates for refactoring, allowing a person to quickly go through a list of possible changes and improve the understandability of the regexes in their codebase.
 
 Maintainers of code that is intentionally obfuscated for security purposes may want to develop regexes that they understand and then automatically transform them to equivalent but less understandable regexes.
+
+One fundamental concept is when to use regexes for simple parsing, and when to write a full-fledged parser (for example, when parsing HTML).  Regexes that are trying to parse HTML, XML or similar languages could be refactored not into a better regex, but into some code with an equivalent intention that does parsing much better.
+
+In our treatment, we have looked at all ranges as equivalent, all defaults as equivalent, and relied on many such generalizations.  By creating a much more granular model of regular expression refactorings (perhaps treating \verb!\d! and \verb!\w! quite separately), and making sure to carefully evaluate alternative representations of the most frequently used specific patterns (like \verb!\\s*! and \verb!.+!), many more strong and useful refactorings could be identified.
 
 
 
