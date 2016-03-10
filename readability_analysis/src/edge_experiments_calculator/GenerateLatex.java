@@ -107,7 +107,7 @@ public class GenerateLatex {
 				}
 				edges.add(new EdgeExperimentsList(edgeIndex,edgeDescription,experiments));
 			}
-			String caption = "Averaged Info About Edges (sorted by lowest of either P value)";//What Edges Between Equivalent Nodes Have Significantly Different Readability (By Matching Accuracy And Composition Tasks)?
+			String caption = "Averaged Info About Edges (sorted by lowest of either p-value)";//What Edges Between Equivalent Nodes Have Significantly Different Readability (By Matching Accuracy And Composition Tasks)?
 			String edgeTableHeader = "\\begin{table*}\\begin{small}\\begin{center}\\caption{"+caption+"}\\label{table:testedEdgesTable}\\begin{tabular}\n"+
 			"{llccccccc}\n"+
 			"Index & Representations & Pairs & Match1 & Match2 & $H_0: \\mu_{match1} = \\mu_{match2}$ & Compose1 & Compose2 &  $H_0: \\mu_{comp1} = \\mu_{comp2}$ \\\\\n"+
