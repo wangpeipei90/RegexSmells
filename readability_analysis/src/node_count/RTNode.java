@@ -82,6 +82,7 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 			if (m.find()) {
 				switch (name) {
 				case C.D1:
+					return matchesD1(regex) ? this.add(regex) : false;
 				case C.D2:
 				case C.D3:
 
@@ -121,6 +122,13 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 			}
 		}
 		return false;
+	}
+
+	private boolean matchesD1(RegexProjectSet regex) {
+		String modifiedPattern = regex.unquoted.replaceAll("\\{(\\d+),\\1\\}", "{$1}");
+		Pattern anyDBB = Pattern.compile("\\{\\d+,\\d+\\}");
+		Matcher m1 = anyDBB.matcher(modifiedPattern);
+		return m1.find();
 	}
 
 	private boolean matchesS2(RegexProjectSet regex) {

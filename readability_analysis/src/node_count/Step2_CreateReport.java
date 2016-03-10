@@ -26,9 +26,9 @@ public class Step2_CreateReport {
 		String between = " & ";
 		String end = "\\\\\n";
 		String caption = "How frequently is each alternative expression style used?";
-		String tableLatex = "\\begin{table*}\\begin{small}\\begin{center}\n" +
+		String tableLatex = "\\begin{table*}[ht]\n\\begin{small}\\begin{center}\n" +
 			"\\caption{" + caption + "}\n" + "\\label{table:nodeCount}\n" +
-			"\\begin{tabular}\n{lllcccc}\n";
+			"\\begin{tabular}\n{lll@{}rrrr}\n";
 		String topRow = "name & description & example & nPatterns & \\% patterns & nProjects & \\% projects \\\\ \n\\toprule[0.16em]\n";
 		double width = 1.5;
 		String widthS = df3.format(width);
@@ -95,12 +95,12 @@ public class Step2_CreateReport {
 					}
 
 				}
-				if(counter<6){
+				if(counter<5){
 					report.append(midline);
 				}
 			}
 		}
-		String tableFoot = " \\\\ \n\\bottomrule[0.13em]\n\\end{tabular}\n\\end{center}\\end{small}\\end{table*}\n";
+		String tableFoot = "\\bottomrule[0.13em]\n\\end{tabular}\n\\end{center}\\end{small}\\end{table*}\n";
 		report.append(tableFoot);
 		File reportFile = new File(generatedDir, "nodeCountTable.tex");
 		IOUtil.createAndWrite(reportFile, report.toString());
