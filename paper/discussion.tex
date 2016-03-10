@@ -16,7 +16,18 @@ In another study, we did a survey where software professionals indicated that un
 
 A particular community (like Mozilla or some startup) may want to include regex refactoring into their coding standards.  We anticipate that having one preferred way to express a particular regex may increase regex understandability in the codebase for maintainers, leading to a reduction in errors related to misunderstanding regexes.
 
-We looked at 5 groups that cover the most frequently used features, but other refactorings exist that deserve further study.  Here are a few:
+
+
+\paragraph{Coding Standards for Regexes}
+Many organizations enforce coding standards in their repositories to ease understandability.
+Presently, we are not aware of coding standards for regular expressions, but this work suggests that enforcing standard representations for various regex constructs could ease comprehension.
+
+%A particular community (like Mozilla or some startup) may want to include regex refactoring into their coding standards.  We anticipate that having one preferred way to express a particular regex may increase regex understandability in the codebase for maintainers, leading to a reduction in errors related to misunderstanding regexes.
+
+\paragraph{Other Refactorings}
+The refactorings we suggest in this work are just a starting point as this is the first work to look
+at regex refactoring.
+Other refactorings exist that deserve further study, such as:
 \begin{description}
 \item[Single line option]  \verb!'''(.|\n)+'''! is equivalent to \verb!(?s)'''(.)+'''!
 \item[Multi line option]  \verb!(?m)G\n! is equivalent to \verb!(?m)G$!
@@ -25,10 +36,14 @@ We looked at 5 groups that cover the most frequently used features, but other re
 \item[Word Boundaries]  \verb!\bZ! is equivalent to \verb!((?<=\w)(?=\W)|(?<=\W)(?=\w))Z!
 \end{description}
 
-This is not meant to be an exhaustive list - regex languages with richer feature sets may have even more equivalence classes available.
+\noindent This is not meant to be an exhaustive list as regex languages with richer feature sets may have even more equivalence classes available, but it provides a starting point.
 
-One terribly obvious application of our refactorings is to search existing codebases for regex patterns that are candidates for refactoring, allowing a person to quickly go through a list of possible changes and improve the understandability of the regexes in their codebase.
+\paragraph{Migration Libraries}
+Other opportunities exist to improve the understandability of regexes in existing code bases
+by looking for some of the less understandable regex representations, which can be thought of as antipatterns, and refactoring to the more common or understandable representations. Building migration libraries is another direction of future work to ease the manual burden of this process.
+%One terribly obvious application of our refactorings is to search existing codebases for regex patterns that are candidates for refactoring, allowing a person to quickly go through a list of possible changes and improve the understandability of the regexes in their codebase.
 
+\paragraph{Finish me...}
 Maintainers of code that is intentionally obfuscated for security purposes may want to develop regexes that they understand and then automatically transform them to equivalent but less understandable regexes.
 
 One fundamental concept is when to use regexes for simple parsing, and when to write a full-fledged parser (for example, when parsing HTML).  Regexes that are trying to parse HTML, XML or similar languages could be refactored not into a better regex, but into some code with an equivalent intention that does parsing much better.
