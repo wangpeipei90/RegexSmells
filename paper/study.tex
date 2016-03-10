@@ -38,12 +38,12 @@ Next, we provide descriptions of each representation in this equivalence class:
 \begin{description}  \itemsep -1pt
 \item[C1:] Any pattern using a range feature like \verb![a-f]! as shorthand for all of the characters between `a' and `f' (inclusive) belongs to the C1 node.
 
-\item[C2:] Any custom character class that does not contain any shorthand representations, specifically ranges or defaults, but expresses all characters explicitly. \todoNow{does }\verb![\d][0123ab]! \todoNow{belong to this node?}
+\item[C2:] Any pattern that contains at least one  custom character class  without any shorthand representations, specifically ranges or defaults. For example, \verb!`[012]'! is in C2, but \verb!`[0-2]'! is not. 
 
 \item[C3:] Any character classes expressed using negation, which is indicated by a caret (i.e., \verb!^!) followed by some other pattern.  For example the pattern \verb![^ao]! matches every character \emph{except} \verb!a! or \verb!o!.  Note that any non-negative character class can be represented as a negative character class, and visa versa. \todoNow{any exceptions to this?} For example, matching any lower-case consonant in the English alphabet can be expressed as \verb![bcdfghjklmnpqrstvwxyz]! in C2 or with negation, \verb![^aeiou]! in C3.
 
 
-\item[C4:] Any pattern using some default character class such as \verb!\d! or \verb!\W! within a character class belongs to the C4 node.  Note that a pattern can belong to both C1 and C4, such as \verb![a-f\d]!.  The edge between C1 and C4 represents the opportunity to express the same pattern as \verb![a-f0-9]! by transforming the default digit character class into a range (or visa-versa).  This transformed version would only belong to the C1 node.
+\item[C4:] Any pattern using a default character class such as \verb!\d! or \verb!\W! within a character class belongs to the C4 node.  Note that a pattern can belong to both C1 and C4, such as \verb![a-f\d]!.  The edge between C1 and C4 represents the opportunity to express the same pattern as \verb![a-f0-9]! by transforming the default digit character class into a range (or visa-versa).  This transformed version would only belong to the C1 node.
 
 \item[C5:] While not expressed using a character class, these representations can be transformed into custom character classes by removing the ORs and adding square brackets (e.g., \verb!(\d|a)! in C5 is equivalent to \verb![\da]! in C4). All custom character classes expressed as an OR of length-one sequences, including defaults or other CCCs, are included in C5. \todoNow{Mention the lack of edge between C3 and C5}
 %.  For example the character class \verb![abc]! is equivalent to the OR \verb!(a|b|c)!.
@@ -104,7 +104,7 @@ The lower-bounded (LWB) group contains all patterns that specify only a lower bo
 \item[L3:] One of the most commonly used regex features is additional repetition (ADD), for example \verb!T+! which means one-or-more T's.  This is equivalent to \verb!T{1,}!.  Any pattern using ADD repetition belongs to the L3 node.
 \end{description}
 
-Regex patterns often belong to multiple nodes, for example, with \verb!A+B*!,  \verb!A+! maps it to L3 and \verb!B*! maps it to L2.
+Regex patterns often belong to multiple nodes, for example, with \verb!A+B*!,  \verb!A+! maps it to L3 and \verb!B*! maps it to L2. We note that the refactorings from L1 to L3 and L2 to L3 are not always possible, specifically when zero repetitions is possible (e.g., \verb!A*! or \verb!A{0,}!). 
 
 \paragraph{SNG Group} This equivalence class contains  three representations of a regex that  deal with repetition of a single element in the regex, represents by \verb!S!.
 
@@ -117,10 +117,12 @@ Regex patterns often belong to multiple nodes, for example, with \verb!A+B*!,  \
 The important factor distinguishing this group from DBB and LWB is that there is a finite number of repetitions, rather than a bounded range on the number of repetitions (DBB) or a lower bound on the number of repetitions (LWB). 
 
 \paragraph{Example}
-Using an example from a Python project, the regex\\ \verb!`[^ ]*\.[A-Z]{3}'! is a member of S1, L2, C1, C3, and T1. 
+Regular expressions will often belong to many representations in the equivalence classes described here, and often multiple representations within an equivalence class. 
+Using an example from a Python project, the regex \verb!`[^ ]*\.[A-Z]{3}'! is a member of S1, L2, C1, C3, and T1. This is because \verb!`[^ ]'! maps it to C3, \verb!`[^ ]*'! maps it to L2, \verb!`[A-Z]'! maps it to C1, \verb!`\.'! maps it to T1, and \verb!`[A-Z]{3}'! maps it to S1. \todoNow{Is this really a member of L2?}
+As examples of refactorings, moving from S1 to S2 would be possible by replacing  \verb!`[A-Z]{3}'! with  \verb!`[A-Z][A-Z][A-Z]'! and moving from L2 to L1 would replace \verb!`[^ ]*'! with \verb!`[^ ]{0,}'!, resulting in a refactored regex of:  \verb!`[^ ]{0,}\.[A-Z][A-Z][A-Z]'!. 
 
- and could be refactored to \emph{S3} as \verb!`[^ ]*\.[A-Z]{3,3}'!  or to \emph{S2} as \verb!`[^ ]*\.[A-Z][A-Z][A-Z]'!, depending on programmer preferences.
-\todoNow{can we have examples from Python projects for all the groups???} 
+% and could be refactored to \emph{S3} as \verb!`[^ ]*\.[A-Z]{3,3}'!  or to \emph{S2} as \verb!`[^ ]*\.[A-Z][A-Z][A-Z]'!, depending on programmer preferences.
+%\todoNow{can we have examples from Python projects for all the groups???} 
 
 
 
@@ -236,8 +238,6 @@ To determine how many of the representations match regex patterns in the corpus,
 For the representations that only require a particular feature to be present, such as the question-mark in D2, the features identified by the PCRE parser were used to decide membership of patterns in nodes.  
 These feature-requiring nodes are as follows: D1 requires double-bounded repetition with different bounds, D2 requires the question-mark repetition, S1 requires single-bounded repetition, S3 requires double-bounded repetition with the same bounds,  L1 requires a lower-bound repetition, L2 requires the kleene star (\verb!*!) repetition, L3 requires the add (\verb!+!) repetition, and C3 requires a negated custom character class.
 
-\todoNow{did you ensure that D1 does not subsume S3? or is the constraint that the bounds be different for D3 not actually used?}
-
 \subsubsection{Features  and Pattern}
 For some representations, the presence of a feature is not enough to determine membership. 
 However,  the presence of a feature and properties of the pattern can determine membership.  
@@ -260,7 +260,8 @@ Identifying S2 requires any element to be repeated at least twice. This element 
 Identifying simply C1 requires that a character class contains a range. 
 
 
-Identifying C2 requires that there are no character classes using ranges or defaults. That is, all characters in all character classes in the regex must be explicit. \todoNow{is this true? or just the presence of a single character class with all explicit characters allows membership?}
+Identifying C2 requires that there exists a character classes that does not use ranges or defaults. 
+%That is, all characters in all character classes in the regex must be explicit. \todoNow{is this true? or just the presence of a single character class with all explicit characters allows membership?}
 % If there was a character class in the node that contained a range, it was 
 % so no shorthand is allowed), so a regex was composed that recognizes any character class with a range or a default present.  If a pattern has the character class feature, but does not match this regex, then it belongs to the C2 node.  The regex is: \verb!CHARACTER_CLASS!\textbullet\verb!DOWN!\textbullet\verb!(((\\0x..)|.)!\textbullet\verb!)*((RANGE!\textbullet\verb!DOWN!\textbullet\verb!((\\0x..)|.)!\textbullet\verb!((\\0x..)|.)!\textbullet\verb!UP!\textbullet\verb!)|(\\d|\\D|\\s|\\S|\\w|\\W)!\textbullet\verb!)+(((\\0x..)|.|(\\d|\\D|\\s|\\S|\\w|\\W)|(RANGE!\textbullet\verb!DOWN!\textbullet\verb!((\\0x..)|.)!\textbullet\verb!((\\0x..)|.)!\textbullet\verb!UP))!\textbullet\verb!)*UP!\textbullet\verb!! and works in similar way to the regex to identify C1 nodes: first it requires the \verb!CHARACTER_CLASS!\textbullet\verb!DOWN!\textbullet\verb!! sequence, then it allows zero or more literals, then requires one default or range, then allows zero or more literals, defaults or ranges before ending the \verb!CHARACTER_CLASS! element.
 Identifying C4 requires the presence of a default character class, specifically, \verb!\d!, \verb!\D!, \verb!\w!, \verb!\W!, \verb!\s!, \verb!\S! and \verb!.!. 
