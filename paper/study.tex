@@ -275,12 +275,12 @@ Amazon's Mechanical Turk (MTurk) is a crowdsourcing platform in which requestors
  Given a regex and a set of strings, a participant determines which strings will be matched by the regex. The percentage of correct responses is the matching score. For example, consider regex \verb!`RR*'! and five strings, which comes from our study, shown in Table~\ref{matchingmetric}, and the responses from two participants in the \emph{Response 1} and \emph{Response 2} columns. The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{Response 1} answers correctly for the first three strings but incorrectly thinks the fourth string matches, so the matching score is $4/5 = 0.80$. \emph{Response 2} misses the second string, so they also scored $4/5 = 0.80$.
 
 
-\begin{table*}
+\begin{table}
 \caption{Matching metric example \label{matchingmetric}}
 \begin{center}
 \begin{small}
 \begin{tabular} {cl | c c c c c}
-\textbf{String} & \verb!`RR*'! & \textbf{Oracle} & \textbf{Response 1} & \textbf{Response 2} & \textbf{Response 3}& \textbf{Response 4}\\ \hline
+\textbf{String} & \verb!`RR*'! & \textbf{Oracle} & \textbf{R 1} & \textbf{R 2} & \textbf{R 3}& \textbf{R 4}\\ \hline
 1 & ``ARROW"    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark \\
 2 & ``qRs"      & \checkmark    & \checkmark    & \xmark        & \xmark        & ?\\
 3 & ``R0R"      & \checkmark    & \checkmark    & \checkmark    & ?             & -\\
@@ -289,11 +289,11 @@ Amazon's Mechanical Turk (MTurk) is a crowdsourcing platform in which requestors
 \hline
   & Score       & 1.00          & 0.80          & 0.80          & 0.75          & 1.00\\
 \\
-\multicolumn{5}{l}{\checkmark = match, \xmark = not a match, ? = unsure, -- = left blank}\\
+\multicolumn{7}{l}{\checkmark = match, \xmark = not a match, ? = unsure, -- = left blank}\\
 \end{tabular}
 \end{small}
 \end{center}
-\end{table*}
+\end{table}
 
 \paragraph{Composition}
 Given a regex, a participant composes a string that it matches. If the participant is accurate and the string indeed is matched by the regex, then a composition score of 1 is assigned, otherwise 0.  For example, given the regex \verb!`(q4fab|ab)'! from our study, the string, ``xyzq4fab" matches  and would get a score of 1, and the string, ``acb" does not match and would get a score of 0.
