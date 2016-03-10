@@ -4,7 +4,7 @@
 \label{table:nodeCount}
 \begin{tabular}
 {lll@{}rrrr}
-name & description & example & nPatterns & \% patterns & nProjects & \% projects \\
+name & description & example & nPatterns & \% patterns & nProjects & \% projects \\ 
 \toprule[0.16em]
 C1 & char class using ranges & \begin{minipage}{1.5in}\begin{verbatim}
 '^[1-9][0-9]*$'\end{verbatim}\end{minipage}
@@ -24,7 +24,7 @@ C5 & an OR of length-one sub-patterns & \begin{minipage}{1.5in}\begin{verbatim}
 \midrule
 D1 & curly brace repetition like \{M,N\} with M<N & \begin{minipage}{1.5in}\begin{verbatim}
 '^x{1,4}$'\end{verbatim}\end{minipage}
- & 367 & 2.7\% & 242 & 15.7\%\\
+ & 346 & 2.5\% & 234 & 15.2\%\\
 D2 & zero-or-one repetition using question mark & \begin{minipage}{1.5in}\begin{verbatim}
 '^http(s)?://'\end{verbatim}\end{minipage}
  & 1,871 & 13.8\% & 646 & 41.8\%\\
@@ -63,8 +63,7 @@ S2 & explicit sequential repetition & \begin{minipage}{1.5in}\begin{verbatim}
  & 3,378 & 24.8\% & 861 & 55.8\%\\
 S3 & curly brace repetition like \{M,M\} & \begin{minipage}{1.5in}\begin{verbatim}
 'U[\dA-F]{5,5}'\end{verbatim}\end{minipage}
- & 27 & .2\% & 32 & 2.1\%
- \\
+ & 27 & .2\% & 32 & 2.1\%\\
 \bottomrule[0.13em]
 \end{tabular}
 \end{center}\end{small}\end{table*}
