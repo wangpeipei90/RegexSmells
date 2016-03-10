@@ -6,7 +6,7 @@ public class C {
 	public static final String LIT = "LIT";
 	public static final String LWB = "LWB";
 	public static final String SNG = "SNG";
-	//public static final String[] groupNames = { LIT};
+	//public static final String[] groupNames = { CCC};
 	public static final String[] groupNames = { CCC, DBB, LIT, LWB, SNG};
 	
 	public static final String D1 = "D1";

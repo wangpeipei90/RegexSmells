@@ -42,6 +42,8 @@ public class Step2_CreateReport {
 		TreeSet<RegexProjectSet> corpus = CorpusUtil.reloadCorpus();
 		double corpusSize = corpus.size() + 0.0;
 		TreeSet<Integer> corpusProjectIDs = aggregateProjectIDs(corpus);
+		String corpusProjectIDCount = "%corpusProjectIDs.size(): "+corpusProjectIDs.size()+"\n";
+		report.append(corpusProjectIDCount);
 		double allProjectsSize = corpusProjectIDs.size() + 0.0;
 		int counter = 0;
 		for (File cleanDir : cleanRoot.listFiles()) {

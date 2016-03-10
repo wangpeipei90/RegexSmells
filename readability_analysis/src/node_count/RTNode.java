@@ -27,6 +27,7 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 	private static final Pattern CCC_WITH_RANGE = Pattern.compile("CHARACTER_CLASS•DOWN•(((.|\\\\0x..)|(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W))•)*(RANGE•DOWN•(.|\\\\0x..)•(.|\\\\0x..)•UP•)(((.|\\\\0x..)|(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W)|(RANGE•DOWN•(.|\\\\0x..)•(.|\\\\0x..)•UP))•)*UP•");
 	private static final Pattern CCC_WITH_DEFAULT = Pattern.compile("CHARACTER_CLASS•DOWN•(((.|\\\\0x..)|(RANGE•DOWN•(.|\\\\0x..)•(.|\\\\0x..)•UP))•)*(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W)•(((.|\\\\0x..)|(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W)|(RANGE•DOWN•(.|\\\\0x..)•(.|\\\\0x..)•UP))•)*UP•");
 	private static final Pattern CCC_WITH_DEFAULT_OR_RANGE = Pattern.compile("CHARACTER_CLASS•DOWN•(((\\\\0x..)|.)•)*((RANGE•DOWN•((\\\\0x..)|.)•((\\\\0x..)|.)•UP•)|(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W)•)+(((\\\\0x..)|.|(\\\\d|\\\\D|\\\\s|\\\\S|\\\\w|\\\\W)|(RANGE•DOWN•((\\\\0x..)|.)•((\\\\0x..)|.)•UP))•)*UP•");
+	private static final Pattern CCC_WITHOUT_ANY_DEFAULT_OR_RANGE = Pattern.compile("CHARACTER_CLASS•DOWN•(((\\\\0x..)|.)•)+UP•");
 
 	//private static final Pattern S2_repeatingChars = Pattern.compile("(ELEMENT•DOWN•.•UP•)\\1+");
 	private static final Pattern S2_repeatingElement = Pattern.compile("(ELEMENT•[^ ]+)\\1");
@@ -150,13 +151,12 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 		// and we know it has a CCC
 		String tokenStream = getTokenStream(regex);
 
-		// this matcher REQUIRES there to be a CCC containing at least one range
-		// or default
-		Matcher m1 = CCC_WITH_DEFAULT_OR_RANGE.matcher(tokenStream);
+		// this matcher REQUIRES there to be a CCC containing only literals
+		Matcher m1 = CCC_WITHOUT_ANY_DEFAULT_OR_RANGE.matcher(tokenStream);
 
 		// so if none can be found, than all CCCs present don't have these
 		// features, as needed for C2
-		return !m1.find();
+		return m1.find();
 	}
 	
 	private static boolean matchesC4(RegexProjectSet regex) {
@@ -238,7 +238,7 @@ public class RTNode extends TreeSet<RegexProjectSet> {
 		// testing some ideas
 		TreeSet<Integer> testPIDs = new TreeSet<Integer>();
 		testPIDs.add(1);
-		RegexProjectSet testRegex = new RegexProjectSet("'([^[]+)\\[([^]]+)\\]'", testPIDs);
-		System.out.println(matchesT3(testRegex));
+		RegexProjectSet testRegex = new RegexProjectSet("'[abc\\d][123]'", testPIDs);
+		System.out.println(matchesC2(testRegex));
 	}
 }
