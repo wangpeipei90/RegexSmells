@@ -89,15 +89,16 @@ Patterns often fall in multiple of these representations, for example, \verb!abc
 \todoNow{mention unicode}
 
 \paragraph{LWB Group}
-The lower-bounded (LWB) group contains all patterns that specify only a lower boundary on the number of repetitions required for a match.  This is expressed using curly braces with a comma after the lower bound but no upper bound, for example \verb!A{3,}! which will match `AAA', `AAAA', `AAAAA', and any number of A's greater or equal to 3.  Any pattern using this curly braces-style LWB repetition belongs to node L1.
+The lower-bounded (LWB) group contains all patterns that specify only a lower boundary on the number of repetitions required for a match.  This is expressed using curly braces with a comma after the lower bound but no upper bound, for example \verb!A{3,}! which will match `AAA', `AAAA', `AAAAA', and any number of A's greater or equal to 3.  
 
-One of the most commonly used regex features is additional repetition (ADD), for example \verb!T+! which means one-or-more T's.  This is equivalent to \verb!T{1,}!.  Any pattern using ADD repetition belongs to the L3 node.  Similarly, the kleene star (KLE) means zero-or-more of something, and so \verb!X*! is equivalent to \verb!X{0,}!.  Any pattern using KLE belongs to the L2 node.
 
 \begin{description}  \itemsep -1pt
-\item[L1:]
-\item[L2:]
-\item[L3:]
+\item[L1:] Any pattern using this curly braces-style LWB repetition belongs to node L1.
+\item[L2:] The kleene star (KLE) means zero-or-more of something, and so \verb!X*! is equivalent to \verb!X{0,}!.  Any pattern using KLE belongs to the L2 node.
+\item[L3:] One of the most commonly used regex features is additional repetition (ADD), for example \verb!T+! which means one-or-more T's.  This is equivalent to \verb!T{1,}!.  Any pattern using ADD repetition belongs to the L3 node.
 \end{description}
+
+Regex patterns often belong to multiple nodes, for example, with \verb!A+B*!,  \verb!A+! maps it to L3 and \verb!B*! maps it to L2. 
 
 \paragraph{SNG Group} This equivalence class contains  three representations of a regex that  deal with repetition of a single element in the regex, represents by \verb!S!. The representation in \emph{S1}, \verb!S{3}!, states that S appears exactly three times in sequence. This can alternately be expressed with a double-bound where the upper and lower bounds are the same, as in \emph{S3}. Removing the repetition symbols in either \emph{S1} or \emph{S3} yields \emph{S2} which is represented explicitly as  \verb!SSS!.
 
