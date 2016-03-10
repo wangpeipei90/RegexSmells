@@ -1,0 +1,418 @@
+'\n        # Source consists of a PS1 line followed by zero or more PS2 lines.\n        (?P<source>\n            (?:^(?P<indent> [ ]*) >>>    .*)    # PS1 line\n            (?:\\n           [ ]*  \\.\\.\\. .*)*)  # PS2 lines\n        \\n?\n        # Want consists of any non-blank lines that do not start with PS1.\n        (?P<want> (?:(?![ ]*$)    # Not a blank line\n                     (?![ ]*>>>)  # Not a line starting with PS1\n                     .*$\\n?       # But any other line\n                  )*)\n        '	12,82,89,287,302,323,355,412,422,602,662,759,774,849,852,866,878,961,1004,1012,1033,1050,1054,1074,1075,1086,1087,1115,1158,1184,1221,1257,1415,1495,1509,1511,1517,1536,1580,1594,1634
+'^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?'	147,181,220,225,278,287,296,323,355,432,436,510,559,602,774,814,819,925,927,936,995,1003,1068,1104,1150,1211,1247,1263,1269,1301,1328,1366,1439,1469,1495,1498,1509,1536,1555,1580
+'https?://[^/]*(/.*reset/\\S*)'	302,323,355,422,849,866,878,1004,1012,1086,1158,1184,1495,1517,1580,1634
+'\\s*(<=?|>=?|==|!=)\\s*((\\w|[-.])+)'	287,487,498,602,662,1033,1087,1257,1415,1469,1509,1536,1580,1594,1634
+'^([-+]?)0*(\\d*)((?:\\.\\d*)?)(([eE][-+]?\\d+)?)$'	12,287,381,412,602,759,852,961,1054,1087,1221,1509,1511
+'\\b((http|ftp)://\\S+[\\w/]|RFC[- ]?(\\d+)|PEP[- ]?(\\d+)|(self\\.)?(\\w+))'	12,287,412,531,602,759,852,961,1054,1087,1221,1509,1511
+'\\b((http|ftp)://\\S+[\\w/]|RFC[- ]?(\\d+)|PEP[- ]?(\\d+)|(self\\.)?((?:\\w|\\.)+))\\b'	12,287,412,602,759,852,961,1054,1087,1221,1509,1511,1580
+'\n    \\""" [^"\\\\]* (?:\n                     (?: \\\\. | "(?!"") )\n                     [^"\\\\]*\n                 )*\n    (?: \\""" )?\n\n|   " [^"\\\\\\n]* (?: \\\\. [^"\\\\\\n]* )* "?\n\n|   \'\'\' [^\'\\\\]* (?:\n                   (?: \\\\. | \'(?!\'\') )\n                   [^\'\\\\]*\n                )*\n    (?: \'\'\' )?\n\n|   \' [^\'\\\\\\n]* (?: \\\\. [^\'\\\\\\n]* )* \'?\n'	12,287,412,602,759,852,961,1054,1087,1221,1509,1511,1580
+'(__libc_init)|(GLIBC_([0-9.]+))|(libc(_\\w+)?\\.so(?:\\.(\\d[0-9.]*))?)'	12,287,412,602,759,852,961,1054,1087,1221,1509,1511
+'(::|\\.\\.|\\(\\)|[/.*:\\[\\]\\(\\)@=])|((?:\\{[^}]+\\})?[^/:\\[\\]\\(\\)@=\\s]+)|\\s+'	12,147,245,287,305,602,1248,1317,1501,1505,1509,1638
+'\n  =\\?                   # literal =?\n  (?P<charset>[^?]*?)   # non-greedy up to the next ? is the charset\n  \\?                    # literal ?\n  (?P<encoding>[qb])    # either a "q" or a "b", case insensitive\n  \\?                    # literal ?\n  (?P<atom>.*?)         # non-greedy up to the next ?= is the atom\n  \\?=                   # literal ?=\n  '	12,287,412,602,759,852,961,1054,1087,1221,1509,1511
+'([-_a-zA-Z0-9]+)(\\s*.*?)(?=,\\s+(?:/|-|--)|$)'	95,302,849,878,1004,1012,1086,1158,1495,1525,1578
+'^([a-f0-9]+)\\s(.{7})\\s(\\S+)\\s+([a-f0-9]+)\\s+(?:\\.hidden\\s+)?(.*)$'	306,322,464,467,505,534,1404,1466
+'^(#[0-9a-f]+|rgb\\(\\d+%?,\\d*%?,?\\d*%?\\)?|\\d{0,2}\\.?\\d{0,2}(cm|em|ex|in|mm|pc|pt|px|%|,|\\))?)$'	220,927,1122,1263,1290,1469,1580,1594
+'(?:;\\s*|\\s+)(\\b\\w{2}\\b(?:-\\b\\w{2}\\b)?)\\s*;|(?:\\(|\\[|;)\\s*(\\b\\w{2}\\b(?:-\\b\\w{2}\\b)?)\\s*(?:\\]|\\)|;)'	992,1104,1257,1386,1415,1469,1536,1580
+'(([a-zA-Z0-9\\_\\-\\.\\+]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?))'	147,181,190,325,582,622,915,1597
+'\n  =\\?                   # literal =?\n  (?P<charset>[^?]*?)   # non-greedy up to the next ? is the charset\n  \\?                    # literal ?\n  (?P<encoding>[qb])    # either a "q" or a "b", case insensitive\n  \\?                    # literal ?\n  (?P<encoded>.*?)      # non-greedy up to the next ?= is the encoded string\n  \\?=                   # literal ?=\n  '	43,412,759,852,961,1221,1511,1580
+'^//(\\s*)TODO(\\(.+?\\))?:?(\\s|$)?'	322,416,467,505,534,1404,1466
+'(([a-zA-Z0-9\\_\\-\\.\\+]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?))(\\?subject=\\S+)?'	220,454,666,707,927,1003,1247
+'^(https?)://([^/]+)(/.*)$'	82,89,1004,1074,1075,1495
+'GET http://([a-zA-Z0-9-_.]+)(:([0-9]+))?'	412,759,852,961,1221,1511
+'([0-9]{4}-[0-9]{2}-[0-9]{2})  ([0-9]{4,5}) {1,2}(.*)'	412,759,852,961,1221,1511
+'([A-Z]{3}_ERROR_[A-Z_0-9]+)\\s+=?\\s*\\(?([A-Z_0-9-][A-Z_0-9-+ ]+[A-Z_0-9])'	412,759,852,961,1221,1511
+'^([A-Z][A-Z][A-Z])([-+]?[0-9]+)([A-Z][A-Z][A-Z]);([0-9]+)/([0-9]+),([0-9]+)/([0-9]+)$'	412,759,852,961,1221,1511
+'(?:http://)?(?:(?P<user>\\w+):(?P<pass>.*)@)?(?P<host>[\\w\\-\\.]+)(?::(?P<port>\\d+))?'	546,830,1028,1039,1223,1420
+'\n  =\\?                   # literal =?\n  (?P<charset>[^?]*?)   # non-greedy up to the next ? is the charset\n  \\?                    # literal ?\n  (?P<encoding>[qb])    # either a "q" or a "b", case insensitive\n  \\?                    # literal ?\n  (?P<encoded>.*?)      # non-greedy up to the next ?= is the encoded string\n  \\?=                   # literal ?=\n  (?=[ \\t]|$)           # whitespace or the end of the string\n  '	12,287,602,1054,1087,1509
+'class (\\w[^\\s:]*)(: public (\\w[^\\s{]*))?\\s*{'	467,505,534,1404,1466
+'^\\.\\.\\s+(current)?module::\\s*([a-zA-Z0-9_.]+)\\s*$'	356,436,538,1247,1288
+'\n          # Match tail of: [text][id]\n          [ ]?          # one optional space\n          (?:\\n[ ]*)?   # one optional newline followed by spaces\n          \\[\n            (?P<id>.*?)\n          \\]\n        '	552,606,1223,1247,1420
+'^https?://github.com/[^/]+/?$'	1025,1322,1326,1505
+'(\\[.{16,16}[^,]*?),.*?\\]\\)'	356,538,1247,1288
+'^https?://github.com/[^/]+/[^/]+/?$'	1025,1322,1326,1505
+'^https?://github.com/[^/]+/[^/]+/tree/[^/]+/?$'	1025,1322,1326,1505
+'^(WebSocket-Protocol: [\\x20-\\x7e]+\\r\\n)?(Cookie: [^\\r]*\\r\\n)*(Cookie2: [^\\r]*\\r\\n)?(Cookie: [^\\r]*\\r\\n)*\\r\\n'	1007,1015,1032,1300
+u'\\b((?:([\\w-]+):(/{1,3})|www[.])(?:(?:(?:[^\\s&()]|&amp;|&quot;)*(?:[^!"#$%&\'()*+,.:;<=>?@\\[\\]^`{|}~\\s]))|(?:\\((?:[^\\s&()]|&amp;|&quot;)*\\)))+)'	552,606,800,1469
+'\n    \\A\\s*                      # optional whitespace at the start, then\n    (?P<sign>[-+]?)            # an optional sign, then\n    (?=\\d|\\.\\d)                # lookahead for digit or .digit\n    (?P<num>\\d*)               # numerator (possibly empty)\n    (?:                        # followed by\n       (?:/(?P<denom>\\d+))?    # an optional denominator\n    |                          # or\n       (?:\\.(?P<decimal>\\d*))? # an optional fractional part\n       (?:E(?P<exp>[-+]?\\d+))? # and optional exponent\n    )\n    \\s*\\Z                      # and optional whitespace to finish\n'	689,1054,1087,1580
+'(([^-/]+)-?([^/]+)?)/?.*'	241,874,1249
+'^https?://github.com/([^/]+)/?$'	1322,1326,1505
+'^\\s*(([A-Z][a-z]*)+),?\\s*# (\\d+)$'	462,690,1119
+'\\b(E?TSM?_(ASSERT[A-Z_]*|FAIL))\\s*\\('	0,139,785
+'^https?://github.com/([^/]+)/([^/]+)($|/.*$)'	1322,1326,1505
+'^([ \t]*class +[a-zA-Z0-9_]+) *( *) *((=.*)?):'	12,1054,1087
+'(js_Execute|CallHook) ([^ ]+) ([^ ]+ )?([^ ]+ms)'	1007,1015,1032
+'^https?://github.com/[^/]+/[^/]+/tree/([^/]+)/?$'	1322,1326,1505
+'\\b(throw|try|catch|TSM?_ASSERT_THROWS[A-Z_]*)\\b'	0,139,785
+'^(.+)[ \\._\\-]([0-9]{2})([0-9]{2,3})[\\._ -][^\\/]*$'	506,1269,1498
+'(?P<name>[\\w-]+)\\s*\\(\\s*(==\\s*)?(?P<ver>[^)]+)\\)$'	1263,1580,1594
+'^@@ -([0-9]*)(?:,([0-9]*))? \\+([0-9]*)(?:,([0-9]*))? @@'	696,1025,1322
+u'^\\s*(?:@outlet\\s+)?[a-zA-Z_$]\\w*\\s+[a-zA-Z_$]\\w*\\s+@accessors\\b'	304,1025,1322
+'(\'[^\']*\'|"[^"]*"|::|//?|\\.\\.|\\(\\)|[/.*:\\[\\]\\(\\)@=])|((?:\\{[^}]+\\})?[^/\\[\\]\\(\\)@=\\s]+)|\\s+'	1054,1087,1580
+"\n    (?:'[^'\\n\\r]*')+|\n    <=|>=|!=|=|<|>|\n    :\\w+|\n    ,|\n    \\*|\n    -?\\d+(?:\\.\\d+)?|\n    \\w+|\n    \\(|\\)|\n    \\S+\n    "	1004,1074,1075
+'(?x)\n    ^\n    (?: (\\w+):                     )?  # optional label at start of line\n        \\s* (\\.?\\w+)                   # optional spaces, (pseudo-)opcode\n    (?: \\s+ ([+-]?\\w+ | \\([^)]*\\)) )?  # optional first immediate operand\n    (?: \\s+ ([\\w,-]+  | \\([^)]*\\)) )?  # optional second immediate operand\n    (?: \\s* (?:\\#.*)               )?  # optional spaces and comment\n    $'	1007,1015,1032
+'    # mere offset\n                ^\n                &?                                          # possible ampersand\n                (       0                                       # just zero\n                |       [1-9]{1,1}[0-9]*        # decimal\n                |       0[0-7]+                         # octal\n                |       0x[0-9a-f]+                     # hex\n                )\n                $\n                '	1007,1015,1032
+'        # A numeric string consists of:\n#    \\s*\n    (?P<sign>[-+])?              # an optional sign, followed by either...\n    (\n        (?=[0-9]|\\.[0-9])        # ...a number (with at least one digit)\n        (?P<int>[0-9]*)          # having a (possibly empty) integer part\n        (\\.(?P<frac>[0-9]*))?    # followed by an optional fractional part\n        (E(?P<exp>[-+]?[0-9]+))? # followed by an optional exponent, or...\n    |\n        Inf(inity)?              # ...an infinity, or...\n    |\n        (?P<signal>s)?           # ...an (optionally signaling)\n        NaN                      # NaN\n        (?P<diag>[0-9]*)         # with (possibly empty) diagnostic info.\n    )\n#    \\s*\n    \\Z\n'	287,602,1509
+'        # A numeric string consists of:\n#    \\s*\n    (?P<sign>[-+])?              # an optional sign, followed by either...\n    (\n        (?=\\d|\\.\\d)              # ...a number (with at least one digit)\n        (?P<int>\\d*)             # having a (possibly empty) integer part\n        (\\.(?P<frac>\\d*))?       # followed by an optional fractional part\n        (E(?P<exp>[-+]?\\d+))?    # followed by an optional exponent, or...\n    |\n        Inf(inity)?              # ...an infinity, or...\n    |\n        (?P<signal>s)?           # ...an (optionally signaling)\n        NaN                      # NaN\n        (?P<diag>\\d*)            # with (possibly empty) diagnostic info.\n    )\n#    \\s*\n    \\Z\n'	1054,1087,1580
+'    # indirect offset\n                ^\\(\n                (?P<base>&?0                  # just zero\n                        |&?[1-9]{1,1}[0-9]* # decimal\n                        |&?0[0-7]*          # octal\n                        |&?0x[0-9A-F]+      # hex\n                )\n                (?P<type>\n                        \\.         # this dot might be alone\n                        [BSL]? # one of this chars in either case\n                )?\n                (?P<sign>\n                        [-+]{0,1}\n                )?\n                (?P<off>0              # just zero\n                        |[1-9]{1,1}[0-9]*  # decimal\n                        |0[0-7]*           # octal\n                        |0x[0-9a-f]+       # hex\n                )?\n                \\)$'	1007,1015,1032
+'\n    (?:\n        (\n            (?:\n                [a-zA-Z_][a-zA-Z0-9_]*\\s*=\\s*list\\(\n                    (?:\n                        \\s*\n                        (?:\n                            (?:".*?")|              # double quotes\n                            (?:\'.*?\')|              # single quotes\n                            (?:[^\'",\\s\\)][^,\\)]*?)       # unquoted\n                        )\n                        \\s*,\\s*\n                    )*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\\s\\)][^,\\)]*?)       # unquoted\n                    )?                              # last one\n                \\)\n            )|\n            (?:\n                (?:".*?")|              # double quotes\n                (?:\'.*?\')|              # single quotes\n                (?:[^\'",\\s=][^,=]*?)|       # unquoted\n                (?:                         # keyword argument\n                    [a-zA-Z_][a-zA-Z0-9_]*\\s*=\\s*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\\s=][^,=]*?)       # unquoted\n                    )\n                )\n            )\n        )\n        (?:\n            (?:\\s*,\\s*)|(?:\\s*$)            # comma\n        )\n    )\n    '	332,689,1007
+'^\n    (?:\n        (\n            (?:\n                [a-zA-Z_][a-zA-Z0-9_]*\\s*=\\s*list\\(\n                    (?:\n                        \\s*\n                        (?:\n                            (?:".*?")|              # double quotes\n                            (?:\'.*?\')|              # single quotes\n                            (?:[^\'",\\s\\)][^,\\)]*?)       # unquoted\n                        )\n                        \\s*,\\s*\n                    )*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\\s\\)][^,\\)]*?)       # unquoted\n                    )?                              # last one\n                \\)\n            )|\n            (?:\n                (?:".*?")|              # double quotes\n                (?:\'.*?\')|              # single quotes\n                (?:[^\'",\\s=][^,=]*?)|       # unquoted\n                (?:                         # keyword argument\n                    [a-zA-Z_][a-zA-Z0-9_]*\\s*=\\s*\n                    (?:\n                        (?:".*?")|              # double quotes\n                        (?:\'.*?\')|              # single quotes\n                        (?:[^\'",\\s=][^,=]*?)       # unquoted\n                    )\n                )\n            )\n        )\n        (?:\n            (?:\\s*,\\s*)|(?:\\s*$)            # comma\n        )\n    )\n    *'	332,689,1007
+'(?:https?://)?([^/]*)/.*'	386,1181
+'^__[_A-Za-z0-9]*[A-Za-z0-9]+_?$'	640,662
+'^(\\d+)\\s+([+-]\\d\\d:?\\d\\d)$'	103,130
+'^[-_a-zA-Z0-9.]+:(//[^/]*)?/[^/]*$'	55,908
+'^(<=|>=|<|>|!=|==)?\\s*([^\\s,]+)$'	1263,1290
+'"QOOXDOO_PATH"\\s*:\\s*"([^"]*)"\\s*,?'	1043,1619
+'^(([^:/?#]+):)?(//([^/?#]*):([^/?#]*))?'	1269,1498
+'#[\\s]*?(TODO|FIXME|HACK|XXX)[\\s:]?(.+)'	422,1644
+'^(..[^\\(:]+)?[\\(:](\\d+)[\\):]:?\\s*(.*)'	602,1054
+'([0-9]+\\.[0-9]+\\.[0-9]+)\\s*(\\(\\S*\\))?'	1317,1501
+'(const)?.*::basic_string<.*>\\s*(\\*|\\&)?$'	241,1249
+'http(s)?\\://([\\w\\.-]*)(\\:(\\d+))?(/.*)?'	147,181
+'[^A-Za-z0-9]?(?:file|source)=(http[^\\\'"&]*)'	386,1181
+'(--|-)(?P<option>[A-Za-z0-9_-]+)(?P<arg>=.*)?'	602,747
+'\\s*(<=?|>=?|===?|!=|~=)\\s*((\\w|[-.*_!+])+)'	1263,1580
+'flashvars: [\\\'"](?:.*&)?file=(http[^\\\'"&]*)'	386,1181
+'(--|-|\\+)(?P<option>[A-Za-z0-9_-]+)(?P<arg>=.*)?'	602,747
+'((msgasser(t|ted)))\\s*\\(([^\\d]*)(\\d+)\\s*,?()'	1459,1531
+'(([wum]asser(t|ted)))\\s*\\(([^\\d]*)(\\d+)\\s*,?()'	1459,1531
+'((?:http|https|git)://github.com/[^/]*/[^/]*)/{0,1}'	354,379
+'(?is)<p>([^<>]{0,15}<b>[^<>]+?</b>[^<>]{2,2}.+?)</p>'	169,179
+'https://(github.com)/([^/]+)/([^/]+)(?:/tree/([^/]+))?$'	709,1601
+'((msgasser(t|ted)NoTrace))\\s*\\(([^\\d]*)(\\d+)\\s*,?()'	1459,1531
+'((?:/|-|--)[-_a-zA-Z0-9]+)(\\s*.*?)(?=,\\s+(?:/|-|--)|$)'	251,1087
+'^\\s*\\.\\.\\s+(current)?module::\\s*([a-zA-Z0-9_.]+)\\s*$'	251,1087
+'<STREAM APP="(http://.*)" FULLPATH="/?(/.*\\.flv\\?[^"]*)"'	386,1181
+'^([A-Z]\\w+::[a-z0-9-]+)\\s*:?(\\s*\\(.*\\)\\s*){0,2}\\s*$'	1054,1198
+'((?<!{)(?:{{)+|(?:}})+(?!})|{(?:[^{](?:[^{}]+|{[^{}]*})*)?})'	568,1144
+'((msgasser(t|ted))) *\\(( *)(\\d+) *, *("\\S[^,^"]+\\S") *,?'	1459,1531
+'use\\s+encoding(?:::source)?\\s+([\'"])(?P<encoding>[\\w-]+)\\1'	305,1505
+'^(\\w+)\\s+(\\w+)\\s+(\\w+)\\s+(\\S+)\\s+(([a-fA-F0-9]{2}:?){6})'	1317,1501
+'(([wum]asser(t|ted))) *\\(( *)(\\d+) *,\\s*("\\S[^"]+\\S")\\s*,?.*'	1459,1531
+'\\<\\!\\-\\-\\#\\s?[A-z0-9_-]*\\s?\\:s?[A-z0-9\\s_-]*\\s?\\-\\-\\>'	1021,1468
+'((msgasser(t|ted)NoTrace)) *\\(( *)(\\d+) *, *("\\S[^,^"]+\\S") *,?'	1459,1531
+'https://(github.com|bitbucket.org)/([^/]+)/([^/]+)(?:/tree/([^/]+))?$'	709,1601
+'(([wum]asser(t|ted))) *\\(( *)(\\d+) *,\\s*([\\S\\s+<\\(\\)"]+) *,?.*'	1459,1531
+'(?P<title>.+) (\\((class in )?(?P<id>[\\w\\.]+)( (?P<descr>\\w+))?\\))$'	251,1087
+'\\b((http|ftp)://[^ \\t\\n\\r\\f\\v<\'"]+|RFC[- ]?(\\d+)|PEP[- ]?(\\d+))'	305,1505
+'\\d+-\\d+-\\d+([\\s|T|t]\\d+:\\d+:\\d+.\\d+(Z|(\\s?[\\-|\\+]\\d+:\\d+)))?'	171,1381
+'\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))'	274,573
+'([\\w.+]+)\\s*\\(#?([^,]+),\\s*([\\w ]+),\\s*([\\w :]+)\\)\\s*\\[PyPy [^\\]]+\\]?'	1054,1087
+'^((http[s]?):\\/)#?\\/?([^:\\/\\s]+)((\\/[\\w\\-\\.]+)*\\/)*([\\w\\-\\.]+[^#?\\s]+)'	1028,1039
+"((?P<prefix>[$@%\\\\*&]+)\\s*)?(?P<scope>(::)?\\b((?!\\d)\\w*?(::|'))*)(?P<name>(?!\\d)\\w+)$"	305,1505
+'^((?P<retval>[^=]+?)\\s*=|class)?\\s*(?P<head>[\\w\\.]+\\s?\\(.*?\\))\\s*(?P<sep>[:<>=-]*)\\s*(?P<tail>.*)$'	305,1505
+u'^\\s*(?:(?:else )?if|for|switch|while|with)\\s*\\(.+\\)\\s*(?:[\\w_]|\\[).+(;)\\s*(?://.*|/\\*.*\\*/\\s*)?$'	1025,1322
+'(\'[^\']*\'|"[^"]*"|::|//?|\\.\\.|\\(\\)|[/.*:\\[\\]\\(\\)@=])|((?:\\{[^}]+\\})?[^/:\\[\\]\\(\\)@=\\s]+)|\\s+'	72,1087
+'\n        (<meta\n        (?:\\s+[\\w-]+\\s*=\\s*(?:".*?"|\'.*?\'))+  # attributes\n        \\s*/?>)\n        '	305,1505
+'((final|abstract)[ \t]+)?((public|private|protected)[ \t]+)?(static[ \t]+)?class[ \t]+\\w+((implements|extends)\\w+)?'	498,1495
+'(?P<year>\\d{4})-(?P<month>\\d{2})-(?P<day>\\d{2})[T ](?P<hr>\\d{2}):(?P<min>\\d{2}):(?P<sec>\\d{2})(?P<fractional_sec>\\.\\d+)?'	159,1155
+"\n    (?:'[^'\\n\\r]*')+|\n    <=|>=|=|<|>|\n    :\\w+|\n    ,|\n    \\*|\n    -?\\d+(?:\\.\\d+)?|\n    \\w+|\n    \\(|\\)|\n    \\S+\n    "	82,89
+'(?P<name>\\w+)\\s+(?P<type>[A-Za-z]+|\\(.*?\\))\\s+(?P<default>#REQUIRED|#IMPLIED|\\w+|(?:#FIXED)?((?:")([^"]*?)(?:")|(?:\')([^\']*?)(?:\')))\\s*(?:--(?P<comment>.*?)--)?'	305,1505
+'^(?P<filetype>.)(?P<perms>.{9})\\s+(?P<nlinks>\\d*)\\s*(?P<owner>\\S+)\\s+(?P<group>\\S+)\\s+(?P<size>\\d+)\\s+(?P<date>...\\s+\\d+\\s+[\\d:]+)\\s+(?P<filename>([^ ]|\\\\ )*?)( -> (?P<linktarget>[^\\r]*))?\\r?$'	1223,1420
+'<[a-zA-Z][-_.:a-zA-Z0-9]*\\s*(\\s*([a-zA-Z_][-:.a-zA-Z_0-9]*)(\\s*=\\s*(\\\'[^\\\']*\\\'|"[^"]*"|[-a-zA-Z0-9./,:;+*%?!&$\\(\\)_#=~@][][\\-a-zA-Z0-9./,:;+*%?!&$\\(\\)_#=~\\\'"@]*(?=[\\s>/<])))?)*\\s*/?\\s*(?=[<>])'	1087,1580
+'(?P<year>[0-9]{4})(-(?P<month>[0-9]{1,2})(-(?P<day>[0-9]{1,2})((?P<separator>.)(?P<hour>[0-9]{2}):(?P<minute>[0-9]{2})(:(?P<second>[0-9]{2})(\\.(?P<fraction>[0-9]+))?)?(?P<timezone>Z|(([-+])([0-9]{2}):([0-9]{2})))?)?)?)?'	897,1580
+'FOREIGN KEY \\((.*?)\\) REFERENCES (?:(.*?)\\.)?(.*?)\\((.*?)\\)[\\s]?(MATCH (FULL|PARTIAL|SIMPLE)+)?[\\s]?(ON UPDATE (CASCADE|RESTRICT|NO ACTION|SET NULL|SET DEFAULT)+)?[\\s]?(ON DELETE (CASCADE|RESTRICT|NO ACTION|SET NULL|SET DEFAULT)+)?[\\s]?(DEFERRABLE|NOT DEFERRABLE)?[\\s]?(INITIALLY (DEFERRED|IMMEDIATE)+)?'	1415,1580
+'    # A numeric string consists of:\n    (?P<sign>[-+])?          # an optional sign, followed by\n    (?=\\d|\\.\\d)              # a number with at least one digit\n    (?P<int>\\d*)             # having a (possibly empty) integer part\n    (?:\\.(?P<frac>\\d*))?     # followed by an optional fractional part\n    (?:E(?P<exp>[-+]?\\d+))?  # and an optional exponent\n    \\Z\n'	1087,1580
+' (                       # wrap whole match in $1\n                  !\\[\n                    (.*?)               # alt text = $2\n                  \\]\n\n                  [ ]?                  # one optional space\n                  (?:\\n[ ]*)?           # one optional newline followed by spaces\n\n                  \\[\n                    (.*?)               # id = $3\n                  \\]\n\n                )\n    '	55,200
+' (                 # wrap whole match in $1\n                  \\[\n                    (.*?)        # link text = $2 \n                    # [for bracket nesting, see below]\n                  \\]\n\n                  [ ]?           # one optional space\n                  (?:\\n[ ]*)?    # one optional newline followed by spaces\n\n                  \\[\n                    (.*?)        # id = $3\n                  \\]\n                )\n    '	55,200
+'\n        # Source consists of a PS1 line followed by zero or more PS2 lines.\n        (?P<source>\n            (?:^(?P<indent> [ ]*) >>>    .*)    # PS1 line\n            (?:\\n           [ ]*  \\.\\.\\. .*)*   # PS2 lines\n          \\n?)\n        # Want consists of any non-blank lines that do not start with PS1.\n        (?P<want> (?:(?![ ]*$)    # Not a blank line\n                     (?![ ]*>>>)  # Not a line starting with PS1\n                     .*$\\n?       # But any other line\n                  )*)\n        '	757,1087
+"\n        ^\n        \\s*\n        (?P<operator>(~=|==|!=|<=|>=|<|>|===))\n        (?P<version>\n            (?:\n                # The identity operators allow for an escape hatch that will\n                # do an exact string match of the version you wish to install.\n                # This will not be parsed by PEP 440 and we cannot determine\n                # any semantic meaning from it. This operator is discouraged\n                # but included entirely as an escape hatch.\n                (?<====)  # Only match for the identity operator\n                \\s*\n                [^\\s]*    # We just match everything, except for whitespace\n                          # since we are only testing for strict identity.\n            )\n            |\n            (?:\n                # The (non)equality operators allow for wild card and local\n                # versions to be specified so we have to define these two\n                # operators separately to enable that.\n                (?<===|!=)            # Only match for equals and not equals\n\n                \\s*\n                v?\n                (?:[0-9]+!)?          # epoch\n                [0-9]+(?:\\.[0-9]+)*   # release\n                (?:                   # pre release\n                    [-_\\.]?\n                    (a|b|c|rc|alpha|beta|pre|preview)\n                    [-_\\.]?\n                    [0-9]*\n                )?\n                (?:                   # post release\n                    (?:-[0-9]+)|(?:[-_\\.]?(post|rev|r)[-_\\.]?[0-9]*)\n                )?\n\n                # You cannot use a wild card and a dev or local version\n                # together so group them with a | and make them optional.\n                (?:\n                    (?:[-_\\.]?dev[-_\\.]?[0-9]*)?         # dev release\n                    (?:\\+[a-z0-9]+(?:[-_\\.][a-z0-9]+)*)? # local\n                    |\n                    \\.\\*  # Wild card syntax of .*\n                )?\n            )\n            |\n            (?:\n                # The compatible operator requires at least two digits in the\n                # release segment.\n                (?<=~=)               # Only match for the compatible operator\n\n                \\s*\n                v?\n                (?:[0-9]+!)?          # epoch\n                [0-9]+(?:\\.[0-9]+)+   # release  (We have a + instead of a *)\n                (?:                   # pre release\n                    [-_\\.]?\n                    (a|b|c|rc|alpha|beta|pre|preview)\n                    [-_\\.]?\n                    [0-9]*\n                )?\n                (?:                                   # post release\n                    (?:-[0-9]+)|(?:[-_\\.]?(post|rev|r)[-_\\.]?[0-9]*)\n                )?\n                (?:[-_\\.]?dev[-_\\.]?[0-9]*)?          # dev release\n            )\n            |\n            (?:\n                # All other operators only allow a sub set of what the\n                # (non)equality operators do. Specifically they do not allow\n                # local versions to be specified nor do they allow the prefix\n                # matching wild cards.\n                (?<!==|!=|~=)         # We have special cases for these\n                                      # operators so we want to make sure they\n                                      # don't match here.\n\n                \\s*\n                v?\n                (?:[0-9]+!)?          # epoch\n                [0-9]+(?:\\.[0-9]+)*   # release\n                (?:                   # pre release\n                    [-_\\.]?\n                    (a|b|c|rc|alpha|beta|pre|preview)\n                    [-_\\.]?\n                    [0-9]*\n                )?\n                (?:                                   # post release\n                    (?:-[0-9]+)|(?:[-_\\.]?(post|rev|r)[-_\\.]?[0-9]*)\n                )?\n                (?:[-_\\.]?dev[-_\\.]?[0-9]*)?          # dev release\n            )\n        )\n        \\s*\n        $\n        "	1263,1580
+'[0-9]*[nN]{1,1}'	498
+'(([^/]*)(/.*)?)'	1248
+'[0-9]*n[wW]{1,1}'	498
+'([\r]?\n)+[ \t]{1}'	200
+'^[^_]{1,1}.*\\.py$'	1528
+'^(-?[0-9\\.]+)\\s*mm$'	1503
+'(\\w+://)?([\\w\\.]+)'	571
+'(?s)<!--(.*?)-->[\\n]?'	1248
+'https?://([^/]*?)(/.*)?'	867
+'-py\\d[.]\\d(-\\S+)?.egg'	313
+'((.+)\\@)?([^:]+):(\\d+)'	1506
+'(tel:(//)?)?\\+?[0-9]{4,}'	1465
+'sta.b tcc__([rf][0-9]*h?)$'	157
+'-?[0-9]+([ ]+-?[0-9]+){3}$'	729
+u'https?://[^/]*imdb\\.com/'	1557
+'^(([^}]*?[^;]?)\\s*)(?=\\})'	1025
+u'(?i)\\w{0,4}://[\\w\\d./]*'	1139
+'((.+)\\@)?([^:]+)(:(\\d+))?'	1510
+'^https?://github.com/[^/]+$'	305
+'\\.[a-z]+-\\d{2}[mud]{0,3}$'	1594
+'([\\\\/])([.,]?)([.,]?)(.*)'	1248
+'(?m).*([0-9a-fA-F]{32,32}).*'	859
+'(.+)[-_]([0-9a-fA-F]{40,40})'	318
+'memcached://([.\\w]+:\\d+;?)'	1426
+'gvsearch(\\d+|all)?:[\\s\\S]+'	386
+'yvsearch(\\d+|all)?:[\\s\\S]+'	386
+'ytsearch(\\d+|all)?:[\\s\\S]+'	386
+' *[0-9]+: +[1-9][0-9a-z]{3,3}'	1302
+'https?://github.com/([^/]+)/?$'	1025
+'http://([^:/]+)(:(\\d+))?(/.*)'	1205
+'(\\[.{16,16}[^,)]*?),.*?\\]\\)'	436
+'(([^@]+)@)?([^:]+)(:([0-9]+))?'	1510
+'\\[\\[(https?://[^|\\]]*)\\]\\]'	138
+'st([xy]).b tcc__([rf][0-9]*h?)$'	157
+'(.+_id|id)([mp]?\\d+)((?:-bb)?)'	241
+'action="http?\\w://[\\w.\\?=/&]*/'	1523
+'https?://[^/]*(/.*reset_key/\\S*)'	181
+'zc.buildout(-\\S+)?[.]egg(-link)?'	313
+'^([^-]+)-([^-]+).*\\.egg(-info)?$'	944
+'(http://)?([-_\\.A-Za-z]+):(\\d+)'	662
+'^https?://github.com/[^/]+/[^/]+$'	305
+'\\(([0-9\\?]{4}(/[IVXLCDM]+)?)\\)'	1469
+"<class '([A-Za-z0-9.]+)'>(\\..+)?"	602
+'st([axyz]).b tcc__([rf][0-9]*h?)$'	157
+'http(s)?://(www\\.)?([a-z]*?)\\.no'	1408
+'http://([^/:]+)(?::(\\d+))?(/.*)?$'	1569
+'(?!__init__)[0-9a-zA-Z_]*(\\.py)?$'	619
+'(\\S+)\\s+(\\S+)\\s+([IOB])-?(\\S+)?'	1248
+'UP\\s+(?:[0-9]{1,3}\\.){3}[0-9]{1,3}'	1007
+'(?!__init__)[0-9a-zA-Z_]*(\\.pyc?)?$'	619
+'(\\S+)\\s+(\\S+)\\s+([BIO])-?(\\S+)?'	1248
+'/(raw-)?attachment/([^/]+)(?:/(.*))?$'	1258
+'(?P<root>https?://[^/]+)(?P<path>/.*)'	560
+'^https?://[^/]*?(\\w+\\.\\w+)($|/.*$)'	305
+'^(<=|>=|<|>|!=|==|~=)?\\s*([^\\s,]+)$'	1594
+'\\[\\[(?:[^|\\]]*\\|)?([^\\]]+)\\]\\]'	1454
+'(.+)[-_](\\d+)\\.(\\d+)\\.(\\d+)(\\w?)'	318
+'^(.*[^a-z0-9\\n])?cp +.+ system/app/.*'	1465
+"^(\\S+) == (u?'[^']*'|\\([0-9, ]+\\))$"	220
+'^\\s*(def|class) [A-Za-z0-9_]+\\s*\\(?'	1426
+'^(https?://)?(?P<host>[^:]+)(:[0-9]+)?$'	420
+'https?://bitbucket.org/([^/]+/[^/]+)/?$'	1025
+'(\\d{4,4})[\\.|\\s](\\d+)[\\.|\\s](\\d+)'	126
+'^https?://bitbucket.org/([^/]+/[^/]+)/?$'	1025
+'Intel(\\(R\\))? (.*) processor [\\d]+MHz'	244
+'([d-]  )?(setuptools|distribute)-\\S+-py'	313
+'https?://github.com/([^/]+/[^/]+)/tags/?$'	1025
+'https?://github.com/([^/]+/[^/]+)($|/.*$)'	1025
+'^(https?)://([a-z\\.0-9]+)(?:\\:(\\d+))?$'	20
+'https?://[-\\.\\w:]*/console/rest/v1/dev/'	822
+'^<div(?:\\s+class="([^"]+)")?>(.*)</div>$'	1258
+'http(s)?\\://([\\w\\.]*)(\\:(\\d+))?(/.*)?'	594
+'(?i)(?:.+?://)?(?:www[\\d]*\\.)?([^/:#?]*)'	200
+'reporter:counter:([^,]*),([^,]*),(-?\\d+)$'	440
+'((\\([^\\)]+\\))?([\\d\\.]+)?[a-zA-Z])(.*)'	200
+'(?<=\\n)\\.\\.\\s+[^:]+:\\s+(https?://.+)$'	1340
+'(.+)[-_](\\d\\d\\d\\d)-?(\\d\\d)-?(\\d\\d)'	318
+'(https?\\:\\/\\/[(\\w|\\d|+|-|_|\\.|\\/)]+)'	1285
+'^(.*[^a-z0-9\\n])?pm +install[^a-z0-9\\n].*'	1465
+'/admin(?:/([^/]+)(?:/([^/]+)(?:/(.+))?)?)?$'	1258
+'^/usr(?:/share)?/man/man[^/]+/(.+)\\.[1-9n]'	1226
+'\\[\\[(https?://[^|\\]]*)\\|([^\\]]*)\\]\\]'	138
+'^reporter:counter:([^,]*),([^,]*),(-?\\d+)$'	542
+'<Foo\\(an_int=42\\) at remote 0x-?[0-9a-f]+>'	1580
+'[ \\t\\r\\n]*(?:(?:#[^\\n]*)?\\r?(?:$|\\n))?'	55
+'(?:@?[a-zA-Z0-9_$]+(?:://|::|->|:|/|@|\\.))+'	407
+'.*\\s+internal::(Bindable)?Matcher<([^>]+)>$'	1244
+'https?://bitbucket.org/([^/]+/[^#/]+)/?#tags$'	1025
+'(.*?)(?:\\.(\\d+))?(([-+]\\d{1,2}):(\\d{2}))?$'	425
+'http://(?:www.)?theyworkforyou.com/[^\\s[\\]]+'	32
+'(?i)(?:.+?://)?(?:www[\\d]*\\.)?([^#]*[^#/])/?'	200
+'^1.2.840.10008.[0-9.]+ (.*) PS ?[0-9].1?[0-9]$'	1432
+'\\[\\[Category:(?:[^|\\]]*\\|)?([^\\]]+)\\]\\]'	1454
+'https?://github.com/[^/]+/[^/]+/tree/([^/]+)/?$'	1025
+'^([a-zA-Z]{2})(\\-[a-zA-Z]{2})?(\\-[a-zA-Z]+)?$'	1247
+u'(__Pyx_X?(GOT|GIVE)REF|__Pyx_RefNanny[A-Za-z]+)'	1621
+'Population in (\\d{4})( \\(est\\))?.*?([\\d,.]+)'	55
+'^index ([0-9A-Fa-f]+)\\.\\.([0-9A-Fa-f]+) ?(.+)?$'	599
+'(?P<name>%%\\(name\\)(?:\\-(?P<digits>[\\d]+))?s)'	1491
+'\n@@ -([0-9]+),?([0-9]*) \\+([0-9]+),?([0-9]*) @@'	460
+'(?im)(x-eyeconnect-token *: *([0-9a-fA-F]{32,32}))'	859
+'(http://(?:www\\.)?s[ia]mplecd\\.\\w+/)(id|entry)/'	1569
+'[\\n]*[\\-]{5}BEGIN( RSA| DSA)? PRIVATE KEY[\\-]{5}'	1315
+'https?://?([-\\w.]*\\.)?digg\\.com/\\w+\\.\\w+(/|$)'	200
+'https?://bitbucket.org/([^/]+/[^/]+)/src/([^/]+)/?$'	1025
+'(zc.buildout|setuptools)( version)? \\d+[.]\\d+\\S*'	313
+'^\\s*\\[(?P<state>!?!?)(?P<section>[^\\]]*)\\]\\s*$'	1571
+'http[s]?://[www\\.]?twitter\\.com/.+/status/([0-9]+)'	340
+'^[\\s\\S]+?(?=[\\\\<!\\[_*`~$]|https?://| {2,}\\n|$)'	1580
+'(?i)fec\\s*-\\s*(\\d+)(\\.?$|\\s+|\\*BD[0-9a-f]{4}$)'	55
+'^(?:Doctest: )?([\\w\\.]+) \\.\\.\\. \\[([^\\]]+)\\]$'	122
+'(\\d\\d?):(\\d\\d)(:(\\d\\d))? *([aApP]\\.?[mM]\\.?)?$'	497
+'(`(?:[^`]|``)+`|\\w+)(?:(?:\\:)(`(?:[^`]|``)+`|\\w+))?'	873
+'<Foo\\(an_attr=<\\.\\.\\.>\\) at remote 0x-?[0-9a-f]+>'	1580
+'(`(?:[^`]|``)+`|\\w+)(?:(?:\\.)(`(?:[^`]|``)+`|\\w+))?'	873
+'summary\\.php\\?cid=([A-Z0-9]+)&cycle=\\d+\\" ?>([^<]+)'	55
+'\\A[\t ]*([\\w\\.\\/]+)\\:(([0-9]+))?(\\:([0-9]+))?\\:?'	649
+'(.*)derpiboo((.ru)|(ru.org))(/images)?/(?P<id>[0-9]*)/?'	539
+'#date(\\s+(\\S+))?\\s+(\\d\\d\\d\\d[-/]\\d\\d[-/]\\d\\d)'	173
+u'(([a-zA-Z_][a-zA-Z0-9_]*)?:)?([a-zA-Z_][a-zA-Z0-9_-]*)?'	55
+'(\\\\)((@\\d:)?[\\w @\\-\\./\\(\\),\\[\\]]*)(\\t*:) *(.*)'	1192
+'([\\w\\d_\\.\\-])+\\@(([\\w\\d\\-])+\\.)+([\\w\\d]{2,4})+'	1258
+'^([A-Z]+)\\s+http://([a-zA-Z0-9\\-\\.]+):?(\\d*)(.*) HTTP'	1548
+'^(?P<neg>-?)(?P<Y>\\d{4,})(?P<tz>Z|([-+]\\d\\d:\\d\\d))?$'	1076
+"([\\w.!~*'|;:&=+$,-]+@)?\\d+\\.\\d+\\.\\d+\\.\\d+(:\\d*)*$"	1247
+'^\\s*class\\s+([a-zA-Z_]\\w*)\\s*(\\([\\s\\w.,]*\\))?:\\s*$'	602
+'@?[a-zA-Z0-9_$]+(?:(?:://|::|->|:|/|@|\\.)@?[a-zA-Z0-9_$]+)+'	407
+'https?://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]'	1293
+'[\\(\\[]\\s?(\\d+)\\s?,\\s?(\\d+)\\s?,\\s?(\\d+)\\s?[\\)\\]]'	727
+'^\\[{2}(?P<uri>[^][]*)(\\]\\[(?P<description>[^][]*))?\\]{2}'	624
+'(?P<year>\\d{4})( (?P<month>[A-Za-z]{3})( (?P<day>\\d+))?)?$'	1302
+'\\[((\\d+(\\.\\d*)?)([wdhms]?)/)?(\\d+(\\.\\d*)?)([wdhms])\\]$'	173
+'.*(?P<code1>[sS][0-9]{2}[eE][0-9]{2})(-(?P<code2>[0-9]{2}))?.*'	1489
+'(?:http://)?(?:www\\.)?metacafe\\.com/watch/([^/]+)/([^/]+)/.*'	386
+'(warning:)?(?:.*:)?\\s*([-0-9]+)\\s*:\\s*([-0-9]+)\\s*:\\s*(.*)'	1621
+'((https?):((//)|(\\\\\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)'	472
+'-?([0-9]+(\\.[0-9]*)?|\\.[0-9]+)((cm)|(mm)|(in)|(pt)|(pc)|(px))'	729
+'SMfunctions\\[\\d+\\] = Array \\("(?:public )?([^,]+)",".+"\\);'	1555
+'^(([A-Z])[a-z]+)(([A-Z])[a-z]+)?(([A-Z])[a-z]+)?(([A-Z])[a-z]+)?'	1500
+'(ATTRS?|ENV|TEST){([a-zA-Z0-9/_.*%-]+)}\\s*(?:=|!)=\\s*"([^"]*)"$'	722
+'([A-Za-z]+://)?(([A-Za-z0-9]+)(:[^:@]+)?@)?([^:/]+)(:[0-9]+)?(/.*)?'	1051
+u'[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]+)?'	1158
+'^https?://twitter.com/(?:#!\\/)?[a-zA-Z0-9_]+/status(?:es)?/([0-9]+)'	175
+'(d  ((ext)?demo(needed)?|other)-\\d[.]\\d-py)\\d[.]\\d(-\\S+)?[.]egg'	313
+'(?P<hostname>https?://(\\w|\\.|:)+)/projects/p/(?P<project>(\\w|-)+)/'	1186
+'([A-Za-z_0-9]+)\\((.*?)\\)(?:(?:\\s+->\\s+)\\((.*?)\\))?(?:\\s+(.*))?'	896
+'color ([^ ]+) #([a-fA-F0-9]{2,2})([a-fA-F0-9]{2,2})([a-fA-F0-9]{2,2})'	1216
+'(?P<type>[^:]*)://((?P<user>.+)@)?(?P<location>[^;]+)(;(?P<parm>.*))?'	1143
+'([A-Za-z_0-9]+)\\((.*?)\\)(?:(?:\\s+->\\s+)\\((.*?)\\)(?:\\s+(.*))?)?'	1300
+'^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$'	1420
+'(\\w{1,4}\\s+\\d{1,2}\\s+\\d\\d:\\d\\d:\\d\\d)(\\s+[\\w\\d\\.\\/\\@]+)'	455
+'^[A-Za-z0-9 .#(),_/-]+ +\\([0-9A-F]+, ?[0-9A-F]+\\) [A-Z][A-Z] [0-9]+$'	1432
+'Job submitted with jobid: +(\\w+://([a-zA-Z0-9.-]+)(:\\d+)?(/.*)?/\\d+)'	1205
+'^(?P<neg>-?)(?P<Y>\\d{4,})-(?P<M>\\d\\d)(?P<tz>Z|([-+]\\d\\d:\\d\\d))?$'	1076
+'{{[ ]?placeholder[ ]?\\([ ]?"(?P<placeholder>[a-zA-Z0-9]+)"[ ]?\\)[ ]?}}'	1187
+'(?:(?:(?:http://)?(?:\\w+\\.)?youtube.com/user/)|ytuser:)([A-Za-z0-9_-]+)'	386
+'myth://((?P<group>.*)@)?(?P<host>[a-zA-Z0-9_\\.]*)(:[0-9]*)?/(?P<file>.*)'	506
+'<MEMBER name="\\??([^"]+)" wn="([^"]*)"[^>]+>|<VNSUBCLASS ID="([^"]+)"/?>'	1248
+'^([0-9]{4})-([0-1][0-9])-([0-3][0-9])(-([0-2][0-9])-([0-5][0-9]))? +(.*)$'	165
+u'(?:[-*/%^&|<>!]=?|&&|\\|\\||<<|>>>|={1,3}|!==?)\\s*(?<!\\+)(\\+)[\\w(\\[]'	304
+'^http://(?:www.)?(.*?)(?:\\:[0-9]+)?/.*/([0-9B][0-9A-Z]{9})(?:[^0-9A-Z]|$)'	913
+'(?:http://)?(?:[a-z0-9]+\\.)?photobucket\\.com/.*[\\?\\&]current=(.*\\.flv)'	386
+'myth://((?P<group>.*)@)?(?P<host>[0-9\\.]*)(:(?P<port>[0-9]*))?/(?P<file>.*)'	506
+'(?i)(?:https?://)?(?:www\\.)?dailymotion\\.[a-z]{2,3}/video/([^_/]+)_([^/]+)'	386
+'/lib/modules/[^/]+/updates/DD/(?P<moduledir>.*/)?(?P<modulename>[^/.]+).ko.*'	1051
+"'?([^']*)'?!((\\$([A-Za-z]+))?\\$([0-9]+)(:(\\$([A-Za-z]+))?(\\$([0-9]+)))?)$"	729
+u'():\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-\\/]))?'	1557
+'(?P<protocol>[^\\s:/]+)://(?P<hostname>[^\\s:]+):?(?P<port>\\d+)?/(?P<id>\\S*)'	1184
+'<built-in method readlines of _io.TextIOWrapper object at remote 0x-?[0-9a-f]+>'	1580
+'(?P<link>(?:http(|s):\\/\\/)?(?:www.)?(twitter).com\\/?)*(?P<nome>[\\w\\.\\-]*)'	1285
+'[^\\d]+ (\\d+)\\.(\\d+)\\.(\\d+)\\s*\\((?P<datetime>.+?)\\)\\s*(?P<type>[a-z]+)?'	1247
+'^([A-Za-z0-9 .#(),_/-]+) +\\(([0-9A-F]+), ?([0-9A-F]+)\\) ([A-Z][A-Z]) ([0-9]+)$'	1432
+'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'	746
+'(\\([0-9\\?]{4}(?:/[IVXLCDM]+)?\\)(?: \\(mini\\)| \\(TV\\)| \\(V\\)| \\(VG\\))?)'	1469
+'(\\d+\\.?\\d*)\\s*(second|minute|hour|day|week|month|year|[hdwmy])s?\\s*(?:ago)?$'	1258
+'(?:(?P<proto>[a-zA-i0-9]+)://)?(?P<host>[a-zA-Z0-9.-]+)(?:[:](?P<port>[0-9]+))?/?'	863
+'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+#]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'	340
+'myth://((?P<group>.*)@)?(?P<host>[\\[\\]a-zA-Z0-9_\\-\\.]*)(:[0-9]*)?/(?P<file>.*)'	506
+'(?P<link>(?:http(|s):\\/\\/)?(?:www.)?(facebook|fb).com\\/?)*(?P<nome>[\\w\\.\\-]*)'	1285
+'^http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+#]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+$'	340
+'[Ee]rr(or)?: (?P<error>.+?(Could not match (?P<near>.+?))?) at /.+?:(?P<line>\\d+)?'	1025
+'^(?P<neg>-?)(?P<Y>\\d{4,})-(?P<M>\\d\\d)-(?P<D>\\d\\d)(?P<tz>Z|([-+]\\d\\d:\\d\\d))?$'	1076
+'\\s*[ur]{0,2}(?:"""[\\s\\S]*?"""|"[^"\n]+?"|\'\'\'[\\s\\S]*?\'\'\'|\'[^\'\n]+?\')\\s*'	1248
+'\\([ ]*-?([0-9]+(\\.[0-9]*)?|\\.[0-9]+)([ ]+-?([0-9]+(\\.[0-9]*)?|\\.[0-9]+)){2}[ ]*\\)'	729
+'^class(\\s+[^\\s]*_EXPORT)?\\s+(vtk[A-Z0-9_][^ :\n]*)\\s*:\\s*public\\s+(vtk[^ \n\\{]*)'	557
+'(?P<prefix>^diff(\\s-[a-z]{1})?(\\s-[a-z]{1})?(\\s-[a-z]{1})?)(?P<main>.*)(?P<suffix>$)'	31
+'(\\d{4}-\\d{2}-\\d{2} |)(\\d{2}:\\d{2}:\\d{2}) \\[([A-Z]+)\\] (?:\\[Minecraft\\] )?(.*)'	1463
+'^\\s*(?:[87][- ]?[- \\(]?[0-9]{3}[- \\)]?[- ]?)?[0-9]{3}[- ]?[0-9]{2}[- ]?[0-9]{2}\\s*$'	44
+'(?P<protocol>PYROLOC|PYROLOCSSL)://(?P<hostname>[^\\s:]+):?(?P<port>\\d+)?/(?P<name>\\S*)'	1184
+'^(-{3}-*)(?::(?P<c>[a-zA-Z][_a-zA-Z\\-\\d]*)(?:\\[(?P<p>[a-zA-Z][_a-zA-Z\\-\\d]*)\\])?)?$'	1247
+'^(([^:/?#]+):)?(//(([^:]+)(:(.+))?@)?([^/?#:]*)(:([0-9]+))?)?([^?#]*)(\\?([^#]*))?(#(.*))?'	826
+'^\\s*([A-Z.a-z -]+[1-2]?)\\s+([0-9A-Z]+)\\s+([0-9A-Zx]+)\\s+([1-3])\\s+([A-Z][A-Z])\\s+.*$'	1432
+'(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-\\/]))?'	1557
+'^(?P<neg>-?)(?P<h>\\d\\d):(?P<m>\\d\\d):(?P<s>\\d*(\\.\\d+)?)(?P<tz>Z|([-+]\\d\\d:\\d\\d))?$'	1076
+'(?<!\\")(?<!\\\\.)(?:[a-z|A-Z]+[0-9]+:?(?:[a-z|A-Z]+[0-9]+\\:?)?)(?:(?=[+\\-*/% \\,)])|(?!.))'	152
+'{\\s*(.+?)?\\s?(\\([0-9\\?]{4}-[0-9\\?]{1,2}-[0-9\\?]{1,2}\\))?\\s?(\\(#[0-9]+\\.[0-9]+\\))?}'	1469
+'(\\s*DRI_CONF_ENUM\\s*\\([^,]+,\\s*)(gettext\\s*\\(\\s*")(.*)("\\s*\\))(\\s*\\)[ \\t]*\\\\?)$'	533
+'^(?:\\d{4}-\\d{2}-\\d{2} |)\\[?(\\d{2}:\\d{2}:\\d{2})\\]? \\[?(?:[^\\]]+?/|)([A-Z]+)\\]:? (.*)'	1463
+'(((?P<py>python)|(?P<fr>fakeroot))\\s*)*(?P<func>[\\w\\.\\-\\+\\{\\}\\$]+)?\\s*\\(\\s*\\)\\s*{$'	1143
+'(\\d{4})-(\\d{2})-(\\d{2})T(\\d{2}):(\\d{2}):(\\d{2}(?:\\.\\d+)?)(?:(Z)|([+-])(\\d{2}):(\\d{2}))'	348
+'http://(?:www\\.)?redd(?:\\.it/|it\\.com/(?:tb|(?:r/[\\w\\.]+/)?comments)/)(\\w+)(/.+/)?(\\w{7})?'	1463
+'<Foo\\(an_attr=<Foo\\(an_attr=<\\.\\.\\.>\\) at remote 0x-?[0-9a-f]+>\\) at remote 0x-?[0-9a-f]+>'	1580
+'^(?P<device>[\\S\\:]+)\\s+Link encap:(?P<link>(\\S+ ?\\S+))(\\s+HWaddr (?P<hwaddr>[0-9a-fA-F:]+))?'	826
+'_(.+?(?: \\([0-9\\?]{4}(?:/[IVXLCDM]+)?\\))?(?: \\(mini\\)| \\(TV\\)| \\(V\\)| \\(VG\\))?)_ \\(qv\\)'	1469
+'^[\\w-]+(\\.[\\w-]+)*@([a-z0-9-]+(\\.[a-z0-9-]+)*?\\.[a-z]{2,6}|(\\d{1,3}\\.){3}\\d{1,3})(:\\d{4})?$'	548
+'^\\s+inet addr:\\s*(?P<ipaddr>[0-9\\.]+)(\\s+Bcast:(?P<bcast>[0-9\\.]+))?\\s+Mask:(?P<mask>[0-9\\.]+)'	826
+"^\\s*([A-Za-z0-9'./> -]+)\\s+\\(?([0-9A-F]+),([0-9A-FxXY]+)\\)?\\s+([A-Z][A-Z])\\s+([1-3C]+)?,?.*\\s*$"	1432
+'(?:.*(/|\\\\))?(?P<artist>.*) - (?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2}) (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<artist>.*) - (?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2})-(?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:http://)?(?:[a-z]+\\.)?video\\.yahoo\\.com/(?:watch|network)/([0-9]+)(?:/|\\?v=)([0-9]+)(?:[#\\?].*)?'	386
+'(?:.*(/|\\\\))?(?P<artist>.*) - (?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2}) - (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'((?P<protocol>[^:]+)://)?((?P<username>[^:]+)(:(?P<password>.+))?@)?(?P<server>[^/]+)(/(?P<mailbox>.+))?$'	43
+'(?:.*(/|\\\\))?(?P<artist>.*) - (?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2})\\. (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(\\s*DRI_CONF_DESC\\s*\\(\\s*)([a-z]+)(\\s*,\\s*)(gettext\\s*\\(\\s*")(.*)("\\s*\\))(\\s*\\)[ \\t]*\\\\?)$'	533
+"[Ee]rr(or)?: (?P<error>.+?(Syntax error at \\'(?P<near>.+?)\\'; expected \\'.+\\')) at /.+?:(?P<line>\\d+)?"	1025
+'(?:.*(/|\\\\))?(?P<artist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2}) (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<artist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2}) - (?P<title>.*)\\.(?:\\w{2,5})$'	913
+u'(Traceback \\(most recent call last\\):\\n(?:  File "[^"\\n]+", line \\d+, in \\w+\\n(?:    .+\\n)?)+\\S.*\\n)'	737
+'(?:.*(/|\\\\))?(?P<artist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2})\\. (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(\\s*DRI_CONF_DESC_BEGIN\\s*\\(\\s*)([a-z]+)(\\s*,\\s*)(gettext\\s*\\(\\s*")(.*)("\\s*\\))(\\s*\\)[ \\t]*\\\\?)$'	533
+'^\\s*([A-Za-z0-9 #()./,_:>-]+)\\s+([0-9A-Z]+),\\s?([0-9A-ZxX]+)\\s+([1-3C]+)\\s+([A-Z][A-Z])\\s+([0-9Nn-]+)\\s*$'	1432
+'(`(?:[^`]|``)+`|\\w+)(?:(?:\\.)(`(?:[^`]|``)+`|\\w+))?(?:\\:)(`(?:[^`]|``)+`|\\w+)(?:(?:\\.)(`(?:[^`]|``)+`|\\w+))?'	873
+'((?P<url>\\w{3,6}://\\S+)|(?P<email>[-+=%/\\w\\.]+@[\\w\\.\\-]+)|(?P<item>(?P<class>[A-Za-z_]+)(\\s*)(?P<id>\\d+)))'	43
+'(?:http://)?video\\.google\\.(?:com(?:\\.au)?|co\\.(?:uk|jp|kr|cr)|ca|de|es|fr|it|nl|pl)/videoplay\\?docid=([^\\&]+).*'	386
+'(?:.*(/|\\\\))?(?P<artist>.*)(/|\\\\)(?P=artist) - (?P<album>.*) - (?P<tracknum>\\d{2}) - (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<artist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P=album)-(?P<tracknum>\\d{2})-(?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?P<year>\\d{4})-(?P<month>\\d{2})-(?P<day>\\d{2})[T ](?P<hr>\\d{2}):(?P<min>\\d{2}):(?P<sec>\\d{2})(?P<sec_frac>\\.\\d+)?'	1155
+'(?P<protocol>PYRONAME|PYRONAMESSL)://(((?P<hostname>[^\\s:]+):(?P<port>\\d+)/)|((?P<onlyhostname>[^\\s:]+)/))?(?P<name>\\S*)'	1184
+'^(?:nfs://)?(?P<host>([a-zA-Z][\\w\\.^-]*|\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}))(?::(?P<port>\\d*))?(?P<dir>/[\\w/]*)?$'	1543
+'(?:.*(/|\\\\))?(?P<albumartist>.*) - (?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2})_(?P<artist>.*)_-_(?P<title>.*)\\.(?:\\w{2,5})$'	913
+'^<(!\\[CDATA\\[[\\s\\S]*?\\]\\]|[a-zA-Z:0-9]+|\\{[^{}]*\\})\\s*([a-zA-Z:0-9]+=(\\{[^{}]*\\}|"[^"]*"|\'[^\']*\')\\s*)*\\/?\\s*>'	1025
+'(?:.*(/|\\\\))?(?P<albumartist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<artist>.*)-(?P<tracknum>\\d{2})-(?P<title>.*)\\.(?:\\w{2,5})$'	913
+'^\\s*(?:virtual\\s+)?void\\s+([A-Za-z_]+\\w*)\\s*\\([A-Za-z_:0-9]+\\s*&\\s*\\w*\\)\\s*;\\s*//\\s*wxGlade:\\s*<event_handler>\\s*$'	602
+'^(?P<user>[^:@]+)(\\:(?P<password>[^@]*))?@(?P<host>[^\\:@]+)(\\:(?P<port>[0-9]+))?/(?P<db>[^\\?]+)(\\?sslmode=(?P<sslmode>.+))?$'	1247
+'(?:.*(/|\\\\))?(?P<artist>.*)(/|\\\\)((?P<year>\\d{4}) - )(?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2})-(?P<title>.*)\\.(?:\\w{2,5})$'	913
+'^[^\\(\\[]+[^\\s](\\+|\\-|\\*|/|%|\\^|&|\\||=|<|>|>>|<<|\\+=|\\-=|\\*=|/=|%=|\\^=|&=|\\|=|==|<=|>=|>>=|<<=|!=|<>)[^\\s][^\\)\\]]+$'	1054
+'^GL_?API(CALL)?\\s+(?P<return>[\\w\\s*]+[\\w*])\\s+(GL)?_?APIENTRY\\s+(?P<name>\\w+)\\s*\\((?P<params>[\\w\\s(,*\\[\\])]+)\\)\\s*;'	533
+'^! (((2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?)\\.){3}(2(5[0-5]|[0-4][0-9])|[01]?[0-9][0-9]?)(/(3[12]|[12]?[0-9])))[\\t\\s]+([^\\t]+)$'	735
+'^\\s*([A-Za-z0-9&{}=+ \xab\xbb%;#()./,_:<>-]+)\\s+\\(?([0-9A-Fa-fn]+),\\s?([0-9A-Fa-fyxX]+)\\)?\\s+([A-Z][A-Z])\\s+([0-9Nn-]+)\\s*$'	1432
+'(?:.*(/|\\\\))?(?P<albumartist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2}) - (?P<artist>.*) - (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<albumartist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<artist>.*) - (?P<tracknum>\\d{2}) - (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'(?:.*(/|\\\\))?(?P<albumartist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P<tracknum>\\d{2})\\. (?P<artist>.*) - (?P<title>.*)\\.(?:\\w{2,5})$'	913
+'<(\\/?)(!\\[CDATA\\[[\\s\\S]*?\\]\\]|[a-zA-Z:0-9]+|\\{[^{}]*\\})\\s*([a-zA-Z:0-9]+=(\\{[^{}]*\\}|"[^"]*"|\'[^\']*\')\\s*)*(\\/?)\\s*>'	1025
+'(?P<year>\\d{4})-(?P<month>\\d{2})-(?P<day>\\d{2})[T_ ](?P<hour>\\d{2}):(?P<minute>\\d{2}):(?P<second>\\d{2})(?P<subsecond>\\.\\d+)?Z?'	1469
+'^\\s*\\(([0-9A-Z]+),([0-9A-Zx]+)\\)\\s+([A-Za-z0-9./:_ -]+)\\s+\\|\\s+([A-Za-z0-9 ()._,/#>-]+)\\s+([A-Z][A-Z]_?O?W?)\\s+([0-9n-]+)\\s*$'	1432
+'^(?P<neg>-?)(?P<Y>\\d{4,})-(?P<M>\\d\\d)-(?P<D>\\d\\d)T(?P<h>\\d\\d):(?P<m>\\d\\d):(?P<s>\\d*(\\.\\d+)?)(?P<tz>(Z|([-+]\\d\\d:\\d\\d))?)$'	1076
+'//\\s?[\\-]*\\s(?P<desc>.*?)\\*/\\W*?struct\\s(?:ASSIMP_API\\s)?(?P<name>[a-z][a-z0-9_]\\w+\\b)[^{]*?\\{(?P<code>.*?)\\}\\s*(PACK_STRUCT)?;'	706
+'(?:.*(/|\\\\))?(?P<albumartist>.*)(/|\\\\)(?P<album>.*)(/|\\\\)(?P=album)-(?P<tracknum>\\d{2})-(?P<artist>.*)-(?P<title>.*)\\.(?:\\w{2,5})$'	913
+'^\\s*([A-Za-z0-9&{}=+ ;%#\\[\\]()./,_:<>-]+)\\s+\\(?([0-9A-Fa-f]+),\\s?([0-9A-Fa-fyxX]+)\\)?\\s+([1-3C]+)\\s+([A-Z][A-Z])\\s+([0-9Nn-]+)\\s*$'	1432
+"([\\w.!~*'|;:&=+$,-]+@)?(([A-Za-z0-9]+[A-Za-z0-9\\-]*[A-Za-z0-9]+\\.)*([A-Za-z0-9]+\\.)*)*([A-Za-z]+[A-Za-z0-9\\-]*[A-Za-z0-9]+)\\.?(:\\d*)*$"	1247
+'^https?://cdnsecakmi.kaltura.com/p/(?P<partner_id>[\\d]+)/sp/(?P<subp_id>[\\d]+)/flvclipper/entry_id/(?P<entry_id>[\\w]+)/version/0(?:/ext/flv)?'	856
+'(?x)\n        \\[\\s*\\]\n    |   \\(\\s*\\)\n    |   \\+\\+ | --\n    |   ->\\*? | \\,\n    |   (<<|>>)=? | && | \\|\\|\n    |   [!<>=/*%+|&^~-]=?\n'	1087
+'(((http|https)://)|(www\\.))+(([a-zA-Z0-9\\._-]+\\.[a-zA-Z]{2,6})|([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}))(/[a-zA-Z0-9\\&amp;%_\\./-~-]*)?'	548
+'([a-zA-Z]+[.]? \\d+\\, \\d\\d\\d\\d at \\d+(\\:\\d+)? [ap]\\.m\\. [A-Z]{1,5})|( \\((\\d+ hour(s)?(, )?)?(\\d+ minute(s)?(, )?)?(\\d+ second(s)?(, )?)?\\))'	1529
+u'\\b((?:([\\w-]+):(/{1,3})|www[.])(?:(?:(?:[^\\s&()]|&amp;|&quo\nt;)*(?:[^!"#$%&\'()*+,.:;<=>?@\\[\\]^`{|}~\\s]))|(?:\\((?:[^\\s&()]|&amp;|&quot;)*\\)))+)'	1055
+'(?x)\n        \\[\\s*\\]\n    |   \\(\\s*\\)\n    |   [!<>=/*%+|&^-]=?\n    |   \\+\\+ | --\n    |   (<<|>>)=? | ~ | && | \\| | \\|\\|\n    |   ->\\*? | \\,\n'	251
+'(?P<comment>/\\*\\*[^{}]*?\\*/)?\\s*message\\s*{\\s*(?P<type>\\w*)\\s*,\\s*(?P<subtype>\\w*)\\s*,\\s*(?P<subtypecode>\\w*)\\s*,\\s*(?P<datatype>\\w*)\\s*}\\s*;\\s*'	1522
+'(?:http://)?(?:\\w+\\.)?youtube.com/(?:(?:view_play_list|my_playlists|artist)\\?.*?(p|a)=|user/.*?/user/|p/|user/.*?#[pg]/c/)([0-9A-Za-z]+)(?:/.*?/([0-9A-Za-z_-]+))?.*'	386
+'^(optimized.)?group(?P<year>[0-9]{2}).(?P<group>[^.]+).mc(?P<prodyear>[0-9]{2})[_]?(?P<energy>[0-9]{1,2})(TeV)?.(?P<run>[0-9]+).(?P<name>).(?P<tag>[^.]+).(?P<suffix>.+)$'	270
+'^Line (?P<line>\\d+) of "(?P<filename>[\\w\\\\/\\.\\-+:]*)" starts at address\\s+0x[0-9a-f]+ <(?P<sym>\\w+)\\+\\d+> and ends at 0x[0-9a-f]+ <(?P<symend>[^+]+)(\\+\\d+)?>.'	108
+'\n(^|\\s) # start of string or has whitespace before it\n(https?://[:/.?=&;a-zA-Z0-9_-]+) # the URL itself, http or https only\n(\\s|$) # trailing whitespace or end of string\n'	485
+'^\\s+((?P<up>UP)\\s+)?((?P<use_bcast>(BROADCAST|LOOPBACK))\\s+)?((?P<running>RUNNING)\\s+)?((?P<use_mcast>(MULTICAST|NOARP))\\s+)?MTU:(?P<mtu>[0-9]+)\\s+Metric:(?P<metric>[0-9]+)'	826
+'\n    (?:\'[^\'\\n\\r]*\')+|\n    <=|>=|!=|=|<|>|\n    :\\w+|\n    ,|\n    \\*|\n    -?\\d+(?:\\.\\d+)?|\n    \\w+(?:\\.\\w+)*|\n    (?:"[^"\\s]+")+|\n    \\(|\\)|\n    \\S+\n    '	1495
+'.*Variadic(?:DynCast)?AllOfMatcher\\s*<\n                       \\s*([^\\s,]+)\\s*(?:,\n                       \\s*([^\\s>]+)\\s*)?>\n                       \\s*([^\\s;]+)\\s*;\\s*$'	1244
+'(?P<indent>^\\s*)(?P<visibility>(final|abstract)?\\s?(public|private|protected)?\\s?(static)?\\s*)(?P<entity>(function|class|interface)\\s+)(?P<name>[^$]+[&a-zA-Z0-9_]+)(?P<args>.*$)'	31
+'\n       (^\\.\\.[ ]*pylisting::[ ]?\\S*\\n    # directive\n            (?:[ ]*\\n|                   # blank line or\n               [ ]+.*\\n)*)               #   indented line\n        '	1248
+'^((?P<day>\\w{3}),\\s*)*(?P<dm>\\d{2})\\s+(?P<month>\\w{3})\\s+(?P<year>\\d{4})\\s+(?P<hour>\\d{2}):(?P<min>[0-5][0-9])(:(?P<sec>[0-5][0-9]))*\\s((?P<tz>\\w{2,3})|(?P<offset>[+\\-]\\d{4}))$'	1258
+'^(?P<filetype>.)(?P<perms>.{9})\\s+(?P<nlinks>\\d*)\\s*(?P<owner>\\S+)\\s+(?P<group>\\S+)\\s+(?P<size>\\d+)\\s+(?P<date>...\\s+\\d+\\s+[\\d:]+)\\s+(?P<filename>.{1,}?)( -> (?P<linktarget>[^\\r]*))?\\r?$'	557
+'((?:(?:(?:(?!-)(?:[\\w\\d-])*[A-Za-z](?:[\\w\\d-])*(?:(?<!-))){1,63})(?:(?:\\.)?(?:(?!-)[\\w\\d-]{1,63}(?<!-)))*|(?:[\\d]{1,3}(?:\\.[\\d]{1,3})(?:\\.[\\d]{1,3})(?:\\.[\\d]{1,3}))))(?:\\:(\\d+))?(?:\\:([\\/\\\\w+.\\w+.\\-]+))?'	873
+"^([\\w\\!\\#$\\%\\&'\\*\\+\\-\\/\\=\\?\\^\\`{\\|\\}\\~]+\\.)*[\\w\\!\\#$\\%\\&'\\*\\+\\-\\/\\=\\?\\^\\`{\\|\\}\\~]+@((((([a-z0-9]{1}[a-z0-9\\-]{0,62}[a-z0-9]{1})|[a-z])\\.)+[a-z]{2,6})|(\\d{1,3}\\.){3}\\d{1,3}(\\:\\d{1,5})?)$"	1247
+'^(((?P<first_page>\\w+)\\,)?(?P<per_page>\\w+)\\s+)?(?P<objects>\\w+)(\\s+starting\\s+from\\s+page\\s+(?P<number>\\w+))?(\\s+using\\s+(?P<key>[\\"\\\'\\w]+))?(\\s+with\\s+(?P<override_path>\\w+))?(\\s+as\\s+(?P<var_name>\\w+))?$'	250
+'.*AST_TYPE(LOC)?_TRAVERSE_MATCHER\\(\n                       \\s*([^\\s,]+\\s*),\n                       \\s*(?:[^\\s,]+\\s*),\n                       \\s*AST_POLYMORPHIC_SUPPORTED_TYPES_([^(]*)\\(([^)]*)\\)\n                     \\)\\s*;\\s*$'	1244
+'(?P<exp>export\\s*)?(?P<var>[a-zA-Z0-9\\-_+.${}/]+)(\\[(?P<flag>[a-zA-Z0-9\\-_+.]+)\\])?\\s*((?P<colon>:=)|(?P<lazyques>\\?\\?=)|(?P<ques>\\?=)|(?P<append>\\+=)|(?P<prepend>=\\+)|(?P<predot>=\\.)|(?P<postdot>\\.=)|=)\\s*(?P<apo>[\'\\"]?)(?P<value>.*)(?P=apo)$'	1143
+'^ ([\\w.]+\\.)?            # class name(s)\n          ([^\\s(]+)  \\s*         # thing name\n          (?: \\((.*)\\)           # optional: arguments\n           (?:\\s* -> \\s* (.*))?  #           return annotation\n          )? $                   # and nothing more\n          '	898
+'^ ([\\w.]*\\.)?            # class name(s)\n          ([^\\s(]+)  \\s*         # thing name\n          (?: \\((.*)\\)           # optional: arguments\n           (?:\\s* -> \\s* (.*))?  #           return annotation\n          )? $                   # and nothing more\n          '	1551
+'((?!.*::.*::)(?:(?!:)|:(?=:))(?:[0-9a-f]{0,4}(?:(?<=::)|(?<!::):)){6}(?:[0-9a-f]{0,4}(?:(?<=::)|(?<!::):)[0-9a-f]{0,4}(?:(?<=::)|(?<!:)|(?<=:)(?<!::) :)|(?:25[0-4]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(?: \\.(?:25[0-4]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))(?:\\:(\\d+))?(?:\\:([\\/\\\\w+.\\w+.\\-]+))?'	873
+'^Host (?P<host>.+), plugin (?P<plugin>.+)( \\(instance (?P<plugin_instance>.+)\\))? type (?P<type>.+)( \\(instance (?P<type_instance>.+)\\))?: Data source "(?P<ds_name>.+)" is currently (?P<ds_value>.+)\\. That is (below|above) the (failure|warning) threshold of (?P<ts_value>[\\-0-9\\.]+)(?P<percent_flag>%?)\\.'	826
+'\n        [^<]*\n        (\n          ((<!--.*?-->)                         |  # comment\n           (<![CDATA[.*?]])                     |  # raw character data\n           (<!DOCTYPE\\s+[^\\[]*(\\[[^\\]]*])?\\s*>) |  # doctype decl\n           (<[^>]*>))                              # tag or PI\n          [^<]*)*\n        \\Z'	1248
+'\n\t\t\t       (?xi)( # allow comments, case insensitive\n\t\t\t        if\\s* # begins with an if statement\n\t\t     (.*(and|or)\\s*)* # predicates are possible\n\t\t       keycode\\s*=\\s* # keycode assignment\n\t        (?P<keycode>\\w{5})\\s* # \n\t  (?P<assign_name>\\w+)\\s*=\\s* #\n(?P<assign_value>[0-9](.[0-9]+)?)\\s*) #\n\t\t\t\t      '	962
+'\n    ep                  # Character Literals\n    (?:isode)?          # Junk group for optional character literals\n    [\\W_]?              # Optional non alphanum char\n    (?P<E>\\d{1,2})      # NG(E) capturing 1/2 digits for episode no\n    [\\W_]               # non alphanum char\n    (?P<EN>.*)          # NG(EN) greedily trying to grab episode name'	817
+'^(?P<scheme>[a-zA-Z0-9]+)://                         # scheme\n                        ((?P<avatar>[^:@]+)(:(?P<password>[^@]+))?@)?       # avatar name and password (optional)\n                        (?P<host>[^:/]+)(:(?P<port>\\d+))?                   # host, port (optional)\n                        (?P<path>/.*)                                       # path\n                       $'	926
+'\n            (?:^[ \\t]+)?               # eat spaces, tabs (opt.)\n            (<\n             (?:!--[ ])?               # comment start + space (opt.)\n             /?TMPL_[A-Z]+             # closing slash / (opt.) + statement\n             [ a-zA-Z0-9""/.=:_\\\\-]*   # this spans also comments ending (--)\n             >)\n            [\n]?                      # eat trailing newline (opt.)\n        '	220
+'^\\s*AST_POLYMORPHIC_MATCHER(_P)?(.?)(?:_OVERLOAD)?\\(\n                          \\s*([^\\s,]+)\\s*,\n                          \\s*AST_POLYMORPHIC_SUPPORTED_TYPES_([^(]*)\\(([^)]*)\\)\n                       (?:,\\s*([^\\s,]+)\\s*\n                          ,\\s*([^\\s,]+)\\s*)?\n                       (?:,\\s*([^\\s,]+)\\s*\n                          ,\\s*([^\\s,]+)\\s*)?\n                       (?:,\\s*\\d+\\s*)?\n                      \\)\\s*{\\s*$'	1244
+'^(?P<exception>sqlite)://:memory:$|\n                     ^(?P<driver>\\w+?)://  # driver\n                     (?:(?:(?P<user>\\w+?)(?::(?P<password>\\w+?))?@)?  # user and password pattern\n                     (?:(?P<host>[\\w\\.]+?)(?::(?P<port>\\d+))?/|(?P<unix_socket>/(?:\\.?\\w+?(?:[\\.\\-]\\w+)*/)*?\\.?\\w+(?:[\\.\\-]\\w+)*):)  # host patterns\n                     (?P<dbname>\\w+)|(?P<path>/(?:\\.?\\w+?(?:[\\.\\-]\\w+)*/)*?\\.?\\w+(?:[\\.\\-]\\w+)*))$ # database patterns'	648
+'<!-- \\*\\*\\* Reference number \\*\\*\\* -->.*?<font face="arial,helvetica" size=2>(<[BI]>)?(.*?)</FONT>.*?<!-- \\*\\*\\* Motion title \\*\\*\\* -->.*?<A HREF="(.*?)" TARGET="_parent">\\s*<font face="arial,helvetica" size=2>(?:<[BI]>)?([^<]*?)</font></A>\\s*</TD>\\s*<!-- \\*\\*\\* Signatures -->.*?(?:<font face="arial,helvetica" size=2>(?:<[BI]>)?(\\d+) &nbsp;&nbsp;</font>\\s*)?</TD>\\s*<!-- \\*\\*\\* Motion date \\*\\*\\* -->.*?<font face="arial,helvetica" size=2>(?:<[BI]>)?(\\d\\d)\\.(\\d\\d)\\.(\\d\\d)</FONT>(?s)'	32
+'\n        # Source consists of a PS1 line followed by zero or more PS2 lines.\n        (?P<source>\n            (?:^(?P<indent> [ ]*) >>>    .*)    # PS1 line\n            (?:\\n           [ ]*  \\.\\.\\. .*)*)  # PS2 lines\n        \\n?\n        # Want consists of any non-blank lines that do not start with PS1.\n        (?P<want> (?:(?![ ]*$)    # Not a blank line\n                     (?![ ]*>>>)  # Not a line starting with PS1\n                     .+$\\n?       # But any other line\n                  )*)\n        '	1580
+'\n    (?P<SN>.*?)         # NG(SN) non greedily capturing show name\n    season              # Character literals\n    [\\W_]?              # Optional non alphanum char\n    (?P<S>\\d{1,2})      # NG(S) capturing 1/2 digits for season no\n    [\\W_]?              # Optional non alphanum char\n    episode             # Character literals\n    [\\W_]?              # Optional non alphanum char\n    (?P<E>\\d{1,2})      # NG(E) capturing 1/2 digits for episode no\n    (?P<EN>.*)          # NG(EN) greedily trying to grab episode name'	817
+'  \n    (?P<SN>.*?)         # Named Group (SN) non greedily capturing show name\n    s                   # Letter S representing season\n    (?P<S>\\d{1,2})      # Named Group (S) capturing 1/2 digits for season no\n    [\\W_]?              # Single Optional Non Alpha-Num char\n    e                   # Letter E representing Episode\n    (?P<E>\\d{1,2})      # Named Group (E) Capturing 1/2 digits for episode no\n    [\\W_]*?             # Non greedy optional Non Alpha-Num char\n    (?P<EN>.*)          # Named Group (EN) greedily trying to grab episode name'	817
+'\n        # Include these so we can skip them:\n        (?P<COMMENT>        <!--.*?-->                          )|\n        (?P<CDATA>          <![CDATA[.*?]]>                     )|\n        (?P<PI>             <\\?.*?\\?>                           )|\n        (?P<DOCTYPE>        <!DOCTYPE\\s+[^\\[]*(\\[[^\\]]*])?\\s*>  )|\n        # These are the ones we actually care about:\n        (?P<EMPTY_ELT_TAG>  <\\s*[^>/\\?!\\s][^>]*/\\s*>            )|\n        (?P<START_TAG>      <\\s*[^>/\\?!\\s][^>]*>                )|\n        (?P<END_TAG>        <\\s*/[^>/\\?!\\s][^>]*>               )'	1248
+'\n                 (?x)( # verbose identify URLs within text\n     (http|ftp|gopher) # make sure we find a resource type\n                   :// # ...needs to be followed by colon-slash-slash\n        (\\w+[:.]?){2,} # at least two domain groups, e.g. (gnosis.)(cx)\n                  (/?| # could be just the domain name (maybe w/ slash)\n            [^ \\n\\r"]+ # or stuff then space, newline, tab, quote\n                [\\w/]) # resource name ends in alphanumeric or slash\n     (?=[\\s\\.,>)\'"\\]]) # assert: followed by white or clause ending\n                     ) # end of match group\n                       '	962
+'\n        \\s*    \n        ((?P<retval>                  # Capture the return type:\n            \\w+\\s*?(                  # Type name, is a \n            \\** |                     # pointer OR\n            &?  |                     # reference OR\n            (\\[\\s*[0-9]*\\s*\\])        # array.\n            )\n        )\\s*)?                        # Only one (potential) return value.\n        (?P<name>                     # Capture function name\n            playerc_\\w+               # Class name and member function name\n        )\\s*\n        (?P<params>\\(.*?\\))           # Parameters\n        \\s*;\n    '	1522
+'     # A numeric string consists of:\n#    \\s*\n    (?P<sign>[-+])?           # an optional sign, followed by either...\n    (\n        (?=\\d|\\.\\d)           # ...a number (with at least one digit)\n        (?P<int>\\d*)          # consisting of a (possibly empty) integer part\n        (\\.(?P<frac>\\d*))?    # followed by an optional fractional part\n        (E(?P<exp>[-+]?\\d+))? # followed by an optional exponent, or...\n    |\n        Inf(inity)?           # ...an infinity, or...\n    |\n        (?P<signal>s)?        # ...an (optionally signaling)\n        NaN                   # NaN\n        (?P<diag>\\d*)         # with (possibly empty) diagnostic information.\n    )\n#    \\s*\n    $\n'	12
+'\n                (?xm)  # verbose identify URLs in text (and multiline)\n             (?=^.{11} # Mail header matcher\n     (?<!Message-ID:|  # rule out Message-ID\'s as best possible\n        In-Reply-To))  # ...and also In-Reply-To\n               (.*?)(  # must grab to email to allow prior lookbehind\n   ([A-Za-z0-9-]+\\.)?  # maybe an initial part: DAVID.mertz@gnosis.cx\n        [A-Za-z0-9-]+  # definitely some local user: MERTZ@gnosis.cx\n                    @  # ...needs an at sign in the middle\n         (\\w+\\.?){2,}  # at least two domain groups, e.g. (gnosis.)(cx)\n    (?=[\\s\\.,>)\'"\\]])  # assert: followed by white or clause ending\n                     ) # end of match group\n                       '	962
+'\n\t\t\t\t\t\t\t\t#^diff[ ]--git\n\t\t\t\t\t\t\t\t\t[ ]a/(?P<a_path>.+?)[ ]b/(?P<b_path>.+?)\\n\n\t\t\t\t\t\t\t\t(?:^similarity[ ]index[ ](?P<similarity_index>\\d+)%\\n\n\t\t\t\t\t\t\t\t   ^rename[ ]from[ ](?P<rename_from>\\S+)\\n\n\t\t\t\t\t\t\t\t   ^rename[ ]to[ ](?P<rename_to>\\S+)(?:\\n|$))?\n\t\t\t\t\t\t\t\t(?:^old[ ]mode[ ](?P<old_mode>\\d+)\\n\n\t\t\t\t\t\t\t\t   ^new[ ]mode[ ](?P<new_mode>\\d+)(?:\\n|$))?\n\t\t\t\t\t\t\t\t(?:^new[ ]file[ ]mode[ ](?P<new_file_mode>.+)(?:\\n|$))?\n\t\t\t\t\t\t\t\t(?:^deleted[ ]file[ ]mode[ ](?P<deleted_file_mode>.+)(?:\\n|$))?\n\t\t\t\t\t\t\t\t(?:^index[ ](?P<a_blob_id>[0-9A-Fa-f]+)\n\t\t\t\t\t\t\t\t\t\\.\\.(?P<b_blob_id>[0-9A-Fa-f]+)[ ]?(?P<b_mode>.+)?(?:\\n|$))?\n\t\t\t\t\t\t\t'	599
+'\n\t\t\t\t\t\t\t\t#^diff[ ]--git\n\t\t\t\t\t\t\t\t\t[ ]a/(?P<a_path>\\S+)[ ]b/(?P<b_path>\\S+)\\n\n\t\t\t\t\t\t\t\t(?:^similarity[ ]index[ ](?P<similarity_index>\\d+)%\\n\n\t\t\t\t\t\t\t\t   ^rename[ ]from[ ](?P<rename_from>\\S+)\\n\n\t\t\t\t\t\t\t\t   ^rename[ ]to[ ](?P<rename_to>\\S+)(?:\\n|$))?\n\t\t\t\t\t\t\t\t(?:^old[ ]mode[ ](?P<old_mode>\\d+)\\n\n\t\t\t\t\t\t\t\t   ^new[ ]mode[ ](?P<new_mode>\\d+)(?:\\n|$))?\n\t\t\t\t\t\t\t\t(?:^new[ ]file[ ]mode[ ](?P<new_file_mode>.+)(?:\\n|$))?\n\t\t\t\t\t\t\t\t(?:^deleted[ ]file[ ]mode[ ](?P<deleted_file_mode>.+)(?:\\n|$))?\n\t\t\t\t\t\t\t\t(?:^index[ ](?P<a_blob_id>[0-9A-Fa-f]+)\n\t\t\t\t\t\t\t\t\t\\.\\.(?P<b_blob_id>[0-9A-Fa-f]+)[ ]?(?P<b_mode>.+)?(?:\\n|$))?\n\t\t\t\t\t\t\t'	599
+'<!-- Ref -->\\s*<TD WIDTH=14>[^C]*?(Closed)?[^C]*?</TD>\\s*<TD ALIGN="CENTER" VALIGN="TOP">\\s*<font face="arial,helvetica" size=2><FONT SIZE="-1">\\s*<B>(.*?)</B>\\s*</FONT>\\s*</TD>\\s*<!-- Motion Title -->\\s*<TD ALIGN="LEFT" VALIGN="TOP">\\s*<font face="arial,helvetica" size=2><FONT COLOR="#0000DD">\\s*<A HREF="(/weblink/html/motion.html/ref=.*?)" TARGET="_top">\\s*(.*?)</A>\\s*</FONT>\\s*</TD>\\s*<!-- Sponsor -->\\s*<TD ALIGN="LEFT" VALIGN="TOP">\\s*<A HREF="/weblink/html/member.html/mem=.*?" TARGET="_top" >\\s*<font face="arial,helvetica" size=2>.*?/.*?</A>\\s*</TD>\\s*<!-- Count of signatures -->\\s*<TD ALIGN="RIGHT" VALIGN="TOP">\\s*<font face="arial,helvetica" size=2><FONT SIZE="-1">(\\d+)</FONT>&nbsp;&nbsp;&nbsp;\\s*</TD>'	32
+"\n        ^(?!\\.)                            # name may not begin with a dot\n        (\n          [-a-z0-9!\\#$%&'*+/=?^_`{|}~]     # all legal characters except dot\n          |\n          (?<!\\.)\\.                        # single dots only\n        )+\n        (?<!\\.)                            # name may not end with a dot\n        @\n        (\n          localhost\n          |\n          (\n            [a-z0-9]                         # [sub]domain begins with alphanumeric\n            (\n              [-\\w]*                         # alphanumeric, underscore, dot, hyphen\n              [a-z0-9]                       # ending alphanumeric\n            )?\n          \\.                               # ending dot\n          )+\n          [a-z]{2,}                        # TLD alpha-only\n       )$\n    "	1247
+"\n        ^\n        (?:\n          # Dotted variants:\n          (?:\n            # Decimal 1-255 (no leading 0's)\n            [3-9]\\d?|2(?:5[0-5]|[0-4]?\\d)?|1\\d{0,2}\n          |\n            0x0*[0-9a-f]{1,2}  # Hexadecimal 0x0 - 0xFF (possible leading 0's)\n          |\n            0+[1-3]?[0-7]{0,2} # Octal 0 - 0377 (possible leading 0's)\n          )\n          (?:                  # Repeat 0-3 times, separated by a dot\n            \\.\n            (?:\n              [3-9]\\d?|2(?:5[0-5]|[0-4]?\\d)?|1\\d{0,2}\n            |\n              0x0*[0-9a-f]{1,2}\n            |\n              0+[1-3]?[0-7]{0,2}\n            )\n          ){0,3}\n        |\n          0x0*[0-9a-f]{1,8}    # Hexadecimal notation, 0x0 - 0xffffffff\n        |\n          0+[0-3]?[0-7]{0,10}  # Octal notation, 0 - 037777777777\n        |\n          # Decimal notation, 1-4294967295:\n          429496729[0-5]|42949672[0-8]\\d|4294967[01]\\d\\d|429496[0-6]\\d{3}|\n          42949[0-5]\\d{4}|4294[0-8]\\d{5}|429[0-3]\\d{6}|42[0-8]\\d{7}|\n          4[01]\\d{8}|[1-3]\\d{0,9}|[4-9]\\d{0,8}\n        )\n        $\n    "	1523
+'\n    ^\n    \\s*                         # Leading whitespace\n    (?!.*::.*::)                # Only a single wildcard allowed\n    (?:(?!:)|:(?=:))            # Colon iff it would be part of a wildcard\n    (?:                         # Repeat 6 times:\n        [0-9a-f]{0,4}           #   A group of at most four hexadecimal digits\n        (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n    ){6}                        #\n    (?:                         # Either\n        [0-9a-f]{0,4}           #   Another group\n        (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n        [0-9a-f]{0,4}           #   Last group\n        (?: (?<=::)             #   Colon iff preceeded by exacly one colon\n         |  (?<!:)              #\n         |  (?<=:) (?<!::) :    #\n         )                      # OR\n     |                          #   A v4 address with NO leading zeros \n        (?:25[0-4]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\n        (?: \\.\n            (?:25[0-4]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\n        ){3}\n    )\n    \\s*                         # Trailing whitespace\n    $\n'	1500
+'\n        ^\n        \\s*                         # Leading whitespace\n        (?!.*::.*::)                # Only a single whildcard allowed\n        (?:(?!:)|:(?=:))            # Colon iff it would be part of a wildcard\n        (?:                         # Repeat 6 times:\n            [0-9a-f]{0,4}           #   A group of at most four hexadecimal digits\n            (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n        ){6}                        #\n        (?:                         # Either\n            [0-9a-f]{0,4}           #   Another group\n            (?:(?<=::)|(?<!::):)    #   Colon unless preceeded by wildcard\n            [0-9a-f]{0,4}           #   Last group\n            (?: (?<=::)             #   Colon iff preceeded by exacly one colon\n             |  (?<!:)              #\n             |  (?<=:) (?<!::) :    #\n             )                      # OR\n         |                          #   A v4 address with NO leading zeros \n            (?:25[0-4]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\n            (?: \\.\n                (?:25[0-4]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\n            ){3}\n        )\n        \\s*                         # Trailing whitespace\n        $\n    '	1523

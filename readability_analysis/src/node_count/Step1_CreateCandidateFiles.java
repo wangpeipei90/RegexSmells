@@ -24,30 +24,31 @@ public class Step1_CreateCandidateFiles {
 
 	public static void main(String[] args) throws ClassNotFoundException,
 			IllegalArgumentException, SQLException, QuoteRuleException,
-			PythonParsingException,IOException, InterruptedException, ExecutionException {
+			PythonParsingException, IOException, InterruptedException,
+			ExecutionException {
 		TreeSet<RegexProjectSet> corpus = CorpusUtil.reloadCorpus();
 
 		// new dictionary contains all node groups initialized with empty nodes
 		GroupDictionary gd = new GroupDictionary();
-
 		for (String groupName : C.groupNames) {
 			StringBuilder errorLogContent = new StringBuilder();
 			NodeGroup group = gd.get(groupName);
 			for (RTNode node : group) {
-				System.out.println("in group: "+node.getName());
+				System.out.println("in group: " + node.getName());
 				for (RegexProjectSet rps : corpus) {
-					node.addIfMatches(rps,errorLogContent);
+					node.addIfMatches(rps, errorLogContent);
 				}
 			}
-			File preprocessLog = new File(IOUtil.dataPath + IOUtil.NODES,"preprocessErrorLog.txt");
-			if(errorLogContent.length()>0){
-				IOUtil.createAndWrite(preprocessLog,errorLogContent.toString());
+			File preprocessLog = new File(IOUtil.dataPath + IOUtil.NODES, "preprocessErrorLog.txt");
+			if (errorLogContent.length() > 0) {
+				IOUtil.createAndWrite(preprocessLog, errorLogContent.toString());
 				errorLogContent = new StringBuilder();
 			}
 			TreeSet<RegexProjectSet> partialCover = new TreeSet<RegexProjectSet>();
 			boolean first = true;
 			for (RTNode node : group) {
-				errorLogContent.append("\ncurrent node: " + node.getName()+"\n\n");
+				errorLogContent.append("\ncurrent node: " + node.getName() +
+					"\n\n");
 				if (first) {
 					first = false;
 					partialCover.addAll(node);
@@ -61,28 +62,43 @@ public class Step1_CreateCandidateFiles {
 									errorLogContent.append("partial cover already contains: " +
 										current +
 										" in node: " +
-										testNode.getName()+"\n");
+										testNode.getName() + "\n");
 								}
 							}
 						}
 					}
 				}
 			}
-			RTNode remainder = new RTNode(groupName+"_REMAINDER", new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach()),Pattern.compile(".*"));
-			remainder.addAll(corpus);
-			remainder.removeAll(partialCover);
-			group.add(remainder);
+//			RTNode remainder = new RTNode(groupName + "_REMAINDER", new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach()), Pattern.compile(".*"));
+//			remainder.addAll(corpus);
+//			remainder.removeAll(partialCover);
+//			group.add(remainder);
 			for (RTNode node : group) {
 				String nodeName = node.getName();
 				File nodeOutFile = new File(IOUtil.dataPath + IOUtil.NODES +
-					groupName + "/", nodeName+".tsv");
+					groupName + "/", nodeName + ".tsv");
 				IOUtil.createAndWrite(nodeOutFile, node.getContent());
 			}
 			File errorLog = new File(IOUtil.dataPath + IOUtil.NODES +
-					groupName + "/","errorLog.txt");
-			IOUtil.createAndWrite(errorLog,errorLogContent.toString());
+				groupName + "/", "errorLog.txt");
+			IOUtil.createAndWrite(errorLog, errorLogContent.toString());
 		}
-
+		TreeSet<RegexProjectSet> groupsIntersection = new TreeSet<RegexProjectSet>();
+		groupsIntersection.addAll(corpus);
+		for (String groupName : C.groupNames) {
+			TreeSet<RegexProjectSet> groupUnion = new TreeSet<RegexProjectSet>();
+			NodeGroup group = gd.get(groupName);
+			for (RTNode node : group) {
+				groupUnion.addAll(node);
+			}
+			System.out.println(groupsIntersection.retainAll(groupUnion));
+		}
+		StringBuilder sb = new StringBuilder();
+		for (RegexProjectSet rps : groupsIntersection) {
+			sb.append(rps.getContent() + "\t" + rps.getProjectsCSV() + "\n");
+		}
+		File intersection = new File(IOUtil.dataPath + IOUtil.NODES, "intersectionOfAllGroups.tsv");
+		IOUtil.createAndWrite(intersection, sb.toString());
 	}
 
 }

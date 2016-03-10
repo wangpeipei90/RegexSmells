@@ -36,11 +36,11 @@ The Custom Character Class (CCC) group has regex representations that use the cu
 Next, we provide descriptions of each representation in this equivalence class:
 %\verb!\d! which represent the digits 0-9, \verb!\w! which represents all letters, numbers and the underscore character, and \verb!\s! which represents whitespace characters such as the space, tab, newline, form feed and carriage return (or more depending on the regex language).  The \verb!\d!, \verb!\W! and \verb!\S! default character classes represent the inverse of their respective lower-letter defaults.  The ANY character class, written as a period: \verb!.! represents any non-newline character.
 \begin{description}  \itemsep -1pt
-\item[C1:] Any pattern using a range feature like \verb![a-f]! as shorthand for all of the characters between `a' and `f' (inclusive) belongs to the C1 node. 
+\item[C1:] Any pattern using a range feature like \verb![a-f]! as shorthand for all of the characters between `a' and `f' (inclusive) belongs to the C1 node.
 
 \item[C2:] Any custom character class that does not contain any shorthand representations, specifically ranges or defaults, but expresses all characters explicitly. \todoNow{does }\verb![\d][0123ab]! \todoNow{belong to this node?}
 
-\item[C3:] Any character classes expressed using negation, which is indicated by a caret (i.e., \verb!^!) followed by some other pattern.  For example the pattern \verb![^ao]! matches every character \emph{except} \verb!a! or \verb!o!.  Note that any non-negative character class can be represented as a negative character class, and visa versa. \todoNow{any exceptions to this?} For example, matching any lower-case consonant in the English alphabet can be expressed as \verb![bcdfghjklmnpqrstvwxyz]! in C2 or with negation, \verb![^aeiou]! in C3. 
+\item[C3:] Any character classes expressed using negation, which is indicated by a caret (i.e., \verb!^!) followed by some other pattern.  For example the pattern \verb![^ao]! matches every character \emph{except} \verb!a! or \verb!o!.  Note that any non-negative character class can be represented as a negative character class, and visa versa. \todoNow{any exceptions to this?} For example, matching any lower-case consonant in the English alphabet can be expressed as \verb![bcdfghjklmnpqrstvwxyz]! in C2 or with negation, \verb![^aeiou]! in C3.
 
 
 \item[C4:] Any pattern using some default character class such as \verb!\d! or \verb!\W! within a character class belongs to the C4 node.  Note that a pattern can belong to both C1 and C4, such as \verb![a-f\d]!.  The edge between C1 and C4 represents the opportunity to express the same pattern as \verb![a-f0-9]! by transforming the default digit character class into a range (or visa-versa).  This transformed version would only belong to the C1 node.
@@ -52,34 +52,40 @@ Next, we provide descriptions of each representation in this equivalence class:
 \todoNow{Is the example in C3 also a member of C1 because it contains a range? Or does the carat trump this and throw it in C3 only?}
 
 \paragraph{DBB Group}
-The Double-Bounded (DBB) group contains all regex patterns that use some repetition defined by a lower and upper boundary.  For example the pattern \verb!pB{1,3}s! represents a \verb!p! followed by one to three sequential \verb!B! patterns, then followed by a single \verb!s!.  This will match ``pBs", ``pBBs", and ``pBBBs".  
+The Double-Bounded (DBB) group contains all regex patterns that use some repetition defined by a lower and upper boundary.  For example the pattern \verb!pB{1,3}s! represents a \verb!p! followed by one to three sequential \verb!B! patterns, then followed by a single \verb!s!.  This will match ``pBs", ``pBBs", and ``pBBBs".
 
 \begin{description}  \itemsep -1pt
-\item[D1:] Any pattern that  uses the curly brace repetition with a lower and upper bound where the upper and lower bounds are different, such as  \verb!pB{1,3}s!, belongs to the D1 node. 
-Note that  \verb!pB{1,3}s! can become \verb!pBB{0,2}s! by pulling the lower bound out of the curly braces and into the explicit sequence (or visa versa). Nonetheless, it would still be part of D1, though this within-node refactoring on D1 is not discussed in this work. 
-\item[D2:] Any pattern that uses the questionable (i.e., \verb!?!) modifier implies a lower-bound of zero and an upper-bound of one, and belongs to D2. For example, when a double-bounded regex has zero on the lower bound, as is the case with \verb!pBB{0,2}s!  in D1, transforming it to D2 involves replacing the curly braces with $n$ questionable modifiers, where $n$ is the upper bound,  creating \verb!pBB?B?s!. 
-\item[D3:] Any pattern that has a repetition with a lower and upper boundary and is expressed using ORs is part of D3.  The example, \verb!pB{1,3}s! would become \verb!pBs|pBBs|pBBS! by expanding on each option in the boundaries. The challenge with identifying membership in this node is recognizing the opportunity to replace the ORs with double-boundaries, which we discuss in Section~\ref{}. 
+\item[D1:] Any pattern that  uses the curly brace repetition with a lower and upper bound, such as  \verb!pB{1,3}s!, belongs to the D1 node.
+Note that  \verb!pB{1,3}s! can become \verb!pBB{0,2}s! by pulling the lower bound out of the curly braces and into the explicit sequence (or visa versa). Nonetheless, it would still be part of D1, though this within-node refactoring on D1 is not discussed in this work.
+\item[D2:] Any pattern that uses the questionable (i.e., \verb!?!) modifier implies a lower-bound of zero and an upper-bound of one, and belongs to D2. For example, when a double-bounded regex has zero on the lower bound, as is the case with \verb!pBB{0,2}s!  in D1, transforming it to D2 involves replacing the curly braces with $n$ questionable modifiers, where $n$ is the upper bound,  creating \verb!pBB?B?s!.
+\item[D3:] Any pattern that has a repetition with a lower and upper boundary and is expressed using ORs is part of D3.  The example, \verb!pB{1,3}s! would become \verb!pBs|pBBs|pBBS! by expanding on each option in the boundaries. The challenge with identifying membership in this node is recognizing the opportunity to replace the ORs with double-boundaries, which we discuss in Section~\ref{}. Note also that a pattern can belong to multiple nodes in the DBB group, for example, \verb!(a|aa)X?Y{2,4}! belongs to all three nodes.
+% =======
+% \item[D1:] Any pattern that  uses the curly brace repetition with a lower and upper bound where the upper and lower bounds are different, such as  \verb!pB{1,3}s!, belongs to the D1 node.
+% Note that  \verb!pB{1,3}s! can become \verb!pBB{0,2}s! by pulling the lower bound out of the curly braces and into the explicit sequence (or visa versa). Nonetheless, it would still be part of D1, though this within-node refactoring on D1 is not discussed in this work.
+% \item[D2:] Any pattern that uses the questionable (i.e., \verb!?!) modifier implies a lower-bound of zero and an upper-bound of one, and belongs to D2. For example, when a double-bounded regex has zero on the lower bound, as is the case with \verb!pBB{0,2}s!  in D1, transforming it to D2 involves replacing the curly braces with $n$ questionable modifiers, where $n$ is the upper bound,  creating \verb!pBB?B?s!.
+% \item[D3:] Any pattern that has a repetition with a lower and upper boundary and is expressed using ORs is part of D3.  The example, \verb!pB{1,3}s! would become \verb!pBs|pBBs|pBBS! by expanding on each option in the boundaries. The challenge with identifying membership in this node is recognizing the opportunity to replace the ORs with double-boundaries, which we discuss in Section~\ref{}.
+% >>>>>>> 741a48d7abdf9c0f0b7741ca9a47fda9903c3a0f
 
 %\todoNow{make sure to differentiate this clearly from C5}
 \end{description}
 
-Note that a pattern can belong to multiple nodes in the DBB group, for example, \verb!(a|aa)X?Y{2,4}! belongs to all three nodes: \verb!Y{2,4}! maps it to D1, \verb!X?!  maps it to D2, and \verb!(a|aa)!  maps it to D3. 
+Note that a pattern can belong to multiple nodes in the DBB group, for example, \verb!(a|aa)X?Y{2,4}! belongs to all three nodes: \verb!Y{2,4}! maps it to D1, \verb!X?!  maps it to D2, and \verb!(a|aa)!  maps it to D3.
 
 % The same functional pattern can be represented as \verb!lol(ol)?(ol)?!, because the questionable (QST) modifier is used.  Note how in general, this procedure is simply pulling out N QST groups from a curly brace style repetition with a zero lower bound and an upper bound of N.  One question mark is equivalent to the curly brace style with a lower bound of 0, and upper bound of 1, so \verb!X?! is equivalent to \verb!X{0,1}!, so we can express \verb!X{0,2}! as \verb!X?X?!.  Any regex using the QST modifier belongs to the D2 node.
 
 
 
 \paragraph{LIT Group}
-All patterns that are not purely default character classes have to use some literal tokens to specify what characters to match.  In Python and most other languages that support regex libraries, the programmer is able to specify literal tokens in a variety of ways.  In our example we use the ASCII charset, in which all characters can be expressed using hex and octal codes like \verb!\xF1!, and \verb!\0108!, respectively.  This group defines transformations among various representations of literals. 
+All patterns that are not purely default character classes have to use some literal tokens to specify what characters to match.  In Python and most other languages that support regex libraries, the programmer is able to specify literal tokens in a variety of ways.  In our example we use the ASCII charset, in which all characters can be expressed using hex and octal codes like \verb!\xF1!, and \verb!\0108!, respectively.  This group defines transformations among various representations of literals.
 
 %Although not all characters can be expressed directly using literal characters typed on the keyboard, the overwhelming majority of patterns do not belong to nodes T2, T3 or T4 because they do not use any of those special features, and so these nodes
 
 
 \begin{description}  \itemsep -1pt
 \item[T1:] Patterns that do not use any wrapped characters (T3), octal (T4) or hex (T3) characters but use at least one literal character belong to the T1 node.
-\item[T2:] Any pattern using hex tokens, such as \verb!x07!, belongs to the T2 node. 
+\item[T2:] Any pattern using hex tokens, such as \verb!x07!, belongs to the T2 node.
 \item[T3:]  Any literal wrapped in square brackets instead of using a backslash escape, belongs to T3.
-Literal character can be wrapped in brackets to form a custom character class of size one, such as \verb![x][y][z]!. This style is used most often to avoid using a backslash for a special character in the regex language, for example, \verb![{]! which must otherwise be escaped like \verb!\{!. 
+Literal character can be wrapped in brackets to form a custom character class of size one, such as \verb![x][y][z]!. This style is used most often to avoid using a backslash for a special character in the regex language, for example, \verb![{]! which must otherwise be escaped like \verb!\{!.
 
 \item[T4:] Any pattern using octal tokens, such as \verb!\007!, belongs to the T4 node.
 \end{description}
@@ -89,7 +95,7 @@ Patterns often fall in multiple of these representations, for example, \verb!abc
 \todoNow{mention unicode}
 
 \paragraph{LWB Group}
-The lower-bounded (LWB) group contains all patterns that specify only a lower boundary on the number of repetitions required for a match.  This is expressed using curly braces with a comma after the lower bound but no upper bound, for example \verb!A{3,}! which will match `AAA', `AAAA', `AAAAA', and any number of A's greater or equal to 3.  
+The lower-bounded (LWB) group contains all patterns that specify only a lower boundary on the number of repetitions required for a match.  This is expressed using curly braces with a comma after the lower bound but no upper bound, for example \verb!A{3,}! which will match `AAA', `AAAA', `AAAAA', and any number of A's greater or equal to 3.
 
 
 \begin{description}  \itemsep -1pt
@@ -98,14 +104,14 @@ The lower-bounded (LWB) group contains all patterns that specify only a lower bo
 \item[L3:] One of the most commonly used regex features is additional repetition (ADD), for example \verb!T+! which means one-or-more T's.  This is equivalent to \verb!T{1,}!.  Any pattern using ADD repetition belongs to the L3 node.
 \end{description}
 
-Regex patterns often belong to multiple nodes, for example, with \verb!A+B*!,  \verb!A+! maps it to L3 and \verb!B*! maps it to L2. 
+Regex patterns often belong to multiple nodes, for example, with \verb!A+B*!,  \verb!A+! maps it to L3 and \verb!B*! maps it to L2.
 
 \paragraph{SNG Group} This equivalence class contains  three representations of a regex that  deal with repetition of a single element in the regex, represents by \verb!S!.
 
 \begin{description}  \itemsep -1pt
-\item[S1:] Any pattern with a single repetition boundary in curly braces belongs to S1. For example,   \verb!S{3}!, states that S appears exactly three times in sequence. 
-\item[S2:] Any pattern that is explicitly repeated two or more times and could use repetition operators is part of S2. 
-\item[S3:] Any pattern with a double-bound in which the upper and lower bounds are same belong to S3. For example, \verb!S{3,3}! states \verb!S! appears a minimum of 3 and maximum of 3 times. 
+\item[S1:] Any pattern with a single repetition boundary in curly braces belongs to S1. For example,   \verb!S{3}!, states that S appears exactly three times in sequence.
+\item[S2:] Any pattern that is explicitly repeated two or more times and could use repetition operators is part of S2.
+\item[S3:] Any pattern with a double-bound in which the upper and lower bounds are same belong to S3. For example, \verb!S{3,3}! states \verb!S! appears a minimum of 3 and maximum of 3 times.
 \end{description}
 
 The important factor distinguishing this group from DBB and LWB is that there is a finite number of repetitions, rather than a bounded range on the number of repetitions (DBB) or a lower bound on the number of repetitions (LWB). 
@@ -275,25 +281,6 @@ Using the pattern frequency as a guide, we can create refactoring recommendation
 
 
 
-\begin{table}
-\caption{Matching metric example \label{matchingmetric}}
-\begin{center}
-\begin{small}
-\begin{tabular} {cl | c c c c c}
-\textbf{String} & \verb!`RR*'! & \textbf{Oracle} & \textbf{R 1} & \textbf{R 2} & \textbf{R 3}& \textbf{R 4}\\ \hline
-1 & ``ARROW"    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark \\
-2 & ``qRs"      & \checkmark    & \checkmark    & \xmark        & \xmark        & ?\\
-3 & ``R0R"      & \checkmark    & \checkmark    & \checkmark    & ?             & -\\
-4 & ``qrs"      & \xmark        & \checkmark    & \xmark        & \checkmark    & -\\
-5 & ``98"       & \xmark        & \xmark        & \xmark        & \xmark        & -\\
-\hline
-  & Score       & 1.00          & 0.80          & 0.80          & 0.75          & 1.00\\
-\\
-\multicolumn{7}{l}{\checkmark = match, \xmark = not a match, ? = unsure, -- = left blank}\\
-\end{tabular}
-\end{small}
-\end{center}
-\end{table}
 
 
 \begin{figure}[tp]
@@ -354,8 +341,28 @@ Amazon's Mechanical Turk (MTurk) is a crowdsourcing platform in which requestors
 
 
 \paragraph{Matching}
- Given a regex and a set of strings, a participant determines which strings will be matched by the regex. The percentage of correct responses is the matching score. For example, consider regex \verb!`RR*'! and five strings, which comes from our study, shown in Table~\ref{matchingmetric}, and the responses from two participants in the \emph{Response 1} and \emph{Response 2} columns. The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{Response 1} answers correctly for the first three strings but incorrectly thinks the fourth string matches, so the matching score is $4/5 = 0.80$. \emph{Response 2} misses the second string, so they also scored $4/5 = 0.80$.
+ Given a regex and a set of strings, a participant determines which strings will be matched by the regex. The ratio of correct responses to attempted matching questions is the matching score. For example, consider regex \verb!`RR*'! and five strings, which comes from our study, shown in Table~\ref{matchingmetric}, and the responses from four participants in the \emph{P1},\emph{P2},\emph{P3} and \emph{P4} columns. The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{P1} answers correctly for the first three strings but incorrectly thinks the fourth string matches, so the matching score is $4/5 = 0.80$. \emph{P2} incorrectly thinks that the second string is not a match, so they also score $4/5 = 0.80$.  \emph{P3} marks `unsure' for the third string and so the total number of attempted matching questions is 4 instead of 5. \emph{P3} is incorrect about the second and fourth string, so they score $2/4 = 0.50$.  For \emph{P4}, we only have data about the first and second matching questions, since the other three are blank.  \emph{P4} marks `unsure' for the second matching question so only one matching question has been attempted, and it was answered correctly so the matching score is $1/1 = 1.00$.
 
+
+\begin{table}
+\caption{Matching metric example \label{matchingmetric}}
+\begin{center}
+\begin{small}
+\begin{tabular} {cl | c c c c c}
+\textbf{String} & \verb!`RR*'! & \textbf{Oracle} & \textbf{P 1} & \textbf{P 2} & \textbf{P 3}& \textbf{P 4}\\ \hline
+1 & ``ARROW"    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark \\
+2 & ``qRs"      & \checkmark    & \checkmark    & \xmark        & \xmark        & ?\\
+3 & ``R0R"      & \checkmark    & \checkmark    & \checkmark    & ?             & -\\
+4 & ``qrs"      & \xmark        & \checkmark    & \xmark        & \checkmark    & -\\
+5 & ``98"       & \xmark        & \xmark        & \xmark        & \xmark        & -\\
+\hline
+  & Score       & 1.00          & 0.80          & 0.80          & 0.50          & 1.00\\
+\\
+\multicolumn{7}{l}{\checkmark = match, \xmark = not a match, ? = unsure, -- = left blank}\\
+\end{tabular}
+\end{small}
+\end{center}
+\end{table}
 
 
 \paragraph{Composition}

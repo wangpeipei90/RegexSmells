@@ -476,6 +476,8 @@ partial cover already contains: .*[<]KILLLINE[>].*(\n|$)	356 in node: C2
 partial cover already contains: [ \t\r\n]*(?:(?:#[^\n]*)?\r?(?:$|\n))?	55 in node: C5
 partial cover already contains: [ \t\r\n]*(?:(?:#[^\n]*)?\r?(?:$|\n))?	55 in node: C2
 partial cover already contains: [ \t\r\n]*(?:(?:#[^\n]*)?\r?(?:$|\n))?	55 in node: C3
+partial cover already contains: (^(\x00|\n|\r| |:|<)|[\x00\n\r\x80-\xff]+|[ ]+$)	585 in node: C5
+partial cover already contains: (^(\x00|\n|\r| |:|<)|[\x00\n\r\x80-\xff]+|[ ]+$)	585 in node: C2
 
 current node: C3
 
