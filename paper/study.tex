@@ -1,25 +1,51 @@
+
+
+
+
+\begin{figure*}[tb]
+\centering
+\includegraphics[width=\textwidth]{illustrations/refactoringTree.eps}
+\vspace{-12pt}
+\caption{Equivalence classes with various representations of semantically equivalent refactorings within each class. DBB = Double Bounded, SNG = Single Bounded, LWB = Lower Bounded, CCC = Custom Character Class and LIT = Literal}
+\vspace{-6pt}
+\label{fig:refactoringTree}
+\end{figure*}
+
+
+
+
+
 \section{Refactorings}
 \label{sec:refactoring}
-After studying over 13,000 distinct regex strings from nearly 4,000 Python projects~\cite{chapman2016}, we have defined a set of equivalence classes for regexes with refactorings that can transform among members in the classes. For example,  \verb!AA*! and \verb!A+! are semantically identical, except one uses the star operator (indicating zero or more repetitions) and the other uses the plus operator (indicating one or more repetitions). Figure~\ref{fig:refactoringTree} represents five equivalence classes in grey boxes and various \emph{representations} of a regex in white boxes that are all semantically equivalent.
-The undirected edges between the representations define possible refactorings. Treating the representations as nodes in a graph, most of the graphs within each equivalence classes are complete, except the CCC group. Here, the edges are placed according to small transformations that can occur between pairs of nodes, though any pair of nodes can be considered a potential for refactoring.
+After studying over 13,000 distinct regex strings from nearly 4,000 Python projects\footnote{same dataset used in prior work~\cite{chapman2016}}, we have defined a set of equivalence classes for regexes with refactorings that can transform among members in the classes. 
+For example,  \verb!AAA*! and \verb!AA+! are semantically identical, except one uses the star operator (indicating zero or more repetitions) and the other uses the plus operator (indicating one or more repetitions). 
+Both match strings with two or more \verb!A!'s. 
 
-The directions of arrows in the possible refactorings will be discussed in Section~\ref{sec:results} based on frequency of occurrence in the community and the understandability of the regexes using 180 study participants.
+Figure~\ref{fig:refactoringTree} displays the five equivalence classes in grey boxes and various semantically equivalent \emph{representations} of a regex are shown in white boxes. For example, LWB is an equivalence class with representations that all have a lower bound on repetitions. Regexes \verb!AAA*! and \verb!AA+!  are both members of this class mapping to representations L2 and L3, respectively, along with the L1 representation, \verb!A{2,}!. 
+The undirected edges between the representations define possible refactorings. 
+Identifying the best direction for each arrow in the possible refactorings is discussed in Section~\ref{sec:results}. 
 
-Next, we describe each group in detail:
-\todoNow{Katie, please look at these group descriptions, editing and making notes if more info is needed.}
+We use concrete regexes in the representations to more clearly illustrate examples of the representations. In reality, the \verb!A!'s in the LWB group could be any character or character class that has a lower bound on repetitions. We chose the lower bound repetition threshold of  2 for illustration; in practice this could be any number, including zero. \todoNow{is this true with how we counted?}
+Next, we describe each group, the representations, and possible transformations in detail:
+
 \paragraph{CCC Group}
-The character class regex language feature is a fundamental feature found in all language flavors since GREP (check this?).  A custom character class (CCC) enables the user to specify a set of alternative characters, any of which can match.  For instance, the regex \verb!c[ao]t! will match both the word `cat' and the word `cot' because the letter between `c' and `t' can be an `a' or an `o'.  We use the term `custom' to differentiate these classes created by the user from the default character classes provided by every(check this?) regex language: \verb!\d!, \verb!\D!, \verb!\w!, \verb!\W!, \verb!\s!, \verb!\S! and \verb!.!.
+The Custom Character Class (CCC) group has regex representations that use the custom character class language feature or can be represented by such a feature. 
+%The character class regex language feature is a fundamental feature found in all language flavors since GREP (check this?). 
+ A custom character class enables a programmer to specify a set of alternative characters, any of which can match.  For example, the regex \verb!`c[ao]t'! will match both the string ``cat" and the string ``cot" because, between the \verb!c! and \verb!t!, there is a custom character class, \verb![ao]!, that specifies either \verb!a! or \verb!o! (but not both) must be selected.  We use the term \emph{custom} to differentiate these classes created by the user from the default character classes, : \verb!\d!, \verb!\D!, \verb!\w!, \verb!\W!, \verb!\s!, \verb!\S! and \verb!.!,  provided by most regex libraries.
 
+Next, we provide descriptions of each representation in this equivalence class: 
 %\verb!\d! which represent the digits 0-9, \verb!\w! which represents all letters, numbers and the underscore character, and \verb!\s! which represents whitespace characters such as the space, tab, newline, form feed and carriage return (or more depending on the regex language).  The \verb!\d!, \verb!\W! and \verb!\S! default character classes represent the inverse of their respective lower-letter defaults.  The ANY character class, written as a period: \verb!.! represents any non-newline character.
-Any pattern using a range feature like \verb![a-f]! as shorthand for all of the characters between `a' and `f' (inclusive) belongs to the C1 node.
+\begin{description}  \itemsep -1pt
+\item[C1:] Any pattern using a range feature like \verb![a-f]! as shorthand for all of the characters between `a' and `f' (inclusive) belongs to the C1 node. \todoNow{would [0-9] be part of C1? It's semantically identical to "slash-d" but is also wrapped in a custom class.}
 
-Any pattern using some default character class such as \verb!\d! or \verb!\W! within a character class belongs to the C4 node.  Note that a pattern can belong to both C1 and C4, like the example \verb![a-f\d]!.  The edge between C1 and C4 represents the opportunity to express the same pattern as \verb![a-f0-9]! by transforming the default digit character class into a range (or visa-versa).  This transformed version would only belong to the C1 node.
+\item[C2:] Any custom character class that does not contain any shorthand representations, specifically ranges or defaults, but expresses all characters explicitly.
 
-Node C2 contains all custom character classes that do not contain any shorthand like ranges or defaults, but express all characters explicitly.
+\item[C3:] Any character classes expressed using negation, which is indicated by a caret (i.e., \verb!^!) followed by some other pattern.  For example the pattern \verb![^ao]! matches every character \emph{except} \verb!a! or \verb!o!.  Note that any non-negative character class can be represented as a negative character class if the set of characters is known by negating the set of characters not found in the non-negative character class, and visa versa. For example, matching all lower-case ... Katie is here.  
 
-C3 contains all character classes expressed using any negated CCC, which is indicated by a caret followed by some other pattern.  For example the pattern \verb![^ao]! matches every character \emph{except} `a' or `o'.  Any non-negative character class can be represented as a negative character class if the charset is known by negating the set of characters not found in the non-negative character class, and visa versa.
+\item[C4:] Any pattern using some default character class such as \verb!\d! or \verb!\W! within a character class belongs to the C4 node.  Note that a pattern can belong to both C1 and C4, like the example \verb![a-f\d]!.  The edge between C1 and C4 represents the opportunity to express the same pattern as \verb![a-f0-9]! by transforming the default digit character class into a range (or visa-versa).  This transformed version would only belong to the C1 node.
 
-C5 contains all custom character classes expressed as an OR of length-one sequences, including defaults or other CCCs.  For example the character class \verb![abc]! is equivalent to the OR \verb!(a|b|c)!.
+\item[C5:] contains all custom character classes expressed as an OR of length-one sequences, including defaults or other CCCs.  For example the character class \verb![abc]! is equivalent to the OR \verb!(a|b|c)!.
+\end{description}
 
 
 \paragraph{DBB Group}
@@ -42,20 +68,6 @@ One of the most commonly used regex features is additional repetition (ADD), for
 \paragraph{SNG Group} This equivalence class contains  three representations of a regex that  deal with repetition of a single element in the regex, represents by \verb!S!. The representation in \emph{S1}, \verb!S{3}!, states that S appears exactly three times in sequence. This can alternately be expressed with a double-bound where the upper and lower bounds are the same, as in \emph{S3}. Removing the repetition symbols in either \emph{S1} or \emph{S3} yields \emph{S2} which is represented explicitly as  \verb!SSS!.
 
 Using an example from a Python project, the regex\\ \verb!`[^ ]*\.[A-Z]{3}'! is a member of \emph{S1} and could be refactored to \emph{S3} as \verb!`[^ ]*\.[A-Z]{3,3}'!  or to \emph{S2} as \verb!`[^ ]*\.[A-Z][A-Z][A-Z]'!, depending on programmer preferences.
-
-
-
-
-
-\begin{figure*}[tb]
-\centering
-\includegraphics[width=\textwidth]{illustrations/refactoringTree.eps}
-\vspace{-12pt}
-\caption{Some possible refactorings}
-\vspace{-6pt}
-\label{fig:refactoringTree}
-\end{figure*}
-
 
 
 
