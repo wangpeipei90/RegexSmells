@@ -69,27 +69,38 @@ To determine a match, each pattern was compiled using the \emph{java.util.regex}
 This study was implemented on the Amazon's Mechanical Turk (MTurk),  a crowdsourcing platform in which requesters can create human intelligence tasks (HITs) for completion by workers. Each HIT is designed to be completed in a fixed amount of time and workers are compensated with money if their work is satisfactory. Requesters can screen workers by requiring each to complete a qualification test prior to completing any HITs.
 
 \subsubsection{Worker Qualification}
-Workers were pre-qualified by answering questions regarding some basics of regex knowledge. These questions were multiple-choice and asked the worker to describe what the following patterns mean: \verb!`a+'!, \verb!`(r|z)'!, \verb!`\d'!, \verb!`q*'!, and \verb!`[p-s]'!. To pass the qualification, workers had to answer four of the five questions correctly.
+Workers qualified to participate in the study by answering questions regarding some basics of regex knowledge. These questions were multiple-choice and asked the worker to describe what the following patterns mean: \verb!`a+'!, \verb!`(r|z)'!, \verb!`\d'!, \verb!`q*'!, and \verb!`[p-s]'!. To pass the qualification, workers had to answer four of the five questions correctly.
 
 \subsubsection{Tasks}
-Using the patterns in the corpus as a guide, we created six metagroups containing three pairs of patterns focusing on:
-\begin{itemize}
-\item S1 vs S2
-\item the digit default character class vs C1
-\item the word default character class vs C1
-\item negated digits and words vs C3, whitespace vs C2
-\item additional vs kleene repetition
-\item wrapping vs escaping literal characters
-\end{itemize}
-and four metagroups containing two triplets of patterns focusing on
-\begin{itemize}
-\item octal vs hex vs literal
-\item D1 vs D2 vs D3
-\item C1 vs C2 vs C5
-\item octal vs literal and C2 vs C5
-\end{itemize}
+Using the patterns in the corpus as a guide, we created 60 regex patterns that were grouped into 26 semantic equivalence groups. 
+These semantic groups were focused on exploring edges in the equivalence classes. In this way, we can draw conclusions about transformations between representations since the regexes evaluated were semantically equivalent. 
 
-Each of these 10 metagroups contains 6 strings, resulting in a total of 60 regex patterns.  These patterns are logically partitioned into 26 semantic equivalence groups (18 from pairs, 8 from triples). For each of the 26 groups of patterns, we created five strings, where at least one matched and at least one did not match. These strings were used to compute the matching metric.
+For example, a  group with regexes \verb!`([0-9]+)\.([0-9]+)'! and  \verb!`(\d+)\.(\d+)'! is intended to evaluate the edge between C1 and C4.
+ There were 18 groups with two regexes that target various edges in the equivalence classes. 
+The other eight semantic groups had three regexes each. 
+For example, a semantic group with regexes \verb!`((q4f){0,1}ab)'!, \verb!`((q4f)?ab)'!, and \verb!`(q4fab|ab)'! is intended to explore the edges among D1, D2, and D3. 
+
+
+%Using the patterns in the corpus as a guide, we created six metagroups containing three pairs of patterns focusing on:
+%\begin{itemize}
+%\item S1 vs S2
+%\item the digit default character class vs C1
+%\item the word default character class vs C1
+%\item negated digits and words vs C3, whitespace vs C2
+%\item additional vs kleene repetition
+%\item wrapping vs escaping literal characters
+%\end{itemize}
+%and four metagroups containing two triplets of patterns focusing on
+%\begin{itemize}
+%\item octal vs hex vs literal
+%\item D1 vs D2 vs D3
+%\item C1 vs C2 vs C5
+%\item octal vs literal and C2 vs C5
+%\end{itemize}
+%
+%Each of these 10 metagroups contains 6 strings, resulting in a total of 60 regex patterns.  These patterns are logically partitioned into 26 semantic equivalence groups (18 from pairs, 8 from triples). 
+
+For each of the 26 groups of patterns, we created five strings, where at least one matched and at least one did not match. These strings were used to compute the matching metric.
 
 Once all the patterns and matching strings were collected, we created tasks for the MTurk participants as follows:
 randomly select a pattern from each of the 10 metagroups. Randomize the order of these 10 patterns, as well as the order of the matching strings for each pattern. After adding a question asking the participant to compose a string that each pattern matches, this creates one task on MTurk.   This process was completed until each of the 60 regexes appeared in 30 HITs, resulting in a total of 180 total unique HITs.
@@ -157,20 +168,28 @@ A total of 55 HITs were rejected, and  of those, 48 were rushed through by one p
 In total, there were 180 participants in the study.
 A majority were male (83\%) with an average age of 31. Most had
 at least an Associates degree (72\%) and most were at least somewhat familiar with regexes prior to the study (87\%). On average,
-participants compose 67 regexes per year with a range of 0 to 1000. Fittingly, participants read more regexes than they write with an average of 116 and a range from 0 to 2000.
+participants compose 67 regexes per year with a range of 0 to 1000. 
+%Participants read more regexes than they write with an average of 116 and a range from 0 to 2000.
 %Figure~\ref{participantprofile} summarizes the self-reported participant characteristics from the qualification survey.
 
 \input{table/testedEdgesTable}
 
 
-\todoNow{in study section present choices about pairwise vs random selection for nodes.}
+%\todoNow{in study section present choices about pairwise vs random selection for nodes.}
 
 
 \subsection{Analysis}
-For each of the 180 HITs, we computed a matching and composition score for each of the 10 regexes, using the metrics described in Section~\ref{sec:understadningmetric}. This allowed us to compute 30 values for each metric and for each of the 60 regexes. Next, we computed average scores for matching and composition per regex.\todoLast{Mentioning NAs here?}
+For each of the 180 HITs, we computed a matching and composition score for each of the 10 regexes, using the metrics described in Section~\ref{sec:understadningmetric}. This allowed us to compute and then average 30 values for each metric  for each of the 60 regexes. %Next, we computed average scores for matching and composition per regex.
+%\todoLast{Mentioning NAs here?}
 
-Each regex was a member of one of 26 groupings of equivalent regexes. These groupings allow pairwise comparisons of the metrics values to determine which representation of the regex was most understandable. Among all the groups, we performed 42 pairwise comparisons of the matching and composition scores  (i.e., one comparison for each group of size two and three comparisons within each group of size three).
-For example, one group of size two had regexes, \verb!RR*! and \verb!R+!, which are equivalent and represent a transformation between L2 and L3. The former had an average matching of 86\% and the latter had an average matching of 92\%. The average composition score for the former was 97\% and 100\% for the latter. Thus, the community found \verb!R+! from representation L3 more understandable. There were two other pairwise comparisons performed between the L2 and L3 group, using regexes pair \verb!zaa*! and \verb!za+'!, and regexes pair \verb!\..*! and \verb!\.+'!. Considering all three of these regex pairs, the overall matching average for the regexes belonging to L2 was 0.86 and 0.91 for L3. The overall composition score for L2 was 0.91 and 0.98 for L3. Thus, the community found L3 to be more understandable, from the perspective of both understandability metrics, than L2.
+Each regex was a member of one of 26 groupings of equivalent regexes. 
+These groupings allow pairwise comparisons of the metrics values to determine which representation of the regex was most understandable and the direction of a refactoring for understandability. 
+Among all the groups, we performed 42 pairwise comparisons of the matching and composition scores  (i.e., one comparison for each group of size two and three comparisons within each group of size three).
+For example, one group had regexes, \verb!RR*! and \verb!R+!, which  represent a transformation between L2 and L3. The former had an average matching of 86\% and the latter had an average matching of 92\%. The average composition score for the former was 97\% and 100\% for the latter. Thus, the community found \verb!R+! from L3 more understandable. 
+There were two other pairwise comparisons performed between the L2 and L3 group, using regexes pair \verb!zaa*! and \verb!za+'!, and regexes pair \verb!\..*! and \verb!\.+'!. 
+Considering all three of these regex pairs, the overall matching average for the regexes belonging to L2 was 0.86 and 0.91 for L3. 
+The overall composition score for L2 was 0.91 and 0.98 for L3. Thus, the community found L3 to be more understandable than L2, from the perspective of both understandability metrics, suggesting a refactoring from L2 to L3. 
+
 This information is presented in summary in Table~\ref{table:testedEdgesTable}, with this specific example appearing in the E3 row. The \emph{Index} column enumerates all the pairwise comparisons evaluated in this experiment, \emph{Representations} lists the two representations, \emph{Pairs} shows how many comparisons were performed, \emph{Match1} gives the overall matching score for the first representation listed, \emph{Match2} gives the overall matching score for the second representation listed, and $H_0: \mu_{match1} = \mu_{match2}$ uses the Mann-Whitney test of means to compare the matching scores, and presents the p-values. The last three columns list the average composition scores for the representations and the p-value, also using the Mann-Whitney test of means.
 
 %60 strings
