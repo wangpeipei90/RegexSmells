@@ -121,8 +121,8 @@ The Single-Bounded (SNG) equivalence class contains  three representations in wh
 The pattern \verb!fa[lmnop][lmnop][lmnop]! is a member of S2 as \verb![lmnop]! is repeated three times, and it could be transformed to \verb!fa[lmnop]{3}! in S1 or \verb!fa[lmnop]{3,3}! in S3.
 
 \paragraph{Example}
-Regular expressions will often belong to many representations in the equivalence classes described here, and often multiple representations within an equivalence class.
-Using an example from a Python project, the regex \verb!`[^ ]*\.[A-Z]{3}'! is a member of S1, L2, C1, C3, and T1. This is because \verb!`[^ ]'! maps it to C3, \verb!`[^ ]*'! maps it to L2, \verb!`[A-Z]'! maps it to C1, \verb!`\.'! maps it to T1, and \verb!`[A-Z]{3}'! maps it to S1.
+Regular expressions will often belong to multiple representations in multiple equivalence classes described.
+Using an example from a Python project from our analysis, the regex \verb!`[^ ]*\.[A-Z]{3}'! is a member of S1, L2, C1, C3, and T1. This is because \verb!`[^ ]'! maps it to C3, \verb!`[^ ]*'! maps it to L2, \verb!`[A-Z]'! maps it to C1, \verb!`\.'! maps it to T1, and \verb!`[A-Z]{3}'! maps it to S1.
 As examples of refactorings, moving from S1 to S2 would be possible by replacing  \verb!`[A-Z]{3}'! with  \verb!`[A-Z][A-Z][A-Z]'! and moving from L2 to L1 would replace \verb!`[^ ]*'! with \verb!`[^ ]{0,}'!, resulting in a refactored regex of:  \verb!`[^ ]{0,}\.[A-Z][A-Z][A-Z]'!.
 
 % and could be refactored to \emph{S3} as \verb!`[^ ]*\.[A-Z]{3,3}'!  or to \emph{S2} as \verb!`[^ ]*\.[A-Z][A-Z][A-Z]'!, depending on programmer preferences.

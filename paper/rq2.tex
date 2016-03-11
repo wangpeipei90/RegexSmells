@@ -2,15 +2,15 @@
 
 \section{Understandability Study (RQ2)}
 \label{sec:understandability}
-The overall idea of this study  is to present  programmers with one of several representations of semantically equivalent regexes and ask comprehension questions. By comparing the understandability of semantically equivalent regexes that have different representations, we aim to understand which representations  are more desirable and which are more smelly.
+The overall idea of this study  is to present  programmers with one of several representations of semantically equivalent regexes and ask comprehension questions. By comparing the understandability of semantically equivalent regexes that have different representations, we aim to understand which transformations  are  desirable.
 This study was  implemented on Amazon's Mechanical Turk with 180 participants.  Each regex pattern was evaluated by 30 participants.
-The patterns used were designed to belong to various representations in Figure~\ref{fig:refactoringTree}.
+%The patterns used were designed to belong to various representations in Figure~\ref{fig:refactoringTree}.
 
 
 
 \begin{figure}[tb]
 \centering
-\includegraphics[width=0.8\columnwidth]{illustrations/ExampleQuestion}
+\includegraphics[width=0.75\columnwidth]{illustrations/ExampleQuestion}
 \vspace{-12pt}
 \caption{Example of one HIT Question}
 \vspace{-6pt}
@@ -22,7 +22,7 @@ The patterns used were designed to belong to various representations in Figure~\
 \caption{Matching metric example \label{matchingmetric}}
 \begin{center}
 \begin{small}
-\begin{tabular} {cl | c c c c c}
+\begin{tabular} {|cl | c c c c c|} \hline
 \textbf{String} & \verb!`RR*'! & \textbf{Oracle} & \textbf{P1} & \textbf{P2} & \textbf{P3}& \textbf{P4}\\ \hline
 1 & ``ARROW"    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark \\
 2 & ``qRs"      & \checkmark    & \checkmark    & \xmark        & \xmark        & ?\\
@@ -30,12 +30,14 @@ The patterns used were designed to belong to various representations in Figure~\
 4 & ``qrs"      & \xmark        & \checkmark    & \xmark        & \checkmark    & -\\
 5 & ``98"       & \xmark        & \xmark        & \xmark        & \xmark        & -\\
 \hline
-  & Score       & 1.00          & 0.80          & 0.80          & 0.50          & 1.00\\
-\\
+  & Score       & 1.00          & 0.80          & 0.80          & 0.50          & 1.00\\ \hline
+\multicolumn{7}{l}{}\\ 
 \multicolumn{7}{l}{\checkmark = match, \xmark = not a match, ? = unsure, -- = left blank}\\
 \end{tabular}
 \end{small}
 \end{center}
+\vspace{-6pt}
+\vspace{-6pt}
 \end{table}
 
 
@@ -48,20 +50,23 @@ The patterns used were designed to belong to various representations in Figure~\
 
 
 \textbf{Matching:}
- Given a pattern and a set of strings, a participant determines which strings will be matched by the pattern. There are four possible responses for each string, \emph{matches}, \emph{not a match}, \emph{unsure}, or blank. An example from our study is shown in Figure~\ref{fig:exampleQuestion}.
+ Given a pattern and a set of strings, a participant determines by inspection which strings will be matched by the pattern. There are four possible responses for each string, \emph{matches}, \emph{not a match}, \emph{unsure}, or blank. An example from our study is shown in Figure~\ref{fig:exampleQuestion}.
 
  The percentage of correct responses, disregarding blanks and unsure responses, is the matching score.
  For example, consider regex pattern \verb!`RR*'! and five strings shown in Table~\ref{matchingmetric}, and the responses from four participants in the \emph{P1}, \emph{P2}, \emph{P3} and \emph{P4} columns.
- The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{P1} answers correctly for the first three strings but incorrectly thinks the fourth string matches, so the matching score is $4/5 = 0.80$. \emph{P2} incorrectly thinks that the second string is not a match, so they also score $4/5 = 0.80$.  \emph{P3} marks `unsure' for the third string and so the total number of attempted matching questions is 4 instead of 5. \emph{P3} is incorrect about the second and fourth string, so they score $2/4 = 0.50$.  For \emph{P4}, we only have data for the first and second strings, since the other three are blank.  \emph{P4} marks `unsure' for the second matching question so only one matching question has been attempted, and it was answered correctly so the matching score is $1/1 = 1.00$.
+ The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{P1} answers correctly for the first three strings but incorrectly on the fourth string, so the matching score is $4/5 = 0.80$. \emph{P2} incorrectly thinks that the second string is not a match, so the score is also $4/5 = 0.80$.  \emph{P3} marks `unsure' for the third string and so the total number of attempted matching questions is 4. \emph{P3} is incorrect about the second and fourth string, so they score $2/4 = 0.50$.  For \emph{P4}, we only have data for the first and second strings, since the other three are blank.  \emph{P4} marks `unsure' for the second string so only one matching question has been attempted. It was answered correctly so the matching score is $1/1 = 1.00$.
 
-Blanks were incorporated into the metric because questions were occasionally left blank in the study. Unsure responses were provided as an option so not to bias the  results when participants were honestly unsure of the answer. These situations did not occur very frequently. Only 1.1\% of the responses were left blank and only 3.8\% of the responses were marked as unsure.  We refer to a response with all blank or unsure responses as an `NA'. Out of 1800 questions, 1.8\%(32) were NA's (never more than 4 out of 30 per pattern).
+Blanks were incorporated into the metric because questions were occasionally left blank in the study. Unsure responses were provided as an option so not to bias the  results when participants were honestly unsure of the answer. These situations did not occur very frequently. Only 1.1\% of the responses were left blank and only 3.8\% of the responses were marked as unsure.  %We refer to a response with all blank or unsure responses as an `NA'. 
+Out of 1800 questions (180 participants * 10 questions each), 1.8\%(32) had a blank or unsure (never more than 4 out of 30 per pattern).
 
 
 \textbf{Composition:}
-Given a pattern, a participant composes a string they think it matches. If the participant is accurate and the string indeed is matched by the pattern, then a composition score of 1 is assigned, otherwise 0.  For example, given the pattern \verb!`(q4fab|ab)'! from our study, the string, ``xyzq4fab" matches  and would get a score of 1, and the string, ``acb" does not match and would get a score of 0.
+Given a pattern, a participant composes a string they think it matches. If the participant is accurate, a composition score of 1 is assigned, otherwise 0.  For example, given the pattern \verb!`(q4fab|ab)'! from our study, the string, ``xyzq4fab" matches  and gets a score of 1, but the string, ``acb" does not match and gets  a score of 0.
 
-To determine a match, each pattern was compiled using the \emph{java.util.regex} library. A \emph{java.util.regex.Matcher} \verb!m! object was created for each composed string using the compiled pattern.  If \verb!m.find()! returned true, then that composed string was given a score of 1, otherwise it was given a score of 0.
+To determine a match, each pattern was compiled using the \emph{java.util.regex} library. A \emph{java.util.regex.Matcher} \verb!m! object was created for each composed string using the compiled pattern.  If \verb!m.find()! returned true, then that composed string was a match and scored 1, otherwise it scored 0.
 
+
+\input{table/testedEdgesTable}
 
 
 \subsection{Design}
@@ -73,8 +78,7 @@ Workers qualified to participate in the study by answering questions regarding s
 
 \subsubsection{Tasks}
 Using the patterns in the corpus as a guide, we created 60 regex patterns that were grouped into 26 semantic equivalence groups. 
-These semantic groups were focused on exploring edges in the equivalence classes. In this way, we can draw conclusions about transformations between representations since the regexes evaluated were semantically equivalent. 
-
+These semantic groups were intended to explore edges in the equivalence classes. In this way, we can draw conclusions about transformations between representations since the regexes evaluated were semantically equivalent. 
 For example, a  group with regexes \verb!`([0-9]+)\.([0-9]+)'! and  \verb!`(\d+)\.(\d+)'! is intended to evaluate the edge between C1 and C4.
  There were 18 groups with two regexes that target various edges in the equivalence classes. 
 The other eight semantic groups had three regexes each. 
@@ -100,18 +104,18 @@ For example, a semantic group with regexes \verb!`((q4f){0,1}ab)'!, \verb!`((q4f
 %
 %Each of these 10 metagroups contains 6 strings, resulting in a total of 60 regex patterns.  These patterns are logically partitioned into 26 semantic equivalence groups (18 from pairs, 8 from triples). 
 
-For each of the 26 groups of patterns, we created five strings, where at least one matched and at least one did not match. These strings were used to compute the matching metric.
+For each of the 26 groups of patterns, we created five strings, where at least one matched and at least one did not match. These  were used to compute the matching metric.
 
 Once all the patterns and matching strings were collected, we created tasks for the MTurk participants as follows:
-randomly select a pattern from each of the 10 metagroups. Randomize the order of these 10 patterns, as well as the order of the matching strings for each pattern. After adding a question asking the participant to compose a string that each pattern matches, this creates one task on MTurk.   This process was completed until each of the 60 regexes appeared in 30 HITs, resulting in a total of 180 total unique HITs.
-An example of a single regex pattern, the five matching strings and the space for composing a string is shown in Figure~\ref{fig:exampleQuestion}.
+randomly select a pattern from each of the 26 semantic groups. Randomize the order of these 10 patterns, as well as the order of the matching strings for each pattern. After adding a question asking the participant to compose a string that each pattern matches, this creates one task on MTurk, such as the example in Figure~\ref{fig:exampleQuestion}.   This process was completed until each of the 60 regexes appeared in 30 HITs, resulting in a total of 180 total unique HITs.
+%An example of a single regex pattern, the five matching strings and the space for composing a string is shown in 
 
 
 \subsubsection{Implementation}
 Workers were paid \$3.00 for successfully completing a HIT, and were only allowed to complete  one HIT.  The average completion time for accepted HITs was 682 seconds (11 mins, 22 secs).
 %A total of 241 HITs were submitted - of those 55 were rejected.
 %, and 6 duplicates were ignored, always using the first accepted submission so as to obtain a value for each of the 180 distinct tasks.
-A total of 55 HITs were rejected, and  of those, 48 were rushed through by one person leaving many answers blank, 4 other HITs were also rejected because a worker had submitted more than one HIT, one was rejected for not answering composition sections, and one was rejected because it was missing data for 3 questions.  Rejected HITs were returned to MTurk to be completed by others.
+A total of 55 HITs were rejected, and  of those, 48 were rushed through by leaving many answers blank, four were rejected because a worker had submitted more than one HIT, one was rejected for not answering composition sections, and one was rejected because it was missing data for 3 questions.  Rejected HITs were returned to MTurk to be completed by others.
 
 
 %
@@ -163,16 +167,14 @@ A total of 55 HITs were rejected, and  of those, 48 were rushed through by one p
 %
 
 
-\subsection{Participants}
+\subsubsection{Participants}
 
-In total, there were 180 participants in the study.
+In total, there were 180 participants.
 A majority were male (83\%) with an average age of 31. Most had
-at least an Associates degree (72\%) and most were at least somewhat familiar with regexes prior to the study (87\%). On average,
-participants compose 67 regexes per year with a range of 0 to 1000. 
+at least an Associates degree (72\%) and most were at least somewhat familiar with regexes (87\%). On average,
+participants compose 67 regexes per year with a range from 0 to 1000. 
 %Participants read more regexes than they write with an average of 116 and a range from 0 to 2000.
 %Figure~\ref{participantprofile} summarizes the self-reported participant characteristics from the qualification survey.
-
-\input{table/testedEdgesTable}
 
 
 %\todoNow{in study section present choices about pairwise vs random selection for nodes.}
@@ -190,7 +192,7 @@ There were two other pairwise comparisons performed between the L2 and L3 group,
 Considering all three of these regex pairs, the overall matching average for the regexes belonging to L2 was 0.86 and 0.91 for L3. 
 The overall composition score for L2 was 0.91 and 0.98 for L3. Thus, the community found L3 to be more understandable than L2, from the perspective of both understandability metrics, suggesting a refactoring from L2 to L3. 
 
-This information is presented in summary in Table~\ref{table:testedEdgesTable}, with this specific example appearing in the E3 row. The \emph{Index} column enumerates all the pairwise comparisons evaluated in this experiment, \emph{Representations} lists the two representations, \emph{Pairs} shows how many comparisons were performed, \emph{Match1} gives the overall matching score for the first representation listed, \emph{Match2} gives the overall matching score for the second representation listed, and $H_0: \mu_{match1} = \mu_{match2}$ uses the Mann-Whitney test of means to compare the matching scores, and presents the p-values. The last three columns list the average composition scores for the representations and the p-value, also using the Mann-Whitney test of means.
+This information is presented in summary in Table~\ref{table:testedEdgesTable}, with this specific example appearing in the E3 row. The \emph{Index} column enumerates the edges  evaluated in this experiment, \emph{Representations} lists the two representations, \emph{Pairs} shows how many comparisons were performed, \emph{Match1} gives the overall matching score for the first representation listed, \emph{Match2} gives the overall matching score for the second representation listed, and $H_0: \mu_{match1} = \mu_{match2}$ uses the Mann-Whitney test of means to compare the matching scores, and presents the p-values. The last three columns list the average composition scores for the representations and the p-value, also using the Mann-Whitney test of means.
 
 %60 strings
 %42 comparisons
@@ -222,7 +224,7 @@ Although we had 42 pairwise comparisons,  we had to drop six comparisons  due to
 Table~\ref{table:testedEdgesTable} presents the results of the understandability analysis. A horizontal line separates the first three edges from the bottom 11. In E1 through E3, there is a statistically significant difference between the representations for at least one of the metrics considering $\alpha = 0.05$.  These represent the strongest evidence for suggesting the directions of refactoring based on the understandability metrics we defined. Specifically, $\overrightarrow{T4 T1}$, $\overrightarrow{D2 D3}$, and $\overrightarrow{L2 L3}$
 are likely to improve understandability.
 
-We note here that participants were able to select \emph{unsure} when they were not sure if a string would be matched by a pattern (Figure~\ref{fig:exampleQuestion}). From a comprehension perspective, this indicates some level of confusion and is worth exploring.
+We note again that participants were able to select \emph{unsure} when they were not sure if a string would be matched by a pattern (Figure~\ref{fig:exampleQuestion}). From a comprehension perspective, this indicates some level of confusion and is worth exploring.
 % and we can use that to further corroborate the understandability analysis.
 
 %\begin{table*}
@@ -235,7 +237,6 @@ We note here that participants were able to select \emph{unsure} when they were 
 %Unsure Responses Per Pattern & 0.7 & 1 & 1 & 1 & 1.3 & 1.7 & 1.7 & 1.9 & 2 & 2 & 2 & 2.5 & 2.7 & 2.7 & 5.5 & 8.5\\
 %\end{tabular}
 %\end{table*}
-
 For each pattern, we counted the number of responses containing at least one unsure, representing confusion.
 We then grouped the patterns into their representation nodes and computed an average of unsures per pattern.
 A higher number may indicate difficulty in comprehending a pattern from that node.
