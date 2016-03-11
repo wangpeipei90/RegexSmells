@@ -90,6 +90,7 @@ Some regex representations from the equivalence classes were not involved in the
 
 We treated unsure responses as omissions that  did not count  against the matching scores. Thus, if a participant answered two strings correctly and marked the other three strings as unsure, then this was 2/2 correct, not 2/5. This may have inflated the matching scores, however, less than 5\% of the matching scores were impacted by such responses.
 
+Our criteria for membership in a representation may overestimate the opportunities for refactoring. For example, \verb![a-f]! in C1 cannot be refactored to C4 since there does not exist a default character class for that range of characters. A finer-grained analysis is needed to identify actual refactoring opportunities. Our analysis simply suggests a direction for a refactoring (in this case, from C4 to C1). 
 
 %
 %In our analyses, we measure understandability using matching and composition metrics.
