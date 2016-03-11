@@ -83,12 +83,13 @@ Kathryn T. Stolee\\
 
 
 \begin{abstract}
-Regexes are everywhere. 
-They're hard.
-There is more than one way to skin a cat. 
-We define equivalence class for various representations of regexes. 
-Using an analysis of GitHub projects and understandability metrics from an empirical study with 180 participants, we identify canonical representations for regular expressions that conform to community standards and are the most understandable by programmers. 
-For example, characters classes with ranges, such as \verb![0-9]!, were found to be more understandable than default shorthand representations, like \verb![\d]!. This provides evidence that a refactoring toward the range representation could improve regex understandability. This has implications for .... 
+Regular expressions (regex) are powerful tools employed across many tasks and platforms.
+Regex can be complex, so optimizing understandability of regex is desirable for maintainers.
+Because of a rich feature set, there is more than one way to compose a regex to get the same desired behavior.
+We define five equivalence classes where the same behavior can be achieved with multiple representations.
+With the goal of finding refactorings that improve understandability, we analyze regexes in github to find community standards, and obtain understandability metrics from an empirical study with 180 participants to find out which representations are more likely to be understandable by programmers.
+For example, patterns requiring one or more of some character expressed using kleene star such as \verb!`::*'! are more readable when expressed using the plus: \verb!`:+'!.  We identify a strongly preferred transformation in three of the five classes as well as other, less conclusive information that can inform future investigation into regex refactoring.
+
 \end{abstract}
 
 \input{introduction}
