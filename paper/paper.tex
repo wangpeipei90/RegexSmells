@@ -87,8 +87,10 @@ Regular expressions (regex) are powerful tools employed across many tasks and pl
 Regex can be complex, so optimizing understandability of regex is desirable for maintainers.
 Because of a rich feature set, there is more than one way to compose a regex to get the same desired behavior.
 We define five equivalence classes where the same behavior can be achieved with multiple representations.
-With the goal of finding refactorings that improve understandability, we analyze regexes in github to find community standards, and obtain understandability metrics from an empirical study with 180 participants to find out which representations are more likely to be understandable by programmers.
-For example, patterns requiring one or more of some character expressed using kleene star such as \verb!`::*'! are more readable when expressed using the plus: \verb!`:+'!.  We identify a strongly preferred transformation in three of the five classes as well as other, less conclusive information that can inform future investigation into regex refactoring.
+With the goal of finding refactorings that improve understandability, we analyze regexes in GitHub to find community standards, and obtain understandability metrics from an empirical study with 180 participants to find out which representations are more  understandable to programmers.
+We found, for example, that patterns requiring one or more of some character expressed using kleene star such as \verb!`::*'! are more understandable when expressed using the plus: \verb!`:+'!.  We identify strongly preferred transformations in three of the five equivalence classes and identify opportunities for future work in improving regex refactoring. 
+%
+%as well as other, less conclusive information that can inform future investigation into regex refactoring.
 
 \end{abstract}
 
