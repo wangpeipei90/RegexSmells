@@ -1,28 +1,28 @@
 \section{Introduction }
 
-Regular expressions are used frequently by developers for many purposes, such as parsing files, validating user input, or querying a database. 
-However, recent research has suggested that regular expressions (regexes) are hard to understand, hard to compose, and error prone. 
-Given the difficulties with working with regular expressions and how often they appear in software projects and processes, it seems fitting that efforts should be made to ease the burden on developers. 
+Regular expressions are used frequently by developers for many purposes, such as parsing files, validating user input, or querying a database.
+However, recent research has suggested that regular expressions (regexes) are hard to understand, hard to compose, and error prone.
+Given the difficulties with working with regular expressions and how often they appear in software projects and processes, it seems fitting that efforts should be made to ease the burden on developers.
 
-Tools have been developed to make regexes easier to understand, and many are available online. 
-Some tools will, for example, highlight parts of regex patterns that match parts of strings as a tool to aid in comprehension.\footnote{\url{https://regex101.com/}} 
-Others will automatically generate strings that are matched by the regular expessions~\cite{}. 
-Other tools will automatically generate regexes when given a list of strings to match. 
-The commonality of such tools provides evidence that people need help with regex composition and understandability. 
+Tools have been developed to make regexes easier to understand, and many are available online.
+Some tools will, for example, highlight parts of regex patterns that match parts of strings as a tool to aid in comprehension.\footnote{\url{https://regex101.com/}}
+Others will automatically generate strings that are matched by the regular expessions~\cite{}.
+Other tools will automatically generate regexes when given a list of strings to match.
+The commonality of such tools provides evidence that people need help with regex composition and understandability.
 
-In software, code smells have been found to hinder understandability of source code~\cite{}. 
-Once removed through refactoring, the code becomes more understandable, easing the burden on the programmer. 
-In regular expressions, such code smells have not yet been defined, perhaps in part because it is not clear what makes a regex smelly. 
+In software, code smells have been found to hinder understandability of source code~\cite{}.
+Once removed through refactoring, the code becomes more understandable, easing the burden on the programmer.
+In regular expressions, such code smells have not yet been defined, perhaps in part because it is not clear what makes a regex smelly.
 
-As with source code, in regular expressions, there are multiple ways to express the same semantic concept. 
-For example, the regex, \verb!`aa*'! matches an \verb!a! followed by zero or more \verb!a!'s, and is is equivalent to \verb!`a+'! , which matches one or more \verb!a!'s. 
-What is not clear is which representation,  \verb!`aa*'!  or  \verb!`a+'!, is preferred. 
-Preferences in regex refactorings could come from a number of sources, including which is easier to maintain, easier to understand, or better conforms to community standards, depending on the goals of the programmer.  
+As with source code, in regular expressions, there are multiple ways to express the same semantic concept.
+For example, the regex, \verb!`aa*'! matches an \verb!a! followed by zero or more \verb!a!'s, and is is equivalent to \verb!`a+'! , which matches one or more \verb!a!'s.
+What is not clear is which representation,  \verb!`aa*'!  or  \verb!`a+'!, is preferred.
+Preferences in regex refactorings could come from a number of sources, including which is easier to maintain, easier to understand, or better conforms to community standards, depending on the goals of the programmer.
 
-In this work, we introduce possible refactorings in regular expressions by identifying equivalence classes of regex representations and transformations between the representations. 
-These equivalence classes provide options for how to represent double-bounds in repetitions (e.g., \verb!`a{1,2}'! or \verb!`a|aa'!), single-bounds in repetitions (e.g., \verb!`a{2}'! or \verb!`aa'!), lower bounds in repetitions (e.g., \verb!`a{2,}'! or \verb!`aaa*'!), character classes (e.g., \verb!`[0-9]'! or \verb!`[\d]'!), and literals (e.g., \verb!`\a'! or \verb!`\x07'!). 
-We suggest directions for the refactorings, for example, from \verb!`aa*'!  to  \verb!`a+'!, based on two high-level concepts: which representation appears most frequently in source code (conformance to community standards) and which is more understandable by programmers, based on the opinions of 180 study participants. 
-Our results identify canonical representations for four of the five equivalence classes based on mutual agreement between community standards and understandability. For the fifth group on double-bounded repetitions, two recommendations are given depending on the goals of the programmer. 
+In this work, we introduce possible refactorings in regular expressions by identifying equivalence classes of regex representations and transformations between the representations.
+These equivalence classes provide options for how to represent double-bounds in repetitions (e.g., \verb!`a{1,2}'! or \verb!`a|aa'!), single-bounds in repetitions (e.g., \verb!`a{2}'! or \verb!`aa'!), lower bounds in repetitions (e.g., \verb!`a{2,}'! or \verb!`aaa*'!), character classes (e.g., \verb!`[0-9]'! or \verb!`[\d]'!), and literals (e.g., \verb!`\a'! or \verb!`\x07'!).
+We suggest directions for the refactorings, for example, from \verb!`aa*'!  to  \verb!`a+'!, based on two high-level concepts: which representation appears most frequently in source code (conformance to community standards) and which is more understandable by programmers, based on comprehension tests completed by 180 study participants.
+Our results identify canonical representations for four of the five equivalence classes based on mutual agreement between community standards and understandability. For the fifth group on double-bounded repetitions, two recommendations are given depending on the goals of the programmer.
 
 Our contributions are:
 \begin{itemize}
@@ -34,7 +34,9 @@ Our contributions are:
 %\item {Identified a few regex refactorings that can be eliminated because both options are equally readable}
 \end{itemize}
 
-To our knowledge, this is the first work to apply refactoring to regular expressions. Further, we approach the problem of identifying preferred regex representations by looking at thousands of regexes in Python projects and measuring the understandability of various regex representations using human participants. The rest of the paper describes the related work in regexes (Section~\ref{sec:related}), equivalence classes and possible refactorings (Section~\ref{sec:refactoring}), the study of regex representations in Python projects (Section~\ref{communitystudy}), and the regex understandability study using human participants (Section~\ref{sec:understandability}). We discuss results in Section~\ref{sec:results}, implications in Section~\ref{sec:discussion}, and conclude in Section~\ref{sec:conclusion}. 
+To our knowledge, this is the first work to apply refactoring to regular expressions. Further, we approach the problem of identifying preferred regex representations by looking at thousands of regexes in Python projects and measuring the understandability of various regex representations using human participants. The rest of the paper describes
+equivalence classes and possible refactorings (Section~\ref{sec:refactoring}), the study of regex representations in Python projects (Section~\ref{communitystudy}), the regex understandability study using human participants (Section~\ref{sec:understandability}), and related work in regexes (Section~\ref{sec:related}). We discuss results in Section~\ref{sec:results}, implications in Section~\ref{sec:discussion}, and conclude in Section~\ref{sec:conclusion}.
+\todoLast{reorganize this more - seems weird when the sections are in an odd order}
 
 %The rest of this paper is organized as follows:
 %
