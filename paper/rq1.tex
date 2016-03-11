@@ -35,7 +35,7 @@ At that point, we felt we had enough data
 to do an analysis without further perfecting our mining techniques. 
 
 To identify invocations of the {\tt re} module, we built
-the AST of each Python file in each project. In most projects, almost all regex utilizations are present in the
+the AST of each Python file in each project. In most projects, almost all {\tt re} invocations are present in the
 most recent version of a project, but to be more thorough, we also scanned up
 to 19 earlier versions. 
 %The number 20 was chosen to try and maximize returns on
@@ -43,12 +43,12 @@ to 19 earlier versions.
 %of trial scans.
 % If the project had fewer than 20 commits, then all commits were scanned.
 % The most recent commit was always included, and the spacing between all other chosen commits was determined by dividing the remaining number of commits by 19 (rounding as needed).
-All regex utilizations were obtained, sans duplicates. 
+All regex patterns were obtained, sans duplicates. 
 %Within a project, a duplicate utilization was marked when two versions of the same file have the same function, pattern and flags.  
-In the end, we observed and recorded 53,894 non-duplicate regex utilizations in 1,645 projects. 
+In the end, we observed and recorded 53,894 non-duplicate regex patterns in 1,645 projects. 
 %\todoLast{1544 may be a white lie...the 13K+ patterns come from 1544 projects, but the 54k utilizations (before pruning) probably come from something like 1900 projects, and that number is somewhere in the git history of tour de source}
 
-In collecting the set of distinct patterns for analysis,  we ignore the 12.7\%  of utilizations using flags, which can alter regex behavior.  An additional 6.5\% of utilizations contained patterns that could not be compiled because the pattern was non-static (e.g., used some runtime variable).
+In collecting the set of distinct patterns for analysis,  we ignore the 12.7\%  of {\tt re} invocations using flags, which can alter regex behavior.  An additional 6.5\% of {\tt re} invocations contained patterns that could not be compiled because the pattern was non-static (e.g., used some runtime variable).
 %The remaining 80.8\% (43,525) of the utilizations were collapsed into 13,711 distinct pattern strings.  
 This parser was unable to support 0.8\% (114) due to error. 
 % of the patterns due to unsupported unicode characters.  Another 0.2\% (25) of the patterns used regex features that we  chose to exclude because they appeared very rarely (e.g., reference conditions).  An additional 0.1\% (16) of the patterns were excluded because they were empty or otherwise malformed so as to cause a parsing error.  
@@ -59,8 +59,9 @@ After removing all problematic patterns as described and collapsing on duplicate
 \subsection{Metrics}
 \label{sec:communitymetric}
 We measure community support by matching each regex in the corpus to the representations (nodes) in Figure~\ref{fig:refactoringTree} and counting the number of \emph{patterns} that contain the representation and the number of \emph{projects} that contain the representation.
-A \emph{pattern} is extracted from a utilization, as shown in Figure~\ref{fig:exampleUsage}.
-Note that a regex can belong to multiple representations, and a regex can belong to multiple projects since we collapsed duplicates and only analyze the 13,711 distinct regex patterns that represent 43,525 regex utilizations across the projects.\todoMid{feels weird to hear this again right away, maybe simplify the metrics paragraph}
+%A \emph{pattern} is extracted from a utilization, as shown in Figure~\ref{fig:exampleUsage}.
+Note that a regex can belong to multiple representations, and a regex can belong to multiple projects since we collapsed duplicates and only analyze the distinct regex patterns. 
+% that represent 43,525 regex utilizations across the projects.\todoMid{feels weird to hear this again right away, maybe simplify the metrics paragraph}
 %For this frequency analysis, we focus on patterns and the number of projects the patterns appear in.
 %To determine how often each representation appears in the wild, we extract regex patterns from source code and measure if a representation matches (part of) the pattern.
 %
