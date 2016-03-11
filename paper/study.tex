@@ -439,8 +439,16 @@ participants compose 67 regexes per year with a range of 0 to 1000. Fittingly, p
 
 
 \subsection{Analysis}
-For each of the 60 regexes in the 26 groups, we computed an average matching and composition score. Within each group, we performed 42 pairwise comparisons of the matching and composition scores to determine which representation was preferred (i.e., one comparison for each group of size two and three comparisons for each group of size three).
-For example, \todoNow{add an example}.
+% <<<<<<< HEAD
+% For each of the 60 regexes in the 26 groups, we computed an average matching and composition score. Within each group, we performed 42 pairwise comparisons of the matching and composition scores to determine which representation was preferred (i.e., one comparison for each group of size two and three comparisons for each group of size three).
+% For example, \todoNow{add an example}.
+% =======
+For each of the 180 HITs, we computed a matching and composition score for each of the 10 regexes, using the metrics described in Section~\ref{sec:understadningmetric}. This allowed us to compute 30 values for each metric and for each of the 60 regexes. Next, we computed average scores for matching and composition per regex.
+
+Each regex was a member of one of 26 groupings of equivalent regexes. These groupings allow pairwise comparisons of the metrics values to determine which representation of the regex was most understandable. Among all the groups, we performed 42 pairwise comparisons of the matching and composition scores  (i.e., one comparison for each group of size two and three comparisons within each group of size three).
+For example, one group of size two had regexes, \verb!RR*! and \verb!R+!, which are equivalent and represent a transformation between L2 and L3. The former had an average matching of \todoNow{X} and the latter had an average matching of \todoNow{Y}. The average composition score for the former was \todoNow{Z} and \todoNow{W} for the latter. Thus, the community found \todoNow{state the regex} from representation \todoNow{L?} more understandable. There were two other pairwise comparisons performed between the L2 and L3 group, using regexes pair \verb!zaa*! and \verb!za+'!, and regexes pair \verb!\..*! and \verb!\.+'!. Considering all three of these regex pairs, the overall matching average for the regexes belonging to L2 was 0.86 and 0.91 for L3. The overall composition score for L2 was 0.91 and 0.98 for L3. Thus, the community found L3 to be more understandable, from the perspective of both understandability metrics, than L2.
+This information is presented in summary in Table~\ref{table:testedEdgesTable}, with this specific example appearing in the E3 row. The \emph{Index} column enumerates all the pairwise comparisons evaluated in this experiment, \emph{Representations} lists the two representations, \emph{Pairs} shows how many comparisons were performed, \emph{Match1} gives the overall matching score for the first representation listed, \emph{Match2} gives the overall matching score for the second representation listed, and $H_0: \mu_{match1} = \mu_{match2}$ uses the Mann-Whitney test of means to compare the matching scores, and presents the p-values. The last three columns list the average composition scores for the representations and the p-value, also using the Mann-Whitney test of means.
+%>>>>>>> f6f688b4397b7d4b1d819955255ba1d6086a3eda
 
 %60 strings
 %42 comparisons
@@ -466,18 +474,19 @@ For example, \todoNow{add an example}.
 %36 comparisons
 
 
-Although we had 42 pairwise comparisons,  we had to drop six comparisons  due to a design flaw since the regex examples performed transformations from multiple equivalence classes. For example, regex \verb!([\072\073])! is in C2 and T4, and was grouped with regex \verb!(:|;)! in C5, T1, so it was not clear if any differences in understandability were due to the transformation between C2 and C5, or T4 and T1. However, the third member of the group, \verb!([:;])!, could be compared with both, since it is a member of T1 and C2, so comparing it to \verb!([\072\073])! evaluates the transformation between T1 and T4, and comparing to \verb!(:|;)! evaluates the transformation between C2 and C5.
+Although we had 42 pairwise comparisons,  we had to drop six comparisons  due to a design flaw since the regex examples performed transformations from multiple equivalence classes. For example, regex \verb!([\072\073])! is in C2 and T4, and was grouped with regex \verb!(:|;)! in C5, T1, so it was not clear if any differences in understandability were due to the transformation between C2 and C5, or T4 and T1. However, the third member of the group, \verb!([:;])!, could be compared with both, since it is a member of T1 and C2, so comparing it to \verb!([\072\073])! evaluates the transformation between T1 and T4, and comparing to \verb!(:|;)! evaluates the transformation between C2 and C5. The end result is 36 pairwise comparisons across 14 edges from Figure~\ref{fig:refactoringTree}.
 
 
-For each of the 60 regexes, an average matching score was computed using the metrics in Table~\ref{matchingmetric}. The average composition metric was measured using the process described in Section~\ref{sec:metric}. This addresses \emph{RQ2} and \emph{RQ3}.
+%For each of the 60 regexes, an average matching score was computed using the metrics in Table~\ref{matchingmetric}. The average composition metric was measured using the process described in Section~\ref{sec:metric}. This addresses \emph{RQ2} and \emph{RQ3}.
 
 %\todoNow{How to deal with unsure responses? How many were there? Carl's analysis goes here.}
 
 
 
 \subsection{Results}
-\todoNow{add more info about understandability results}
+Table~\ref{table:testedEdgesTable} presents the results of the understandability analysis. A horizontal line separates the first three edges from the bottom 11. In E1 through E3, there is a statistically significant difference between the representations for at least one of the metrics considering $\alpha = 0.05$.  These represent the strongest evidence for suggesting refactoring based on the understandability metrics we defined. Specifically, T4 $\Rightarrow$ T1, D2 $\Rightarrow$ D3, and L2 $\Rightarrow$ L3 are likely to improve understandability.
 
+We note here that participants were able to select \emph{unsure} when they were not sure if a string would be matched by a regex (Figure~\ref{fig:exampleQuestion}). From a comprehension perspective, this indicates some level of confusion and we can use that to further corroborate the understandability analysis.
 
 \todoNow{incorporate unsure analysis here}
 
