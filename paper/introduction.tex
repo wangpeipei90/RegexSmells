@@ -1,13 +1,14 @@
 \section{Introduction }
 
 Regular expressions are used frequently by developers for many purposes, such as parsing files, validating user input, or querying a database.
-However, recent research has suggested that regular expressions (regexes) are hard to understand, hard to compose, and error prone.
+Regexes are also employed in MySQL injection prevention~\cite{Yeole:2011:ADT:1980022.1980229} and network intrusion detection~\cite{network}. 
+However, recent research has suggested that regular expressions (regexes) are hard to understand, hard to compose, and error prone~|cite{}.
 Given the difficulties with working with regular expressions and how often they appear in software projects and processes, it seems fitting that efforts should be made to ease the burden on developers.
 
 Tools have been developed to make regexes easier to understand, and many are available online.
 Some tools will, for example, highlight parts of regex patterns that match parts of strings as a tool to aid in comprehension.\footnote{\url{https://regex101.com/}}
-Others will automatically generate strings that are matched by the regular expessions~\cite{}.
-Other tools will automatically generate regexes when given a list of strings to match.
+Others will automatically generate strings that are matched by the regular expessions~\cite{Spishak:2012:TSR:2318202.2318207}.
+Other tools will automatically generate regexes when given a list of strings to match~\cite{Babbar:2010:CBA:1871840.1871848, Li:2008:REL:1613715.1613719}.
 The commonality of such tools provides evidence that people need help with regex composition and understandability.
 
 In software, code smells have been found to hinder understandability of source code~\cite{}.
@@ -36,7 +37,7 @@ Our contributions are:
 
 To our knowledge, this is the first work to apply refactoring to regular expressions. Further, we approach the problem of identifying preferred regex representations by looking at thousands of regexes in Python projects and measuring the understandability of various regex representations using human participants. The rest of the paper describes
 equivalence classes and possible refactorings (Section~\ref{sec:refactoring}), research questions (Section~\ref{sec:study}), the study of regex representations in Python projects (Section~\ref{communitystudy}), and the regex understandability study using human participants (Section~\ref{sec:understandability}). We discuss the overall analysis results in Section~\ref{sec:rq3}, implications in Section~\ref{sec:discussion},  related work in regexes (Section~\ref{sec:related}), and conclude in Section~\ref{sec:conclusion}.
-\todoLast{reorganize this more - seems weird when the sections are in an odd order}
+\todoLast{can remove for space}
 
 %The rest of this paper is organized as follows:
 %
