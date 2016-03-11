@@ -25,7 +25,7 @@ Figure~\ref{fig:refactoringTree} displays the five equivalence classes in grey b
 The undirected edges between the representations define possible refactorings.
 Identifying the best direction for each arrow in the possible refactorings is discussed in Section~\ref{sec:results}.
 
-We use concrete regexes in the representations to more clearly illustrate examples of the representations. In reality, the \verb!A!'s in the LWB group could be any character or character class that has a lower bound on repetitions. We chose the lower bound repetition threshold of  2 for illustration; in practice this could be any number, including zero.
+We use concrete regexes in the representations to more clearly illustrate examples of the representations. However, the \verb!A!'s in the LWB group abstractly represent any pattern that could be operated on by a repetition modifier (literal characters, character classes, groups, etc.).   We chose the lower bound repetition threshold of  2 for illustration; in practice this could be any number, including zero.
 Next, we describe each group, the representations, and possible transformations in detail:
 
 \paragraph{CCC Group}
@@ -38,7 +38,7 @@ Next, we provide descriptions of each representation in this equivalence class:
 \begin{description}  \itemsep -1pt
 \item[C1:] Any pattern using a range feature like \verb![a-f]! as shorthand for all of the characters between `a' and `f' (inclusive) belongs to the C1 node.
 
-\item[C2:] Any pattern that contains at least one  custom character class  without any shorthand representations, specifically ranges or defaults. For example, \verb!`[012]'! is in C2, but \verb!`[0-2]'! is not. 
+\item[C2:] Any pattern that contains at least one  custom character class  without any shorthand representations, specifically ranges or defaults. For example, \verb!`[012]'! is in C2, but \verb!`[0-2]'! is not.
 
 \item[C3:] Any character classes expressed using negation, which is indicated by a caret (i.e., \verb!^!) followed by some other pattern.  For example the pattern \verb![^ao]! matches every character \emph{except} \verb!a! or \verb!o!.  Note that any non-negative character class can be represented as a negative character class, and visa versa. \todoNow{any exceptions to this?} For example, matching any lower-case consonant in the English alphabet can be expressed as \verb![bcdfghjklmnpqrstvwxyz]! in C2 or with negation, \verb![^aeiou]! in C3.
 
@@ -104,7 +104,7 @@ The lower-bounded (LWB) group contains all patterns that specify only a lower bo
 \item[L3:] One of the most commonly used regex features is additional repetition (ADD), for example \verb!T+! which means one-or-more T's.  This is equivalent to \verb!T{1,}!.  Any pattern using ADD repetition belongs to the L3 node.
 \end{description}
 
-Regex patterns often belong to multiple nodes, for example, with \verb!A+B*!,  \verb!A+! maps it to L3 and \verb!B*! maps it to L2. We note that the refactorings from L1 to L3 and L2 to L3 are not always possible, specifically when zero repetitions is possible (e.g., \verb!A*! or \verb!A{0,}!). 
+Regex patterns often belong to multiple nodes, for example, with \verb!A+B*!,  \verb!A+! maps it to L3 and \verb!B*! maps it to L2. We note that the refactorings from L1 to L3 and L2 to L3 are not always possible, specifically when zero repetitions is possible (e.g., \verb!A*! or \verb!A{0,}!).
 
 \paragraph{SNG Group} This equivalence class contains  three representations of a regex that  deal with repetition of a single element in the regex, represents by \verb!S!.
 
@@ -114,15 +114,15 @@ Regex patterns often belong to multiple nodes, for example, with \verb!A+B*!,  \
 \item[S3:] Any pattern with a double-bound in which the upper and lower bounds are same belong to S3. For example, \verb!S{3,3}! states \verb!S! appears a minimum of 3 and maximum of 3 times.
 \end{description}
 
-The important factor distinguishing this group from DBB and LWB is that there is a finite number of repetitions, rather than a bounded range on the number of repetitions (DBB) or a lower bound on the number of repetitions (LWB). 
+The important factor distinguishing this group from DBB and LWB is that there is a finite number of repetitions, rather than a bounded range on the number of repetitions (DBB) or a lower bound on the number of repetitions (LWB).
 
 \paragraph{Example}
-Regular expressions will often belong to many representations in the equivalence classes described here, and often multiple representations within an equivalence class. 
+Regular expressions will often belong to many representations in the equivalence classes described here, and often multiple representations within an equivalence class.
 Using an example from a Python project, the regex \verb!`[^ ]*\.[A-Z]{3}'! is a member of S1, L2, C1, C3, and T1. This is because \verb!`[^ ]'! maps it to C3, \verb!`[^ ]*'! maps it to L2, \verb!`[A-Z]'! maps it to C1, \verb!`\.'! maps it to T1, and \verb!`[A-Z]{3}'! maps it to S1. \todoNow{Is this really a member of L2?}
-As examples of refactorings, moving from S1 to S2 would be possible by replacing  \verb!`[A-Z]{3}'! with  \verb!`[A-Z][A-Z][A-Z]'! and moving from L2 to L1 would replace \verb!`[^ ]*'! with \verb!`[^ ]{0,}'!, resulting in a refactored regex of:  \verb!`[^ ]{0,}\.[A-Z][A-Z][A-Z]'!. 
+As examples of refactorings, moving from S1 to S2 would be possible by replacing  \verb!`[A-Z]{3}'! with  \verb!`[A-Z][A-Z][A-Z]'! and moving from L2 to L1 would replace \verb!`[^ ]*'! with \verb!`[^ ]{0,}'!, resulting in a refactored regex of:  \verb!`[^ ]{0,}\.[A-Z][A-Z][A-Z]'!.
 
 % and could be refactored to \emph{S3} as \verb!`[^ ]*\.[A-Z]{3,3}'!  or to \emph{S2} as \verb!`[^ ]*\.[A-Z][A-Z][A-Z]'!, depending on programmer preferences.
-%\todoNow{can we have examples from Python projects for all the groups???} 
+%\todoNow{can we have examples from Python projects for all the groups???}
 
 
 
@@ -164,7 +164,7 @@ Our overall research questions are:
 
 \input{table/nodeCountTable}
 
+
 \input{rq1}
 \input{rq2}
 \input{rq3}
-
