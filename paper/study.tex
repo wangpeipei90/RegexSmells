@@ -439,9 +439,35 @@ participants compose 67 regexes per year with a range of 0 to 1000. Fittingly, p
 
 
 \subsection{Analysis}
-For each of the 60 regexes in the 26 groups, we computed an average matching and composition score. Within each group, we performed pairwise comparisons of the matching and composition scores to determine which representation was preferred. For example, \todoNow{add an example}. 
+For each of the 60 regexes in the 26 groups, we computed an average matching and composition score. Within each group, we performed 42 pairwise comparisons of the matching and composition scores to determine which representation was preferred (i.e., one comparison for each group of size two and three comparisons for each group of size three). 
+For example, \todoNow{add an example}. 
 
-Although we had 26 groups of regexes evaluated by participants, we had to drop two groups of size three due to a design flaw since the regex examples performed transformations from multiple equivalence classes. For example, regex \verb!! is in C1 and T1, and was grouped with regex \verb!! in C2, T4, so it was not clear if any differences in understandability were due to the transformation between C1 and C2, or T1 and T4. 
+%60 strings
+%42 comparisons
+%18@2, 8@3
+%
+%M6R1 ? group 3, 3 comparisons
+%- 1 comparisons
+%- 0 strings
+%
+%M3R0 ? group 3, 3 comparisons
+%- 1 comparisons
+%- 0 strings
+%
+%M3R1 ? group 3, 3 comparisons
+%- 2 comparisons
+%- 1 string
+%
+%M3R0 ? group 3, 3 comparisons
+%- 2 comparisons
+%- 1 string
+%
+%58 strings
+%36 comparisons 
+
+
+Although we had 42 pairwise comparisons,  we had to drop six comparisons  due to a design flaw since the regex examples performed transformations from multiple equivalence classes. For example, regex \verb!([\072\073])! is in C2 and T4, and was grouped with regex \verb!(:|;)! in C5, T1, so it was not clear if any differences in understandability were due to the transformation between C2 and C5, or T4 and T1. However, the third member of the group, \verb!([:;])!, could be compared with both, since it is a member of T1 and C2, so comparing it to \verb!([\072\073])! evaluates the transformation between T1 and T4, and comparing to \verb!(:|;)! evaluates the transformation between C2 and C5.
+
 
 For each of the 60 regexes, an average matching score was computed using the metrics in Table~\ref{matchingmetric}. The average composition metric was measured using the process described in Section~\ref{sec:metric}. This addresses \emph{RQ2} and \emph{RQ3}.
 
