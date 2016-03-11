@@ -49,6 +49,8 @@ Next, we provide descriptions of each representation in this equivalence class:
 \item[C5:] While not expressed using a character class, these representations can be transformed into custom character classes by removing the ORs and adding square brackets (e.g., \verb!(\d|a)! in C5 is equivalent to \verb![\da]! in C4). All custom character classes expressed as an OR of length-one sequences, including defaults or other CCCs, are included in C5. Note that because an OR cannot be directly negated, it does not make sense to have an edge between C3 and C5 in figure~\ref{fig:refactoringTree}.  However, any regex belonging to C3 can transition to C1, C2 or C4 and then transition to C5 from there.
 \end{description}
 
+\todoNow{add a thing}
+
 \paragraph{DBB Group}
 The Double-Bounded (DBB) group contains all regex patterns that use some repetition defined by a (non-equal) lower and upper boundary.  For example the pattern \verb!pB{1,3}s! represents a \verb!p! followed by one to three sequential \verb!B! patterns, then followed by a single \verb!s!.  This will match ``pBs", ``pBBs", and ``pBBBs".
 
