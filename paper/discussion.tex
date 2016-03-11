@@ -23,10 +23,18 @@ In the LIT group, T1 (e.g., \verb!\a\$>!) is the typical way to list literals, b
 Regarding T3 (e.g., \verb!\a[$]>!), initially we thought the square brackets would be more understandable than using an escape character,  but we found the opposite. Given a choice between T1 and T3, the escape character was more understandable. 
 
 \subsection{Opportunities For Future Work}
-\paragraph{Equivalence Class Models}
-We looked at 5 equivalence classes, each with 3 to 5 nodes.  Future work could study this topic using richer models with more and/or better classes and nodes.  For example, in our treatment, we have looked at all ranges as equivalent, all defaults as equivalent, and relied on many such generalizations.  But the range \verb![a-f]! is likely to be more understandable for most people than a range like \verb![:-`]!. By creating a more granular model of equivalence classes, and making sure to carefully evaluate alternative representations of the most frequently used specific patterns (like \verb!\\s*! and \verb!.+!), many more strong and useful refactorings could be identified.
+There are several directions for future work related to regex study and refactoring. 
 
-In addition to breaking our 5 groups into more specific nodes, future work could model refactorings outside of these groups.  We have not determined a list of all possible refactoring groups given the functional variety and significant number of features to consider, but we are aware of a few additional equivalence classes outside of our 5 groups, such as:
+\paragraph{Equivalence Class Models}
+We looked at five equivalence classes, each with three to five nodes.  
+Future work could consider richer models with more or different classes and nodes.  
+%For example, we have looked at all ranges as equivalent, all defaults as equivalent, and relied on many such generalizations.  However, the range \verb![a-f]! is likely to be more understandable for most people than a range like \verb![:-`]!. 
+It might be the case that, for example, among the default character classes in C4, there are significant differences (e.g., \verb![0-9]! may be preferred to \verb![\d]!, but \verb![A-Za-z0-9_]! may not be preferred to \verb![\w]!).
+By creating a more granular model of equivalence classes, and making sure to carefully evaluate alternative representations of the most frequently used specific patterns,  additional useful refactorings could be identified.
+
+%In addition to breaking our 5 groups into more specific nodes, future work could model refactorings outside of these groups.  
+
+We have not determined a list of all possible refactoring groups given the functional variety and significant number of features to consider, but we are aware of a few additional equivalence classes outside of our 5 groups, such as:
 \begin{description}
 \item[Single line option]  \verb!'''(.|\n)+'''! $\equiv$ \verb!(?s)'''(.)+'''!
 \item[Multi line option]  \verb!(?m)G\n! $\equiv$ \verb!(?m)G$!
