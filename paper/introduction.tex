@@ -2,41 +2,40 @@
 
 Regular expressions are used frequently by developers for many purposes, such as parsing files, validating user input, or querying a database.
 Regexes are also employed in MySQL injection prevention~\cite{Yeole:2011:ADT:1980022.1980229} and network intrusion detection~\cite{network}. 
-However, recent research has suggested that regular expressions (regexes) are hard to understand, hard to compose, and error prone~\cite{Spishak:2012:TSR:2318202.2318207}.
+However, recent research has suggested that regular expressions  are hard to understand, hard to compose, and error prone~\cite{Spishak:2012:TSR:2318202.2318207}.
 Given the difficulties with working with regular expressions and how often they appear in software projects and processes, it seems fitting that efforts should be made to ease the burden on developers.
 
 Tools have been developed to make regexes easier to understand, and many are available online.
-Some tools will, for example, highlight parts of regex patterns that match parts of strings as a tool to aid in comprehension.\footnote{\url{https://regex101.com/}}
-Others will automatically generate strings that are matched by the regular expessions~\cite{hampi}.
-Other tools will automatically generate regexes when given a list of strings to match~\cite{Babbar:2010:CBA:1871840.1871848, Li:2008:REL:1613715.1613719}.
+Some tools will, for example, highlight parts of regex patterns that match parts of strings to aid in comprehension.\footnote{\url{https://regex101.com/}}
+Others will automatically generate strings that are matched by the regular expessions~\cite{hampi} 
+or  automatically generate regexes when given a list of strings to match~\cite{Babbar:2010:CBA:1871840.1871848, Li:2008:REL:1613715.1613719}.
 The commonality of such tools provides evidence that people need help with regex composition and understandability.
 
-In software, code smells have been found to hinder understandability of source code~\cite{abbes2011empirical, du2006does}.
+In software engineering, code smells have been found to hinder understandability of source code~\cite{abbes2011empirical, du2006does}.
 Once removed through refactoring, the code becomes more understandable, easing the burden on the programmer.
 In regular expressions, such code smells have not yet been defined, perhaps in part because it is not clear what makes a regex smelly.
 
 As with source code, in regular expressions, there are multiple ways to express the same semantic concept.
 For example, the regex, \verb!`aa*'! matches an \verb!a! followed by zero or more \verb!a!'s, and is is equivalent to \verb!`a+'! , which matches one or more \verb!a!'s.
 What is not clear is which representation,  \verb!`aa*'!  or  \verb!`a+'!, is preferred.
-Preferences in regex refactorings could come from a number of sources, including which is easier to maintain, easier to understand, or better conforms to community standards, depending on the goals of the programmer.
+Preferences in regex refactorings could vary, including which is easier to maintain, easier to understand, or better conforms to community standards, depending on the goals of the programmer.
 
 In this work, we introduce possible refactorings in regular expressions by identifying equivalence classes of regex representations and transformations between the representations.
 These equivalence classes provide options for how to represent double-bounds in repetitions (e.g., \verb!`a{1,2}'! or \verb!`a|aa'!), single-bounds in repetitions (e.g., \verb!`a{2}'! or \verb!`aa'!), lower bounds in repetitions (e.g., \verb!`a{2,}'! or \verb!`aaa*'!), character classes (e.g., \verb!`[0-9]'! or \verb!`[\d]'!), and literals (e.g., \verb!`\a'! or \verb!`\x07'!).
 We suggest directions for the refactorings, for example, from \verb!`aa*'!  to  \verb!`a+'!, based on two high-level concepts: which representation appears most frequently in source code (conformance to community standards) and which is more understandable by programmers, based on comprehension tests completed by 180 study participants.
-Our results identify preferred representations for four of the five equivalence classes based on mutual agreement between community standards and understandability, with three of those being statistically significant. For the fifth group on double-bounded repetitions, two recommendations are given depending on the goals of the programmer.
-
+Our results identify preferred representations for four of the five equivalence classes based on mutual agreement between community standards and understandability, with three of those being statistically significant. For the fifth group on double-bounded repetitions, two recommendations are given depending on the programmer's goals. 
 Our contributions are:
 \begin{itemize}
 \item Identification of  equivalence classes for regular expressions with possible transformations within each class,
-\item Conducted an empirical study with 180 participants evaluating regex understandability,
-\item Conducted an empirical study identifying opportunities for regex refactoring  in Python projects based on how regexes are expressed, and
-\item {Identified preferred regex representations and refactorings that are the most understandable and conform best to community standards, backed by empirical evidence.}
+\item Conducted an empirical study identifying opportunities for regex refactoring  in Python projects based on how regexes are expressed, 
+\item Conducted an empirical study with 180 participants evaluating regex understandability, and
+\item {Identified preferred regex representations and refactorings for understandability and conformance to community standards, backed by empirical evidence.}
 %\item {Identified 3 or so other regex refactorings categories and specific instances that are worthy of further investigations}
 %\item {Identified a few regex refactorings that can be eliminated because both options are equally readable}
 \end{itemize}
 
-To our knowledge, this is the first work to apply refactoring to regular expressions. Further, we approach the problem of identifying preferred regex representations by looking at thousands of regexes in Python projects and measuring the understandability of various regex representations using human participants. The rest of the paper describes
-equivalence classes and possible refactorings as well as our two empirical studies, one using source code artifacts and another using human participants. 
+To our knowledge, this is the first work to apply refactoring to regular expressions. We approach the problem of identifying preferred regex representations by looking at thousands of regexes in Python projects and measuring the understandability of various regex representations using human participants. The rest of the paper describes the
+equivalence classes, possible refactorings, and our two  studies. %, one using source code artifacts and another using human participants. 
 %  (Section~\ref{sec:refactoring}), research questions (Section~\ref{sec:study}), the study of regex representations in Python projects (Section~\ref{communitystudy}), and the regex understandability study using human participants (Section~\ref{sec:understandability}). We discuss the overall analysis results in Section~\ref{sec:rq3}, implications in Section~\ref{sec:discussion},  related work in regexes (Section~\ref{sec:related}), and conclude in Section~\ref{sec:conclusion}.
 %\todoLast{can remove for space}
 
