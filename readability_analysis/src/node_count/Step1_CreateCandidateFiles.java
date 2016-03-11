@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.TreeSet;
 import java.util.concurrent.ExecutionException;
@@ -83,22 +84,28 @@ public class Step1_CreateCandidateFiles {
 				groupName + "/", "errorLog.txt");
 			IOUtil.createAndWrite(errorLog, errorLogContent.toString());
 		}
+		
 		TreeSet<RegexProjectSet> groupsIntersection = new TreeSet<RegexProjectSet>();
 		groupsIntersection.addAll(corpus);
+		ArrayList<String> winners = new ArrayList<String>(Arrays.asList("C1","D2","T1","L2","S2"));
 		for (String groupName : C.groupNames) {
 			TreeSet<RegexProjectSet> groupUnion = new TreeSet<RegexProjectSet>();
 			NodeGroup group = gd.get(groupName);
 			for (RTNode node : group) {
-				groupUnion.addAll(node);
+				String nodeName = node.getName();
+				if(!winners.contains(nodeName)){
+					groupUnion.addAll(node);
+				}
 			}
 			System.out.println(groupsIntersection.retainAll(groupUnion));
+			File intersection = new File(IOUtil.dataPath + IOUtil.NODES, groupName+"_Union.tsv");
+			StringBuilder sb = new StringBuilder();
+			for (RegexProjectSet rps : groupUnion) {
+				sb.append(rps.getContent() + "\t" + rps.getProjectsCSV() + "\n");
+			}
+			IOUtil.createAndWrite(intersection, sb.toString());
 		}
-		StringBuilder sb = new StringBuilder();
-		for (RegexProjectSet rps : groupsIntersection) {
-			sb.append(rps.getContent() + "\t" + rps.getProjectsCSV() + "\n");
-		}
-		File intersection = new File(IOUtil.dataPath + IOUtil.NODES, "intersectionOfAllGroups.tsv");
-		IOUtil.createAndWrite(intersection, sb.toString());
+
 	}
 
 }
