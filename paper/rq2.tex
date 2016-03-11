@@ -72,8 +72,24 @@ This study was implemented on the Amazon's Mechanical Turk (MTurk),  a crowdsour
 Workers were pre-qualified by answering questions regarding some basics of regex knowledge. These questions were multiple-choice and asked the worker to describe what the following patterns mean: \verb!`a+'!, \verb!`(r|z)'!, \verb!`\d'!, \verb!`q*'!, and \verb!`[p-s]'!. To pass the qualification, workers had to answer four of the five questions correctly.
 
 \subsubsection{Tasks}
-Using the patterns in the corpus as a guide, we created 60 regex patterns that were grouped into 26 semantic equivalence groups and 10 metagroups containing six patterns each.  Of the 26 semantic groups, 18 had two equivalent patterns each and eight groups had three equivalent patterns each. Four of the metagroups were composed of two groups of three, and six of the metagroups were composed of three groups of two. For example, one of the groups of size two had patterns: \verb!`([0-9]+)\.([0-9]+)'! belonging to representation C1 and \verb!`(\d+)\.(\d+)'! belonging to representation C4. One of the groups of size three contained \verb!`((q4f){0,1}ab)'! belonging to D1, \verb!`((q4f)?ab)'! belonging to D2, \verb!`(q4fab|ab)'! belonging to D3.
-For each of the 26 groups of patterns, we created five strings, where at least one matched and at least one did not match. These strings were used to compute the matching metric.
+Using the patterns in the corpus as a guide, we created six metagroups containing three pairs of patterns focusing on:
+\begin{itemize}
+\item S1 vs S2
+\item the digit default character class vs C1
+\item the word default character class vs C1
+\item negated digits and words vs C3, whitespace vs C2
+\item additional vs kleene repetition
+\item wrapping vs escaping literal characters
+\end{itemize}
+and four metagroups containing two triplets of patterns focusing on
+\begin{itemize}
+\item octal vs hex vs literal
+\item D1 vs D2 vs D3
+\item C1 vs C2 vs C5
+\item octal vs literal and C2 vs C5
+\end{itemize}
+
+Each of these 10 metagroups contains 6 strings, resulting in a total of 60 regex patterns.  These patterns are logically partitioned into 26 semantic equivalence groups (18 from pairs, 8 from triples). For each of the 26 groups of patterns, we created five strings, where at least one matched and at least one did not match. These strings were used to compute the matching metric.
 
 Once all the patterns and matching strings were collected, we created tasks for the MTurk participants as follows:
 randomly select a pattern from each of the 10 metagroups. Randomize the order of these 10 patterns, as well as the order of the matching strings for each pattern. After adding a question asking the participant to compose a string that each pattern matches, this creates one task on MTurk.   This process was completed until each of the 60 regexes appeared in 30 HITs, resulting in a total of 180 total unique HITs.
