@@ -3,7 +3,8 @@
 \section{Understandability Study (RQ2)}
 \label{sec:understandability}
 The overall idea of this study  is to present  programmers with one of several representations of semantically equivalent regexes and ask comprehension questions. By comparing the understandability of semantically equivalent regexes that have different representations, we aim to understand which representation(s)  are more desirable and which are more smelly. 
-This study was  implemented on Amazon's Mechanical Turk with 180 participants. The regexes used were designed to belong to various representations in Figure~\ref{fig:refactoringTree}. 
+This study was  implemented on Amazon's Mechanical Turk with 180 participants.  Each regex was evaluated by 30 participants. 
+The regexes used were designed to belong to various representations in Figure~\ref{fig:refactoringTree}. 
 
 
 
@@ -52,7 +53,7 @@ This study was  implemented on Amazon's Mechanical Turk with 180 participants. T
  Given a regex and a set of strings, a participant determines which strings will be matched by the regex. There are four possible responses for each string, \emph{matches}, \emph{not a match}, \emph{unsure}, or blank. An example from our study is shown in Figure~\ref{fig:exampleQuestion}. 
  
  The percentage of correct responses, disregarding blanks and unsure responses, is the matching score. 
- For example, consider regex \verb!`RR*'! and five strings, which comes from our study, shown in Table~\ref{matchingmetric}, and the responses from four participants in the \emph{P1},\emph{P2},\emph{P3} and \emph{P4} columns. 
+ For example, consider regex \verb!`RR*'! and five strings, which comes from our study, shown in Table~\ref{matchingmetric}, and the responses from four participants in the \emph{P1}, \emph{P2}, \emph{P3} and \emph{P4} columns. 
  The oracle has the first three strings matching since they each contain at least one \verb!R! character. \emph{P1} answers correctly for the first three strings but incorrectly thinks the fourth string matches, so the matching score is $4/5 = 0.80$. \emph{P2} incorrectly thinks that the second string is not a match, so they also score $4/5 = 0.80$.  \emph{P3} marks `unsure' for the third string and so the total number of attempted matching questions is 4 instead of 5. \emph{P3} is incorrect about the second and fourth string, so they score $2/4 = 0.50$.  For \emph{P4}, we only have data about the first and second matching questions, since the other three are blank.  \emph{P4} marks `unsure' for the second matching question so only one matching question has been attempted, and it was answered correctly so the matching score is $1/1 = 1.00$.
  
 Blanks were incorporated into the metric because questions were occasionally left blank in the study. Unsure responses were provided as an option so not to bias the  results when participants were honestly unsure of the answer. These situations did not occur very frequently. Only \todoNow{X\%} of the responses were left blank and only \todoNow{y\%} of the responses were marked as unsure.   
@@ -77,71 +78,73 @@ Using the regexes in the corpus as a guide, we created 60 regex patterns that we
 For each of the 26 groups of regexes, we created five strings, where at least two matched and at least two did not match. The fifth string was randomly selected to match or not match. These strings were used to compute the matching metric. 
 %These were used for computing the composition metric.
 
-Once all the regexes and matching strings were collected, we created tasks for the MTurk participants as follows: randomly select a regex from ten of the 26 groups. Randomize the order of the regexes, as well as the order of the matching strings for each regex. After adding a question asking the participant to compose a string that the regex matches, this creates one task on MTurk.   This process was completed until each of the 60 regexes appeared in 30 HITs, resulting in a total of 180 HITs.
+Once all the regexes and matching strings were collected, we created tasks for the MTurk participants as follows: randomly select a regex from ten of the 26 groups. Randomize the order of the regexes, as well as the order of the matching strings for each regex. After adding a question asking the participant to compose a string that the regex matches, this creates one task on MTurk.   This process was completed until each of the 60 regexes appeared in 30 HITs, resulting in a total of 180 total, unique HITs.
 An example of a single regex, the five matching strings and the space for composing a string is shown in Figure~\ref{fig:exampleQuestion}.
 
 
 \subsubsection{Implementation}
-Workers were paid \$3.00 for successfully completing a HIT, and were only allowed to complete  one HIT. Workers were paid \$3.00 for successfully completing a HIT, and were only allowed to complete  one HIT.  The average completion time for accepted HITs was 682 seconds (11 mins, 22 secs).  A total of 241 HITs were submitted - of those 55 were rejected.
+Workers were paid \$3.00 for successfully completing a HIT, and were only allowed to complete  one HIT.  The average completion time for accepted HITs was 682 seconds (11 mins, 22 secs).  
+%A total of 241 HITs were submitted - of those 55 were rejected.
 %, and 6 duplicates were ignored, always using the first accepted submission so as to obtain a value for each of the 180 distinct tasks.
-Of the 55 rejected HITs, 48 were rushed through by one person leaving many answers blank, 4 other HITs were also rejected because a worker had submitted more than one HIT, one was rejected for not answering composition sections, and one was rejected because it was missing data for 3 questions.  Rejected HITs were returned to MTurk to be completed by others.
+A total of 55 HITs were rejected, and  of those, 48 were rushed through by one person leaving many answers blank, 4 other HITs were also rejected because a worker had submitted more than one HIT, one was rejected for not answering composition sections, and one was rejected because it was missing data for 3 questions.  Rejected HITs were returned to MTurk to be completed by others.
 
 
-
-
-
-\begin{figure}[tp]
-\begin{small}
-\fbox{\parbox{\columnwidth}{
-\begin{enumerate}
-\item
-\begin{tabular} {lrr}
-\textbf{What is your gender?} & \textbf{n} & \textbf{\%}\\ \hline
-Male & 149 & 83\%\\
-Female & 27& 15\%\\
-Prefer not to say & 4& 2\%
-\end{tabular}
-\item \textbf{What is your age?} \\
-$\mu = 31$, $\sigma = 9.3$
-
-\item
-
-\begin{tabular} {l |rr}
-\textbf{Education Level?} & \textbf{n} & \textbf{\%}\\ \hline
-High School & 5 & 3\%\\
-Some college, no degree & 46 & 26\%\\
- Associates degree & 14 & 8\%\\
-Bachelors degree & 78 & 43\%\\
-Graduate degree & 37 & 21\%\\
-\end{tabular}
-\item
-\begin{tabular} {lrr}
-\textbf{Familiarity with regexes?} & \textbf{n} & \textbf{\%}\\ \hline
-Not familiar at all & 5 & 3\%\\
-Somewhat not familiar & 16 & 9\%\\
-Not sure & 2 & 1\%\\
-Somewhat familiar & 121 & 67\%\\
-Very familiar & 36 & 20\%\\
-\end{tabular}
-\item \textbf{How many regexes do you compose each year?} \\
-$\mu = 67$, $\sigma = 173$
-\item \textbf{How many regexes (not written by you) do you read each year?} \\
-$\mu = 116$, $\sigma = 275$
-%\item In what contexts do you use regexes? \\
-\end{enumerate}
-}}
-\caption{Participant Profiles, $n=180$ \label{participantprofile}}
-\end{small}
-\end{figure}
-
+%
+%
+%
+%\begin{figure}[tp]
+%\begin{small}
+%\fbox{\parbox{\columnwidth}{
+%\begin{enumerate}
+%\item
+%\begin{tabular} {lrr}
+%\textbf{What is your gender?} & \textbf{n} & \textbf{\%}\\ \hline
+%Male & 149 & 83\%\\
+%Female & 27& 15\%\\
+%Prefer not to say & 4& 2\%
+%\end{tabular}
+%\item \textbf{What is your age?} \\
+%$\mu = 31$, $\sigma = 9.3$
+%
+%\item
+%
+%\begin{tabular} {l |rr}
+%\textbf{Education Level?} & \textbf{n} & \textbf{\%}\\ \hline
+%High School & 5 & 3\%\\
+%Some college, no degree & 46 & 26\%\\
+% Associates degree & 14 & 8\%\\
+%Bachelors degree & 78 & 43\%\\
+%Graduate degree & 37 & 21\%\\
+%\end{tabular}
+%\item
+%\begin{tabular} {lrr}
+%\textbf{Familiarity with regexes?} & \textbf{n} & \textbf{\%}\\ \hline
+%Not familiar at all & 5 & 3\%\\
+%Somewhat not familiar & 16 & 9\%\\
+%Not sure & 2 & 1\%\\
+%Somewhat familiar & 121 & 67\%\\
+%Very familiar & 36 & 20\%\\
+%\end{tabular}
+%\item \textbf{How many regexes do you compose each year?} \\
+%$\mu = 67$, $\sigma = 173$
+%\item \textbf{How many regexes (not written by you) do you read each year?} \\
+%$\mu = 116$, $\sigma = 275$
+%%\item In what contexts do you use regexes? \\
+%\end{enumerate}
+%}}
+%\caption{Participant Profiles, $n=180$ \todoLast{can remove this for space} \label{participantprofile}}
+%\end{small}
+%\end{figure}
+%
 
 
 \subsection{Participants}
 
-In total, there were 180 different participants in the study.
+In total, there were 180 participants in the study.
 A majority were male (83\%) with an average age of 31. Most had
 at least an Associates degree (72\%) and most were at least somewhat familiar with regexes prior to the study (87\%). On average,
-participants compose 67 regexes per year with a range of 0 to 1000. Fittingly, participants read more regexes than they write with an average of 116 and a range from 0 to 2000. Figure~\ref{participantprofile} summarizes the self-reported participant characteristics from the qualification survey.
+participants compose 67 regexes per year with a range of 0 to 1000. Fittingly, participants read more regexes than they write with an average of 116 and a range from 0 to 2000. 
+%Figure~\ref{participantprofile} summarizes the self-reported participant characteristics from the qualification survey.
 
 \input{table/testedEdgesTable}
 
@@ -187,7 +190,9 @@ Although we had 42 pairwise comparisons,  we had to drop six comparisons  due to
 
 
 \subsection{Results}
-Table~\ref{table:testedEdgesTable} presents the results of the understandability analysis. A horizontal line separates the first three edges from the bottom 11. In E1 through E3, there is a statistically significant difference between the representations for at least one of the metrics considering $\alpha = 0.05$.  These represent the strongest evidence for suggesting refactoring based on the understandability metrics we defined. Specifically, T4 $\Rightarrow$ T1, D2 $\Rightarrow$ D3, and L2 $\Rightarrow$ L3 are likely to improve understandability. 
+Table~\ref{table:testedEdgesTable} presents the results of the understandability analysis. A horizontal line separates the first three edges from the bottom 11. In E1 through E3, there is a statistically significant difference between the representations for at least one of the metrics considering $\alpha = 0.05$.  These represent the strongest evidence for suggesting the directions of refactoring based on the understandability metrics we defined. Specifically, $\overrightarrow{T4 T1}$, $\overrightarrow{D2 D3}$, and $\overrightarrow{L2 L3}$ 
+%T4~$\rightarrow$~T1, D2~$\rightarrow$~D3, and L2~$\rightarrow$~L3 
+are likely to improve understandability. 
 
 We note here that participants were able to select \emph{unsure} when they were not sure if a string would be matched by a regex (Figure~\ref{fig:exampleQuestion}). From a comprehension perspective, this indicates some level of confusion and we can use that to further corroborate the understandability analysis. 
 
