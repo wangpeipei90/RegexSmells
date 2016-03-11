@@ -25,7 +25,7 @@ public class GroupDictionary extends HashMap<String, NodeGroup> {
 
 		DnodeList.add(new RTNode(C.D1, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_REP_DOUBLEBOUNDED)), dotStar));
 		DnodeList.add(new RTNode(C.D2, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_REP_QUESTIONABLE)), dotStar));
-		DnodeList.add(new RTNode(C.D3, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_OR)), Pattern.compile("(?<=[|(]|^)([^ \\\\]+)\\|\\1\\1")));
+		DnodeList.add(new RTNode(C.D3, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_META_OR)), Pattern.compile("(?<=[|])([^ \\\\]+)\\1+|([^ \\\\]+)\\1+(?=[|])")));
 
 		SnodeList.add(new RTNode(C.S1, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach(FeatureDictionary.I_REP_SINGLEEXACTLY)), dotStar));
 		SnodeList.add(new RTNode(C.S2, new FeatureSetClass(FeatureCountFactory.constructWithOneOfEach()), dotStar));
