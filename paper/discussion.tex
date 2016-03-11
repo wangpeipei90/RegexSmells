@@ -72,7 +72,7 @@ We have identified opportunities
 Many organizations enforce coding standards in their repositories to ease understandability.
 Presently, we are not aware of coding standards for regular expressions, but this work suggests that enforcing standard representations for various regex constructs could ease comprehension.  
 
-\paragraph{Refactoring for Performance}
+\paragraph{Regex Refactoring for Performance}
 The representation of regexes may have a strong impact on the runtime performance of a chosen regex engine. Prior work has sought to expedite the processing of regexes over large bodies of text~\cite{Baeza-Yates:1996:FTS:235809.235810}. 
 Refactoring regexes for performance would complement those efforts. 
 %Further study is needed to determine which representations are most efficient, leading to a whole new area of study on regex refactoring for performance, a topic already explored for 
@@ -84,20 +84,28 @@ Refactoring regexes for performance would complement those efforts.
 \textbf{Internal}
 We measure understandability of regexes using two metrics, matching and composition. However, these measures may not reflect actual understanding of the regex behavior. For this reason, we chose to use two metrics and present the analysis in the context of reading and writing regexes, but the threat remains.
 
-\todoMid{what about the threat of too few examples per node?  Didn't cover every edge.  Regex set is randomly collected online, not focused on any specific target audience.}
+Participants evaluated regular expressions during tasks on MTurk, which may not be representative enough of the context in which programmers would encounter regexes in practive. Further study is needed to determine the impact of the experimentation context on the results. 
 
-We treated unsure responses as omissions and did not count those against the participants. Thus, if a participant answered two strings correctly with match/not match, and marked the other three strings as unsure, then this was 2/2 correct, not 2/5.
+Some regex representations from the equivalence classes were not involved in the understandability analysis and that may have biased the results against those nodes. Repetition of the analysis with more compete coverage of the edges in the equivalence classes is needed. 
 
-In our analyses, we measure understandability using matching and composition metrics. 
-However, there may be other ways to approach regex understandability, such as deciding which regexes in a set are equivalent, finding the minimum modification to some text so that a given regex will match it.  
-It may also be meaningful to provide some code that exists around a regex as context, since that would better represent a scenario in which programmers would encounter regexes in practice. 
-Further study is needed to determine if the chosen metrics and experimentation context have resulted in a reasonable measure of understandability. 
+We treated unsure responses as omissions that  did not count  against the matching scores. Thus, if a participant answered two strings correctly and marked the other three strings as unsure, then this was 2/2 correct, not 2/5. This may have inflated the matching scores, however, less than 5\% of the matching scores were impacted by such responses. 
+
+
+%
+%In our analyses, we measure understandability using matching and composition metrics. 
+%However, there may be other ways to approach regex understandability, such as deciding which regexes in a set are equivalent, finding the minimum modification to some text so that a given regex will match it.  
+%It may also be meaningful to provide some code that exists around a regex as context, since that would better represent a scenario in which programmers would encounter regexes in practice. 
+%Further study is needed to determine if the chosen metrics and experimentation context have resulted in a reasonable measure of understandability. 
 
 \textbf{External}
-Participants in our survey came from MTurk, which may not be representative of people who read and write regexes on a regular basis.
+Participants in our survey came from MTurk, which may not be representative of people who read and write regexes on a regular basis. 
 
-The regexes we used in the evaluation were inspired by those commonly found in Python code, which is just one language that has library support for regexes. Thus, we may have missed opportunities for other refactorings based on how programmers use regexes in other programming languages.
+The regexes  used in the evaluation were inspired by those found in Python code, which is just one language that has library support for regexes. Thus, we may have missed opportunities for other refactorings based on how programmers use regexes in other programming languages. 
 
-Our community analysis only focuses on the Python language, but as the vast majority of regex features are shared across most general programming languages (e.g., Java, C, C\#, or Ruby), a Python {pattern} will (almost always) behave the same when used in other languages and our results are likely to generalize. 
+The results of the understandability analysis may be closely tied to the particular regexes chosen for the experiment. For many of the representations, we had several comparisons. Still, replication with more regex patterns is needed.% to validate our results. 
+
+%\todoMid{what about the threat of too few examples per node?  Didn't cover every edge.  Regex set is randomly collected online, not focused on any specific target audience.}
+
+%Our community analysis only focuses on the Python language, but as the vast majority of regex features are shared across most general programming languages (e.g., Java, C, C\#, or Ruby), a Python {pattern} will (almost always) behave the same when used in other languages and our results are likely to generalize. 
 %, whereas a utilization is not universal in the same way (i.e., it may not compile in other languages, even with small modifications to function and flag names).
 %As an example, the {\tt re.MULTILINE} flag, or similar, is present in Python, Java, and C\#, but  the Python {\tt re.DOTALL} flag is not present in C\# though it has an equivalent flag in Java.
