@@ -1,5 +1,6 @@
-\documentclass{sig-alternate-05-2015}
-
+%\documentclass{sig-alternate-05-2015}
+% \documentclass[10pt,conference]{IEEEtran}
+ \documentclass[conference]{IEEEtran}
 \usepackage{url}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{listings}
@@ -12,6 +13,7 @@
 \usepackage{eqparbox}
 \usepackage{hyperref}
 \usepackage{subfigure}
+\usepackage{listing}
 %\usepackage{fancyvrb}
 
 \usepackage{algorithm}% http://ctan.org/pkg/algorithms
@@ -37,6 +39,12 @@
 \usepackage{tikz}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
 
+%\usepackage{tcolorbox}
+%
+%\newcounter{rqcounter}
+%\setcounter{rqcounter}{0}
+%\newcommand\lesson[1]{\refstepcounter{rqcounter} \vspace{2pt}\begin{tcolorbox}[boxsep=1pt,left=2pt,right=2pt,top=1pt,bottom=1pt]\noindent\textbf{RQ \arabic{rqcounter}}. #1\end{tcolorbox}\vspace{0pt}}
+
 
 
 %Images
@@ -59,39 +67,60 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Refactoring Regular Expressions}
+\title{Understandability Smells in Regular Expressions}
 
-
-\numberofauthors{2}
+\author{(blinded for review)}
+\iffalse
 \author{
-% 1st. author
-\alignauthor
-Carl Chapman\\
-       \affaddr{Department of Computer Science}\\
-       \affaddr{Iowa State University}\\
-       \email{carl1976@iastate.edu}
-\alignauthor
-Kathryn T. Stolee\\
-       \affaddr{Department of Computer Science}\\
-       \affaddr{North Carolina State University}\\
-       \email{ktstolee@ncsu.edu}
-\alignauthor
+\IEEEauthorblockN{Carl Chapman}
+\IEEEauthorblockA{Department of Computer Science\\
+Iowa State University\\
+carl.chapman@gmail.com}
+\and 
+\IEEEauthorblockN{Peipei Wang}
+\IEEEauthorblockA{Department of Computer Science\\
+North Carolina State University\\
+pwang7@ncsu.edu}  
+\and 
+\IEEEauthorblockN{Kathryn T. Stolee}
+\IEEEauthorblockA{Department of Computer Science\\
+North Carolina State University\\
+ktstolee@ncsu.edu}  
 }
+\fi
+
+%\numberofauthors{2}
+%\author{
+%% 1st. author
+%\alignauthor
+%Carl Chapman\footnote{* work performed while at Iowa State University}\\
+%       \affaddr{Sandia National Labs}\\
+%       \affaddr{NM}\\
+%       \email{carl.chapman@gmail.com}
+%\alignauthor
+%Kathryn T. Stolee\\
+%       \affaddr{Department of Computer Science}\\
+%       \affaddr{North Carolina State University}\\
+%       \email{ktstolee@ncsu.edu}
+%\alignauthor
+%}
 
 
 \maketitle
 
 
 \begin{abstract}
-Regular expressions (regexes) are powerful tools employed across many tasks and platforms.
-Regexes can be very complex so optimizing understandability of regexes is desirable for maintainers.
-Due to a rich feature set, there is more than one way to compose a regex to get the same desired behavior.
-In this work, we define five equivalence classes of regex representations where the same behavior can be achieved with multiple representations.
-With the goal of finding refactorings that improve understandability, we analyze regexes in GitHub to find community standards, or common usages of various features. 
-We further  obtain understandability metrics from an empirical study with 180 participants to discover which representations are more  understandable to programmers.
-We found that, for example,  patterns requiring one or more  repetitions of a character are more understandable when expressed using the plus (e.g., \verb!`:+'!) operator than the kleene star operator   (e.g., \verb!`::*'!).  We identify strongly preferred transformations in three of the five equivalence classes and identify opportunities for future work in  regex refactoring. 
+Regular expressions (regexes) are powerful tools employed across many tasks and platforms. Regexes can be very complex and prior work has shown that developers find regexes to be difficult to compose and understand. 
+%Due to a rich feature set, there is more than one way to compose a regex to get the same desired behavior. 
+
+With the goal of identifying code smells that impact comprehension, we conducted an empirical study with 180 participants and 35 pairs of behaviorally equivalent but syntactically different regexes, and evaluate the understandability of various regex language features. We found that, for example,  patterns requiring one or more  repetitions of a character are more understandable when expressed using the plus (e.g., \verb!`:+'!) operator than the kleene star operator   (e.g., \verb!`::*'!). We further analyze regexes in GitHub to find community standards, or common usages of various features. Finally, we identify smelly and non-smelly regex representations based on a combination of community standards and understandability metrics, and form recommendations on how to transform regexes to enhance comprehension.
+
+%Regular expressions (regexes) are powerful tools employed across many tasks and platforms. Regexes can be very complex and prior work has shown that developers find regexes to be difficult to compose and understand. Due to a rich feature set, there is more than one way to compose a regex to get the same desired behavior. With the goal of finding potential transformations that improve regex comprehension, we conducted an empirical study with 180 participants and 36 pairs of behaviorally equivalent but syntactically different regexes, and evaluate the understandability of various regex language features. We found that, for example,  patterns requiring one or more  repetitions of a character are more understandable when expressed using the plus (e.g., `:+') operator than the kleene star operator   (e.g., `::*'). We further analyze regexes in GitHub to find community standards, or common usages of various features. Finally, we identify preferred representations based on a combination of community standards and understandability metrics, and form recommendations on how to transform regexes to enhance comprehension. 
+
+
+%Regular expressions (regexes) are powerful tools employed across many tasks and platforms. Regexes can be very complex and prior work has shown that developers find regexes to be difficult to compose and understand. 
 %
-%as well as other, less conclusive information that can inform future investigation into regex refactoring.
+%With the goal of identifying code smells that impact comprehension, we conducted an empirical study with 180 participants and 35 pairs of behaviorally equivalent but syntactically different regexes, and evaluate the understandability of various regex language features. We found that, for example,  patterns requiring one or more  repetitions of a character are more understandable when expressed using the plus (e.g., `:+') operator than the kleene star operator   (e.g., `::*'). We further analyze regexes in GitHub to find community standards, or common usages of various features. Finally, we identify smelly and non-smelly regex representations based on a combination of community standards and understandability metrics, and form recommendations on how to transform regexes to enhance comprehension.
 
 \end{abstract}
 
@@ -115,13 +144,15 @@ We found that, for example,  patterns requiring one or more  repetitions of a ch
 
 
 \balance
-
+\iffalse
 \section*{Acknowledgements}
-This work is supported in part by  NSF SHF-EAGER-1446932.
+blinded for review
+%This work is supported in part by  NSF SHF-EAGER-1446932.
+\fi
 
 
 \bibliographystyle{IEEEtran}
-\bibliography{biblio,stolee}
+\bibliography{biblio,stolee,peipei}
 
 \end{document}
 

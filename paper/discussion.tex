@@ -1,51 +1,57 @@
 \section{Discussion}
 \label{sec:discussion}
-Based on our analyses of source code and our empirical study on the understandability of regex representations, we have identified preferred regex representations that may make regexes easier to understand and thus maintain. In this section, we describe the implications of these results.
+Based on our studies, we have identified preferred regex representations that may make regexes easier to understand and their smelly counterparts. Here, we summarize the results.
 
-\subsection{Interpreting Results}
-In the CCC equivalence class, C1 (e.g., \verb![0-9a]!) is more commonly found in the patterns and projects.  Representations C2 (e.g., \verb![0123456789a]!) and C3 (e.g., \verb![^\x00-/:-`b-\x7F]!) appear in similar percentages of patterns and projects but there is no significant difference in understandability considering two pairs of regexes tested as part of E13 (Table~\ref{table:testedEdgesTable}). However, a small preference is shown for C1 over C2 (E7), leading this to to be the winner of both the community support and understandability analyses.
+%We identify smells, not all refactorings are possible or advisable. See Equiv. class definitions for example limitations. 
+
+\subsection{Implications}
+In the CCC equivalence class, C1 (e.g., \verb![0-9a]!) is more commonly found in the patterns and projects.  C2 (e.g., \verb![0123456789a]!) and C3 (e.g., \verb![^\x00-/:-`b-\x7F]!) appear in similar percentages of patterns and projects but there is no significant difference in understandability considering two pairs of regexes tested (i.e., E13 in Table~\ref{table:testedEdgesTable}). 
+A small preference is shown for C1 over C2 (E7), leading this to to be the preference for RQ1--RQ3.
 %    Regex length is probably important for understandability, though we did not test for this.
 
 % - the longest regex in the corpus is \todoNow{X} characters long...
 %Anyway C2 is comon but less readable.  C4 is somehwat less common to use defalut in CC - why?  C5 is rare, but marginally more readable than C2.  Not enough data or contrast to come to a conclusion about C3 - it is a catch-all?
 
-In the DBB group, D3 (e.g., \verb!pBs|pBBs|pBBBs!) merits further exploration because it is the most understandable but least common node in DBB group.  This may be because explicitly listing the possibilities with an OR is easy to grasp, but if the number of items in the OR is too large, the understandability may go down. Further analysis is needed to determine the optimal thresholds for representing a regex as D3 compared to D1 (e.g., \verb!pB{1,3}s!) or D2 (e.g., \verb!pBB?B?s!).
+In DBB, D3 (e.g., \verb!pBs|pBBs|pBBBs!) merits further exploration because it is the most understandable but least common node in the group.  This may be because explicitly listing the possibilities with an OR is easy to grasp, but if the number of items in the OR is too large, understandability may suffer. Further analysis is needed to determine the optimal thresholds for representing a regex as D3 compared to D1 (e.g., \verb!pB{1,3}s!) or D2 (e.g., \verb!pBB?B?s!).
 %Intuitively, it seems that D2 may be more common because 0,1 is just a more common use case than an arbitrary range like 4, 25.
 
-In the SNG group, S1 is a compact representation (e.g., \verb!S{3}!), but S2 was preferred (e.g., \verb!SSS!). Similar to the DBB group, this may be do to the particular examples chosen in the analysis, as a large number of explicit repetitions may not be as preferred.
+In the SNG group, S1 is compact (e.g., \verb!S{3}!), but S2 was preferred (e.g., \verb!SSS!). Similar to DBB, this may be due to the particular examples chosen in the analysis, as a large number of explicit repetitions may not be as preferred.
 
-In the LWB group,  representations L2 (e.g., \verb!AAA*!) and L3 (e.g., \verb!AA+!) appear in similar numbers of patterns and projects, but there is a significant difference in their understandability, favoring L3.
+In  LWB,   L2 (e.g., \verb!AAA*!) and L3 (e.g., \verb!AA+!) appear in similar numbers of patterns and projects, but there is a significant difference in their understandability, favoring L3.
 % , it's clear that this is a rare use case, and also that L3 is the most common  use case.  Patterns using star are secondary, helper patterns because they will trivially match anything, so they are less common.  But anyway...
 
 
 % is nice, but
 %so probably better than S2.  S2 is over-weighted because of double-characters in regular words like foot.
-In the LIT group, T1 (e.g., \verb!\a\$>!) is the typical way to list literals, but the reason to use hex (T2) or oct (T4) types is because some characters cannot be represented any other way, such as invisible chars.  One main result of our work is that  T4 (e.g., \verb!\007\036\062!) is  less understandable   than T2 (e.g., \verb!\x07\x24\x3E!), so if invisible chars are required, hex is the more understandable representation.
-Regarding T3 (e.g., \verb!\a[$]>!), initially we thought the square brackets would be more understandable than using an escape character,  but we found the opposite. Given a choice between T1 and T3, the escape character was more understandable.
+In the LIT group, T1 (e.g., \verb!\a\$>!) is the typical way to list literals, but the reason to use hex (T2) or oct (T4) types is because some characters cannot be represented any other way, such as invisible chars.  One main result of our work is that  T4 (e.g., \verb!\007\036\062!) is  less understandable   than T2 (e.g., \verb!\x07\x24\x3E!), so if invisible chars are required, hex is  more understandable.
+%Regarding T3 (e.g., \verb!\a[$]>!), initially we thought the square brackets would be more understandable than using an escape character,  but we found the opposite. 
+Also, given a choice between T1 and T3, the escape character was more understandable.
 
 \subsection{Opportunities For Future Work}
-There are several directions for future work related to regex study and refactoring.
+\label{sec:futureequivclasses}
+%There are several directions for future work related to regex study and refactoring.
+%
+%\paragraph{Equivalence Class Models}
 
-\paragraph{Equivalence Class Models}
 We looked at five equivalence classes, each with three to five nodes.
-Future work could consider richer models with more or different classes and nodes.
+Future work could consider richer models with more or different classes, including: 
 %For example, we have looked at all ranges as equivalent, all defaults as equivalent, and relied on many such generalizations.  However, the range \verb![a-f]! is likely to be more understandable for most people than a range like \verb![:-`]!.
 %In addition to breaking our 5 groups into more specific nodes, future work could model refactorings outside of these groups.
 %
 %We have not determined a list of all possible refactoring groups given the functional variety and significant number of features to consider, but we are aware of a few additional equivalence classes outside of our 5 groups, such as:
-Additional equivalence groups to consider may include:
-\begin{description} \itemsep -2pt
+%Additional equivalence groups to consider may include:
+\begin{itemize} \itemsep -2pt
 %\item[Single line option]  \verb!'''(.|\n)+'''! $\equiv$ \verb!(?s)'''(.)+'''!
-\item[Multi line option]  \verb!(?m)G\n! $\equiv$ \verb!(?m)G$!
-\item[Case insensitive]  \verb!(?i)[a-z]! $\equiv$ \verb![A-Za-z]!
-\item[Backreferences]  \verb!(X)q\1! $\equiv$ \verb!(?P<name>X)q\g<name>!
+\item Multi line option:  \verb!(?m)G\n! $\equiv$ \verb!(?m)G$!
+\item Case insensitive:  \verb!(?i)[a-z]! $\equiv$ \verb![A-Za-z]!
+\item Backreferences:  \verb!(X)q\1! $\equiv$ \verb!(?P<name>X)q\g<name>!
 %\item[Word Boundaries]  \verb!\bZ! $\equiv$ \verb!((?<=\w)(?=\W)|(?<=\W)(?=\w))Z!
-\end{description}
+\end{itemize}
 
 
 
-It might also be the case that there exist critical comprehension differences within a representation. For example, between C1 (e.g., \verb![0-9a]!) and C4 (e.g., \verb![\da]!), it could be the case that \verb![0-9]! is preferred to \verb![\d]!, but \verb![A-Za-z0-9_]! is not be preferred to \verb![\w]!.
-By creating a more granular model of equivalence classes  and carefully evaluating alternative representations of the most frequently used specific patterns,  additional useful refactorings could be identified.
+There also may exist critical comprehension differences within a representation. For example, between C1 (e.g., \verb![0-9a]!) and C4 (e.g., \verb![\da]!), it could be that \verb![0-9]! is preferred to \verb![\d]!, but \verb![A-Za-z0-9_]! is not be preferred to \verb![\w]!.
+By creating a more granular model of equivalence classes  and carefully evaluating alternative representations of the most frequently used specific patterns,  additional useful smells could be identified.
 
 
 %We focused on refactorings within a group, treating groups as orthogonal to one another.  It would be interesting to see if there is some cooperation between pairs of edges in separate groups by applying more than one type of refactoring at once.
@@ -59,38 +65,39 @@ By creating a more granular model of equivalence classes  and carefully evaluati
 %
 %In another study, we did a survey where software professionals indicated that understandability of regexes they find in source code is a major pain point.  In this study, our participants indicated that they read about twice as many regexes as they compose.  What is the impact on maintainers, developers and contributors to open-source projects of not being able to understand a regex that they find in the code they are working with?  Presumably this is a frustrating experience - how much does a confusing regex slow down a software professional?  What bugs or other negative factors can be attributed to or associated with regexes that are difficult to understand?  How often does this happen and in what settings?  Future work could tailor an in-depth exploration of the overall costs of confusing regexes and the potential benefits of refactoring or other treatments for confusing regexes.
 
-\vspace{-1pt}
-\paragraph{Regex Migration Libraries}
-We have identified opportunities
- to improve the understandability of regexes in existing code bases by looking for some of the less understandable regex representations, which can be thought of as antipatterns, and refactoring to the more common or understandable representations.
- Building migration libraries is a promising direction of future work to ease the manual burden of this process, similar in spirit to prior work on class library migration~\cite{Balaban:2005:RSC:1103845.1094832}.
-
-%\paragraph{Regex Refactoring Applications}
-%Maintainers of code that is intentionally obfuscated for security purposes may want to develop regexes that they understand and then automatically transform them into the least understandable regex possible.
+%\vspace{-1pt}
+%\paragraph{Regex Migration Libraries}
+%We have identified opportunities
+% to improve the understandability of regexes in existing code bases by looking for some of the less understandable regex representations, which can be thought of as antipatterns, and refactoring to the more common or understandable representations.
+% Building migration libraries is a promising direction of future work to ease the manual burden of this process, similar in spirit to prior work on class library migration~\cite{Balaban:2005:RSC:1103845.1094832}.
 %
-%One fundamental concept that many users of regex struggle to learn is when to use regexes for simple parsing, and when to write a full-fledged parser (for example, when parsing HTML).  Regexes that are trying to parse HTML, XML or similar languages could be refactored not into a better regex, but into some code with an equivalent intention that does parsing much better.
-
-\vspace{-1pt}
-\paragraph{Regex Programming Standards}
-Many organizations enforce coding standards in their repositories to ease understandability.
-Presently, we are not aware of coding standards for regular expressions, but this work suggests that enforcing standard representations for various regex constructs could ease comprehension.
-
-\vspace{-1pt}
-\paragraph{Regex Refactoring for Performance}
-The representation of regexes may have a strong impact on the runtime performance of a chosen regex engine. Prior work has sought to expedite the processing of regexes over large bodies of text~\cite{Baeza-Yates:1996:FTS:235809.235810}.
-Refactoring regexes for performance would complement those efforts.
-%Further study is needed to determine which representations are most efficient, leading to a whole new area of study on regex refactoring for performance, a topic already explored for
-%Depending on the efficiency of an organization's chosen regex engine, an organization may want to enforce standards for efficiency.
-%, or for compatibility with a regex analysis tool like Z3, HAMPI, BRICS or REX.
+%%\paragraph{Regex Refactoring Applications}
+%%Maintainers of code that is intentionally obfuscated for security purposes may want to develop regexes that they understand and then automatically transform them into the least understandable regex possible.
+%%
+%%One fundamental concept that many users of regex struggle to learn is when to use regexes for simple parsing, and when to write a full-fledged parser (for example, when parsing HTML).  Regexes that are trying to parse HTML, XML or similar languages could be refactored not into a better regex, but into some code with an equivalent intention that does parsing much better.
+%
+%%\vspace{-1pt}
+%%\paragraph{Regex Programming Standards}
+%%Many organizations enforce coding standards in their repositories to ease understandability.
+%%Presently, we are not aware of coding standards for regular expressions, but this work suggests that enforcing standard representations for various regex constructs could ease comprehension.
+%
+%\vspace{-1pt}
+%\paragraph{Regex Refactoring for Performance}
+%The representation of regexes may have a strong impact on the runtime performance of a chosen regex engine. Prior work has sought to expedite the processing of regexes over large bodies of text~\cite{Baeza-Yates:1996:FTS:235809.235810}.
+%Refactoring regexes for performance would complement those efforts.
+%%Further study is needed to determine which representations are most efficient, leading to a whole new area of study on regex refactoring for performance, a topic already explored for
+%%Depending on the efficiency of an organization's chosen regex engine, an organization may want to enforce standards for efficiency.
+%%, or for compatibility with a regex analysis tool like Z3, HAMPI, BRICS or REX.
 
 \subsection{Threats to Validity}
 
 \textbf{Internal:}
-We measure understandability of regexes using two metrics, matching and composition. However, these measures may not reflect actual understanding of the regex behavior. We chose to use multiple metrics in the context of reading and writing regexes, but the threat remains.
+We measure understandability  using two metrics, matching and composition. These measures may not reflect actual understanding of regex behavior. To mitigate, we used multiple metrics that require reading and writing regexes. %, but the threat remains.
 
-Participants evaluated regular expressions during tasks on MTurk, which may not be representative enough of the context in which programmers would encounter regexes in practive. Further study is needed to determine the impact of the experimentation context on the results.
+Participants evaluated regular expressions  on MTurk, which may not be reflective enough of the context in which programmers would encounter regexes in practice. Further study is needed to determine the impact of the experimental context. 
 
-Some regex representations from the equivalence classes were not involved in the understandability analysis and that may have biased the results against those nodes. Repetition of the analysis with more compete coverage of the edges in the equivalence classes is needed.
+Some regex representations from the equivalence classes were not involved in the understandability analysis and that may have biased the results against those nodes. 
+More compete coverage of the edges in the equivalence classes is needed.
 
 %We treated unsure responses as omissions that  did not count  against the matching scores. Thus, if a participant answered two strings correctly and marked the other three strings as unsure, then this was 2/2 correct, not 2/5. This may have inflated the matching scores, however, less than 5\% of the matching scores were impacted by such responses.
 
@@ -103,9 +110,10 @@ Some regex representations from the equivalence classes were not involved in the
 %Further study is needed to determine if the chosen metrics and experimentation context have resulted in a reasonable measure of understandability.
 
 \textbf{External}
-Participants in our survey came from MTurk, which may not be representative of people who read and write regexes on a regular basis.
+The regexes  used in the evaluation were inspired by those found in Python code, which is just one language that has library support for regexes, and may not generalize to other languages.% Thus, we may have missed opportunities for other refactorings based on how programmers use regexes in other programming languages.
 
-The regexes  used in the evaluation were inspired by those found in Python code, which is just one language that has library support for regexes. Thus, we may have missed opportunities for other refactorings based on how programmers use regexes in other programming languages.
+Participants in our survey came from MTurk, which may not be representative of people who read and write regexes on a regular basis. However, all participants demonstrated knowledge of regexes through a qualification test. 
+
 
 The results of the understandability analysis may be closely tied to the particular regexes chosen for the experiment. For many of the representations, we had several comparisons. Still, replication with more regex patterns is needed.% to validate our results.
 

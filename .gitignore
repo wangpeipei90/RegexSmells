@@ -26,6 +26,7 @@
 
 ## Intermediate documents:
 *.dvi
+*.ps
 *-converted-to.*
 # these rules might exclude image files for figures etc.
 # *.ps
@@ -141,3 +142,10 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+
+#IEEETrans template
+IEEEtran
+
+#latex backup
+*.backup
+paper/graphs/ccom.png

@@ -1,14 +1,15 @@
 \section{Related Work}
 \label{sec:related}
-Regular expression understandability has not been studied directly, though prior work has suggested that regexes are hard to read and understand since there are tens of thousands of bug reports related to regular expressions~\cite{Spishak:2012:TSR:2318202.2318207}. 
+Regular expression understandability has not been studied directly, though prior work has suggested that regexes are hard to read and understand as there are tens of thousands of bug reports related to regexes~\cite{Spishak:2012:TSR:2318202.2318207}. 
 To aid in regex creation and understanding,  tools have been developed to support more robust creation~\cite{Spishak:2012:TSR:2318202.2318207} or to allow visual debugging~\cite{Beck:2014:RVD:2591062.2591111}. Other research has focused on removing the human from the creation process by learning regular expressions from  text~\cite{Babbar:2010:CBA:1871840.1871848, Li:2008:REL:1613715.1613719}.
-
-Regular expression refactoring has also not been studied directly, though refactoring literature abounds~\cite{Mens:2004:SSR:972215.972286, Opdyke:1992:ROF:169783, Griswold:1993:AAP:152388.152389}. 
-The closest to regex refactoring comes from research toward  expediting  regular expressions processing on large bodies of text~\cite{Baeza-Yates:1996:FTS:235809.235810},  similar to refactoring for performance. 
 
 Code smells in object-oriented languages were introduced by Fowler~\cite{Fowl1999}. Researchers have studied the impact of code smells on program comprehension~\cite{abbes2011empirical, du2006does}, finding that the more smells in the code, the harder the comprehension. 
 %This is similar to our work, except we aim to identify which  regex representations can be considered smelly. 
 Code smells have been extended to other language paradigms including end-user programming languages~\cite{Hermans2012intra, Hermans2012intraExt, stoleeicse, stoleeTSE}. The code smells identified in this work are representations that are not common or not well understood by developers. Using community standards to define smells has been used in refactoring   for end-user programmers~\cite{stoleeicse, stoleeTSE}. 
+
+Regular expression refactoring has not been studied directly, though refactoring literature abounds~\cite{Mens:2004:SSR:972215.972286, opdyke1992refactoring, Griswold:1993:AAP:152388.152389}. 
+The closest to regex refactoring comes from research toward  expediting  regular expressions processing on large bodies of text~\cite{Baeza-Yates:1996:FTS:235809.235810},  similar to refactoring for performance. 
+
 
 Exploring language feature usage by mining source code has been studied extensively for
 Smalltalk~\cite{Callau:2011:DUD:1985441.1985448},

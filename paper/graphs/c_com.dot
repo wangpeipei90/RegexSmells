@@ -16,8 +16,3 @@ C3 -> C4 [label="", style=dashed]
 graph [label="(b)", labelloc=b]
 
 }
-
-C2 -> C4 [label="", style=dashed]
-C1 -> C2 [dir="none", label="", style=dashed]
-C5 -> C1 [dir="none", label="", style=dashed]
-
