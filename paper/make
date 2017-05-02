@@ -1,0 +1,7 @@
+rm -rf paper.{aux,bbl,blg,dvi,log,out,pdf,ps}
+latex paper.tex
+bibtex paper.aux
+latex paper
+latex paper
+dvips paper.dvi
+ps2pdf paper.ps
