@@ -149,3 +149,5 @@ IEEEtran
 #latex backup
 *.backup
 paper/graphs/ccom.png
+data/RegexAnalysis
+data/regex_DFA_size/regex.ods

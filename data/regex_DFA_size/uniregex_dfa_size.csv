@@ -1,0 +1,63 @@
+regex,DFA_size_brics,DFA_size_rex,comments
+([:;]),2,2,
+fa[lmnop][lmnop][lmnop],6,6,
+(deedo(do)?),8,9,
+&([A-Za-z0-9_]+);,4,4,
+[a-f](\d+)[a-f],5,5,not applicable in brics
+t[\072-\073]+p,4,5,
+RR*,2,3,"the difference lies in that brics use FullMatch as default, to get same dfa size, use ""^RR*$"" in rex"
+[^0-9A-Za-z],2,2,
+\{\$(\d+\.\d)\},7,8,
+no(w|x|y|z)5,5,5,
+[^0-9],2,2,
+xyz[\0133-\0140],5,5,xyz[\133-\140]
+tri(a|b|c|d|e|f)3,6,6,
+([\0175\0173]),2,2,([\175\173])
+[{][$](\d+[.]\d)[}],7,8,
+tuv[A-Za-z0-9_],5,5,
+([0-9]+)\.([0-9]+),4,5,
+zaa*,3,4,
+(\d+)\.(\d+),4,5,not applicable in brics
+&d([aeiou]{2})z,6,6,
+xyz[\x5b-\x5f],5,5,"xyz[\005b-\005f], also see 61"
+(:|;),2,2,
+t\.\$+\d+\*,6,8,not applicable in brics
+[\t\r\f\n ],2,2,
+%([0-9a-fA-F][0-9a-fA-F]),4,4,
+"xg1([0-9]{1,3})%",8,9,
+no[wxyz]5,5,5,
+t[.][$]+\d+[*],6,8,not applicable in brics
+((q4f)?ab),6,8,
+t[\x3a-\x3b]+p,4,5,t[\u003a-\u003b]+p
+tuv\w,5,5,not applicable in brics
+za+,3,4,
+tri[abcdef]3,6,6,
+%([0-9A-Fa-f]{2}),4,4,
+(deedo|deedodo),8,15,
+"xg1(\d{1,3})%",8,9,not applicable in brics
+tri[a-f]3,6,6,
+[\s],2,2,not applicable in brics
+(q4fab|ab),6,10,
+t[:;]+p,4,5,
+&(\w+);,4,5,not applicable in brics
+fa[lmnop]{3},6,6,
+"((q4f){0,1}ab)",6,8,
+&d([aeiou][aeiou])z,6,6,
+[\D],2,2,not applicable in brics
+\..*,2,3,one dot and then anything except newline
+(\{|\}),2,2,
+[\W_],2,2,not applicable in brics
+R+,2,4,"the difference lies in that brics use FullMatch as default, to get same dfa size, use ""^R+$"" in rex"
+[a-f]([0-9]+)[a-f],4,5,
+([$][{])\d+(:[^}]+[}]),7,9,
+"(dee(do){1,2})",8,9,
+1q\w\w,5,5,not applicable in brics
+xyz[_\[\]`\^\\],5,5,original single backslash in rex
+(\$\{)\d+(:[^}]+\}),7,9,
+\.+,2,4,at least one dot
+([}{]),2,2,
+([\072\073]),2,2,
+no[w-z]5,5,5,
+1q[A-Za-z0-9_][A-Za-z0-9_],5,5,
+xyz[\x5b-\x60],5,5,
+\.\.*,2,3,at least one dot

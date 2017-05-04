@@ -1,0 +1,47 @@
+digraph "SFA" {
+rankdir=LR;
+
+//Initial state
+node [style = filled, shape = ellipse, peripheries = 1, fillcolor = "#d3d3d3ff", fontsize = 12]
+0
+
+//Final states
+node [style = filled, shape = ellipse, peripheries = 2, fillcolor = white, fontsize = 12]
+6
+14
+
+//Other states
+node [style = filled, shape = ellipse, peripheries = 1, fillcolor = white, fontsize = 12]
+1
+2
+3
+4
+5
+7
+8
+9
+10
+11
+12
+13
+
+//Transitions
+0 -> 1 [label = "", style = dashed, fontsize = 12 ];
+0 -> 7 [label = "", style = dashed, fontsize = 12 ];
+1 -> 2 [label = "d", fontsize = 12 ];
+1 -> 1 [label = "", fontsize = 12 ];
+2 -> 3 [label = "e", fontsize = 12 ];
+3 -> 4 [label = "e", fontsize = 12 ];
+4 -> 5 [label = "d", fontsize = 12 ];
+5 -> 6 [label = "o", fontsize = 12 ];
+6 -> 6 [label = "", fontsize = 12 ];
+7 -> 8 [label = "d", fontsize = 12 ];
+7 -> 7 [label = "", fontsize = 12 ];
+8 -> 9 [label = "e", fontsize = 12 ];
+9 -> 10 [label = "e", fontsize = 12 ];
+10 -> 11 [label = "d", fontsize = 12 ];
+11 -> 12 [label = "o", fontsize = 12 ];
+12 -> 13 [label = "d", fontsize = 12 ];
+13 -> 14 [label = "o", fontsize = 12 ];
+14 -> 14 [label = "", fontsize = 12 ];
+}

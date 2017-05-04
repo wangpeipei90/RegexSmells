@@ -1,0 +1,43 @@
+CR1,CR2,P_CR1,P_CR2
+xyz[\0133-\0140],xyz[_\[\]`\^\\],"C1, T4","C2, T1"
+xyz[\0133-\0140],xyz[\x5b-\x5f],T4,T2
+xyz[_\[\]`\^\\],xyz[\x5b-\x5f],"C2, T1","C1, T2"
+t[\072-\073]+p,t[:;]+p,"C1, T4","C2, T1"
+t[\072-\073]+p,t[\x3a-\x3b]+p,T4,T2
+t[:;]+p,t[\x3a-\x3b]+p,"C2, T1","C1, T2"
+((q4f)?ab),(q4fab|ab),D2,D3 
+((q4f)?ab),"((q4f){0,1}ab)",D2,D1
+(q4fab|ab),"((q4f){0,1}ab)",D3 ,D1
+"(dee(do){1,2})",(deedo|deedodo),D1,D3 
+"(dee(do){1,2})",(deedo(do)?),D1,D2
+(deedo|deedodo),(deedo(do)?),D3 ,D2
+tri[abcdef]3,tri[a-f]3,C2,C1 
+tri[abcdef]3,tri(a|b|c|d|e|f)3,C2,C5
+tri[a-f]3,tri(a|b|c|d|e|f)3,C1 ,C5
+no[wxyz]5,no[w-z]5,C2,C1
+no[wxyz]5,no(w|x|y|z)5,C2,C5
+no[w-z]5,no(w|x|y|z)5,C1,C3
+(\{|\}),([}{]),C5,C4
+(\{|\}),([\0175\0173]),"C5, T1","C4, T4"
+([}{]),([\0175\0173]),T1 ,T4
+(:|;),([:;]),C5,C4
+(:|;),([\072\073]),"C5, T1","C4, T4"
+([:;]),([\072\073]),T1 ,T4
+%([0-9a-fA-F][0-9a-fA-F]),%([0-9A-Fa-f]{2}),S2,S1
+&d([aeiou][aeiou])z,&d([aeiou]{2})z,S2,S1
+fa[lmnop][lmnop][lmnop],fa[lmnop]{3},S2,S1
+[^0-9A-Za-z],[\W_],C3,C4
+[^0-9],[\D],C3,C4
+[\t\r\f\n ],[\s],C2,C4
+([0-9]+)\.([0-9]+),(\d+)\.(\d+),C1,C4
+"xg1([0-9]{1,3})%","xg1(\d{1,3})%",C1,C4
+[a-f]([0-9]+)[a-f],[a-f](\d+)[a-f],C1,C4
+&(\w+);,&([A-Za-z0-9_]+);,C4,C1
+1q\w\w,1q[A-Za-z0-9_][A-Za-z0-9_],C4,C1
+tuv\w,tuv[A-Za-z0-9_],C4,C1
+\..*,\.+,L2,L3 
+zaa*,za+,L2,L3
+RR*,R+,L2,L3
+([$][{])\d+(:[^}]+[}]),(\$\{)\d+(:[^}]+\}),T3,T1
+t[.][$]+\d+[*],t\.\$+\d+\*,T3,T1
+[{][$](\d+[.]\d)[}],\{\$(\d+\.\d)\},T3,T1

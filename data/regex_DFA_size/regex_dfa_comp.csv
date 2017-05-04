@@ -1,0 +1,43 @@
+CR1,CR2,UID_CR1,UID_CR2,comparison,method,dfa_size,comments,comments2
+xyz[\0133-\0140],xyz[_\[\]`\^\\],12,54,same,"brics, rex",5,,
+xyz[\0133-\0140],xyz[\x5b-\x5f],12,21,same,"brics, rex",5,use 61 instead of 21 because 21 is not correct. The end should be \x60 instead of \x5f because the end is 96. xyz[\x5b-\x60],
+xyz[_\[\]`\^\\],xyz[\x5b-\x5f],54,21,same,"brics, rex",5,use 61 instead of 21,
+t[\072-\073]+p,t[:;]+p,6,40,"all equal in rex, all equal in brics, but in brics is not equal in rex",brics,4,,
+t[\072-\073]+p,t[\x3a-\x3b]+p,6,30,"all equal in rex, all equal in brics, but in brics is not equal in rex",brics,4,,
+t[:;]+p,t[\x3a-\x3b]+p,40,30,"all equal in rex, all equal in brics, but in brics is not equal in rex",brics,4,,
+((q4f)?ab),(q4fab|ab),29,39,29 is equal to 43 but not equal to 39 in rex;all are equal in brics,brics,6,,
+((q4f)?ab),"((q4f){0,1}ab)",29,43,29 is equal to 43 but not equal to 39 in rex;all are equal in brics,brics,6,,
+(q4fab|ab),"((q4f){0,1}ab)",39,43,29 is equal to 43 but not equal to 39 in rex;all are equal in brics,brics,6,,
+"(dee(do){1,2})",(deedo|deedodo),52,35,52 is equal to 3 but not equal to 35 in rex; all are equal in brics,brics,8,,
+"(dee(do){1,2})",(deedo(do)?),52,3,52 is equal to 3 but not equal to 35 in rex; all are equal in brics,brics,8,,
+(deedo|deedodo),(deedo(do)?),35,3,52 is equal to 3 but not equal to 35 in rex; all are equal in brics,brics,8,,
+tri[abcdef]3,tri[a-f]3,33,37,same,"brics, rex",6,,
+tri[abcdef]3,tri(a|b|c|d|e|f)3,33,13,same,"brics, rex",6,,
+tri[a-f]3,tri(a|b|c|d|e|f)3,37,13,same,"brics, rex",6,,
+no[wxyz]5,no[w-z]5,27,59,same,"brics, rex",5,,
+no[wxyz]5,no(w|x|y|z)5,27,10,same,"brics, rex",5,,
+no[w-z]5,no(w|x|y|z)5,59,10,same,"brics, rex",5,,
+(\{|\}),([}{]),47,57,same,"brics, rex",2,,
+(\{|\}),([\0175\0173]),47,14,same,"brics, rex",2,,
+([}{]),([\0175\0173]),57,14,same,"brics, rex",2,,
+(:|;),([:;]),22,1,same,"brics, rex",2,,
+(:|;),([\072\073]),22,58,same,"brics, rex",2,,
+([:;]),([\072\073]),1,58,same,"brics, rex",2,,
+%([0-9a-fA-F][0-9a-fA-F]),%([0-9A-Fa-f]{2}),25,34,same,"brics, rex",4,,
+&d([aeiou][aeiou])z,&d([aeiou]{2})z,44,20,same,"brics, rex",6,,
+fa[lmnop][lmnop][lmnop],fa[lmnop]{3},2,42,same,"brics, rex",6,,
+[^0-9A-Za-z],[\W_],8,48,"size is same, but \W not applicable in brics",rex,2,,
+[^0-9],[\D],11,45,"size is same, but \D not applicable in brics",rex,2,,
+[\t\r\f\n ],[\s],24,38,"size is same, but \s not applicable in brics",rex,2,,
+([0-9]+)\.([0-9]+),(\d+)\.(\d+),17,19,"size is (4,5) but \d not applicable in brics",rex,4,5,"could be reduced from 5 to 4,ignore the + at the end, 1 plus need to reduce"
+"xg1([0-9]{1,3})%","xg1(\d{1,3})%",26,36,"size is (8,9) but \d not applicable in brics",rex,8,9,could be reduced from 9 to 8
+[a-f]([0-9]+)[a-f],[a-f](\d+)[a-f],50,5,"size is (4,5) but \d not applicable in brics",rex,4,5,could be reduced from 5 to 4
+&(\w+);,&([A-Za-z0-9_]+);,41,4,"size is (4,5) but \w not applicable in brics",rex,4,5,could be reduced from 5 to 4
+1q\w\w,1q[A-Za-z0-9_][A-Za-z0-9_],53,60,"size is same, but \w not applicable in brics",rex,5,,
+tuv\w,tuv[A-Za-z0-9_],31,16,"size is same, but \w not applicable in brics",rex,5,,
+\..*,\.+,46,56,"regex are not equivalent. not equal in rex, equal in brics, but use 62 instead of 46",brics,2,"not equal \.+ at least one dot while \..* has one dot and then anything, drop this row",
+zaa*,za+,18,32,"same in brics, same in rex, but in brics is not equal to in rex",brics,3,,
+RR*,R+,7,49,"same in brics, not equal in rex(3,4)",brics,2,,
+([$][{])\d+(:[^}]+[}]),(\$\{)\d+(:[^}]+\}),51,55,"size is (7,9) but \d not applicable in brics",rex,7,9,could be reduced from 9 to 7
+t[.][$]+\d+[*],t\.\$+\d+\*,28,23,"size is (6,8) but \d not applicable in brics",rex,6,8,could be reduced from 8 to 6
+[{][$](\d+[.]\d)[}],\{\$(\d+\.\d)\},15,9,"size is (7,8) but \d not applicable in brics",rex,7,8,could be reduced from 8 to 7

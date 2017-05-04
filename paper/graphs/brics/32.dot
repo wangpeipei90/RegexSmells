@@ -1,0 +1,37 @@
+digraph Automaton {
+	graph [bb="0,0,293,77",
+		dpi=96,
+		rankdir=LR
+	];
+	node [label="\N"];
+	0	 [height=0.5,
+		label="",
+		pos="109,22",
+		shape=circle,
+		width=0.5];
+	1	 [height=0.5,
+		label="",
+		pos="188,22",
+		shape=circle,
+		width=0.5];
+	0 -> 1	 [label=z,
+		lp="148.5,29.5",
+		pos="e,169.96,22 127.09,22 136.66,22 148.82,22 159.68,22"];
+	initial	 [height=0.5,
+		label="",
+		pos="27,22",
+		shape=plaintext,
+		width=0.75];
+	initial -> 0	 [pos="e,90.826,22 54.195,22 62.654,22 72.051,22 80.595,22"];
+	2	 [height=0.61111,
+		label="",
+		pos="271,22",
+		shape=doublecircle,
+		width=0.61111];
+	1 -> 2	 [label=a,
+		lp="227.5,29.5",
+		pos="e,248.81,22 206.18,22 215.61,22 227.6,22 238.64,22"];
+	2 -> 2	 [label=a,
+		lp="271,69.5",
+		pos="e,278.68,42.991 263.32,42.991 262.37,53.087 264.93,62 271,62 274.89,62 277.34,58.342 278.35,53.059"];
+}
