@@ -17,5 +17,5 @@ C4 -> C1 [label=""]
 C3 -> C1 [label=""]
 
 
-graph [label="(a)", labelloc=b]
+graph [label="(b)", labelloc=b]
 }

@@ -17,17 +17,24 @@ In the community standards graph, a directed edge  $\overrightarrow{C2  C1}$ is 
 When there is a conflict between nPatterns and nProjects, as is the case between L2 and L3, 
 %where L2 is found in more patterns and L3 is found in more projects, 
 an undirected edge $\overline{L2L3}$ is used. % as there is no winner based on the  metrics. 
-The same process is used to identify directed and undirected edges based on community standards metrics. 
 %After considering all pairs of nodes in each equivalence class that also have an edge in Figure~\ref{fig:refactoringTree}, we create graphs, 
-For example, Figure~\ref{fig:graphsforanalysis} shows the graphs for  the CCC group; Figure~\ref{fig:graphsforanalysis}a is based on  understandability and Figure~\ref{fig:graphsforanalysis}b is based  on community standards. Nodes with fewer incoming edges are more smelly and nodes with more incoming edges are less smelly. 
+For example, Figure~\ref{fig:graphsforanalysis} shows the graphs for  the CCC group; Figure~\ref{fig:graphsforanalysis}b is based  on community standards. 
+
+A similar process is used to build the graphs based on community standards metrics. 
+In Table~\ref{table:testedEdgesTable}, each row maps to an edge in the understandability graph. 
+If the accuracy and composition results both indicate a favorite, there is a directed edge. For example, in Pair~3, the accuracy and composition metrics for C3 are higher than C1, resulting in a directed $\overrightarrow{C1  C3}$ arrow. If one of the metrics is a tie, the other is used to break the tie; in Pair~2, the composition scores are the same but C1 is preferred based on accuracy, resulting in a $\overrightarrow{C2  C1}$. If there is a conflict between the metrics, an undirected edge is used, as is the case with Pair~13, resulting in $\overline{C2 C4}$.
+An example is shown in Figure~\ref{fig:graphsforanalysis}a, which has 17 total edges, 14 of which are directed and three are undirected. 
+
+As a general rule, the higher the ratio between incoming edges and total edges, the less smelly the node. 
+%Nodes with fewer incoming edges are more smelly and nodes with more incoming edges are less smelly. 
 %Note that with the CCC group, there is no edge between C3 and C5 because there is no straightforward refactoring between those representations, as discussed in Section~\ref{sec:refactoring}.
 
 \begin{figure}[tb]
 \centering
 %\includegraphics[width=0.57\columnwidth]{graphs/ccom.pdf}
 %\includegraphics[width=0.40\columnwidth]{graphs/cart.pdf}
-\includegraphics[width=0.57\columnwidth]{graphs/ccom.eps}
-\includegraphics[width=0.40\columnwidth]{graphs/cart.eps}
+\includegraphics[width=0.48\columnwidth]{graphs/ccom.pdf}
+\includegraphics[width=0.48\columnwidth]{graphs/cart.pdf}
 \vspace{-12pt}
 \caption{Trend graphs for the CCC equivalence graph: (a) represent the understandability analysis (RQ1) and (b) represent the artifact analysis (RQ2)}
 
@@ -54,11 +61,11 @@ For example, Figure~\ref{fig:graphsforanalysis} shows the graphs for  the CCC gr
 \vspace{-6pt}
 \begin{tabular}{| l | l | l |}  \hline
 & Understandability & Community  \\ \hline 
-CCC & C1 C5 C4 C2 C3  &   C1 C3 C2 C4 C5  \\
+CCC & C1 C5 C3 C4 C2  &   C1 C3 C2 C4 C5  \\
 DBB & D3 D1 D2  &   D2 D1 D3\\
  LBW & L3 L2	 &  L3 L2 L1 	\\
  SNG &  S2 S1 &  S2 S1 S3 \\
- LIT & T1 T2 T4 T3 & T1 T3 T2 T4 \\
+ LIT & T1 T3 T2 T4 & T1 T3 T2 T4 \\
 \hline
 \end{tabular}
 \vspace{-6pt}
@@ -70,7 +77,8 @@ DBB & D3 D1 D2  &   D2 D1 D3\\
 %\footnote{When there are confounded representations, as is the case with E8, E4, and E5 which all use tranformations from the CCC and the LIT equivalence classes, we omit those from the understandability graph. This makes sense since all use a transformation between T1 and T4 strongly favoring T1. }
 
 \subsubsection{Topological Sorting}
-Once the graphs are built for each equivalence class and each set of metrics, we apply a modified version of Kahn's topological sorting algorithm to obtain a total ordering. 
+Once the graphs are built for each equivalence class and each set of metrics, we sort the nodes to identify a (preferably unique) total ordering on the nodes. This ordering represents preferences from the perspective of the understandability or community metrics, depending on which graph is analyzed.  
+%we apply a modified version of Kahn's topological sorting algorithm to obtain a total ordering. 
 %The first modification is to remove all undirected edges since Kahn's operates over a directed graph. 
 %To begin, any disconnected nodes are added to the end of the topologically sorted list $L$. 
 %In Kahn's algorithm, all nodes without incoming edges are added to a set $S$, which represents the order in which nodes are explored in the graph. For each $n$ node in $S$, all edges from $n$ are removed and $n$ is added to a list $L$. If there exists a node $m$ that has no incoming edges, it is added to $S$.  In the end, $L$ is a topologically sorted list.
@@ -97,14 +105,20 @@ Once the graphs are built for each equivalence class and each set of metrics, we
 %\State For all ties in $L$, use a tiebreaker.
 %  \end{algorithmic}
 %\end{algorithm}
-One downside to Kahn's algorithm is that the total ordering is not unique and often multiple nodes with similar properties (e.g., no incoming edges) could be considered tied. Thus, we mark ties in order to identify when a tiebreaker is needed.
+
+For each node $n$, we compute the ratio of $in\_deg(n) / deg(n)$ where $in\_deg(n)$ is the number of incoming edges to $n$, and $deg(n)$ is the total edges touching $n$. For example, in Figure~\ref{fig:graphsforanalysis}a, $in\_deg(C5) = 2$ and $deg(C5) = 5$. 
+The higher the ratio (that is, the more incoming edges indicating preference), the higher the node appears in the sorted list. For example, with node C1 in Figure~\ref{fig:graphsforanalysis}a, the ratio is $7 / 10$ since C1 is involved in ten total comparisons and is favored in seven. The ratio for node C2 is $1 / 5$ as C2 is involved in five comparisons, is preferred in one, is strictly not preferred in three, and has one with no preference, represented as an undirected edge. 
+
+One challenge with this (and any topological sorting approach, such as Kahn's algorithm), is that the total ordering is not necessarily unique and often multiple nodes have similar properties. 
+Thus, we mark ties in order to identify when a tiebreaker is needed.
 % to enforce a total ordering on the nodes (though admittedly, it is not always unique). 
 %For example, on the understandability graph in Figure~\ref{fig:graphsforanalysis}, there is a tie between C3 and C2 since both have no incoming edges, so they are marked as a tie. Further, if C3 is added to $S$ first, when $n=C2$, both C5 and C4 are added to $S$, thus the tie between them is marked. In these cases, a tiebreaker is needed.
 Breaking ties on the community standards graph involves choosing the representation that appears in a larger number of projects, as it is more widespread across the community. 
-Breaking ties in the understandability graph uses the RQ1 results. Based on Table~\ref{table:testedEdgesTable}, we compute the average metrics for all instances of each representation. For example, C4 appears in E5, E12 and E13 with an overall average matching score of 0.81 and composition score of 24.3. C5 appears in E4 and E9 with an average matching of 0.87 and composition of 28.28. Thus, C5 is favored to C4 and appears higher in the sorting.
+Breaking ties in the understandability graph uses the RQ1 results. Based on Table~\ref{table:testedEdgesTable}, we compute the average metrics for each each representation and select the winner based on overall accuracy. 
+%For example, C4 appears in E5, E12 and E13 with an overall average matching score of 0.81 and composition score of 24.3. C5 appears in E4 and E9 with an average matching of 0.87 and composition of 28.28. Thus, C5 is favored to C4 and appears higher in the sorting.
 
 \subsection{Results}
-The total orderings on nodes for each graph are shown in Table~\ref{topologicalResults}.  For example, given the graphs in Figure~\ref{fig:graphsforanalysis}a and Figure~\ref{fig:graphsforanalysis}b, the topological sorts are {\tt C1 C5 C4 C2 C3} and  {\tt C1 C3 C2 C4 C5}, respectively.
+The total orderings on nodes for each graph are shown in Table~\ref{topologicalResults}.  For example, given the graphs in Figure~\ref{fig:graphsforanalysis}a and Figure~\ref{fig:graphsforanalysis}b, the topological sorts are {\tt C1 C5 C3 C4 C2} and  {\tt C1 C3 C2 C4 C5}, respectively.
 
 
 
