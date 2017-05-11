@@ -7,7 +7,7 @@ The goal of this study is to understand how frequently each of the regex represe
 
 \subsection{Artifacts}
 We analyzed an existing
-corpus of regexes collected from Python code in GitHub projects~\cite{chapman2016}. 
+corpus of regexes collected from Python code in GitHub projects~\cite{chapman2016}.
 This dataset has  13,597 distinct (non-duplicate) regex patterns from 1,544 projects.
 
 %We  targeted Python as it is a popular programming language with a strong presence on GitHub, being the fourth most common language after Java, Javascript and Ruby. Further, Python's regex pattern language is close enough to other regex libraries that our conclusions are likely to generalize.
@@ -99,7 +99,7 @@ Identifying D3 requires an OR containing at least two entries with a sequence pr
 
 
 T2 requires a literal with a hex structure. %that matches the regex \verb!(\\x[a-f0-9A-F]{2})! which reliably identifies hex codes within a pattern.
-T4 requires a literal with a %and must match the regex \verb!((\\0\d*)|(\\\d{3}))! which is specific to 
+T4 requires a literal with a %and must match the regex \verb!((\\0\d*)|(\\\d{3}))! which is specific to
 Python-style octal structure. %, requiring either exactly three digits after a slash, or a zero and some other digits after a slash.  One false positive was identified, which was actually the lower end of a hex range using the literal \verb!\0!.
 T3 requires that a single literal character is wrapped in a custom character class (a member of T3 is always a member of C2).
 T1 requires that no characters are wrapped in brackets or are hex or octal characters, which matches over 91\% of the  patterns analyzed.
@@ -107,16 +107,16 @@ T1 requires that no characters are wrapped in brackets or are hex or octal chara
 \subsubsection{Token Stream }
 %The rest of the representations were identified by representing the regex patterns as a sequence of tokens.
 S2 requires a repeated element. This element could be a character class, a literal, or a collection of things encapsulated in parentheses; rather than a parser, we used a token stream to identify it.
-C1 requires that a non-negative character class contains a range.  
-C2 requires that there exists a custom character class that does not use ranges or defaults. 
+C1 requires that a non-negative character class contains a range.
+C2 requires that there exists a custom character class that does not use ranges or defaults.
 C4 requires the presence of a default character class within a custom character class.
-%, specifically, \verb!\d!, \verb!\D!, \verb!\w!, \verb!\W!, \verb!\s!, \verb!\S! and \verb!.!.  
+%, specifically, \verb!\d!, \verb!\D!, \verb!\w!, \verb!\W!, \verb!\s!, \verb!\S! and \verb!.!.
 C5 requires an OR of length-one sequences (literal characters or any character class).
 
 
 \subsection{Results}
-Table~\ref{table:nodeCount} presents the results. 
-% frequencies with which each representation appears in a regex pattern and in a project scraped from GitHub.  
+Table~\ref{table:nodeCount} presents the results.
+% frequencies with which each representation appears in a regex pattern and in a project scraped from GitHub.
  \emph{Node}  references  Figure~\ref{fig:refactoringTree}, \emph{description}  briefly describes the representation, \emph{example} provides a regex from the corpus.  \emph{nPatterns}  counts the patterns that belong to the representation, followed by the percent of patterns out of 13,597.
  \emph{nProjects}  counts the projects that contain a regex belonging to the representation,
 followed by the percentage of projects out of 1,544.
@@ -124,12 +124,12 @@ followed by the percentage of projects out of 1,544.
 For example, D1 appears in 346 (2.5\%) of the patterns but only 234 (15.2\%) of the projects.
   In contrast,  T3 appears in 39 \emph{fewer} patterns but 34 \emph{more} projects, indicating that D1 is more concentrated in a few projects and T3 is more widespread across projects.
 
-The pattern frequency is our guide for setting the community standards. 
-For example, since C1 is more prevalent than C2 in both patterns and projects, we could say that C2 is smelly since it could better conform to community standards if expressed as C1. 
-Based on patterns alone, the winning representations per equivalence class are C1, D2, T1, L2, and S2. With one exception, these are the same for recommendations based on projects; L3 appears in more projects than L2, so it is unclear which is smelly. 
+The pattern frequency is our guide for setting the community standards.
+For example, since C1 is more prevalent than C2 in both patterns and projects, we could say that C2 is smelly since it could better conform to community standards if expressed as C1.
+Based on patterns alone, the winning representations per equivalence class are C1, D2, T1, L2, and S2. With one exception, these are the same for recommendations based on projects; L3 appears in more projects than L2, so it is unclear which is smelly.
 
-We note that our criteria for membership in a representation may overestimate the opportunities for refactoring to address the smells. For example, \verb![a-f]! in C1 cannot be refactored to C4 since there does not exist a default character class for that range of characters. A finer-grained analysis is needed to identify actual refactoring opportunities from the smells. 
-%Our analysis simply suggests smells. %a direction for a refactoring (in this case, from C4 to C1). 
+We note that our criteria for membership in a representation may overestimate the opportunities for refactoring to address the smells. For example, \verb![a-f]! in C1 cannot be refactored to C4 since there does not exist a default character class for that range of characters. A finer-grained analysis is needed to identify actual refactoring opportunities from the smells.
+%Our analysis simply suggests smells. %a direction for a refactoring (in this case, from C4 to C1).
 %Section~\ref{sec:rq3} explores these results more deeply.
 
 %Table~\ref{summaryResults} presents these recommendations for each pair of representations within each equivalence class. The \emph{Comm} column is populated based on the findings of \emph{RQ1}. The findings for \emph{RQ2} and \emph{RQ3} are in the \emph{Match} and \emph{Compose} columns, respectively.
