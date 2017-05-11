@@ -1,12 +1,10 @@
-
-
-
-
 \begin{figure*}[tb]
 \centering
-\includegraphics[width=0.85\textwidth]{illustrations/refactoringTree.eps}
+\includegraphics[width=\textwidth]{illustrations/refactoringTree.eps}
+%\includegraphics[scale=0.8]{illustrations/refactoringTree.eps}
+%\includegraphics[width=0.85\textwidth]{illustrations/refactoringTree.eps}
 \vspace{-6pt}
-\caption{Equivalence classes with various representations. DBB = Double-Bounded, SNG = Single Bounded, LWB = Lower Bounded, CCC = Custom Character Class and LIT = Literal. We use concrete regexes in the representations for illustration. However, the A's in the LWB group (or B's in DBB group, S's in SNG group, and so forth) abstractly represent any pattern that could be operated on by a repetition modifier (e.g., literal characters, character classes, or groups). The same is true for the literals used in all the representations. }
+\caption{Equivalence classes with various representations. DBB = Double-Bounded, SNG = Single Bounded, LWB = Lower Bounded, CCC = Custom Character Class and LIT = Literal. We use concrete regexes along with their Deterministic Finite Automaton (DFA) in the representations for illustration. However, the A's in the LWB group (or B's in DBB group, S's in SNG group, and so forth) abstractly represent any pattern that could be operated on by a repetition modifier (e.g., literal characters, character classes, or groups). The same is true for the literals used in all the representations. }
 \vspace{-6pt}
 \label{fig:refactoringTree}
 \end{figure*}
@@ -56,7 +54,6 @@ Next, we present the equivalence classes, analysis and results for each RQ, and 
 
 
 \textcolor{red}{Missing: explain the process of getting DFA size }
-\textcolor{red}{Todo: resize Fig 1 to proper space }
 \input{rq2}
 \input{rq1}
 \input{rq3}

@@ -342,6 +342,8 @@ getPrefer=function(x){
 # type_map$prefer=type_map$Accur1>type_map$Accur2 ## get preference TRUE prefer P_CR1
 regex_map$prefer=apply(regex_map,1,getPrefer)
 length(which(regex_map$prefer>2)) ##11
+rownames(regex_map)=seq(1,nrow(regex_map))##set row names from 1 to 41
+regex_map$Index=rownames(regex_map)
 ##split regex_map by type comparison P_CR1:P_CR2
 output=split(regex_map, with(regex_map, interaction(P_CR1,P_CR2)),drop = TRUE)
 names(output) 

@@ -1,6 +1,7 @@
 %\documentclass{sig-alternate-05-2015}
 % \documentclass[10pt,conference]{IEEEtran}
- \documentclass[conference]{IEEEtran}
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
 \usepackage{url}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{listings}
@@ -62,7 +63,6 @@
 \renewcommand{\topfraction}{.9}
 
 \newcommand{\ignore}[1]{}
-
 \begin{document}
 %\bstctlcite{IEEEexample:BSTcontrol}
 %
@@ -73,10 +73,10 @@
 \author{(blinded for review)}
 \iffalse
 \author{
-\IEEEauthorblockN{Carl Chapman}
-\IEEEauthorblockA{Department of Computer Science\\
-Iowa State University\\
-carl.chapman@gmail.com}
+\IEEEauthorblockN{Carl Chapman\IEEEauthorrefmark{1}\thanks{* The work was done while this author was in Iowa State Univeristy}}
+\IEEEauthorblockA{Sandia National Laboratories\\
+Albuquerque, NM\\
+carlallenchapman@gmail.com}
 \and 
 \IEEEauthorblockN{Peipei Wang}
 \IEEEauthorblockA{Department of Computer Science\\
