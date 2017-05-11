@@ -14,15 +14,15 @@
 
 \section{Research Questions}
 \label{sec:study}
-%After defining the equivalence classes and potential  regex refactorings as described in Section~\ref{sec:refactoring}, we wanted to know which representations in the equivalence classes  are considered desirable and which might be smelly. Desirability for regexes can be defined many ways, including maintainable,  understandable, and performance. 
-%%As prior work has shown that regexes are difficult to read~\cite{}, 
+%After defining the equivalence classes and potential  regex refactorings as described in Section~\ref{sec:refactoring}, we wanted to know which representations in the equivalence classes  are considered desirable and which might be smelly. Desirability for regexes can be defined many ways, including maintainable,  understandable, and performance.
+%%As prior work has shown that regexes are difficult to read~\cite{},
 %We focus on refactoring for understandability.
 
 To explore regex comprehension and identify smells, we answer the following research questions: \\
-%We define regex understandability two ways. First,  we  present people with regexes exemplifying some of the more common characteristics and ask them comprehension questions along two directions: determine which of a list of strings are matched by the regex, and compose a string that is matched by the regex. Second, assuming that common programming practices are more understandable than uncommon practices, we explore the frequencies of each representation from Figure~\ref{fig:refactoringTree} using thousands of regexes scraped from Python projects. 
+%We define regex understandability two ways. First,  we  present people with regexes exemplifying some of the more common characteristics and ask them comprehension questions along two directions: determine which of a list of strings are matched by the regex, and compose a string that is matched by the regex. Second, assuming that common programming practices are more understandable than uncommon practices, we explore the frequencies of each representation from Figure~\ref{fig:refactoringTree} using thousands of regexes scraped from Python projects.
 
 \noindent {\textbf{RQ1:}} {\em Which regex representations are most understandable?}
-To answer RQ1, we conduct a study in which programmers are presented with a regex and asked comprehension questions about its matching behavior.  By comparing accuracy between regexes that match the same language but are expressed differently (e.g., \verb!tri[a-f]3! and \verb!tri(a|b|c|d|e|f)3!), we can measure understandability and identify code smells. We also explore at the relationship between regex comprehension and regex size, as measured by string length and the DFA built for each regex. 
+To answer RQ1, we conduct a study in which programmers are presented with a regex and asked comprehension questions about its matching behavior.  By comparing accuracy between regexes that match the same language but are expressed differently (e.g., \verb!tri[a-f]3! and \verb!tri(a|b|c|d|e|f)3!), we can measure understandability and identify code smells. We also explore at the relationship between regex comprehension and regex size, as measured by string length and the DFA built for each regex.
 
 This analysis requires identification of equivalence classes for regexes. By inspecting  nearly 14,000 regexes extracted from Python projects in a publicly available dataset~\cite{chapman2016}, we formed an initial set of five equivalence classes to explore. \\
 % as measured by identifying matching strings and by composing matching strings
@@ -55,7 +55,8 @@ Next, we present the equivalence classes, analysis and results for each RQ, and 
 %
 
 
-
+\textcolor{red}{Missing: explain the process of getting DFA size }
+\textcolor{red}{Todo: resize Fig 1 to proper space }
 \input{rq2}
 \input{rq1}
 \input{rq3}
