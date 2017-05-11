@@ -1,0 +1,64 @@
+% latex table generated in R 3.2.3 by xtable 1.8-2 package
+% Thu May 11 05:30:36 2017
+\begin{table*}[ht]
+\centering
+\begin{tabular}{rr@{ -- }lllrrlrrl}
+  \hline
+ & \multicolumn{2}{c}{Edge} & Regex 1 & Regex 2 & Acc1 & Acc2 & wilcox\_sig & Comp1 & Comp2 & prop\_sig \\ 
+  \hline
+1 & {\bf C1} & C2 & {\tt tri[a-f]3} & {\tt tri[abcdef]3} & 0.94 & 0.93 &   & 83.33 & 83.33 &   \\ 
+  2 & {\bf C1} & C2 & {\tt no[w-z]5} & {\tt no[wxyz]5} & 0.93 & 0.87 &   & 86.67 & 86.67 &   \\ 
+  3 & C1 & {\bf C3} & {\tt no[w-z]5} & {\tt no(w$|$x$|$y$|$z)5} & 0.93 & 0.94 &   & 86.67 & 96.67 &   \\ 
+  4 & C1 & {\bf C4} & {\tt ([0-9]+)$\backslash$.([0-9]+)} & {\tt ($\backslash$d+)$\backslash$.($\backslash$d+)} & 0.90 & 0.94 &   & 83.33 & 93.33 &   \\ 
+  5 & {\bf C1} & C4 & xg1([0-9]\{1,3\})\% & xg1($\backslash$d\{1,3\})\% & 0.83 & 0.81 &   & 76.67 & 66.67 &   \\ 
+  6 & {\bf C1} & C4 & [a-f]([0-9]+)[a-f] & [a-f]($\backslash$d+)[a-f] & 0.91 & 0.83 &   & 80.00 & 70.00 &   \\ 
+  7 & C1 & {\bf C4} & \&([A-Za-z0-9\_]+); & \&($\backslash$w+); & 0.82 & 0.83 &   & 56.67 & 66.67 &   \\ 
+  8 & {\bf C1} & C4 & 1q[A-Za-z0-9\_][A-Za-z0-9\_] & 1q$\backslash$w$\backslash$w & 0.86 & 0.78 &   & 83.33 & 70.00 &   \\ 
+  9 & {\bf C1} & C4 & tuv[A-Za-z0-9\_] & tuv$\backslash$w & 0.89 & 0.86 &   & 83.33 & 70.00 &   \\ 
+    10 & {\bf C1} & C5 & tri[a-f]3 & tri(a$|$b$|$c$|$d$|$e$|$f)3 & 0.94 & 0.86 &   & 83.33 & 80.00 &   \\ 
+  11 & {\bf C2} & C5 & tri[abcdef]3 & tri(a$|$b$|$c$|$d$|$e$|$f)3 & 0.93 & 0.86 &   & 83.33 & 80.00 &   \\ 
+  12 & C2 & {\bf C5} & no[wxyz]5 & no(w$|$x$|$y$|$z)5 & 0.87 & 0.94 &   & 86.67 & 96.67 &   \\ 
+  13 & C2 & C4 & [$\backslash$t$\backslash$r$\backslash$f$\backslash$n ] & [$\backslash$s] & 0.83 & 0.92 & . & 3.33 & 0.00 &   \\ 
+  14 & C3 & C4 & [\verb|^|0-9A-Za-z] & [$\backslash$W\_] & 0.65 & 0.61 &   & 46.67 & 53.33 &   \\ 
+  15 & C3 & {\bf C4} & [\verb|^|0-9] & [$\backslash$D] & 0.58 & 0.73 &   & 63.33 & 73.33 &   \\ 
+  16 & C4 & C5 & ([\}\{]) & ($\backslash$\{$|$$\backslash$\}) & 0.79 & 0.70 &   & 50.00 & 86.67 & ** \\ 
+  17 & C4 & {\bf C5} & ([:;]) & (:$|$;) & 0.81 & 0.94 &   & 46.67 & 46.67 &   \\ 
+  \hline
+  18 & {\bf D1} & D2 & ((q4f)\{0,1\}ab) & ((q4f)?ab) & 0.83 & 0.79 &   & 50.00 & 40.00 &   \\ 
+  19 & {\bf D1} & D2 & (dee(do)\{1,2\}) & (deedo(do)?) & 0.85 & 0.77 &   & 66.67 & 60.00 &   \\ 
+  20 & D1 & {\bf D3} & ((q4f)\{0,1\}ab) & (q4fab$|$ab) & 0.83 & 0.84 &   & 50.00 & 60.00 &   \\ 
+  21 & D1 & D3 & (dee(do)\{1,2\}) & (deedo$|$deedodo) & 0.85 & 0.90 &   & 66.67 & 63.33 &   \\ 
+
+  22 & D2 & {\bf D3} & ((q4f)?ab) & (q4fab$|$ab) & 0.79 & 0.84 &   & 40.00 & 60.00 &   \\ 
+  23 & D2 & {\bf D3} & (deedo(do)?) & (deedo$|$deedodo) & 0.77 & 0.90 & * & 60.00 & 63.33 &   \\ 
+  \hline
+  24 & L2 & L3 & zaa* & za+ & 0.87 & 0.91 &   & 70.00 & 50.00 &   \\ 
+  25 & L2 & {\bf L3} & RR* & R+ & 0.86 & 0.92 &   & 66.67 & 66.67 &   \\ 
+  \hline
+  26 & S1 & S2 & \%([0-9A-Fa-f]\{2\}) & \%([0-9a-fA-F][0-9a-fA-F]) & 0.78 & 0.73 &   & 50.00 & 60.00 &   \\ 
+  27 & S1 & {\bf S2} & \&d([aeiou]\{2\})z & \&d([aeiou][aeiou])z & 0.91 & 0.95 &   & 83.33 & 83.33 &   \\ 
+  28 & S1 & S2 & fa[lmnop]\{3\} & fa[lmnop][lmnop][lmnop] & 0.87 & 0.88 &   & 83.33 & 73.33 &   \\ 
+  \hline
+  29 & T1 & T2 & xyz[\_$\backslash$[$\backslash$]`$\backslash$\verb|^|$\backslash$$\backslash$] & xyz[$\backslash$x5b-$\backslash$x5f] & 0.78 & 0.79 &   & 86.67 & 56.67 & * \\ 
+  30 & {\bf T1} & T2 & t[:;]+p & t[$\backslash$x3a-$\backslash$x3b]+p & 0.94 & 0.89 &   & 80.00 & 63.33 &   \\ 
+  
+  31 & T1 & T3 & ($\backslash$\$$\backslash$\{)$\backslash$d+(:[\verb|^|\}]+$\backslash$\}) & ([\$][\{])$\backslash$d+(:[\verb|^|\}]+[\}]) & 0.82 & 0.75 &   & 63.33 & 73.33 &   \\ 
+  32 & T1 & {\bf T3} & t$\backslash$.$\backslash$\$+$\backslash$d+$\backslash$* & t[.][\$]+$\backslash$d+[*] & 0.89 & 0.94 &   & 56.67 & 73.33 &   \\ 
+  33 & {\bf T1} & T3 & $\backslash$\{$\backslash$\$($\backslash$d+$\backslash$.$\backslash$d)$\backslash$\} & [\{][\$]($\backslash$d+[.]$\backslash$d)[\}] & 0.93 & 0.89 &   & 70.00 & 66.67 &   \\ 
+  
+  34 & {\bf T1} & T4 & xyz[\_$\backslash$[$\backslash$]`$\backslash$\verb|^|$\backslash$$\backslash$] & xyz[$\backslash$0133-$\backslash$0140] & 0.78 & 0.71 &   & 86.67 & 33.33 & *** \\ 
+
+  35 & {\bf T1} & T4 & t[:;]+p & t[$\backslash$072-$\backslash$073]+p & 0.94 & 0.90 &   & 80.00 & 70.00 &   \\ 
+  
+  36 & {\bf T1} & T4 & ($\backslash$\{$|$$\backslash$\}) & ([$\backslash$0175$\backslash$0173]) & 0.70 & 0.54 & . & 86.67 & 30.00 & *** \\ 
+  37 & {\bf T1} & T4 & ([\}\{]) & ([$\backslash$0175$\backslash$0173]) & 0.79 & 0.54 & ** & 50.00 & 30.00 &   \\ 
+  38 & {\bf T1} & T4 & (:$|$;) & ([$\backslash$072$\backslash$073]) & 0.94 & 0.66 & ** & 46.67 & 23.33 &   \\ 
+  39 & {\bf T1} & T4 & ([:;]) & ([$\backslash$072$\backslash$073]) & 0.81 & 0.66 & . & 46.67 & 23.33 &   \\ 
+  
+  40 & {\bf T2} & T4 & xyz[$\backslash$x5b-$\backslash$x5f] & xyz[$\backslash$0133-$\backslash$0140] & 0.79 & 0.71 &   & 56.67 & 33.33 &   \\ 
+  41 & T2 & {\bf T4} & t[$\backslash$x3a-$\backslash$x3b]+p & t[$\backslash$072-$\backslash$073]+p & 0.89 & 0.90 &   & 63.33 & 70.00 &   \\ 
+   \hline
+\end{tabular}
+
+.$\alpha = 0.10$ \hspace{3pt} *$\alpha=0.05$ \hspace{3pt} **$\alpha=0.01$ \hspace{3pt} ***$\alpha=0.001$
+\end{table*}
