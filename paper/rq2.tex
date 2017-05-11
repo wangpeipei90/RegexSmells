@@ -206,7 +206,9 @@ We use the original set of 60 regexes for the size analysis. \todo{justify this 
 
 \subsection{Results}
 \textcolor{red}{Todo: update Table and its description, add annova and correlation analysis about representation, dfa size, and string length}
+
 \textcolor{red}{Missing: Heatmap about the positive and negative correlation of dfa size or string length with accuracy }
+
 Table~\ref{table:testedEdgesTable} presents the results.
 \emph{Index}  enumerates the edges  evaluated in this experiment (per Figure~\ref{fig:refactoringTree}), \emph{Nodes} lists the representations, \emph{Pairs} shows the number of comparisons, \emph{Example Preferred Regex} shows a regex from the preferred node (bolded in \emph{Pairs} column), \emph{Match1} and \emph{Match2} give the matching scores for the first and second representations, respectively, and $H_0: \mu_{match1} = \mu_{match2}$ uses the Mann-Whitney test of means to compare the matching scores, and presents the p-values. The last three columns list the average composition scores for the representations and the composition p-value.
 
