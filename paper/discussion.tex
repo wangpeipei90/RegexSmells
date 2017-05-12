@@ -36,12 +36,11 @@ Since there are differences in regex comprehension based on how regexes are synt
 
 \subsection{Opportunities For Future Work}
 \label{sec:futureequivclasses}
-There are several directions for future work related to regex study and refactoring.
+%There are several directions for future work related to regex study and refactoring.
 %
-\paragraph{Equivalence Class Models}
-
+\noindent \textbf{Equivalence Class Models:}
 We looked at five equivalence classes, each with three to five representations. 
-Future work could consider richer models with more or different classes, including: 
+Future work could consider models with more or different classes, such as: 
 %For example, we have looked at all ranges as equivalent, all defaults as equivalent, and relied on many such generalizations.  However, the range \verb![a-f]! is likely to be more understandable for most people than a range like \verb![:-`]!.
 %In addition to breaking our 5 groups into more specific nodes, future work could model refactorings outside of these groups.
 %
@@ -63,8 +62,7 @@ By creating a more granular model of equivalence classes  and carefully evaluati
 
 %We focused on refactorings within a group, treating groups as orthogonal to one another.  It would be interesting to see if there is some cooperation between pairs of edges in separate groups by applying more than one type of refactoring at once.
 
-\paragraph{Community-specific Comprehension}
-
+\noindent \textbf{Community-specific Comprehension:}
 A  straightforward way to assess understandability is to directly ask software professionals which regexes they prefer and why.
 In our evaluation, we did not focus on a specific community or a specific regex purpose (e.g., validating e-mail address, validating IP-address, parsing URLs). 
 % but at least one side of the refactoring was contrived and we did not focus on any specific community (the 1544 projects we obtained regexes from were randomly obtained).
