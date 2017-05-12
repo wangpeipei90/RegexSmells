@@ -2,13 +2,13 @@
 % Thu May 11 05:30:36 2017
 \begin{table*}[ht]
 \centering
-\caption{Pairwise comparisons of regexes. Each accuracy or composition value is computed based on approximately 30 data points from 30 study participants \label{table:testedEdgesTable}}
+\caption{Pairwise comparisons of regexes. Each matching or composition value is computed based on approximately 30 data points from 30 study participants \label{table:testedEdgesTable}}
 \begin{tabular}{p{0.3cm}r@{ -- }lp{4cm}p{4cm}|p{0.8cm}p{0.8cm}p{0.6cm}|p{0.99cm}p{0.99cm}p{0.6cm}}
 %\begin{tabular}{rr@{ -- }lllrrlrrl
   \hline
 % Pair & \multicolumn{2}{c}{Edge} & Regex 1 & Regex 2 & Acc1 & Acc2 & \begin{tabular}[c]{@{}l@{}}wilcox \\ sig\end{tabular} & Comp1 & Comp2 & \begin{tabular}[c]{@{}l@{}}prop \\ sig\end{tabular} \\ 
 %  Pair & \multicolumn{2}{c}{Edge} & Regex 1 & Regex 2 & Acc1 & Acc2 & wilcox\_sig & Comp1 & Comp2 & prop\_sig \\
-  Pair & \multicolumn{2}{c}{Edge} & Regex 1 & Regex 2 & Acc1(\%) & Acc2(\%) & Sig & Comp1(\%) & Comp2(\%) & Sig \\ 
+  Pair & \multicolumn{2}{c}{Edge} & Regex 1 & Regex 2 & Match1(\%) & Match2(\%) & SigM & Comp1(\%) & Comp2(\%) & SigC \\ 
   \hline
 1 & {\bf C1} & C2 & {\tt tri[a-f]3} & {\tt tri[abcdef]3} & 94.00 & 93.17 &   & 83.33 & 83.33 &   \\ 
   2 & {\bf C1} & C2 & {\tt no[w-z]5} & {\tt no[wxyz]5} & 93.33 & 87.17 &   & 86.67 & 86.67 &   \\ 
@@ -56,7 +56,7 @@
   
   34 & {\bf T1} & T4 & {\tt xyz[\_$\backslash$[$\backslash$]`$\backslash$\verb|^|$\backslash$$\backslash$]} & {\tt xyz[$\backslash$0133-$\backslash$0140]} & 77.78 & 71.35 &   & 86.67 & 33.33 & *** \\ 
 
-  35 & {\bf T1} & T4 & {\tt t[:;]+p} & {\tt t[$\backslash$072-$\backslash$073]+p} & 94.33 & 90.00 &   & 80.00 & 70.00 &   \\ 
+  35 & {\bf T1} & T4 & {\tt t[:;]+p} & {\tt t[$\backslash$072$\backslash$073]+p} & 94.33 & 90.00 &   & 80.00 & 70.00 &   \\ 
   
   36 & {\bf T1} & T4 & {\tt ($\backslash$\{$|$$\backslash$\})} & {\tt ([$\backslash$0175$\backslash$0173])} & 70.33 & 54.40 & . & 86.67 & 30.00 & *** \\ 
   37 & {\bf T1} & T4 & {\tt ([\}\{])} & {\tt ([$\backslash$0175$\backslash$0173])} & 78.79 & 54.40 & ** & 50.00 & 30.00 &   \\ 
