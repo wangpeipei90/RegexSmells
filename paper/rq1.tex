@@ -206,9 +206,11 @@ at least an Associates degree (72\%), were at least somewhat familiar with regex
 
 \begin{table}[t]
 \centering
-\caption{3-factor ANOVA results with average matching/composition accuracy as the dependent variable, considering representation (rep), DFA size (dfa\_size), and regex length (len) as independent variables}
+\caption{3-factor ANOVA  with average matching or composition accuracy as  dependent variables, considering representation (rep), DFA size (dfa\_size), and regex length (len) as independent variables}
 \begin{tabular}{@{}l@{}r|rl|ll@{}}
-  \hline
+
+  \multicolumn{2}{c}{} & \multicolumn{2}{c}{Average Matching} & \multicolumn{2}{c}{Average Composition} \\
+    \hline
  & Df & F value & Pr($>$F) & F value & Pr($>$F) \\
   \hline
 dfa\_size &              1 &  7.632 &0.0153 * & 10.084 &0.00674 ** \\
@@ -224,7 +226,7 @@ Residuals        &     14&&&&\\
 
 \vspace{3pt}
 .$\alpha = 0.10$ \hspace{3pt} *$\alpha=0.05$ \hspace{3pt} **$\alpha=0.01$ \hspace{3pt} ***$\alpha=0.001$
-The F values and p values in column 3-4 are of ANOVA results with average matching accuracy as dependent variables. These values in column 5-6 are for ANOVA results with composition accuracy.
+%The F values and p values in column 3-4 are of ANOVA results with average matching accuracy as dependent variables. These values in column 5-6 are for ANOVA results with composition accuracy.
 \label{table:anova}
 \end{table}
 

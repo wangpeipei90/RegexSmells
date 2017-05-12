@@ -65,8 +65,8 @@ By creating a more granular model of equivalence classes  and carefully evaluati
 
 \paragraph{Community-specific Comprehension}
 
-One of the most straightforward ways to address understandability is to directly ask software professionals which from a list of equivalent regexes they prefer and why.
-While we had some positive results, in our evaluation, we did not focus on a specific community or a specific regex purpose (e.g., validating e-mail address, validating IP-address, parsing URLs). 
+A  straightforward way to assess understandability is to directly ask software professionals which regexes they prefer and why.
+In our evaluation, we did not focus on a specific community or a specific regex purpose (e.g., validating e-mail address, validating IP-address, parsing URLs). 
 % but at least one side of the refactoring was contrived and we did not focus on any specific community (the 1544 projects we obtained regexes from were randomly obtained).
  If an understandability study used regexes sampled from the codebase of a specific community (e.g., most frequently observed regexes, most buggy regexes, regexes on the hottest execution paths, etc.), and measured the understanding of programming professionals working in that community, then the measurements and the refactorings they imply would be more likely to have a direct impact.
 %
@@ -110,7 +110,8 @@ More compete coverage of the edges in the equivalence classes is needed.
 
 We treated unsure responses as omissions that  did not count  against the matching scores. Thus, if a participant answered two strings correctly and marked the other three strings as unsure, then this was 2/2 correct, not 2/5. This may have inflated the matching scores, however, less than 5\% of the matching scores were impacted by such responses.
 
-We note that our criteria for membership in a representation may overestimate the opportunities for refactoring to address the smells. For example, \verb![a-f]! in C1 cannot be refactored to C4 since there does not exist a default character class for that range of characters. A finer-grained analysis is needed to identify actual refactoring opportunities from the smells.
+
+
 
 
 %
@@ -119,13 +120,19 @@ We note that our criteria for membership in a representation may overestimate th
 %It may also be meaningful to provide some code that exists around a regex as context, since that would better represent a scenario in which programmers would encounter regexes in practice.
 %Further study is needed to determine if the chosen metrics and experimentation context have resulted in a reasonable measure of understandability.
 
-\textbf{External}
-The regexes  used in the evaluation were inspired by those found in Python code, which is just one language that has library support for regexes, and may not generalize to other languages.% Thus, we may have missed opportunities for other refactorings based on how programmers use regexes in other programming languages.
+\textbf{External:}
+The regexes  used in the evaluation were inspired by those found in Python code, which is just one language that has library support for regexes, and may not generalize to other languages. Further, the DFAs for the regexes ranged in size from two to eight, so the comprehension metrics may not generalize to larger regexes.% Thus, we may have missed opportunities for other refactorings based on how programmers use regexes in other programming languages.
+
+%While we identify code smells, not all code smells are removable through refactoring. For example, between T4 and T1, if the regex matches on non-printable characters, a transformation to T1 is not possible. Similarly, the regex \verb![2-9]! in C1 cannot transform to C4 since there does not exist a default character class with the same behavior (i.e., \verb![0-9]! $\equiv$ \verb![\d]!).
+
+Our criteria for membership in a representation may overestimate the opportunities for refactoring to address the smells. For example, \verb![a-f]! in C1 cannot be refactored to C4 since there does not exist a default character class for that range of characters. Transformation between T4 and T1 may not be possible if the  regex matches on non-printable characters, which require hex or octal representation. A finer-grained analysis is needed to identify actual refactoring opportunities from the smells.
 
 Participants in our survey came from MTurk, which may not be representative of people who read and write regexes on a regular basis. However, all participants demonstrated knowledge of regexes through a qualification test. 
 
 
 The results of the understandability analysis may be closely tied to the particular regexes chosen for the experiment. For many of the representations, we had several comparisons. Still, replication with more regex patterns is needed.% to validate our results.
+
+
 
 %\todoMid{what about the threat of too few examples per node?  Didn't cover every edge.  Regex set is randomly collected online, not focused on any specific target audience.}
 
