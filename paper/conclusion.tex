@@ -5,6 +5,6 @@ In an effort to find smells that impact regex understandability, we created five
 %We found the most common representations per class by both number of patterns and number of projects to be C1,  T1 and S2. 
 %We  identified three strongly preferred transformations between representations (i.e., $\overrightarrow{T4 T1}$, $\overrightarrow{D2 D3}$, and  $\overrightarrow{L2 L3}$). 
  The high agreement between the community standards and understandability analyses  suggests that one particular representation can be preferred over others in most cases.  
-Based on these results, we recommend using hex to represent invisible characters in regexes instead of octal, and to escape special characters with slashes instead of wrapping them in brackets.  
+Based on these results, we recommend using hex to represent unprintable characters in regexes instead of octal, and to escape special characters with slashes instead of wrapping them in brackets.  
 Further research is needed into more granular models that treat common specific cases separately.
 %, and that address the effect of length on understandability when transforming from one representation to another.

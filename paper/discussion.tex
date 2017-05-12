@@ -23,7 +23,7 @@ In  LWB,   L2 (e.g., \verb!AAA*!) and L3 (e.g., \verb!AA+!) appear in similar nu
 
 % is nice, but
 %so probably better than S2.  S2 is over-weighted because of double-characters in regular words like foot.
-In the LIT group, T1 (e.g., \verb!\a\$>!) is the typical way to list literals, but the reason to use hex (T2) or oct (T4) types is because some characters cannot be represented any other way, such as invisible chars.  One main result of our work is that  T4 (e.g., \verb!\007\036\062!) is  less understandable   than T2 (e.g., \verb!\x07\x24\x3E!), so if invisible chars are required, hex is  more understandable.
+In the LIT group, T1 (e.g., \verb!\a\$>!) is the typical way to list literals, but the reason to use hex (T2) or oct (T4) types is because some characters cannot be represented any other way, such as unprintable chars.  One main result of our work is that  T4 (e.g., \verb!\007\036\062!) is  less understandable   than T2 (e.g., \verb!\x07\x24\x3E!), so if unprintable chars are required, hex is  more understandable.
 %Regarding T3 (e.g., \verb!\a[$]>!), initially we thought the square brackets would be more understandable than using an escape character,  but we found the opposite. 
 Also, given a choice between T1 and T3, the escape character was more understandable.
 
