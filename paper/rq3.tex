@@ -131,7 +131,11 @@ While L3 is the winner for the LBW group, we note that L2 appears in slightly mo
 DBB is different  as the orderings are completely reversed depending on the analysis. %, so the community standards favor D2 and understandability favors D3. 
 Further study is needed on this, as well as  LBW and SNG since not all nodes were considered in the understandability analysis. 
 
-According to Table~\ref{topologicalResults}, we can make better comparisons while choosing from several equvilent regular expressions. For example, to match numbers from one to 999, there are three options: A - {\tt [1-9]|[1-9][0-9]|[1-9][0-9][0-9]}, B - {\tt [1-9][0-9]?[0-9]?}, and C - {\tt [1-9][0-9]\{0,2\}}. A contain representations C1, D3, and S2; B contains C1 and D2; C contains C1 and D1. The sorting in understandability among A, B, and C is $A>C>B$ since $D3>D1>D2$. However, what we usually see in source code are B and C but not A. The reason might be that the string of A taks more time to type. In another example, we prefer {\tt \$[0-9]*.[0-9][0-9]} to {\tt \$[0-9]*.[0-9]\{2\}} in order to matach dollar amounts. This is because S2 in the former regex dominates S1 in the latter regex.
+These results can regex design. 
+For example, to match numbers from one to 999, there are (at least) three options: $A$~=~{\tt [1-9]|[1-9][0-9]|[1-9][0-9][0-9]}, $B$~=~{\tt [1-9][0-9]?[0-9]?}, and $C$~=~{\tt [1-9][0-9]\{0,2\}}. 
+$A$  contains representations \{C1, D3, 2\}, $B$ contains \{C1, D2\}, and $C$ contains \{C1, D1\}. % D3 and S2, B contains C1 and D2, and C contains C1 and D1. 
+According to Table~\ref{topologicalResults}, the sorting in understandability is $A>C>B$ since $D3>D1>D2$. However, what we usually see in source code are B and C but not A. The reason might be that the string of A takes more time to type, or may have a longer runtime. 
+In another example, we prefer {\tt \$[0-9]*.[0-9][0-9]} to {\tt \$[0-9]*.[0-9]\{2\}} in order to match dollar amounts. This is because S2 in the former regex dominates S1 in the latter regex.
 %
 
 \subsection{Summary}
