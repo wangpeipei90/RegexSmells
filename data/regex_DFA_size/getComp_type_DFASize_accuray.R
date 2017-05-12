@@ -15,7 +15,7 @@ names(accur)=c("UniqueID","HIT_ID","regex","accur")
 ##show the rows of NA accuracy
 which(is.na(accur$accur))
 ##get average accuracy for each regex string remove the record which accuracy is NA
-avg_accur=sapply(split(accur,f=accur$regex),function(x) mean(x$accur,na.rm=TRUE))
+avg_accur=sapply(split(accur,f=accur$regex),function(x) 100*mean(x$accur,na.rm=TRUE))
 
 
 size_dfa=read.csv(file=regex_unique_dfa,head=TRUE,
@@ -58,10 +58,10 @@ table(accur$str_len)
 unique(accur$str_len) ##[2-19] [22,23,25,26]
 
 ##data=regex_dfa anova analysis and correlation with average accur
-# fit=aov(AvgAccur~dfa_size*str_len,data=regex_dfa)
-# summary(fit)
-# cor.test(regex_dfa$dfa_size,regex_dfa$AvgAccur,method="spearman") ##[0.1904738,0.1449]
-# cor.test(regex_dfa$str_len,regex_dfa$AvgAccur,method="spearman") ##[-0.04336877,0.7421]
+fit=aov(AvgAccur~dfa_size*str_len*prep,data=regex_dfa)
+summary(fit)
+cor.test(regex_dfa$dfa_size,regex_dfa$AvgAccur,method="spearman") ##[0.1904738,0.1449]
+cor.test(regex_dfa$str_len,regex_dfa$AvgAccur,method="spearman") ##[-0.04336877,0.7421]
 # 
 # fit1=aov(AvgAccur~as.factor(dfa_size)*as.factor(str_len),data=regex_dfa)
 # summary(fit1)
@@ -90,24 +90,42 @@ tt=sapply(tt,function(x)mean(x$AvgAccur))
 ##plot heatmap of AvgAccur,accur, and scatterplot of accur
 setEPS()
 postscript("heatmap_accur.eps")
-p=ggplot(accur, aes(dfa_size, str_len))+geom_tile(aes(fill = accur),colour="white")+ scale_fill_gradient(low = "white",high = "steelblue")
+p=ggplot(accur, aes(dfa_size, str_len))+geom_tile(aes(fill = accur),colour="white")+ scale_fill_gradient(low = "white",high = "black")
 p=p+labs(x="DFA Size of Regex",y="String Length of Regex",title="Regex Accuracy")+
   guides(fill=guide_legend(title="Accuracy"))+
-  theme(plot.title=element_text(hjust = 0.5, color='red'))+
-  theme(axis.title.x=element_text(hjust = 0.5, color='blue'))+
-  theme(axis.title.y=element_text(hjust = 0.5, color='blue'))
+  theme(plot.title=element_text(hjust = 0.5, color='black'))+
+  theme(axis.title.x=element_text(hjust = 0.5, color='black'))+
+  theme(axis.title.y=element_text(hjust = 0.5, color='black'))
 print(p)
 dev.off()
 
 setEPS()
 postscript("heatmap_avgAccur.eps")
-p=ggplot(regex_dfa, aes(dfa_size, str_len))+geom_tile(aes(fill = AvgAccur),colour="white")+ scale_fill_gradient(low = "white",high = "steelblue")
+p=ggplot(regex_dfa, aes(dfa_size, str_len))+geom_tile(aes(fill = AvgAccur),colour="white")+ scale_fill_gradient(low = "white",high = "black")
 p=p+labs(x="DFA Size of Regex",y="String Length of Regex",title="Regex Average Accuracy")+
   guides(fill=guide_legend(title="Accuracy"))+
-  theme(plot.title=element_text(hjust = 0.5, color='red'))+
-  theme(axis.title.x=element_text(hjust = 0.5, color='blue'))+
-  theme(axis.title.y=element_text(hjust = 0.5, color='blue'))
+  theme(plot.title=element_text(hjust = 0.5, color='black'))+
+  theme(axis.title.x=element_text(hjust = 0.5, color='black'))+
+  theme(axis.title.y=element_text(hjust = 0.5, color='black'))
 print(p)
+dev.off()
+
+setEPS()
+postscript("scatter_avgAccur.eps")
+plot(regex_dfa$dfa_size,regex_dfa$AvgAccur,type="n",xlab="DFA Size of Regex", ylab="Average Accuracy", main="Correlation betwwen DFA size and average accuracy")
+v_len=sort(unique(regex_dfa$str_len))
+colors=rainbow(length(v_len))
+for (i in 1:length(v_len)) { 
+  len=v_len[i]
+  a=regex_dfa[which(regex_dfa$str_len==len),"dfa_size"]
+  b=regex_dfa[which(regex_dfa$str_len==len),"AvgAccur"]
+  if(length(a)>1){
+    lines(a,b,col=colors[i])
+  }
+  # else{
+  #   points(a,b,col=colors[i])
+  # }
+}
 dev.off()
 
 regex_map=read.csv(file=regex_pattern_map_type,head=TRUE,sep=",",colClasses = c("character","character","character","character","character","character"))
@@ -197,6 +215,10 @@ regex_dfa$prep=sapply(regex_dfa$regex,getRegexPrep)
 
 fit <- aov(accur ~ dfa_size*str_len*prep, data=accur)
 summary(fit)
+fit2=aov(CompAccur~dfa_size*str_len*prep, data=regex_dfa)
+summary(fit2)
+cor.test(regex_dfa$dfa_size,regex_dfa$CompAccur,method="spearman") ##[0.0706446,0.002958]
+cor.test(regex_dfa$str_len,regex_dfa$CompAccur,method="spearman") ##[-0.02540443,0.2857]
 # fit1 <- aov(AvgAccur ~ dfa_size*str_len*prep, data=regex_dfa)
 # summary(fit1)
 
@@ -375,4 +397,4 @@ print(representation)
 library(xtable)
 table_map=regex_map[,c("P_CR1","P_CR2","CR1","CR2","AvgAccur1","AvgAccur2","wilcox_sig","CompAccur1","CompAccur2","prop_sig")]
 table_res=xtable(table_map)
-print(table_res, file="../../paper/table/testedEdgesTable.tex")
+print(table_res, file="../../paper/table/testedEdgesTable2.tex")
