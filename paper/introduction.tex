@@ -2,49 +2,52 @@
 
 Regular expressions (regexes) are used fundamentally in string searching and substitution tasks, such as word searching, text editing, file parsing, user input validation, and access controls. More advanced usages of regexes can be seen in search engines~\cite{zhao2005fully}, database querying~\cite{Yeole:2011:ADT:1980022.1980229}, and network security~\cite{network,hutchings2002assisting,ficara2008improved}.
 
-Recent research has suggested that regular expressions are hard to understand, hard to compose, and error prone~\cite{Spishak:2012:TSR:2318202.2318207}.
-Given their frequent appearances in software source code and the difficulty of working with them, some effort has been put into easing the burden on developers by providing environments that make regexes easier to understand. Some tools provide debugging environments which explain string matching results and highlight the parts of regex patterns which match a certain string~\cite{regex101,regexr}. Other tools present graphical representations (e.g., finite automata) of the regular expressions~\cite{regexper,rise4fun}. Still others can automatically generate strings according to the given regular expessions~\cite{hampi,rex} or automatically generate regexes according to the given list of strings~\cite{Babbar:2010:CBA:1871840.1871848, Li:2008:REL:1613715.1613719}.
-The commonality of such tools provides evidence that people need help with regex composition and understandability.
+Recent research has suggested that regular expressions are hard to understand, hard to compose, and error prone~\cite{Spishak:2012:TSR:2318202.2318207}. Given their frequent appearances in software source code and the difficulty of working with them, some effort has been put into easing the burden on developers by providing environments that make regexes easier to understand. Some tools provide debugging environments which explain string matching results and highlight the parts of regex patterns which match a certain string~\cite{regex101,regexr}. Other tools present graphical representations (e.g., finite automata) of the regular expressions~\cite{regexper,rise4fun}. Still others can automatically generate strings according to the given regular expessions~\cite{hampi,rex} or automatically generate regexes according to the given list of strings~\cite{Babbar:2010:CBA:1871840.1871848, Li:2008:REL:1613715.1613719}.
+
+%why we need analysis despite of the tools
+While these tools are helpful, there are some restrictions which hinder their usage. They may need the regex and a matched string at the same time, do not support some commonly used regular expression features, generate non-printable strings, or generate an overfitted regular expressions.
+The commonality and the restrictions of such tools provides evidence that people need help with regex composition and understandability.
 
 In software engineering, code smells have been found to hinder understandability of source code~\cite{abbes2011empirical, du2006does}.
 Once removed through refactoring, the code becomes more understandable, easing the burden on the programmer.
-In regular expressions, such code smells have not yet been defined, perhaps in part because it is not clear what makes a regex difficult to understand or maintain. 
+In regular expressions, such code smells have not yet been defined, perhaps in part because it is not clear what makes a regex difficult to understand or maintain.
 
 In regular expressions as in source code, there are multiple ways to express the same semantic concept.
 For example, the regex, \verb!aa*! matches an ``a" followed by zero or more ``a", and is is equivalent to \verb!a+! , which matches one or more ``a".
 That is, both regexes match the same \emph{language} but are expressed differently. What is not clear is which representation,  \verb!aa*!  or  \verb!a+!, is more easily understood.
 %Preferences in regex refactorings could vary, including which is easier to maintain, easier to understand, or better conforms to community standards, depending on the goals of the programmer.
 
-In this work, we focus on identifying regex comprehension smells. 
-We  identify equivalence classes of regex representations that provide options for concepts such as double-bounds in repetitions (e.g., \verb!a{1,2}!, \verb!a|aa!) or 
-%single-bounds in repetitions (e.g., \verb!`a{2}'! or \verb!`aa'!), 
-%lower bounds in repetitions (e.g., \verb!`a{2,}'! or \verb!`aaa*'!), 
+In this work, we focus on identifying regex comprehension smells.
+We  identify equivalence classes of regex representations that provide options for concepts such as double-bounds in repetitions (e.g., \verb!a{1,2}!, \verb!a|aa!) or
+%single-bounds in repetitions (e.g., \verb!`a{2}'! or \verb!`aa'!),
+%lower bounds in repetitions (e.g., \verb!`a{2,}'! or \verb!`aaa*'!),
 character classes (e.g., \verb![0-9]!, \verb![\d]!).
 %, and literals (e.g., \verb!`\a'! or \verb!`\x07'!).
-Based on an empirical study measuring regex comprehension on 35 pairs of regexes using 180 participants, as well as an empirical study of nearly 14,000 regexes and their features, we identify smelly and non-smelly regex representations. For example, \verb!aa*!  is more smelly than  \verb!a+!, based on feature usage frequency in source code (conformance to community standards) and understandability. 
+Based on an empirical study measuring regex comprehension on 42 pairs of regexes using 180 participants, as well as an empirical study of nearly 14,000 regexes and their features, we identify smelly and non-smelly regex representations. For example, \verb!aa*!  is more smelly than  \verb!a+!, based on feature usage frequency in source code (conformance to community standards) and understandability.
 
-%Our results identify preferred representations for four of the five equivalence classes based on mutual agreement between community standards and understandability. For the fifth group on double-bounded repetitions, two recommendations are given depending on the programmer's goals. 
+%Our results identify preferred representations for four of the five equivalence classes based on mutual agreement between community standards and understandability. For the fifth group on double-bounded repetitions, two recommendations are given depending on the programmer's goals.
 Our contributions are:
 \begin{itemize}
-\item An approach to, and evaluation with. 180 participants for studying regex understandability, 
-\item Identification of equivalence classes for regular expressions,
-%\item Conducted an empirical study identifying opportunities for regex refactoring  in Python projects based on how regexes are expressed, 
-\item {Identification of smelly and non-smelly regex representations to optimize 1) understandability and 2) conformance to community standards, backed by empirical evidence.}
+\item An empirical study to evaluate regex comprehension with 180 participants for studying regex understandability,
+\item Identification of 5 equivalence classes and 18 corresponding representations for regular expressions,
+%\item Conducted an empirical study identifying opportunities for regex refactoring  in Python projects based on how regexes are expressed,
+\item Identification of smelly and non-smelly regex representations to optimize 1) understandability and 2) conformance to community standards, backed by empirical evidence.
 %\item {Identified 3 or so other regex refactorings categories and specific instances that are worthy of further investigations}
 %\item {Identified a few regex refactorings that can be eliminated because both options are equally readable}
 \end{itemize}
 
-To our knowledge, this is the first work to explore regex comprehension and regex smells. We approach the problem of identifying preferred regex representations by looking at thousands of regexes in Python projects and measuring comprehension using human participants.  %, one using source code artifacts and another using human participants. 
-The rest of this paper is structured as follows: 
-Section~\ref{sec:study} presents the research questions and high level study designs. 
-Section~\ref{sec:refactoring} describes the equivalence classes explored for regex smell detection. 
-Section~\ref{sec:rq1} presents the results for RQ1 about comprehension code smells, 
-Section~\ref{sec:rq2} presents the results of RQ2 on community code smells, and 
-Section~\ref{sec:rq3} looks at the preferred representations. 
-Section~\ref{sec:discussion} discussed implications and future work, followed by related work in Section~\ref{sec:related} and conclusion in Section~\ref{sec:conclusion}. 
+To our knowledge, this is the first work to explore regex comprehension and regex smells. We approach the problem of identifying preferred regex representations by looking at thousands of regexes in Python projects and measuring comprehension using human participants.  %, one using source code artifacts and another using human participants.
+
+The rest of this paper is structured as follows:
+Section~\ref{sec:study} presents the research questions and high level study designs.
+Section~\ref{sec:refactoring} describes the equivalence classes explored for regex smell detection.
+Section~\ref{sec:rq1} presents the results for RQ1 about comprehension code smells,
+Section~\ref{sec:rq2} presents the results of RQ2 on community code smells, and
+Section~\ref{sec:rq3} looks at the preferred representations.
+Section~\ref{sec:discussion} discussed implications and future work, followed by related work in Section~\ref{sec:related} and conclusion in Section~\ref{sec:conclusion}.
 %  (Section~\ref{sec:refactoring}), research questions (Section~\ref{sec:study}), the study of regex representations in Python projects (Section~\ref{communitystudy}), and the regex understandability study using human participants (Section~\ref{sec:understandability}). We discuss the overall analysis results in Section~\ref{sec:rq3}, implications in Section~\ref{sec:discussion},  related work in regexes (Section~\ref{sec:related}), and conclude in Section~\ref{sec:conclusion}.
 %\todoLast{can remove for space}
 %The rest of this paper is organized as follows:
-%We define the research questions in Section~\ref{} followed by an explanation of the equivalence classes in Section~\ref{}. The study design and results for RQ1 are in Section~\ref{} followed by the study design and results for RQ2 in Section~\ref{}. RQ3 is in Section~\ref{}, the discussion is in Section~\ref{}, related work is in Section~\ref{}, and the conclusion is in Section~\ref{}. 
+%We define the research questions in Section~\ref{} followed by an explanation of the equivalence classes in Section~\ref{}. The study design and results for RQ1 are in Section~\ref{} followed by the study design and results for RQ2 in Section~\ref{}. RQ3 is in Section~\ref{}, the discussion is in Section~\ref{}, related work is in Section~\ref{}, and the conclusion is in Section~\ref{}.
 %
 %Related work, study, results, discussion, conclusion.
