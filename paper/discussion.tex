@@ -5,27 +5,34 @@ Based on our studies, we have identified preferred regex representations that ma
 %We identify smells, not all refactorings are possible or advisable. See Equiv. class definitions for example limitations. 
 
 \subsection{Implications}
-In the CCC equivalence class, C1 (e.g., \verb![0-9a]!) is more commonly found in the patterns and projects.  C2 (e.g., \verb![0123456789a]!) and C3 (e.g., \verb![^\x00-/:-`b-\x7F]!) appear in similar percentages of patterns and projects but there is no significant difference in understandability considering two pairs of regexes tested. 
-A small preference is shown for C1 over C2, indicating ranges in character classes enhance comprehension. 
-%    Regex length is probably important for understandability, though we did not test for this.
+Our goal in this work was to identify code smells in regular expressions. 
+In an evaluation using humans where we measure comprehension of various regular expressions, we find that it is easier to understand regexes that do not use hex or octal characters, 
+that repetition operators, such as \verb!?! in D2 can decrease comprehension, and that using ranges is preferred to some character classes (e.g., \verb![A-Za-z0-9_! is often more understandable than \verb!\w!). 
 
-% - the longest regex in the corpus is \todoNow{X} characters long...
-%Anyway C2 is comon but less readable.  C4 is somehwat less common to use defalut in CC - why?  C5 is rare, but marginally more readable than C2.  Not enough data or contrast to come to a conclusion about C3 - it is a catch-all?
-
-In DBB, D3 (e.g., \verb!pBs|pBBs|pBBBs!) merits further exploration because it is the most understandable but least common node in the group.  This may be because explicitly listing the possibilities with an OR is easy to grasp, but if the number of items in the OR is too large, understandability may suffer. Further analysis is needed to determine the optimal thresholds for representing a regex as D3 compared to D1 (e.g., \verb!pB{1,3}s!) or D2 (e.g., \verb!pBB?B?s!).
-%Intuitively, it seems that D2 may be more common because 0,1 is just a more common use case than an arbitrary range like 4, 25.
-
-In the SNG group, S1 is compact (e.g., \verb!S{3}!), but S2 was preferred (e.g., \verb!SSS!). Similar to DBB, this may be due to the particular examples chosen in the analysis, as a large number of explicit repetitions may not be as preferred.
-
-In  LWB,   L2 (e.g., \verb!AAA*!) and L3 (e.g., \verb!AA+!) appear in similar numbers of patterns and projects, but comprehension favors  L3.
-% , it's clear that this is a rare use case, and also that L3 is the most common  use case.  Patterns using star are secondary, helper patterns because they will trivially match anything, so they are less common.  But anyway...
-
-
-% is nice, but
-%so probably better than S2.  S2 is over-weighted because of double-characters in regular words like foot.
-In the LIT group, T1 (e.g., \verb!\a\$>!) is the typical way to list literals, but the reason to use hex (T2) or oct (T4) types is because some characters cannot be represented any other way, such as unprintable chars.  One main result of our work is that  T4 (e.g., \verb!\007\036\062!) is  less understandable   than T2 (e.g., \verb!\x07\x24\x3E!), so if unprintable chars are required, hex is  more understandable.
-%Regarding T3 (e.g., \verb!\a[$]>!), initially we thought the square brackets would be more understandable than using an escape character,  but we found the opposite. 
-Also, given a choice between T1 and T3, the escape character was more understandable.
+In general, the factors that explain differences in comprehension metrics are the DFA size  and the representation, where DFA sizes range from two to eight and the representations are as defined in Section~\ref{fig:refactoringTree}. 
+The implications of these results are for refactoring tool designers and code maintainers. Opting to use the preferred regex representations, when possible, may increase the understandability of regexes in source code.
+Since there are differences in regex comprehension based on how regexes are syntactically composed, it also has implications for refactoring tool designers to add refactorings for comprehension, which could enable developers to more easily compose regexes that are easier to understand. 
+%In the CCC equivalence class, C1 (e.g., \verb![0-9a]!) is more commonly found in the patterns and projects.  C2 (e.g., \verb![0123456789a]!) and C3 (e.g., \verb![^\x00-/:-`b-\x7F]!) appear in similar percentages of patterns and projects but there is no significant difference in understandability considering two pairs of regexes tested. 
+%A small preference is shown for C1 over C2, indicating ranges in character classes enhance comprehension. 
+%%    Regex length is probably important for understandability, though we did not test for this.
+%
+%% - the longest regex in the corpus is \todoNow{X} characters long...
+%%Anyway C2 is comon but less readable.  C4 is somehwat less common to use defalut in CC - why?  C5 is rare, but marginally more readable than C2.  Not enough data or contrast to come to a conclusion about C3 - it is a catch-all?
+%
+%In DBB, D3 (e.g., \verb!pBs|pBBs|pBBBs!) merits further exploration because it is the most understandable but least common node in the group.  This may be because explicitly listing the possibilities with an OR is easy to grasp, but if the number of items in the OR is too large, understandability may suffer. Further analysis is needed to determine the optimal thresholds for representing a regex as D3 compared to D1 (e.g., \verb!pB{1,3}s!) or D2 (e.g., \verb!pBB?B?s!).
+%%Intuitively, it seems that D2 may be more common because 0,1 is just a more common use case than an arbitrary range like 4, 25.
+%
+%In the SNG group, S1 is compact (e.g., \verb!S{3}!), but S2 was preferred (e.g., \verb!SSS!). Similar to DBB, this may be due to the particular examples chosen in the analysis, as a large number of explicit repetitions may not be as preferred.
+%
+%In  LWB,   L2 (e.g., \verb!AAA*!) and L3 (e.g., \verb!AA+!) appear in similar numbers of patterns and projects, but comprehension favors  L3.
+%% , it's clear that this is a rare use case, and also that L3 is the most common  use case.  Patterns using star are secondary, helper patterns because they will trivially match anything, so they are less common.  But anyway...
+%
+%
+%% is nice, but
+%%so probably better than S2.  S2 is over-weighted because of double-characters in regular words like foot.
+%In the LIT group, T1 (e.g., \verb!\a\$>!) is the typical way to list literals, but the reason to use hex (T2) or oct (T4) types is because some characters cannot be represented any other way, such as unprintable chars.  One main result of our work is that  T4 (e.g., \verb!\007\036\062!) is  less understandable   than T2 (e.g., \verb!\x07\x24\x3E!), so if unprintable chars are required, hex is  more understandable.
+%%Regarding T3 (e.g., \verb!\a[$]>!), initially we thought the square brackets would be more understandable than using an escape character,  but we found the opposite. 
+%Also, given a choice between T1 and T3, the escape character was more understandable.
 
 \subsection{Opportunities For Future Work}
 \label{sec:futureequivclasses}
