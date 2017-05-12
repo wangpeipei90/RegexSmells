@@ -3,7 +3,7 @@
 \section{Understandability Study (RQ1)}
 \label{sec:rq1}
 This study presents  programmers with regexes and asks comprehension questions. By comparing the understandability of semantically equivalent regexes that match the same language but have different syntactic representations, we aim to identify understandability code smells.
-This study was  implemented on Amazon's Mechanical Turk with 180 participants. A total of 35 pairs of regex were evaluated. Each regex pattern was evaluated by 30 participants.
+This study was  implemented on Amazon's Mechanical Turk with 180 participants. A total of 60 regexes were evaluated, constructing 42 pairs of regex comparison. Each regex pattern was evaluated by 30 participants.
 %The patterns used were designed to belong to various representations in Figure~\ref{fig:refactoringTree}.
 
 
@@ -69,7 +69,8 @@ Out of 1800 questions (180 participants * 10 questions each), only 1.8\%(32) wer
 \textbf{Composition:}
 Given a pattern, a participant composes a string they think it matches (question 7.F in Figure~\ref{fig:exampleQuestion}). If the participant is accurate, a composition score is 1, otherwise 0.  For example, given the pattern \verb!(q4fab|ab)! from our study, the string, ``xyzq4fab" matches  and gets a score of 1, but the string, ``acb" does not match and gets  a score of 0.
 
-To determine a match, each pattern was compiled using the \emph{java.util.regex} library. A \emph{java.util.regex.Matcher} \verb!m! object was created for each composed string using the compiled pattern.  If \verb!m.find()! returned true, then that composed string was a match and scored 1, otherwise it scored 0.
+%To determine a match, each pattern was compiled using the \emph{java.util.regex} library. A \emph{java.util.regex.Matcher} \verb!m! object was created for each composed string using the compiled pattern.  If \verb!m.find()! returned true, then that composed string was a match and scored 1, otherwise it scored 0.
+To determine a match, each pattern was compiled using the \emph{re.compile} module in python. A regular expression object \verb!m! object was created using the compiled pattern. \verb!m.match()! returns a regular match object \verb!m2! with the composed string as input of the function. If \verb!m2! has matches, then that composed string was a match and scored 1, otherwise it scored 0.
 
 \textbf{Regex Length:} 
 Given a pattern, the regex length is computed by \todo{how was this done?}
@@ -251,9 +252,9 @@ Each row represents a {\em Pair} of regex evaluated by study participants.
 The representations for the regexes per Figure~\ref{fig:refactoringTree} are shown in the {\em Edge} column, which is how the table is sorted. 
 The {\em Regex 1} and {\em Regex 2} columns identify the regexes used in the study, mapping to the first and second representations in the {\em Edge}, respectively. 
 {\em Acc1} is the average accuracy for {\em Regex 1} and {\em Acc2} is the average accuracy for {\em Regex 2}. 
-Using the Mann-Whitney test of means, the {\em sig} column following tests if there is a significant difference between the accuracies. 
+Using the Mann-Whitney test of means, the {\em Sig} column following tests if there is a significant difference between the accuracies. 
 The {\em Comp1} column presents the percentage of the string responses for that were in fact correctly matched by {\em Regex 1}. {\em Comp2} presents the same information, except for {\em Regex 2}. 
-The following {\em sig} column uses a test of two proportions to identify if the percentage of the participants who correctly composed a string for Regex 1 is significantly different than the percentage who correctly composed a string for {Regex 2}. 
+The following {\em Sig} column uses a test of two proportions to identify if the percentage of the participants who correctly composed a string for Regex 1 is significantly different than the percentage who correctly composed a string for {Regex 2}. 
 If both comprehension metrics indicated a preferred representation, that representation is bolded in the \emph{Edge} column. If no preference is obvious, neither representation is bolded. 
 
 %, \emph{Nodes} lists the representations, \emph{Pairs} shows the number of comparisons, \emph{Example Preferred Regex} shows a regex from the preferred node (bolded in \emph{Pairs} column), \emph{Match1} and \emph{Match2} give the matching scores for the first and second representations, respectively, and $H_0: \mu_{match1} = \mu_{match2}$ uses the Mann-Whitney test of means to compare the matching scores, and presents the p-values. The last three columns list the average composition scores for the representations and the composition p-value.
