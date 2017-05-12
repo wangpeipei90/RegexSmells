@@ -224,7 +224,7 @@ at least an Associates degree (72\%), were at least somewhat familiar with regex
 
 
 \subsection{Analysis}
-For each of the 180 HITs, we computed a matching and composition score for each of the 10 regexes, using the metrics described in Section~\ref{sec:understadningmetric}. This allowed us to compute and then average 26-30 values for each metric  for each of the 60 regexes (fewer than 30 values were used if all the responses in a matching question were a combination of blanks and unsure). %Next, we computed average scores for matching and composition per regex.
+For each of the 180 HITs, we computed a matching and composition score for each of the 10 regexes, using the comprehension metrics described in Section~\ref{sec:understadningmetric}. This allowed us to compute and then average 26-30 values for each metric  for each of the 60 regexes (fewer than 30 values were used if all the responses in a matching question were a combination of blanks and unsure). %Next, we computed average scores for matching and composition per regex.
 %\todoLast{Mentioning NAs here?}
 
 
@@ -242,7 +242,7 @@ Since  the regex representations are categorical data, these are excluded from t
 
 
 \subsection{Results}
-Table~\ref{table:anova} shows that DFA size, string length,  representations, and their interactions all significantly affect the accuracy. As a result, we present our results for the matching and composition metrics using each of the 41 pairs of regexes separately, rather than in aggregate (Table~\ref{table:testedEdgesTable}, discussed later in this section). 
+Table~\ref{table:anova} shows that DFA size, string length,  representations, and their interactions all significantly affect the accuracy. As a result, we present our results for  matching and composition  using each of the 41 pairs of regexes separately, rather than in aggregate (Table~\ref{table:testedEdgesTable}, discussed later in this section). 
 
 
 
@@ -253,10 +253,10 @@ Each row represents a {\em Pair} of regex evaluated by study participants.
 The representations for the regexes per Figure~\ref{fig:refactoringTree} are shown in the {\em Edge} column, which is how the table is sorted. 
 The {\em Regex 1} and {\em Regex 2} columns identify the regexes used in the study, mapping to the first and second representations in the {\em Edge}, respectively. 
 {\em Acc1} is the average accuracy for {\em Regex 1} and {\em Acc2} is the average accuracy for {\em Regex 2}. 
-Using the Mann-Whitney test of means, the {\em sig} column following tests if there is a significant difference between the accuracies. 
+Using the Mann-Whitney test of means, the {\em sigM} column following tests if there is a significant difference between the accuracies. 
 The {\em Comp1} column presents the percentage of the string responses for that were in fact correctly matched by {\em Regex 1}. {\em Comp2} presents the same information, except for {\em Regex 2}. 
-The following {\em sig} column uses a test of two proportions to identify if the percentage of the participants who correctly composed a string for Regex 1 is significantly different than the percentage who correctly composed a string for {Regex 2}. 
-If both comprehension metrics indicated a preferred representation, that representation is bolded in the \emph{Edge} column. If no preference is obvious, neither representation is bolded. 
+The following {\em sigC} column uses a test of two proportions to identify if the percentage of the participants who correctly composed a string for Regex 1 is significantly different than the percentage who correctly composed a string for {Regex 2}. 
+If both comprehension metrics indicated a preferred representation, that representation is bolded in the \emph{Edge} column. Ties are broken by deferring to the other metric (e.g., there's a tie in composition for row 17, but matching indicates a preference for C5, so C5 is bolded. If there is a conflict between the metrics, or both are tied, neither representation is bolded. 
 
 %, \emph{Nodes} lists the representations, \emph{Pairs} shows the number of comparisons, \emph{Example Preferred Regex} shows a regex from the preferred node (bolded in \emph{Pairs} column), \emph{Match1} and \emph{Match2} give the matching scores for the first and second representations, respectively, and $H_0: \mu_{match1} = \mu_{match2}$ uses the Mann-Whitney test of means to compare the matching scores, and presents the p-values. The last three columns list the average composition scores for the representations and the composition p-value.
 
