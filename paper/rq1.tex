@@ -2,8 +2,8 @@
 
 \section{Understandability Study (RQ1)}
 \label{sec:rq1}
-This study presents  programmers with regexes and asks comprehension questions. By comparing the understandability of semantically equivalent regexes that match the same language but have different syntactic representations, we aim to identify understandability code smells.
-This study was  implemented on Amazon's Mechanical Turk with 180 participants. A total of 60 regexes were evaluated, constructing 42 pairs of regex comparison. Each regex pattern was evaluated by 30 participants.
+This study presents programmers with regexes and asks comprehension questions. By comparing the understandability of semantically equivalent regexes that match the same language but have different syntactic representations, we aim to identify understandability code smells.
+This study was implemented on Amazon's Mechanical Turk with 180 participants. A total of 60 regexes were evaluated, constructing 42 pairs of regex comparison. Each regex pattern was evaluated by 30 participants.
 %The patterns used were designed to belong to various representations in Figure~\ref{fig:refactoringTree}.
 
 
@@ -23,9 +23,9 @@ For a deeper look at the data to gain a better understanding of factors that imp
 
  The percentage of correct responses, disregarding blanks and unsure responses, is the matching score.
  For example, consider regex pattern \verb!`RR*'!, tge five strings shown in Table~\ref{matchingmetric}, and the responses from four participants in the \emph{P1}, \emph{P2}, \emph{P3} and \emph{P4} columns.
- The {\em Oracle} indicates  the first three strings match and the last two do not. \emph{P1} answers correctly for the first three strings and the fifth, but incorrectly on the fourth, so the matching score is $4/5 = 0.80$. \emph{P2} incorrectly thinks that the second string is not a match, so the score is also $4/5 = 0.80$.  \emph{P3} marks `unsure' for the third string and so the total number of attempted matching questions is 4. \emph{P3} is incorrect about the second and fourth string, so they score $2/4 = 0.50$.  For \emph{P4}, we only have data for the first and second strings, since the other three are blank.  \emph{P4} marks `unsure' for the second string so only one matching question has been attempted;  the matching score is $1/1 = 1.00$.
+ The {\em Oracle} indicates the first three strings match and the last two do not. \emph{P1} answers correctly for the first three strings and the fifth, but incorrectly on the fourth, so the matching score is $4/5 = 0.80$. \emph{P2} incorrectly thinks that the second string is not a match, so the score is also $4/5 = 0.80$.  \emph{P3} marks `unsure' for the third string and so the total number of attempted matching questions is 4. \emph{P3} is incorrect about the second and fourth string, so they score $2/4 = 0.50$.  For \emph{P4}, we only have data for the first and second strings, since the other three are blank.  \emph{P4} marks `unsure' for the second string so only one matching question has been attempted;  the matching score is $1/1 = 1.00$.
 
-Blanks were incorporated into the metric because questions were occasionally left blank in the study. Unsure responses were provided as an option so not to bias the  results through blind guessing. These situations did not occur very frequently.
+Blanks were incorporated into the metric because questions were occasionally left blank in the study. Unsure responses were provided as an option so not to bias the results through blind guessing. These situations did not occur very frequently.
 %Only 1.1\% of the responses were left blank and only 3.8\% of the responses were marked as unsure.  %We refer to a response with all blank or unsure responses as an `NA'.
 Out of 1800 questions (180 participants * 10 questions each), only 1.8\%(32) were impacted by a blank or unsure response (never more than four out of 30 responses per pattern).
 
@@ -67,7 +67,7 @@ Out of 1800 questions (180 participants * 10 questions each), only 1.8\%(32) wer
 
 
 \textbf{Composition:}
-Given a pattern, a participant composes a string they think it matches (question 7.F in Figure~\ref{fig:exampleQuestion}). If the participant is accurate, a composition score is 1, otherwise 0.  For example, given the pattern \verb!(q4fab|ab)! from our study, the string, ``xyzq4fab" matches  and gets a score of 1, but the string, ``acb" does not match and gets  a score of 0.
+Given a pattern, a participant composes a string they think it matches (question 7.F in Figure~\ref{fig:exampleQuestion}). If the participant is accurate, a composition score is 1, otherwise 0.  For example, given the pattern \verb!(q4fab|ab)! from our study, the string, ``xyzq4fab" matches and gets a score of 1, but the string, ``acb" does not match and gets a score of 0.
 
 %To determine a match, each pattern was compiled using the \emph{java.util.regex} library. A \emph{java.util.regex.Matcher} \verb!m! object was created for each composed string using the compiled pattern.  If \verb!m.find()! returned true, then that composed string was a match and scored 1, otherwise it scored 0.
 To determine a match, each pattern was compiled using the \emph{re.compile} module in python. A regular expression object \verb!m! object was created using the compiled pattern. \verb!m.match()! returns a regular match object \verb!m2! with the composed string as input of the function. If \verb!m2! has matches, then that composed string was a match and scored 1, otherwise it scored 0.
@@ -393,7 +393,7 @@ None of the other correlations are significant with $\alpha < 0.05$.  %the regul
 %We also note that since composition is either 1 or 0, we do not perform an ANOVA with composition as the dependent variable. \todo{is this the correct decision?}
 
 \subsection{Summary}
-Matching and composition are impacted by DFA size, and matching is also impacted by regex length and representation, showing some support that the size and representation of the regex impacts comprehension.
+Matching and composition are impacted by DFA size, and matching is also impacted by regex length and representation, showing some support that the size and representation of the regex impact comprehension.
 The larger the DFA, the easier it was for the community to generate strings that match it. 
 %, and regex length, illustrating no clear trends explaining why some regexes are more understandable than others, but we have some hints from the pairwise comparisons. 
 There also appears to be a clear trend favoring T1 over T4. Representations D3 and C5 are also preferred. While C1 is favored  comparisons against C2, C4, and C5, none are significant. 
