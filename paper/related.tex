@@ -1,6 +1,6 @@
 \section{Related Work}
 \label{sec:related}
-Regular expression understandability has not been studied directly, though prior work has suggested that regexes are hard to read and understand as there are tens of thousands of bug reports related to regexes~\cite{Spishak:2012:TSR:2318202.2318207}. 
+Regular expression understandability has not been studied directly, though prior work has suggested that regexes are hard to read and understand~\cite{chapman2016} and noted that there are tens of thousands of bug reports related to regexes~\cite{Spishak:2012:TSR:2318202.2318207}. 
 To aid in regex creation and understanding,  tools have been developed to support more robust creation~\cite{Spishak:2012:TSR:2318202.2318207} or to allow visual debugging~\cite{Beck:2014:RVD:2591062.2591111}. Other research has focused on removing the human from the creation process by learning regular expressions from  text~\cite{Babbar:2010:CBA:1871840.1871848, Li:2008:REL:1613715.1613719}.
 
 Code smells in object-oriented languages were introduced by Fowler~\cite{Fowl1999}. Researchers have studied the impact of code smells on program comprehension~\cite{abbes2011empirical, du2006does}, finding that the more smells in the code, the harder the comprehension. 
@@ -8,18 +8,26 @@ Code smells in object-oriented languages were introduced by Fowler~\cite{Fowl199
 Code smells have been extended to other language paradigms including end-user programming languages~\cite{Hermans2012intra, Hermans2012intraExt, stoleeicse, stoleeTSE}. The code smells identified in this work are representations that are not common or not well understood by developers. Using community standards to define smells has been used in refactoring   for end-user programmers~\cite{stoleeicse, stoleeTSE}. 
 
 Regular expression refactoring has not been studied directly, though refactoring literature abounds~\cite{Mens:2004:SSR:972215.972286, opdyke1992refactoring, Griswold:1993:AAP:152388.152389}. 
-The closest to regex refactoring comes from research toward  expediting  regular expressions processing on large bodies of text~\cite{Baeza-Yates:1996:FTS:235809.235810},  similar to refactoring for performance. 
+Refactoring for conformance to the community in end-user programs~\cite{stoleeicse, stoleeTSE} has been proposed previously, and is the inspiration behind RQ2 in this work.
+The closest to regex refactoring comes from research recent work that uses genetic programming to optimize regexes for runtime performance while maintaining their behavior in the matching language~\cite{cody2017search}. 
+Similarly, other research has focused on expediting  regular expressions processing on large bodies of text~\cite{Baeza-Yates:1996:FTS:235809.235810},  similar to refactoring for performance. 
+Our work is complementary to these efforts, where our focus is on comprehension and theirs is on performance. 
+%Using mutation operators to modify regexes and then generate tests by identifying distinguishing strings~\cite{7899040}. 
 
+Regarding applications, regular expressions have been used for test case generation~\cite{Ghosh:2013:JAT:2486788.2486925, Galler:2014:STD:2683035.2683100, Anand:2013:OSM:2503903.2503991, Tillmann:2014:TAT:2642937.2642941},  and
+as specifications for string constraint solvers~\cite{Trinh:2014:SSS:2660267.2660372, hampi}.
+Flipping this around, recent approaches have used mutation to generate test strings for regular expressions themselves~\cite{7899040}. 
 
 Exploring language feature usage by mining source code has been studied extensively for
 Smalltalk~\cite{Callau:2011:DUD:1985441.1985448},
 JavaScript~\cite{Richards:2010:ADB:1809028.1806598},
+Python regular expressions~\cite{chapman2016},
 and Java~\cite{Dyer:2014:MBA:2568225.2568295, Grechanik:2010:EIL:1852786.1852801, Parnin:2013:AUJ:2589712.2589717, Livshits:2005:RAJ:2099708.2099724},
 and more specifically,
 Java generics~\cite{Parnin:2013:AUJ:2589712.2589717} and
 Java reflection~\cite{Livshits:2005:RAJ:2099708.2099724}.
-Our prior work~\cite{chapman2016} was the first to mine and evaluate regular expression usages from software repositories. 
-The intention of the prior work was to explore regex language features  usage and surveyed developers about regex usage. 
+
+%The intention of the prior work was to explore regex language features  usage and surveyed developers about regex usage. 
 %In this work, we define potential refactorings and use the mined corpus to find support for the presence of various regex representations before performing an understandability analysis.
 % . Beyond that, we measure regex understandability and suggest canonical representations for regexes to enhance conformance to community standards and understandability. 
 
@@ -33,7 +41,7 @@ The intention of the prior work was to explore regex language features  usage an
 %
 %Refactoring comprehension 
 %
-%Refactoring for understandability~\cite{6405299, stoleeicse, stoleeTSE} and conformance to the community in end-user programs~\cite{stoleeicse, stoleeTSE}.
+
 %
 %
 %Regular expression education
@@ -44,8 +52,7 @@ The intention of the prior work was to explore regex language features  usage an
 
 %Regular expressions have been a focus point in a variety of research objectives. 
 %
-%Regarding applications, regular expressions have been used for test case generation~\cite{Ghosh:2013:JAT:2486788.2486925, Galler:2014:STD:2683035.2683100, Anand:2013:OSM:2503903.2503991, Tillmann:2014:TAT:2642937.2642941},  and
-%as specifications for string constraint solvers~\cite{Trinh:2014:SSS:2660267.2660372, hampi}.
+
 %
 %
 %

@@ -29,9 +29,9 @@ Also, given a choice between T1 and T3, the escape character was more understand
 
 \subsection{Opportunities For Future Work}
 \label{sec:futureequivclasses}
-%There are several directions for future work related to regex study and refactoring.
+There are several directions for future work related to regex study and refactoring.
 %
-%\paragraph{Equivalence Class Models}
+\paragraph{Equivalence Class Models}
 
 We looked at five equivalence classes, each with three to five nodes.
 Future work could consider richer models with more or different classes, including: 
@@ -40,12 +40,12 @@ Future work could consider richer models with more or different classes, includi
 %
 %We have not determined a list of all possible refactoring groups given the functional variety and significant number of features to consider, but we are aware of a few additional equivalence classes outside of our 5 groups, such as:
 %Additional equivalence groups to consider may include:
-\begin{itemize} \itemsep -2pt
-%\item[Single line option]  \verb!'''(.|\n)+'''! $\equiv$ \verb!(?s)'''(.)+'''!
-\item Multi line option:  \verb!(?m)G\n! $\equiv$ \verb!(?m)G$!
-\item Case insensitive:  \verb!(?i)[a-z]! $\equiv$ \verb![A-Za-z]!
-\item Backreferences:  \verb!(X)q\1! $\equiv$ \verb!(?P<name>X)q\g<name>!
-%\item[Word Boundaries]  \verb!\bZ! $\equiv$ \verb!((?<=\w)(?=\W)|(?<=\W)(?=\w))Z!
+\begin{itemize} %\itemsep -2pt
+%\item Single line option  \verb!'''(.|\n)+'''! $\equiv$ \verb!(?s)'''(.)+'''!
+\item Multi line option: { \verb!(?m)G\n! $\equiv$ \verb!(?m)G$!}
+\item Case insensitive:{ \verb!(?i)[a-z]! $\equiv$ \verb![A-Za-z]!}
+\item Backreferences: {\verb!(X)q\1! $\equiv$ \verb!(?P<name>X)q\g<name>!}
+%\item Word Boundaries  \verb!\bZ! $\equiv$ \verb!((?<=\w)(?=\W)|(?<=\W)(?=\w))Z!
 \end{itemize}
 
 
@@ -56,12 +56,12 @@ By creating a more granular model of equivalence classes  and carefully evaluati
 
 %We focused on refactorings within a group, treating groups as orthogonal to one another.  It would be interesting to see if there is some cooperation between pairs of edges in separate groups by applying more than one type of refactoring at once.
 
-%\paragraph{Understandability}
-%
-%
-%%One of the most straightforward ways to address understandability is to directly ask software professionals which from a list of equivalent regexes they prefer and why.
-%% but at least one side of the refactoring was contrived and we did not focus on any specific community (the 1544 projects we obtained regexes from were randomly obtained).
-%% If understandability measurements used regexes sampled from the codebase of a specific community(most frequently observed regexes, most buggy regexes, regexes on the hottest execution paths, etc.), and measured the understanding of programming professionals working in that community, then the measurements and the refactorings they imply would be more likely to have a direct and certain positive impact.
+\paragraph{Community-specific Comprehension}
+
+One of the most straightforward ways to address understandability is to directly ask software professionals which from a list of equivalent regexes they prefer and why.
+While we had some positive results, in our evaluation, we did not focus on a specific community or a specific regex purpose (e.g., validating e-mail address, validating IP-address, parsing URLs). 
+% but at least one side of the refactoring was contrived and we did not focus on any specific community (the 1544 projects we obtained regexes from were randomly obtained).
+ If an understandability study used regexes sampled from the codebase of a specific community (e.g., most frequently observed regexes, most buggy regexes, regexes on the hottest execution paths, etc.), and measured the understanding of programming professionals working in that community, then the measurements and the refactorings they imply would be more likely to have a direct impact.
 %
 %In another study, we did a survey where software professionals indicated that understandability of regexes they find in source code is a major pain point.  In this study, our participants indicated that they read about twice as many regexes as they compose.  What is the impact on maintainers, developers and contributors to open-source projects of not being able to understand a regex that they find in the code they are working with?  Presumably this is a frustrating experience - how much does a confusing regex slow down a software professional?  What bugs or other negative factors can be attributed to or associated with regexes that are difficult to understand?  How often does this happen and in what settings?  Future work could tailor an in-depth exploration of the overall costs of confusing regexes and the potential benefits of refactoring or other treatments for confusing regexes.
 
@@ -99,7 +99,7 @@ Participants evaluated regular expressions  on MTurk, which may not be reflectiv
 Some regex representations from the equivalence classes were not involved in the understandability analysis and that may have biased the results against those nodes. 
 More compete coverage of the edges in the equivalence classes is needed.
 
-%We treated unsure responses as omissions that  did not count  against the matching scores. Thus, if a participant answered two strings correctly and marked the other three strings as unsure, then this was 2/2 correct, not 2/5. This may have inflated the matching scores, however, less than 5\% of the matching scores were impacted by such responses.
+We treated unsure responses as omissions that  did not count  against the matching scores. Thus, if a participant answered two strings correctly and marked the other three strings as unsure, then this was 2/2 correct, not 2/5. This may have inflated the matching scores, however, less than 5\% of the matching scores were impacted by such responses.
 
 
 
