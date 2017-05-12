@@ -242,7 +242,7 @@ Since  the regex representations are categorical data, these are excluded from t
 
 
 \subsection{Results}
-Table~\ref{table:anova} shows that DFA size, string length,  representations, and their interactions all significantly affect the accuracy. As a result, we present our results for  matching and composition  using each of the 41 pairs of regexes separately, rather than in aggregate (Table~\ref{table:testedEdgesTable}, discussed later in this section). 
+Table~\ref{table:anova} shows that DFA size, string length,  representations, and their interactions all significantly affect the accuracy. As a result, we present our results for  matching and composition  using each of the 41 pairs of regexes separately, rather than in aggregate over edges explored in the equivalence classes (Table~\ref{table:testedEdgesTable}, discussed later in this section). 
 
 
 
@@ -312,7 +312,8 @@ In fact, the representation C5 was more understandable in that participants coul
  
 For pairs 16, 29, 34, and 36, the difference in composition is significant at $\alpha < 0.05$, indicating differences favoring C5 over C4, T1 over T2, and two favoring T1 over T4. 
 For pairs 23, 37, and 38, the difference in matching is significant with $\alpha < 0.05$, indicating differences favoring D3 over D2 and two favoring T1 over T4. 
-There appears to be a clear trend favoring T1 over T4. Interestingly, for pairs 16 and 29, while the differences in composition are significant, there is a conflict between the composition metrics. Further investigation is needed to understand in what circumstances the metrics are in conflict with one another. 
+%There appears to be a clear trend favoring T1 over T4. 
+Interestingly, for pairs 16 and 29, while the differences in composition are significant, there is a conflict between the composition metrics. Further investigation is needed to understand in what circumstances the metrics are in conflict with one another. 
 
 
 % and we can use that to further corroborate the understandability analysis.
@@ -344,9 +345,14 @@ While the ANOVA indicates that variance in accuracy is due to all three factors,
 Between regex length and accuracy, Spearman's  $\rho=-0.025$, indicating  a weak negative relationship. 
 For DFA size the accuracy,   the correlation is weak and positive $\rho=0.07$. At first, this result may seem counter-intuitive, but considering that larger DFAs may represent more constrained regex languages (i.e., languages that accept fewer strings), these may be easier to understand. %the regular language with a relatively small scope and thus easier for people to recognize. 
 
-Figure~\ref{fig:heatmap} is a heatmap showing the average accuracies of the 60 regexes along with their DFA size and string length. From the figure, we can see the color is darker towards the bottom and left, which confirms the correlation analysis results. \todo{I'm not convinced that the heatmap provides enough value to keep in the paper.}
-We also note that since composition is either 1 or 0, we do not perform an ANOVA with composition as the dependent variable. \todo{is this the correct decision?}
+Figure~\ref{fig:heatmap} is a heatmap showing the average matching accuracies of the 60 regexes along with their DFA sizes and string lengths. 
+We  see no clear trends considering these variables, though the ANOVA that both significantly impact the variance in the matching accuracy. 
+% the color is darker towards the bottom and left, which confirms the correlation analysis results. \todo{I'm not convinced that the heatmap provides enough value to keep in the paper.}
+%We also note that since composition is either 1 or 0, we do not perform an ANOVA with composition as the dependent variable. \todo{is this the correct decision?}
 
+\subsection{Summary}
+Matching accuracy is impacted by the representation, DFA size, and regex length, illustrating no clear trends explaining why some regexes are more understandable than others, but we have some hints from the pairwise comparisons. 
+There appears to be a clear trend favoring T1 over T4. Representations D3 and C5 are also preferred. While C1 is favored  comparisons against C2, C4, and C5, none are significant. 
 
 %\todo{impact of size on matching, composition}
 

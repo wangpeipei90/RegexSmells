@@ -128,10 +128,13 @@ For example, D1 appears in 346 (2.5\%) of the patterns but only 234 (15.2\%) of 
 
 The pattern frequency is our guide for setting the community standards.
 For example, since C1 is more prevalent than C2 in both patterns and projects, we could say that C2 is smelly since it could better conform to community standards if expressed as C1.
-Based on patterns alone, the winning representations per equivalence class are C1, D2, T1, L2, and S2. With one exception, these are the same for recommendations based on projects; L3 appears in more projects than L2, so it is unclear which is smelly.
+%Based on patterns alone, the winning representations per equivalence class are C1, D2, T1, L2, and S2. With one exception, these are the same for recommendations based on projects; L3 appears in more projects than L2, so it is unclear which is smelly.
 
 We note that our criteria for membership in a representation may overestimate the opportunities for refactoring to address the smells. For example, \verb![a-f]! in C1 cannot be refactored to C4 since there does not exist a default character class for that range of characters. A finer-grained analysis is needed to identify actual refactoring opportunities from the smells.
 %Our analysis simply suggests smells. %a direction for a refactoring (in this case, from C4 to C1).
 %Section~\ref{sec:rq3} explores these results more deeply.
 
 %Table~\ref{summaryResults} presents these recommendations for each pair of representations within each equivalence class. The \emph{Comm} column is populated based on the findings of \emph{RQ1}. The findings for \emph{RQ2} and \emph{RQ3} are in the \emph{Match} and \emph{Compose} columns, respectively.
+
+\subsection{Summary}
+Based on patterns alone, the winning representations per equivalence class are C1, D2, T1, L2, and S2. With one exception, these are the same for recommendations based on projects; L3 appears in more projects than L2, so it is unclear which is smelly.
