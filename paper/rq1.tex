@@ -206,19 +206,27 @@ at least an Associates degree (72\%), were at least somewhat familiar with regex
 
 \begin{table}[t]
 \centering
-\caption{3-factor ANOVA results with matching accuracy as the dependent variable, considering representation (rep), DFA size (dfa\_size), and regex length (len) as independent variables}
+\caption{3-factor ANOVA results with average matching accuracy as the dependent variable, considering representation (rep), DFA size (dfa\_size), and regex length (len) as independent variables}
 \begin{tabular}{@{}l@{}rrrrl@{}}
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
   \hline
-dfa\_size              & 1 & 1.47 & 1.47 & 29.05 & 0.0000*** \\ 
-len               & 1 & 0.61 & 0.61 & 12.09 & 0.0005*** \\ 
-  rep                  & 15 & 6.04 & 0.40 & 7.97 & 0.0000*** \\ 
-  dfa\_size:len      & 1 & 0.20 & 0.20 & 3.98 & 0.0461* \\ 
-  dfa\_size:rep         & 14 & 1.95 & 0.14 & 2.76 & 0.0005*** \\ 
-  len:rep          & 10 & 1.78 & 0.18 & 3.52 & 0.0001*** \\ 
-  dfa\_size:len:rep & 3 & 0.66 & 0.22 & 4.36 & 0.0045** \\ 
-  Residuals             & 1722 & 87.03 & 0.05 &  &  \\ 
+dfa\_size &              1 &0.05087 &0.05087 &  7.632 &0.0153 * \\
+len      &          1 &0.02217& 0.02217 &  3.325 &0.0896 . \\
+rep            &      15 &0.20616 &0.01374 &  2.062 &0.0921 . \\
+dfa\_size:len  &     1 &0.00668 &0.00668  & 1.002 &0.3339  \\
+dfa\_size:rep    &     14 &0.06621& 0.00473  & 0.709 &0.7355  \\
+len:rep     &     10 &0.06157 &0.00616  & 0.924& 0.5397  \\
+dfa\_size:len:rep  &3& 0.02325& 0.00775 &  1.163& 0.3589  \\
+Residuals        &     14& 0.09333& 0.00667  &&\\
+%dfa\_size              & 1 & 1.47 & 1.47 & 29.05 & 0.0000*** \\ 
+%len               & 1 & 0.61 & 0.61 & 12.09 & 0.0005*** \\ 
+%  rep                  & 15 & 6.04 & 0.40 & 7.97 & 0.0000*** \\ 
+%  dfa\_size:len      & 1 & 0.20 & 0.20 & 3.98 & 0.0461* \\ 
+%  dfa\_size:rep         & 14 & 1.95 & 0.14 & 2.76 & 0.0005*** \\ 
+%  len:rep          & 10 & 1.78 & 0.18 & 3.52 & 0.0001*** \\ 
+%  dfa\_size:len:rep & 3 & 0.66 & 0.22 & 4.36 & 0.0045** \\ 
+%  Residuals             & 1722 & 87.03 & 0.05 &  &  \\ 
    \hline
 \end{tabular}
 
@@ -230,7 +238,7 @@ len               & 1 & 0.61 & 0.61 & 12.09 & 0.0005*** \\
 
 \begin{table}[t]
 \centering
-\caption{3-factor ANOVA results with composition accuracy as the dependent variable, considering representation (rep), DFA size (dfa\_size), and regex length (len) as independent variables}
+\caption{3-factor ANOVA results with average composition accuracy as the dependent variable, considering representation (rep), DFA size (dfa\_size), and regex length (len) as independent variables}
 \begin{tabular}{@{}l@{}rrrrl@{}}
   \hline
  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
@@ -262,17 +270,19 @@ For each of the 180 HITs, we computed a matching and composition score for each 
 %These groupings allow pairwise comparisons of the metrics values to determine which representation of the regex was most understandable and the direction of a refactoring for understandability.
 Of the original 42 pairs, we report scores for only 41 pairs. Due to a design flaw, the regexes evaluated, \verb!\..*! and \verb!\.+!. were not semantically equivalent (the former is missing an escape and should be \verb!\.\.*!), so this was omitted from the data. In the end, we analyzed 58 regexes that cover  17 edges from Figure~\ref{fig:refactoringTree}.
 
-To gain a better understanding of why some regexes may be more understandable than others, we also look at the impact of the representation from Figure~\ref{fig:refactoringTree}, regex  length, and DFA size on the matching metric. 
+To gain a better understanding of why some regexes may be more understandable than others, we also look at the impact of the representation from Figure~\ref{fig:refactoringTree}, regex  length, and DFA size on the comprehension metrics. 
 Note that  we retain all 60 regexes for this analysis as we are looking at the properties of regexes individually. 
-We conduct a three-factor analysis of variance (ANOVA) with accuracy as the dependent variable.
-We also conduct the correlation analysis between each factors and the accuracy. 
+We conduct  two three-factor analysis of variances (ANOVAs) with matching accuracy and composition accuracy as the dependent variables.
+We also conduct the correlation analysis between each factors and the composition metrics. 
 We use Spearman's Rank-Order Correlation because we have no priori knowledge about the distributions of the factors. 
 Since  the regex representations are categorical data, these are excluded from the correlation analysis. 
 
 
 
 \subsection{Results}
-Table~\ref{table:anova} shows that DFA size significantly affects the average matching accuracy for the regexes; this result is also seen in Table~\ref{table:anova2} where DFA size is shown to affect average composition, too. As a result, and since the DFA sizes vary across the pairwise comparisons, even within a representation, we present our results for  matching and composition  using each of the 41 pairs of regexes separately, rather than in aggregate over edges explored in the equivalence classes (Table~\ref{table:testedEdgesTable}, discussed later in this section). 
+Table~\ref{table:anova} shows that DFA size significantly affects the average matching accuracy for the regexes; this result is also seen in Table~\ref{table:anova2} where DFA size is shown to affect average composition.
+The representation significantly affects the average accuracy at $\alpha = 0.10$. 
+ As a result, and since the DFA sizes vary across the pairwise comparisons, even within a representation, we present our results for  matching and composition  using each of the 41 pairs of regexes separately, rather than in aggregate over edges explored in the equivalence classes (Table~\ref{table:testedEdgesTable}, discussed later in this section). 
 
 
 
@@ -372,9 +382,14 @@ These results mirror the understandability analysis, as T4 and T2 are generally 
 % The findings for D3 and D2 are contradictory, however, as  and further study is needed.
 %  and the number of unsures may be too small to indicate anything, except for T2 and T4.  The one pattern from T4 that had the most unsures of any pattern (i.e., 10 out of 30) was \verb!`xyz[\0133-\0140]'!, so this may have been the least understandable pattern that we tested.
 
-While the ANOVA indicates that variance in accuracy is due to all three factors, representation, DFA size, and regex length, it is not entirely clear why. 
-Between regex length and accuracy, Spearman's  $\rho=-0.025$, indicating  a weak negative relationship. 
-For DFA size the accuracy,   the correlation is weak and positive $\rho=0.07$. At first, this result may seem counter-intuitive, but considering that larger DFAs may represent more constrained regex languages (i.e., languages that accept fewer strings), these may be easier to understand. %the regular language with a relatively small scope and thus easier for people to recognize. 
+While the ANOVA indicates that variance in matching is due to all three factors, representation, DFA size, and regex length, it is not entirely clear why. Variance in composition is impacted by DFA size only. 
+Between DFA size and composition, there is a strong, positive correlation at $\alpha = 0.01$ with $\rho = 0.354$. 
+%Between regex length and accuracy, Spearman's  $\rho=-0.025$, indicating  a weak negative relationship. 
+%For DFA size the accuracy,   the correlation is weak and positive $\rho=0.07$. 
+At first, this result may seem counter-intuitive, but considering that larger DFAs may represent more constrained regex languages (i.e., languages that accept fewer strings), these may be easier to understand. 
+However, as the range of DFAs explored was between two and eight nodes, these results may not generalize to larger regexes. 
+None of the other correlations are significant with $\alpha < 0.05$.  %the regular language with a relatively small scope and thus easier for people to recognize. 
+
 
 %Figure~\ref{fig:heatmap} is a heatmap showing the average matching accuracies of the 60 regexes along with their DFA sizes and string lengths. 
 %We  see no clear trends considering these variables, though the ANOVA that both significantly impact the variance in the matching accuracy. 
@@ -382,8 +397,10 @@ For DFA size the accuracy,   the correlation is weak and positive $\rho=0.07$. A
 %We also note that since composition is either 1 or 0, we do not perform an ANOVA with composition as the dependent variable. \todo{is this the correct decision?}
 
 \subsection{Summary}
-Matching accuracy is impacted by the representation, DFA size, and regex length, illustrating no clear trends explaining why some regexes are more understandable than others, but we have some hints from the pairwise comparisons. 
-There appears to be a clear trend favoring T1 over T4. Representations D3 and C5 are also preferred. While C1 is favored  comparisons against C2, C4, and C5, none are significant. 
+Matching and composition are impacted by DFA size, and matching is also impacted by regex length and representation, showing some support that the size and representation of the regex impacts comprehension.
+The larger the DFA, the easier it was for the community to generate strings that match it. 
+%, and regex length, illustrating no clear trends explaining why some regexes are more understandable than others, but we have some hints from the pairwise comparisons. 
+There also appears to be a clear trend favoring T1 over T4. Representations D3 and C5 are also preferred. While C1 is favored  comparisons against C2, C4, and C5, none are significant. 
 
 %\todo{impact of size on matching, composition}
 
