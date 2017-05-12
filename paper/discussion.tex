@@ -1,12 +1,12 @@
 \section{Discussion}
 \label{sec:discussion}
-Based on our studies, we have identified preferred regex representations that may make regexes easier to understand and their smelly counterparts. Here, we summarize the results.
+Based on our studies, we have identified preferred regex representations that may make regexes easier to understand than their smelly counterparts. Here, we summarize the results.
 
 %We identify smells, not all refactorings are possible or advisable. See Equiv. class definitions for example limitations. 
 
 \subsection{Implications}
-In the CCC equivalence class, C1 (e.g., \verb![0-9a]!) is more commonly found in the patterns and projects.  C2 (e.g., \verb![0123456789a]!) and C3 (e.g., \verb![^\x00-/:-`b-\x7F]!) appear in similar percentages of patterns and projects but there is no significant difference in understandability considering two pairs of regexes tested (i.e., E13 in Table~\ref{table:testedEdgesTable}). 
-A small preference is shown for C1 over C2 (E7), leading this to to be the preference for RQ1--RQ3.
+In the CCC equivalence class, C1 (e.g., \verb![0-9a]!) is more commonly found in the patterns and projects.  C2 (e.g., \verb![0123456789a]!) and C3 (e.g., \verb![^\x00-/:-`b-\x7F]!) appear in similar percentages of patterns and projects but there is no significant difference in understandability considering two pairs of regexes tested. 
+A small preference is shown for C1 over C2, indicating ranges in character classes enhance comprehension. 
 %    Regex length is probably important for understandability, though we did not test for this.
 
 % - the longest regex in the corpus is \todoNow{X} characters long...
@@ -17,7 +17,7 @@ In DBB, D3 (e.g., \verb!pBs|pBBs|pBBBs!) merits further exploration because it i
 
 In the SNG group, S1 is compact (e.g., \verb!S{3}!), but S2 was preferred (e.g., \verb!SSS!). Similar to DBB, this may be due to the particular examples chosen in the analysis, as a large number of explicit repetitions may not be as preferred.
 
-In  LWB,   L2 (e.g., \verb!AAA*!) and L3 (e.g., \verb!AA+!) appear in similar numbers of patterns and projects, but there is a significant difference in their understandability, favoring L3.
+In  LWB,   L2 (e.g., \verb!AAA*!) and L3 (e.g., \verb!AA+!) appear in similar numbers of patterns and projects, but comprehension favors  L3.
 % , it's clear that this is a rare use case, and also that L3 is the most common  use case.  Patterns using star are secondary, helper patterns because they will trivially match anything, so they are less common.  But anyway...
 
 
@@ -33,7 +33,7 @@ There are several directions for future work related to regex study and refactor
 %
 \paragraph{Equivalence Class Models}
 
-We looked at five equivalence classes, each with three to five nodes.
+We looked at five equivalence classes, each with three to five representations. 
 Future work could consider richer models with more or different classes, including: 
 %For example, we have looked at all ranges as equivalent, all defaults as equivalent, and relied on many such generalizations.  However, the range \verb![a-f]! is likely to be more understandable for most people than a range like \verb![:-`]!.
 %In addition to breaking our 5 groups into more specific nodes, future work could model refactorings outside of these groups.
@@ -93,7 +93,8 @@ While we had some positive results, in our evaluation, we did not focus on a spe
 
 \textbf{Internal:}
 We measure understandability  using two metrics, matching and composition. These measures may not reflect actual understanding of regex behavior. To mitigate, we used multiple metrics that require reading and writing regexes. %, but the threat remains.
-Similarly, we measure community support using two metrics, patterns and projects. These measures may not reflect the actual  desire of the community to use the representations  contained within. To mitigate, we use multiple metrics, but ultimately a user study would shed light on actually preferred metrics. 
+
+We measure community support using two metrics, patterns and projects. These measures may not reflect the actual  desire of the community to use the representations  contained within. To mitigate, we use multiple metrics. 
 
 Participants evaluated regular expressions  on MTurk, which may not be reflective enough of the context in which programmers would encounter regexes in practice. Further study is needed to determine the impact of the experimental context. 
 
@@ -102,6 +103,7 @@ More compete coverage of the edges in the equivalence classes is needed.
 
 We treated unsure responses as omissions that  did not count  against the matching scores. Thus, if a participant answered two strings correctly and marked the other three strings as unsure, then this was 2/2 correct, not 2/5. This may have inflated the matching scores, however, less than 5\% of the matching scores were impacted by such responses.
 
+We note that our criteria for membership in a representation may overestimate the opportunities for refactoring to address the smells. For example, \verb![a-f]! in C1 cannot be refactored to C4 since there does not exist a default character class for that range of characters. A finer-grained analysis is needed to identify actual refactoring opportunities from the smells.
 
 
 %

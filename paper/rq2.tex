@@ -1,7 +1,7 @@
 
 \section{Community Support Study (RQ2)}
 \label{sec:rq2}
-The goal of this study is to understand how frequently each of the regex representations appears in source code, as a way to identify community-based smells. %. Based on the results, we identify preferred representations using popularity in source code.
+The goal of this evaluation is to understand how frequently each of the regex representations appears in source code, as a way to identify community standards code smells~\cite{stoleeicse, stoleeTSE}. %. Based on the results, we identify preferred representations using popularity in source code.
 
 
 
@@ -75,7 +75,8 @@ A regex can belong to multiple representations and to multiple projects since th
 
 \subsection{Analysis}
 \label{communityanalysis}
-To match patterns to representations, we used the PCRE parser or treated the regexes as token streams, depending on the characteristics of the representation. Our analysis code is available on GitHub\footnote{\url{http://tinyurl.com/jmeeytk} (this is a git repo - not anonymized)}. Next, we describe the process in detail:
+To match patterns to representations, we used the PCRE parser or treated the regexes as token streams, depending on the characteristics of the representation. Our analysis code is available on GitHub\footnote{blinded for review}. %\url{http://tinyurl.com/jmeeytk} (this is a git repo - not anonymized)}. 
+Next, we describe the process in detail:
 
 \subsubsection{Presence of a Feature}
 For representations that require a particular feature, we used the PCRE parser to decide membership. This applies to D1 (double-bounded repetition with different bounds), D2 (question-mark), S1 (single-bounded repetition), S3 (double-bounded repetition with the same bounds),  L1 (lower-bound repetition), L2 (kleene star), L3  (add repetition), and C3 (negated custom character class).
@@ -130,11 +131,10 @@ The pattern frequency is our guide for setting the community standards.
 For example, since C1 is more prevalent than C2 in both patterns and projects, we could say that C2 is smelly since it could better conform to community standards if expressed as C1.
 %Based on patterns alone, the winning representations per equivalence class are C1, D2, T1, L2, and S2. With one exception, these are the same for recommendations based on projects; L3 appears in more projects than L2, so it is unclear which is smelly.
 
-We note that our criteria for membership in a representation may overestimate the opportunities for refactoring to address the smells. For example, \verb![a-f]! in C1 cannot be refactored to C4 since there does not exist a default character class for that range of characters. A finer-grained analysis is needed to identify actual refactoring opportunities from the smells.
 %Our analysis simply suggests smells. %a direction for a refactoring (in this case, from C4 to C1).
 %Section~\ref{sec:rq3} explores these results more deeply.
 
 %Table~\ref{summaryResults} presents these recommendations for each pair of representations within each equivalence class. The \emph{Comm} column is populated based on the findings of \emph{RQ1}. The findings for \emph{RQ2} and \emph{RQ3} are in the \emph{Match} and \emph{Compose} columns, respectively.
 
 \subsection{Summary}
-Based on patterns alone, the winning representations per equivalence class are C1, D2, T1, L2, and S2. With one exception, these are the same for recommendations based on projects; L3 appears in more projects than L2, so it is unclear which is smelly.
+Based on patterns , the winning representations per equivalence class are C1, D2, T1, L2, and S2. With one exception, these are the same project-based recommendations; L3 appears in more projects than L2, so it is unclear which is smelly.

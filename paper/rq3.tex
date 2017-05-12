@@ -2,12 +2,12 @@
 
 \section{Desirable Representations (RQ3)}
 \label{sec:rq3}
-To determine the overall trends in the data, we created and compared total orderings on the representations in each equivalence class (Figure~\ref{fig:refactoringTree})  with respect to the understandability (RQ1) and community standards (RQ2)   metrics.
+To determine the overall trends in the data, we created and compared total orderings on the representations in each equivalence class (Figure~\ref{fig:refactoringTree})  with respect to the comprehension (RQ1) and community standards (RQ2)   metrics.
 
 \subsection{Analysis}
 Total orderings were achieved by building directed graphs with the representations as nodes and edge directions determined by the metrics: matching and composition for understandability;  patterns and projects for community standards. Within each graph, a topological sort created total  orderings.
 
-The graphs for understandability are based on Table~\ref{table:testedEdgesTable} and for community support are based on Table~\ref{table:nodeCount} and the graphs. 
+The graphs for comprehension are based on Table~\ref{table:testedEdgesTable} and for community support are based on Table~\ref{table:nodeCount}. 
 %The following sections describe the process for building  and sorting the graphs. 
 
 
@@ -25,7 +25,7 @@ In Table~\ref{table:testedEdgesTable}, each row maps to an edge in the understan
 If the matching and composition results both indicate a favorite (i.e., a bolded representation in the {\em Edge} column of Table~\ref{table:testedEdgesTable}), there is a directed edge. For example, in Pair~3, the matching and composition metrics for C3 are higher than C1, resulting in a directed $\overrightarrow{C1  C3}$ arrow. If one of the metrics is a tie, the other is used to break the tie; in Pair~2, the composition scores are the same but C1 is preferred based on matching, resulting in a $\overrightarrow{C2  C1}$. If there is a conflict between the metrics, an undirected edge is used, as is the case with Pair~14, resulting in $\overline{C3 C4}$.
 An example is shown in Figure~\ref{fig:graphsforanalysis}a, which has 17 total edges, 14 of which are directed and three are undirected. 
 
-As a general rule, the higher the ratio between incoming edges and total edges, the less smelly the node. 
+As a general rule, for both graphs, the higher the ratio of incoming edges to total edges, the less smelly the node. 
 %Nodes with fewer incoming edges are more smelly and nodes with more incoming edges are less smelly. 
 %Note that with the CCC group, there is no edge between C3 and C5 because there is no straightforward refactoring between those representations, as discussed in Section~\ref{sec:refactoring}.
 
@@ -33,10 +33,10 @@ As a general rule, the higher the ratio between incoming edges and total edges, 
 \centering
 %\includegraphics[width=0.57\columnwidth]{graphs/ccom.pdf}
 %\includegraphics[width=0.40\columnwidth]{graphs/cart.pdf}
-\includegraphics[width=0.48\columnwidth]{graphs/ccom.pdf}
-\includegraphics[width=0.48\columnwidth]{graphs/cart.pdf}
+\includegraphics[width=0.35\columnwidth]{graphs/ccom.pdf}
+\includegraphics[width=0.35\columnwidth]{graphs/cart.pdf}
 \vspace{-12pt}
-\caption{Trend graphs for the CCC equivalence graph: (a) represent the understandability analysis (RQ1) and (b) represent the artifact analysis (RQ2)}
+\caption{Trend graphs for the CCC equivalence graph: (a) represent the comprehension analysis (RQ1) and (b) represent the artifact analysis (RQ2)}
 
 \label{fig:graphsforanalysis}
 \end{figure}
@@ -77,7 +77,7 @@ DBB & D3 D1 D2  &   D2 D1 D3\\
 %\footnote{When there are confounded representations, as is the case with E8, E4, and E5 which all use tranformations from the CCC and the LIT equivalence classes, we omit those from the understandability graph. This makes sense since all use a transformation between T1 and T4 strongly favoring T1. }
 
 \subsubsection{Topological Sorting}
-Once the two graphs are built for each equivalence class, within each graph, we sort the nodes to identify a (preferably unique) total ordering on the nodes. This ordering represents preferences from the perspective of the understandability or community standards metrics, depending on which graph is analyzed.  
+Once the two graphs are built for each equivalence class, within each graph, we sort the nodes to identify a (preferably unique) total ordering on the nodes. This ordering represents preferences from the perspective of the comprehension or community standards metrics. 
 %we apply a modified version of Kahn's topological sorting algorithm to obtain a total ordering. 
 %The first modification is to remove all undirected edges since Kahn's operates over a directed graph. 
 %To begin, any disconnected nodes are added to the end of the topologically sorted list $L$. 
@@ -125,13 +125,13 @@ The total orderings on nodes for each graph are shown in Table~\ref{topologicalR
 Considering both topological sorts, there is a clear winner in each equivalence class, with the exception of DBB.
 %That is, the node sorted highest in the topological sorts for both the community standards and understandability analyses are 
 This is C1 for CCC, L3 for LBW, S2 for SNG, and T1 for LIT.
-Having a consistent and clear winner is evidence of a preference with respect to community standards and understandability, and thus provides guidance for potential refactorings.
-
 %While the least-smelly representation is relatively clear, the smelliest representation varies.
 %After the top rank, the second rank varies depending on the metric, however, h
-This positive result, that the most popular representation in the corpus is also the most understandable, makes sense as people may be more likely to understand things that are familiar or well documented. However, while L3 is the winner for the LBW group, we note that L2 appears in slightly more patterns.
-DBB is different  as the orderings are completely reversed depending on the analysis, so the community standards favor D2 and understandability favors D3. Further study is needed on this, as well as  LBW and SNG since not all nodes were considered in the understandability analysis. 
+While L3 is the winner for the LBW group, we note that L2 appears in slightly more patterns.
+DBB is different  as the orderings are completely reversed depending on the analysis. %, so the community standards favor D2 and understandability favors D3. 
+Further study is needed on this, as well as  LBW and SNG since not all nodes were considered in the understandability analysis. 
 %
 
 \subsection{Summary}
-\todo{come up at a regex that has *all* the desired representations?}
+Having a consistent and clear winner is evidence of a preference with respect to community standards and understandability, and thus provides guidance for potential refactorings.
+This positive result, that the most popular representation in the corpus is also the most understandable, makes sense as people may be more likely to understand things that are familiar or well documented. 

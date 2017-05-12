@@ -1,11 +1,12 @@
 \section{Related Work}
 \label{sec:related}
-Regular expression understandability has not been studied directly, though prior work has suggested that regexes are hard to read and understand~\cite{chapman2016} and noted that there are tens of thousands of bug reports related to regexes~\cite{Spishak:2012:TSR:2318202.2318207}. 
+Regular expression understandability has not previously been studied directly, though prior work has suggested that regexes are hard to read and understand~\cite{chapman2016} and noted that there are tens of thousands of bug reports related to regexes~\cite{Spishak:2012:TSR:2318202.2318207}. 
 To aid in regex creation and understanding,  tools have been developed to support more robust creation~\cite{Spishak:2012:TSR:2318202.2318207} or to allow visual debugging~\cite{Beck:2014:RVD:2591062.2591111}. Other research has focused on removing the human from the creation process by learning regular expressions from  text~\cite{Babbar:2010:CBA:1871840.1871848, Li:2008:REL:1613715.1613719}.
 
 Code smells in object-oriented languages were introduced by Fowler~\cite{Fowl1999}. Researchers have studied the impact of code smells on program comprehension~\cite{abbes2011empirical, du2006does}, finding that the more smells in the code, the harder the comprehension. 
 %This is similar to our work, except we aim to identify which  regex representations can be considered smelly. 
-Code smells have been extended to other language paradigms including end-user programming languages~\cite{Hermans2012intra, Hermans2012intraExt, stoleeicse, stoleeTSE}. The code smells identified in this work are representations that are not common or not well understood by developers. Using community standards to define smells has been used in refactoring   for end-user programmers~\cite{stoleeicse, stoleeTSE}. 
+Code smells have been extended to other language paradigms including end-user programming languages~\cite{Hermans2012intra, Hermans2012intraExt, stoleeicse, stoleeTSE}. 
+Using community standards to define smells has been used in refactoring   for end-user programmers~\cite{stoleeicse, stoleeTSE}. 
 
 Regular expression refactoring has not been studied directly, though refactoring literature abounds~\cite{Mens:2004:SSR:972215.972286, opdyke1992refactoring, Griswold:1993:AAP:152388.152389}. 
 Refactoring for conformance to the community in end-user programs~\cite{stoleeicse, stoleeTSE} has been proposed previously, and is the inspiration behind RQ2 in this work.
