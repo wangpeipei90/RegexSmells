@@ -15,7 +15,7 @@ This study was  implemented on Amazon's Mechanical Turk with 180 participants. A
 \subsection{Metrics}
 \label{sec:understadningmetric}
  We measure the understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}. These are referred to as the \emph{comprehension metrics}. 
-For a deeper look at the data to gain a better understanding of factors that impact accuracy, we also compute \emph{regex length} and \emph{DFA size} for each regex. 
+For a deeper look at the data to gain a better understanding of factors that impact accuracy (as represented by the matching metric), we also compute \emph{regex length} and \emph{DFA size} for each regex. 
 
 
 \textbf{Matching:}
@@ -232,7 +232,7 @@ For each of the 180 HITs, we computed a matching and composition score for each 
 %These groupings allow pairwise comparisons of the metrics values to determine which representation of the regex was most understandable and the direction of a refactoring for understandability.
 Of the original 42 pairs, we report scores for only 41 pairs. Due to a design flaw, the regexes evaluated, \verb!\..*! and \verb!\.+!. were not semantically equivalent (the former is missing an escape and should be \verb!\.\.*!), so this was omitted from the data. In the end, we analyzed 58 regexes that cover  17 edges from Figure~\ref{fig:refactoringTree}.
 
-To gain a better understanding of why some regexes may be more understandable than others, we also look at the impact of the representation from Figure~\ref{fig:refactoringTree}, regex  length, and DFA size on accuracy. 
+To gain a better understanding of why some regexes may be more understandable than others, we also look at the impact of the representation from Figure~\ref{fig:refactoringTree}, regex  length, and DFA size on the matching metric. 
 Note that  we retain all 60 regexes for this analysis as we are looking at the properties of regexes individually. 
 We conduct a three-factor analysis of variance (ANOVA) with accuracy as the dependent variable.
 We also conduct the correlation analysis between each factors and the accuracy. 
@@ -252,7 +252,7 @@ For the comprehension metrics, Table~\ref{table:testedEdgesTable} presents the r
 Each row represents a {\em Pair} of regex evaluated by study participants.
 The representations for the regexes per Figure~\ref{fig:refactoringTree} are shown in the {\em Edge} column, which is how the table is sorted. 
 The {\em Regex 1} and {\em Regex 2} columns identify the regexes used in the study, mapping to the first and second representations in the {\em Edge}, respectively. 
-{\em Acc1} is the average accuracy for {\em Regex 1} and {\em Acc2} is the average accuracy for {\em Regex 2}. 
+{\em Match1} is the average matching for {\em Regex 1} and {\em Match2} is the average matching for {\em Regex 2}. 
 Using the Mann-Whitney test of means, the {\em sigM} column following tests if there is a significant difference between the accuracies. 
 The {\em Comp1} column presents the percentage of the string responses for that were in fact correctly matched by {\em Regex 1}. {\em Comp2} presents the same information, except for {\em Regex 2}. 
 The following {\em sigC} column uses a test of two proportions to identify if the percentage of the participants who correctly composed a string for Regex 1 is significantly different than the percentage who correctly composed a string for {Regex 2}. 
@@ -276,7 +276,7 @@ In fact, the representation C5 was more understandable in that participants coul
 \centering
 \includegraphics[width=0.75\columnwidth]{graphs/heatmap_avgAccur.eps}
 \vspace{-12pt}
-\caption{Heatmap for impacts of DFA size and regex string length on accuracy}
+\caption{Heatmap for impacts of DFA size and regex string length on accuracy/matching}
 \vspace{-6pt}
 \label{fig:heatmap}
 \end{figure}
@@ -311,8 +311,8 @@ In fact, the representation C5 was more understandable in that participants coul
 % In E1 through E4, there is a statistically significant difference between the representations for at least one of the metrics with $\alpha = 0.10$.  These represent the strongest evidence for code smells, suggesting that T4, D2, and C2 are less understandable.
  
 For pairs 16, 29, 34, and 36, the difference in composition is significant at $\alpha < 0.05$, indicating differences favoring C5 over C4, T1 over T2, and two favoring T1 over T4. 
-For pairs 23, 37, and 38, the difference in accuracy is significant with $\alpha < 0.05$, indicating differences favoring D3 over D2 and two favoring T1 over T4. 
-There appears to be a clear trend favoring T1 over T4. Interestingly, for pairs 16 and 29, while the differences in composition are significant, there is a conflict between the metrics. Further investigation is needed to understand in what circumstances the metrics are in conflict with one another. 
+For pairs 23, 37, and 38, the difference in matching is significant with $\alpha < 0.05$, indicating differences favoring D3 over D2 and two favoring T1 over T4. 
+There appears to be a clear trend favoring T1 over T4. Interestingly, for pairs 16 and 29, while the differences in composition are significant, there is a conflict between the composition metrics. Further investigation is needed to understand in what circumstances the metrics are in conflict with one another. 
 
 
 % and we can use that to further corroborate the understandability analysis.

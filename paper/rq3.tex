@@ -20,9 +20,9 @@ an undirected edge $\overline{L2L3}$ is used. % as there is no winner based on t
 %After considering all pairs of nodes in each equivalence class that also have an edge in Figure~\ref{fig:refactoringTree}, we create graphs, 
 For example, Figure~\ref{fig:graphsforanalysis} shows the graphs for  the CCC group; Figure~\ref{fig:graphsforanalysis}b is based  on community standards. 
 
-A similar process is used to build the graphs based on community standards metrics. 
+A similar process is used to build the graphs based on the community standards metrics. 
 In Table~\ref{table:testedEdgesTable}, each row maps to an edge in the understandability graph. 
-If the accuracy and composition results both indicate a favorite, there is a directed edge. For example, in Pair~3, the accuracy and composition metrics for C3 are higher than C1, resulting in a directed $\overrightarrow{C1  C3}$ arrow. If one of the metrics is a tie, the other is used to break the tie; in Pair~2, the composition scores are the same but C1 is preferred based on accuracy, resulting in a $\overrightarrow{C2  C1}$. If there is a conflict between the metrics, an undirected edge is used, as is the case with Pair~13, resulting in $\overline{C2 C4}$.
+If the matching and composition results both indicate a favorite (i.e., a bolded representation in the {\em Edge} column of Table~\ref{table:testedEdgesTable}), there is a directed edge. For example, in Pair~3, the matching and composition metrics for C3 are higher than C1, resulting in a directed $\overrightarrow{C1  C3}$ arrow. If one of the metrics is a tie, the other is used to break the tie; in Pair~2, the composition scores are the same but C1 is preferred based on matching, resulting in a $\overrightarrow{C2  C1}$. If there is a conflict between the metrics, an undirected edge is used, as is the case with Pair~13, resulting in $\overline{C2 C4}$.
 An example is shown in Figure~\ref{fig:graphsforanalysis}a, which has 17 total edges, 14 of which are directed and three are undirected. 
 
 As a general rule, the higher the ratio between incoming edges and total edges, the less smelly the node. 
@@ -77,7 +77,7 @@ DBB & D3 D1 D2  &   D2 D1 D3\\
 %\footnote{When there are confounded representations, as is the case with E8, E4, and E5 which all use tranformations from the CCC and the LIT equivalence classes, we omit those from the understandability graph. This makes sense since all use a transformation between T1 and T4 strongly favoring T1. }
 
 \subsubsection{Topological Sorting}
-Once the graphs are built for each equivalence class and each set of metrics, we sort the nodes to identify a (preferably unique) total ordering on the nodes. This ordering represents preferences from the perspective of the understandability or community metrics, depending on which graph is analyzed.  
+Once the two graphs are built for each equivalence class, within each graph, we sort the nodes to identify a (preferably unique) total ordering on the nodes. This ordering represents preferences from the perspective of the understandability or community standards metrics, depending on which graph is analyzed.  
 %we apply a modified version of Kahn's topological sorting algorithm to obtain a total ordering. 
 %The first modification is to remove all undirected edges since Kahn's operates over a directed graph. 
 %To begin, any disconnected nodes are added to the end of the topologically sorted list $L$. 
@@ -114,7 +114,7 @@ Thus, we mark ties in order to identify when a tiebreaker is needed.
 % to enforce a total ordering on the nodes (though admittedly, it is not always unique). 
 %For example, on the understandability graph in Figure~\ref{fig:graphsforanalysis}, there is a tie between C3 and C2 since both have no incoming edges, so they are marked as a tie. Further, if C3 is added to $S$ first, when $n=C2$, both C5 and C4 are added to $S$, thus the tie between them is marked. In these cases, a tiebreaker is needed.
 Breaking ties on the community standards graph involves choosing the representation that appears in a larger number of projects, as it is more widespread across the community. 
-Breaking ties in the understandability graph uses the RQ1 results. Based on Table~\ref{table:testedEdgesTable}, we compute the average metrics for each each representation and select the winner based on overall accuracy. 
+Breaking ties in the understandability graph uses the RQ1 results. Based on Table~\ref{table:testedEdgesTable}, we compute the average metrics for each each representation and select the winner. 
 %For example, C4 appears in E5, E12 and E13 with an overall average matching score of 0.81 and composition score of 24.3. C5 appears in E4 and E9 with an average matching of 0.87 and composition of 28.28. Thus, C5 is favored to C4 and appears higher in the sorting.
 
 \subsection{Results}
