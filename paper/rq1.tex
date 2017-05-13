@@ -277,7 +277,7 @@ Since  the regex representations are categorical data, these are excluded from t
 
 
 \subsection{Results}
-The ANOVA in Table~\ref{table:anova} shows that DFA size significantly affects the average matching accuracy for the regexes at $\alpha = 0.05$; a similar result is seen in Table~\ref{table:anova2} where DFA size is shown to affect average composition at $\alpha = 0.01$.
+The ANOVA in Table~\ref{table:anova} shows that DFA size significantly affects both the average matching accuracy and the average composition for the regexes at $\alpha = 0.05$.
 The representation from Table~\ref{fig:refactoringTree} significantly affects the average matching accuracy at $\alpha = 0.10$. 
 Since the DFA sizes vary across the pairwise comparisons within a representation, we present our results for  matching and composition  using each of the 41 pairs of regexes separately, rather than in aggregate over  the equivalence class edges explored. % 
 
@@ -293,15 +293,15 @@ The {\em Regex 1} and {\em Regex 2} columns identify the regexes used in the stu
 Using the Mann-Whitney test of means, the {\em sigM} column following tests if there is a significant difference between the accuracies. 
 The {\em Comp1} column presents the percentage of the string responses for that were in fact correctly matched by {\em Regex 1}. {\em Comp2} presents the same information, except for {\em Regex 2}. 
 The following {\em sigC} column uses a test of two proportions to identify if the percentage of the participants who correctly composed a string for Regex 1 is significantly different than the percentage who correctly composed a string for {Regex 2}. 
-If both comprehension metrics indicated a preferred representation, that representation is bolded in the \emph{Edge} column. Ties are broken by deferring to the other metric (e.g., there's a tie in composition for row 17, but matching indicates a preference for C5, so C5 is bolded. If there is a conflict between the metrics, or both are tied, neither representation is bolded. 
 
 
 %, \emph{Nodes} lists the representations, \emph{Pairs} shows the number of comparisons, \emph{Example Preferred Regex} shows a regex from the preferred node (bolded in \emph{Pairs} column), \emph{Match1} and \emph{Match2} give the matching scores for the first and second representations, respectively, and $H_0: \mu_{match1} = \mu_{match2}$ uses the Mann-Whitney test of means to compare the matching scores, and presents the p-values. The last three columns list the average composition scores for the representations and the composition p-value.
 
-For example, consider row 16 in Table~\ref{table:testedEdgesTable}.
+To illustrate, consider row 16 in Table~\ref{table:testedEdgesTable}.
 One pair of regexes was \verb!([}{])! and \verb!(\{|\})! in C4 and C5, respectively, with average matching scores of 78.79\%  and 70.33\%  and average composition scores of 50.00\%  and 86.67\%, respectively.
 The difference between the composition scores is significant at $\alpha = 0.01$, yet the difference between the accuracies is not. 
-In fact, the representation C5 was more understandable in that participants could more effectively compose a string that it would match, but C4 is more understandable in that participants could more easily determine which of a set of strings would be matched by C4. Thus, neither representation is bolded since there is a conflict. 
+In fact, the representation C5 was more understandable in that participants could more effectively compose a string that it would match, but C4 is more understandable in that participants could more easily determine which of a set of strings would be matched by C4. Thus, neither representation is bolded in the \emph{Edge} column since there is a conflict. 
+If both comprehension metrics indicated a preferred representation, that representation is bolded (e.g., C4 in pair 15). Ties are broken by deferring to the other metric (e.g., there's a tie in composition for row 17, but matching indicates a preference for C5, so C5 is bolded).
 %Thus, the community found \verb!R+! from L3 more understandable.
 %This is not the only regex pair in E5, however, The other is \verb!zaa*! and \verb!za+!. %, and regexes pair \verb!\..*! and \verb!\.+'!.
 %In aggregate, considering both regex pairs, the overall matching average for the regexes belonging to L2 was 0.86 and 0.91 for L3.
