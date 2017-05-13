@@ -15,14 +15,14 @@ This study was implemented on Amazon's Mechanical Turk with 180 participants. A 
 \subsection{Metrics}
 \label{sec:understadningmetric}
  We measure the understandability of regexes using two complementary metrics, \emph{matching} and \emph{compostition}. These are referred to as the \emph{comprehension metrics}. 
-For a deeper look at the data to gain a better understanding of factors that impact accuracy (as represented by the matching metric), we also compute \emph{regex length} and \emph{DFA size} for each regex. 
+For a deeper look at the data to gain a better understanding of factors that impact comprehension, we also compute \emph{regex length} and \emph{DFA size} for each regex. 
 
 
 \textbf{Matching:}
  Given a pattern and a set of strings, a participant determines by inspection which strings will be matched by the pattern. There are four possible responses for each string, \emph{matches}, \emph{not a match}, \emph{unsure}, or blank. An example from our study is shown in Figure~\ref{fig:exampleQuestion}.
 
  The percentage of correct responses, disregarding blanks and unsure responses, is the matching score.
- For example, consider regex pattern \verb!`RR*'!, tge five strings shown in Table~\ref{matchingmetric}, and the responses from four participants in the \emph{P1}, \emph{P2}, \emph{P3} and \emph{P4} columns.
+ For example, consider regex pattern \verb!`RR*'!, the five strings shown in Table~\ref{matchingmetric}, and the responses from four participants in the \emph{P1}, \emph{P2}, \emph{P3} and \emph{P4} columns.
  The {\em Oracle} indicates the first three strings match and the last two do not. \emph{P1} answers correctly for the first three strings and the fifth, but incorrectly on the fourth, so the matching score is $4/5 = 0.80$. \emph{P2} incorrectly thinks that the second string is not a match, so the score is also $4/5 = 0.80$.  \emph{P3} marks `unsure' for the third string and so the total number of attempted matching questions is 4. \emph{P3} is incorrect about the second and fourth string, so they score $2/4 = 0.50$.  For \emph{P4}, we only have data for the first and second strings, since the other three are blank.  \emph{P4} marks `unsure' for the second string so only one matching question has been attempted;  the matching score is $1/1 = 1.00$.
 
 Blanks were incorporated into the metric because questions were occasionally left blank in the study. Unsure responses were provided as an option so not to bias the results through blind guessing. These situations did not occur very frequently.
@@ -258,13 +258,14 @@ Residuals          &   14  & 4926  &   352  &&\\
 \input{table/testedEdgesTable}
 
 \subsection{Analysis}
-For each of the 180 HITs, we computed a matching and composition score for each of the 10 regexes, using the comprehension metrics described in Section~\ref{sec:understadningmetric}. This allowed us to compute and then average 26-30 values for each metric  for each of the 60 regexes (fewer than 30 values were used if all the responses in a matching question were a combination of blanks and unsure). %Next, we computed average scores for matching and composition per regex.
+We computed a matching and composition score for each of regex based on the 30 participant responses. 
+This allowed us to compute and then average 26-30 values for each metric  for each of the 60 regexes (fewer than 30 values were used if all the responses in a matching question were a combination of blanks and unsure). %Next, we computed average scores for matching and composition per regex.
 %\todoLast{Mentioning NAs here?}
 
 
 %Each regex was a member of one of 26 groupings of equivalent regexes.
 %These groupings allow pairwise comparisons of the metrics values to determine which representation of the regex was most understandable and the direction of a refactoring for understandability.
-Of the original 42 pairs, we report scores for only 41 pairs. Due to a design flaw, the regexes evaluated, \verb!\..*! and \verb!\.+!. were not semantically equivalent (the former is missing an escape and should be \verb!\.\.*!), so this was omitted from the data. In the end, we analyzed 58 regexes that cover  17 edges from Figure~\ref{fig:refactoringTree}.
+Of the original 42 pairs, we report scores for 41. Due to a design flaw, the regexes evaluated, \verb!\..*! and \verb!\.+!. were not semantically equivalent (the former is missing an escape and should be \verb!\.\.*!), so this was omitted from the data. In the end, we analyzed 58 regexes that cover  17 edges from Figure~\ref{fig:refactoringTree}.
 
 To gain a better understanding of why some regexes may be more understandable than others, we also look at the impact of the representation from Figure~\ref{fig:refactoringTree}, regex  length, and DFA size on the comprehension metrics. 
 Note that  we retain all 60 regexes for this analysis as we are looking at the properties of regexes individually. 
@@ -276,9 +277,9 @@ Since  the regex representations are categorical data, these are excluded from t
 
 
 \subsection{Results}
-Table~\ref{table:anova} shows that DFA size significantly affects both the average matching accuracy and the average composition for the regexes.
-The representation significantly affects the average accuracy at $\alpha = 0.10$. 
- As a result, and since the DFA sizes vary across the pairwise comparisons, even within a representation, we present our results for  matching and composition  using each of the 41 pairs of regexes separately, rather than in aggregate over edges explored in the equivalence classes (Table~\ref{table:testedEdgesTable}, discussed later in this section). 
+The ANOVA in Table~\ref{table:anova} shows that DFA size significantly affects the average matching accuracy for the regexes at $\alpha = 0.05$; a similar result is seen in Table~\ref{table:anova2} where DFA size is shown to affect average composition at $\alpha = 0.01$.
+The representation from Table~\ref{fig:refactoringTree} significantly affects the average matching accuracy at $\alpha = 0.10$. 
+Since the DFA sizes vary across the pairwise comparisons within a representation, we present our results for  matching and composition  using each of the 41 pairs of regexes separately, rather than in aggregate over  the equivalence class edges explored. % 
 
 
 
@@ -287,7 +288,7 @@ The representation significantly affects the average accuracy at $\alpha = 0.10$
 For the comprehension metrics, Table~\ref{table:testedEdgesTable} presents the results.
 Each row represents a {\em Pair} of regex evaluated by study participants.
 The representations for the regexes per Figure~\ref{fig:refactoringTree} are shown in the {\em Edge} column, which is how the table is sorted. 
-The {\em Regex 1} and {\em Regex 2} columns identify the regexes used in the study, mapping to the first and second representations in the {\em Edge}, respectively. 
+The {\em Regex 1} and {\em Regex 2} columns identify the regexes used in the study, mapping to the first and second representations in the {\em Edge} column, respectively. 
 {\em Match1} is the average matching for {\em Regex 1} and {\em Match2} is the average matching for {\em Regex 2}. 
 Using the Mann-Whitney test of means, the {\em sigM} column following tests if there is a significant difference between the accuracies. 
 The {\em Comp1} column presents the percentage of the string responses for that were in fact correctly matched by {\em Regex 1}. {\em Comp2} presents the same information, except for {\em Regex 2}. 
@@ -298,7 +299,7 @@ If both comprehension metrics indicated a preferred representation, that represe
 %, \emph{Nodes} lists the representations, \emph{Pairs} shows the number of comparisons, \emph{Example Preferred Regex} shows a regex from the preferred node (bolded in \emph{Pairs} column), \emph{Match1} and \emph{Match2} give the matching scores for the first and second representations, respectively, and $H_0: \mu_{match1} = \mu_{match2}$ uses the Mann-Whitney test of means to compare the matching scores, and presents the p-values. The last three columns list the average composition scores for the representations and the composition p-value.
 
 For example, consider row 16 in Table~\ref{table:testedEdgesTable}.
-One pair of regexes was \verb!([}{])! and \verb!(\{|\})! in C4 and C5, respectively, with average matching scores of 0.79  and 0.70 and average composition scores of 50.00\%  and 86.67\%, respectively.
+One pair of regexes was \verb!([}{])! and \verb!(\{|\})! in C4 and C5, respectively, with average matching scores of 78.79\%  and 70.33\%  and average composition scores of 50.00\%  and 86.67\%, respectively.
 The difference between the composition scores is significant at $\alpha = 0.01$, yet the difference between the accuracies is not. 
 In fact, the representation C5 was more understandable in that participants could more effectively compose a string that it would match, but C4 is more understandable in that participants could more easily determine which of a set of strings would be matched by C4. Thus, neither representation is bolded since there is a conflict. 
 %Thus, the community found \verb!R+! from L3 more understandable.
@@ -347,8 +348,8 @@ In fact, the representation C5 was more understandable in that participants coul
 %\subsection{Results}
 % In E1 through E4, there is a statistically significant difference between the representations for at least one of the metrics with $\alpha = 0.10$.  These represent the strongest evidence for code smells, suggesting that T4, D2, and C2 are less understandable.
  
-For pairs 16, 29, 34, and 36, the difference in composition is significant at $\alpha < 0.05$, indicating differences favoring C5 over C4, T1 over T2, and two favoring T1 over T4. 
-For pairs 23, 37, and 38, the difference in matching is significant with $\alpha < 0.05$, indicating differences favoring D3 over D2 and two favoring T1 over T4. 
+For pairs 16, 29, 34, and 36, the difference in composition is significant at $\alpha < 0.05$, indicating differences favoring C5 over C4, T1 over T2, and twice favoring T1 over T4. 
+For pairs 23, 37, and 38, the difference in matching is significant with $\alpha < 0.05$, indicating differences favoring D3 over D2 and twice favoring T1 over T4. 
 %There appears to be a clear trend favoring T1 over T4. 
 Interestingly, for pairs 16 and 29, while the differences in composition are significant, there is a conflict between the composition metrics. Further investigation is needed to understand in what circumstances the metrics are in conflict with one another. 
 
@@ -382,8 +383,8 @@ While the ANOVA indicates that variance in matching is due to all three factors,
 Between DFA size and composition, there is a strong, positive correlation at $\alpha = 0.01$ with $\rho = 0.354$. 
 %Between regex length and accuracy, Spearman's  $\rho=-0.025$, indicating  a weak negative relationship. 
 %For DFA size the accuracy,   the correlation is weak and positive $\rho=0.07$. 
-At first, this result may seem counter-intuitive, but considering that larger DFAs may represent more constrained regex languages (i.e., languages that accept fewer strings), these may be easier to understand. 
-However, as the range of DFAs explored was between two and eight nodes, these results may not generalize to larger regexes. 
+At first, this result may seem counter-intuitive, but considering that larger DFAs may represent more constrained regex languages (i.e., languages that accept fewer strings), these may be easier to compose a string for. 
+However, as the explored DFA size range was between two and eight nodes, these results may not generalize to larger regexes. 
 None of the other correlations are significant with $\alpha < 0.05$.  %the regular language with a relatively small scope and thus easier for people to recognize. 
 
 
@@ -393,7 +394,7 @@ None of the other correlations are significant with $\alpha < 0.05$.  %the regul
 %We also note that since composition is either 1 or 0, we do not perform an ANOVA with composition as the dependent variable. \todo{is this the correct decision?}
 
 \subsection{Summary}
-Matching and composition are impacted by DFA size, and matching is also impacted by regex length and representation, showing some support that the size and representation of the regex impact comprehension.
+Matching and composition are impacted by DFA size, and matching is also impacted by regex length and representation, showing some support that the representation of the regex impacts comprehension.
 The larger the DFA, the easier it was for the community to generate strings that match it. 
 %, and regex length, illustrating no clear trends explaining why some regexes are more understandable than others, but we have some hints from the pairwise comparisons. 
 There also appears to be a clear trend favoring T1 over T4. Representations D3 and C5 are also preferred. While C1 is favored  comparisons against C2, C4, and C5, none are significant. 
