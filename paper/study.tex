@@ -18,10 +18,12 @@
 
 To explore regex comprehension and identify smells, we first define the common terms in this paper, and then answer the following research questions: \\
 %We define regex understandability two ways. First, we present people with regexes exemplifying some of the more common characteristics and ask them comprehension questions along two directions: determine which of a list of strings is matched by the regex, and compose a string that is matched by the regex. Second, assuming that common programming practices are more understandable than uncommon practices, we explore the frequencies of each representation from Figure~\ref{fig:refactoringTree} using thousands of regexes scraped from Python projects.
-\noindent {\textbf{Features:}} Features are the regular expression syntax which are accepted by a certain language. Character classes, alternation, and repetition are of basic features. Advanced features include backreference, grouping, look-around, and so on.
-\noindent {\textbf{Equivalence Classes:}} Equivalence classes are clusters of regular expressions sharing similar behaviors. For example, Custom Character Class is a cluster of regexes to match characters. The equivalence classes discussed in the paper are supported in common languages (e.g., Python, Perl, .Net, Ruby, Java, POSIX)
 
-\noindent {\textbf{Representations:}} Representations are the different literal expressions of equivalent regexes which serve the matching string in the same behavior.
+\noindent {\textbf{Features}} are the regular expression syntax which are accepted by a certain language. Character classes, alternation, and repetition are of basic features. Advanced features include backreference, grouping, look-around, and so on.\\
+
+\noindent {\textbf{Equivalence Classes}} are clusters of regular expressions sharing similar behaviors. For example, Custom Character Class is a cluster of regexes to match characters. The equivalence classes discussed in the paper are supported in common languages (e.g., Python, Perl, .Net, Ruby, Java, POSIX).\\
+
+\noindent {\textbf{Representations}} are the different literal expressions of equivalent regexes which serve the matching string in the same behavior.\\
 
 \noindent {\textbf{RQ1:}} {\em Which regex representations are most understandable?}
 To answer RQ1, we conduct a study in which programmers are presented with a regex and asked comprehension questions about its matching behavior. By comparing accuracy between regexes that match the same language but are expressed differently (e.g., \verb!tri[a-f]3! and \verb!tri(a|b|c|d|e|f)3!), we can measure understandability and identify code smells.
