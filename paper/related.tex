@@ -1,21 +1,21 @@
 \section{Related Work}
 \label{sec:related}
 Regular expression understandability has not previously been studied directly, though prior work has suggested that regexes are hard to read and understand~\cite{chapman2016} and noted that there are tens of thousands of bug reports related to regexes~\cite{Spishak:2012:TSR:2318202.2318207}. 
-To aid in regex creation and understanding,  tools have been developed to support more robust creation~\cite{Spishak:2012:TSR:2318202.2318207} or to allow visual debugging~\cite{Beck:2014:RVD:2591062.2591111}. Other research has focused on removing the human from the creation process by learning regular expressions from  text~\cite{Babbar:2010:CBA:1871840.1871848, Li:2008:REL:1613715.1613719}.
+To aid in regex creation and understanding, tools have been developed to support more robust creation~\cite{Spishak:2012:TSR:2318202.2318207}, to allow visual debugging~\cite{Beck:2014:RVD:2591062.2591111}, or to help programmers complete regex strings~\cite{Omar:2012:ACC:2337223.2337324}. Other research has focused on removing the human from the creation process by learning regular expressions from text~\cite{Babbar:2010:CBA:1871840.1871848, Li:2008:REL:1613715.1613719}.
 
 Code smells in object-oriented languages were introduced by Fowler~\cite{Fowl1999}. Researchers have studied the impact of code smells on program comprehension~\cite{abbes2011empirical, du2006does}, finding that the more smells in the code, the harder the comprehension. 
-%This is similar to our work, except we aim to identify which  regex representations can be considered smelly. 
+%This is similar to our work, except we aim to identify which regex representations can be considered smelly. 
 Code smells have been extended to other language paradigms including end-user programming languages~\cite{Hermans2012intra, Hermans2012intraExt, stoleeicse, stoleeTSE}. 
-Using community standards to define smells has been used in refactoring   for end-user programmers~\cite{stoleeicse, stoleeTSE}. 
+Using community standards to define smells has been used in refactoring for end-user programmers~\cite{stoleeicse, stoleeTSE}. 
 
 Regular expression refactoring has not been studied directly, though refactoring literature abounds~\cite{Mens:2004:SSR:972215.972286, opdyke1992refactoring, Griswold:1993:AAP:152388.152389}. 
 Refactoring for conformance to the community in end-user programs~\cite{stoleeicse, stoleeTSE} has been proposed previously, and is the inspiration behind RQ2 in this work.
 The closest to regex refactoring comes from research recent work that uses genetic programming to optimize regexes for runtime performance while maintaining their behavior in the matching language~\cite{cody2017search}. 
-Similarly, other research has focused on expediting  regular expressions processing on large bodies of text~\cite{Baeza-Yates:1996:FTS:235809.235810},  similar to refactoring for performance. 
+Similarly, other research has focused on expediting regular expressions processing on large bodies of text~\cite{Baeza-Yates:1996:FTS:235809.235810}, similar to refactoring for performance. 
 Our work is complementary to these efforts, where our focus is on comprehension and theirs is on performance. 
 %Using mutation operators to modify regexes and then generate tests by identifying distinguishing strings~\cite{7899040}. 
 
-Regarding applications, regular expressions have been used for test case generation~\cite{Ghosh:2013:JAT:2486788.2486925, Galler:2014:STD:2683035.2683100, Anand:2013:OSM:2503903.2503991, Tillmann:2014:TAT:2642937.2642941},  and
+Regarding applications, regular expressions have been used for test case generation~\cite{Ghosh:2013:JAT:2486788.2486925, Galler:2014:STD:2683035.2683100, Anand:2013:OSM:2503903.2503991, Tillmann:2014:TAT:2642937.2642941}, and
 as specifications for string constraint solvers~\cite{Trinh:2014:SSS:2660267.2660372, hampi}.
 Flipping this around, recent approaches have used mutation to generate test strings for regular expressions themselves~\cite{7899040}. 
 
@@ -28,12 +28,12 @@ and more specifically,
 Java generics~\cite{Parnin:2013:AUJ:2589712.2589717} and
 Java reflection~\cite{Livshits:2005:RAJ:2099708.2099724}.
 
-%The intention of the prior work was to explore regex language features  usage and surveyed developers about regex usage. 
+%The intention of the prior work was to explore regex language features usage and surveyed developers about regex usage. 
 %In this work, we define potential refactorings and use the mined corpus to find support for the presence of various regex representations before performing an understandability analysis.
 % . Beyond that, we measure regex understandability and suggest canonical representations for regexes to enhance conformance to community standards and understandability. 
 
 %Related to mining work, regular expressions have been used to form queries in mining framework~\cite{Begel:2010:CDE:1806799.1806821}, but have not been the focus of the mining activities.
-%Surveys have been used to measure adoption of various programming languages~\cite{Meyerovich:2013:EAP:2509136.2509515, Dattero:2004:PLG:962081.962087}, and been combined with  repository analysis~\cite{Meyerovich:2013:EAP:2509136.2509515}, but have not focused on regexes.
+%Surveys have been used to measure adoption of various programming languages~\cite{Meyerovich:2013:EAP:2509136.2509515, Dattero:2004:PLG:962081.962087}, and been combined with repository analysis~\cite{Meyerovich:2013:EAP:2509136.2509515}, but have not focused on regexes.
 
 %Mining properties of open source repositories is a well-studied topic, focusing, for example, on API usage patterns~\cite{Linares-Vasquez:2014:MEA:2597073.2597085}.
 
@@ -48,7 +48,7 @@ Java reflection~\cite{Livshits:2005:RAJ:2099708.2099724}.
 %Regular expression education
 %
 %
-%Focus on language design for a regex extension to Haskell~\cite{Broberg:2004:REP:1016848.1016863}.  
+%Focus on language design for a regex extension to Haskell~\cite{Broberg:2004:REP:1016848.1016863}. 
 %
 
 %Regular expressions have been a focus point in a variety of research objectives. 
@@ -60,14 +60,14 @@ Java reflection~\cite{Livshits:2005:RAJ:2099708.2099724}.
 %As a query language, lightweight regular expressions are pervasive in search. For example,
 %some data mining frameworks use regular expressions as queries (e.g., ~\cite{Begel:2010:CDE:1806799.1806821}). 
 
-%One common misconception is that all regular expression languages are \emph{regular languages} which can be represented using deterministic finite automata (DFA), and so they are easy to model, easy to describe formally and execute in O(n) time.  In fact, many regular expression matching engines run in exponential time in order to support useful features such as lazy quantifiers, capturing groups, look-aheads and back-references~\cite{msdnmatching}.  In a recent regular expression library, the RE2 projext~\cite{re2}, Russ Cox aimed to use DFAs as much as possible (maximizing speed) while supporting as many useful features as possible.
+%One common misconception is that all regular expression languages are \emph{regular languages} which can be represented using deterministic finite automata (DFA), and so they are easy to model, easy to describe formally and execute in O(n) time. In fact, many regular expression matching engines run in exponential time in order to support useful features such as lazy quantifiers, capturing groups, look-aheads and back-references~\cite{msdnmatching}. In a recent regular expression library, the RE2 projext~\cite{re2}, Russ Cox aimed to use DFAs as much as possible (maximizing speed) while supporting as many useful features as possible.
 
 %Thousands of research papers have focused on various other regular expression-related investigations.
 
 
 
 %In this work, we perform a feature analysis on regular expressions used in the wild and compare that set to the features supported by four popular regular expression tools.
-%Research tools like Hampi~\cite{hampi}, and Rex~\cite{rex}, and commercial tools like brics\cite{brics} and RE2~\cite{re2}, all support the use of regular expressions in various ways. Hampi was developed  in academia and uses regular expressions as a specification language for a constraint solver. Rex was developed by Microsoft Research and generates strings for regular expressions that can be used in  applications such as test case generation~\cite{Anand:2013:OSM:2503903.2503991, Tillmann:2014:TAT:2642937.2642941}. Brics is an open-source package that creates automata from regular expressions for manipulation and evaluation.
+%Research tools like Hampi~\cite{hampi}, and Rex~\cite{rex}, and commercial tools like brics\cite{brics} and RE2~\cite{re2}, all support the use of regular expressions in various ways. Hampi was developed in academia and uses regular expressions as a specification language for a constraint solver. Rex was developed by Microsoft Research and generates strings for regular expressions that can be used in applications such as test case generation~\cite{Anand:2013:OSM:2503903.2503991, Tillmann:2014:TAT:2642937.2642941}. Brics is an open-source package that creates automata from regular expressions for manipulation and evaluation.
 %RE2 is an open-source tool created by Google to power code search with an efficient regex engine.
 
 
@@ -80,7 +80,7 @@ Java reflection~\cite{Livshits:2005:RAJ:2099708.2099724}.
 %Java generics~\cite{Parnin:2013:AUJ:2589712.2589717} and
 %Java reflection~\cite{Livshits:2005:RAJ:2099708.2099724}.
 %To our knowledge, this is the first work to mine and evaluate regular expression usages from existing software repositories. Related to mining work, regular expressions have been used to form queries in mining framework~\cite{Begel:2010:CDE:1806799.1806821}, but have not been the focus of the mining activities.
-%Surveys have been used to measure adoption of various programming languages~\cite{Meyerovich:2013:EAP:2509136.2509515, Dattero:2004:PLG:962081.962087}, and been combined with  repository analysis~\cite{Meyerovich:2013:EAP:2509136.2509515}, but have not focused on regexes.
+%Surveys have been used to measure adoption of various programming languages~\cite{Meyerovich:2013:EAP:2509136.2509515, Dattero:2004:PLG:962081.962087}, and been combined with repository analysis~\cite{Meyerovich:2013:EAP:2509136.2509515}, but have not focused on regexes.
 
 
 % \subsection{Research on Regular Expressions}
@@ -97,7 +97,7 @@ Java reflection~\cite{Livshits:2005:RAJ:2099708.2099724}.
 
 
 %
-%\todoMid{We are building on the survey that indicates regexes are hard to read, and the apparent lack of any regex readability refactoring attempts.  Many papers have talked about refactoring, basically it is changing the form but not the behavior.}
+%\todoMid{We are building on the survey that indicates regexes are hard to read, and the apparent lack of any regex readability refactoring attempts. Many papers have talked about refactoring, basically it is changing the form but not the behavior.}
 
 
 %Prior work that surveyed developers about regex usage found that in a small software company, the 18 surveyed developers compose an average of 172 regexes per year. This is 48\% higher than the number of regexes composed annually by MTurk participants in this work, which may be due to the nature of the jobs performed by the two populations. 
