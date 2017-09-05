@@ -69,13 +69,13 @@
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
 %\title{Understandability Smells in Regular Expressions}
-\title{Exploring Regular Expression Comprehensions}
+\title{Exploring Regular Expression Comprehension}
 
 %\author{(blinded for review)}
 %\iffalse
 \iftrue
 \author{
-\IEEEauthorblockN{Carl Chapman\IEEEauthorrefmark{1}\thanks{* This work was done while this author was in Iowa State University}}
+\IEEEauthorblockN{Carl Chapman\IEEEauthorrefmark{1}\thanks{* This work was done while this author was at Iowa State University.}}
 \IEEEauthorblockA{Sandia National Laboratories\\
 Albuquerque, NM\\
 carlallenchapman@gmail.com}
@@ -116,9 +116,9 @@ ktstolee@ncsu.edu}
 %Regular expressions (regexes) are powerful tools employed across many tasks and platforms. Regexes can be very complex and prior work has shown that developers find regexes to be difficult to compose and understand.
 The regular expression (regex) is a powerful tool employed in a large variety of software engineering tasks. However, prior work has shown that regexes can be very complex and that it could be difficult for developers to compose and understand them.
 %Due to a rich feature set, there is more than one way to compose a regex to get the same desired behavior.
-This work seeks to identify code smells that impact comprehension. We conduct an empirical study on 42 of pairs of behaviorally equivalent but syntactically different regexes using 180 participants and evaluated the understandability of various regex language features.
+This work seeks to identify code smells that impact comprehension. We conduct an empirical study on 42  pairs of behaviorally equivalent but syntactically different regexes using 180 participants and evaluate the understandability of various regex language features.
 %. For example, our study showed that in expressing one or more repetitions of a character the plus (e.g., \verb!`a+'!) operator is more understandable than the Kleene star operator (e.g., \verb!`aa*'!).
-We further analyzed regexes in GitHub to find the community standards or the common usages of various features.
+We further analyze regexes in GitHub to find the community standards or the common usages of various features.
 We found that some regex expression representations are more understandable than others. For example, using a range (e.g., \verb![0-9]!) is often more understandable than a default character class (e.g., \verb![\d]!).
 We also found that the DFA size of a regex significantly affects comprehension for the regexes studied. The larger the DFA of a regex (up to size eight), the more understandable it was.
 Finally, we identify smelly and non-smelly regex representations based on a combination of community standards and understandability metrics. %We also formed recommendations on how to transform regexes to enhance comprehension.
@@ -154,7 +154,7 @@ Finally, we identify smelly and non-smelly regex representations based on a comb
 \balance
 \iftrue
 \section*{Acknowledgements}
-We thank the anonymous reviewers for their helpful comments. Special thanks to the survey participants.
+%We thank the anonymous reviewers for their helpful comments. %Special thanks to the survey participants.
 This research is supported in part by NSF SHF-EAGER-1446932 and  NSF SHF-1645136.
 \fi
 
