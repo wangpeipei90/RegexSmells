@@ -20,7 +20,7 @@ an undirected edge $\overline{L2L3}$ is used. % as there is no winner based on t
 %After considering all pairs of nodes in each equivalence class that also have an edge in Figure~\ref{fig:refactoringTree}, we create graphs,
 For example, Figure~\ref{fig:graphsforanalysis} shows the graphs for the CCC group; Figure~\ref{fig:graphsforanalysis}b is based on community standards.
 
-A similar process is used to build the graphs based on the community standards metrics.
+A similar process is used to build the graphs based on the comprehension metrics.
 In Table~\ref{table:testedEdgesTable}, each row maps to an edge in the understandability graph.
 If the matching and composition results both indicate a favorite (i.e., a bolded representation in the {\em Edge} column of Table~\ref{table:testedEdgesTable}), there is a directed edge. For example, in Pair~3, the matching and composition metrics for C3 are higher than C1, resulting in a directed $\overrightarrow{C1 C3}$ arrow. If one of the metrics is a tie, the other is used to break the tie; in Pair~2, the composition scores are the same but C1 is preferred based on matching, resulting in a $\overrightarrow{C2 C1}$. If there is a conflict between the metrics, an undirected edge is used, as is the case with Pair~14, resulting in $\overline{C3 C4}$.
 An example is shown in Figure~\ref{fig:graphsforanalysis}a, which has 17 total edges, 14 of which are directed and three are undirected.
@@ -36,7 +36,7 @@ As a general rule, for both graphs, the higher the ratio of incoming edges to to
 %\includegraphics[width=0.35\columnwidth]{graphs/ccom.pdf}
 %\includegraphics[width=0.35\columnwidth]{graphs/cart.pdf}
 \includegraphics[width=0.35\columnwidth]{graphs/ccom.eps}
-\includegraphics[width=0.35\columnwidth]{graphs/cart.eps}
+\includegraphics[width=0.35\columnwidth]{graphs/ccart.eps}
 \vspace{-12pt}
 \caption{Trend graphs for the CCC equivalence graph: (a) represent the comprehension analysis (RQ1) and (b) represent the artifact analysis (RQ2)}
 
@@ -108,7 +108,7 @@ Once the two graphs are built for each equivalence class, within each graph, we 
 %  \end{algorithmic}
 %\end{algorithm}
 
-For each node $n$, we compute the ratio of $in\_deg(n) / deg(n)$ where $in\_deg(n)$ is the number of incoming edges to $n$, and $deg(n)$ is the total edges touching $n$. For example, in Figure~\ref{fig:graphsforanalysis}a, $in\_deg(C5) = 2$ and $deg(C5) = 5$.
+For each node $n$, we compute the ratio of $in\_deg(n) / deg(n)$ where $in\_deg(n)$ is the number of incoming edges to $n$, and $deg(n)$ is the total edges touching~$n$. For example, in Figure~\ref{fig:graphsforanalysis}a, $in\_deg(C5) = 2$ and $deg(C5) = 5$.
 The higher the ratio (that is, the more incoming edges indicating preference), the higher the node appears in the sorted list. For example, with node C1 in Figure~\ref{fig:graphsforanalysis}a, the ratio is $7 / 10$ since C1 is involved in ten total comparisons and is favored in seven. The ratio for node C2 is $1 / 5$ as C2 is involved in five comparisons, is preferred in one, is strictly not preferred in three, and has one with no preference, represented as an undirected edge.
 
 One challenge with this (and any topological sorting approach, such as Kahn's algorithm), is that the total ordering is not necessarily unique and often multiple nodes have similar properties.
@@ -135,9 +135,9 @@ Further study is needed on this, as well as LBW and SNG since not all nodes were
 
 These results can guide regex design.
 For example, to match numbers from one to 999, there are (at least) three options: $A$~=~{\tt [1-9]|[1-9][0-9]|[1-9][0-9][0-9]}, $B$~=~{\tt [1-9][0-9]?[0-9]?}, and $C$~=~{\tt [1-9][0-9]\{0,2\}}.
-$A$ contains representations \{C1, D3, S2\}, $B$ contains \{C1, D2\}, and $C$ contains \{C1, D1\}. % D3 and S2, B contains C1 and D2, and C contains C1 and D1.
-According to Table~\ref{topologicalResults}, the sorting in understandability is $A>C>B$ since $D3>D1>D2$. However, what we usually see in source code are B and C but not A. The reason might be that the string of A takes more time to type, or may have a longer runtime.
-In another example, we prefer {\tt \$[0-9]*.[0-9][0-9]} to {\tt \$[0-9]*.[0-9]\{2\}} in order to match dollar amounts. This is because S2 in the former regex dominates S1 in the latter regex.
+$A$ contains representations \{C1, D3, S2\}, $B$ contains \{C1,~D2\}, and $C$ contains \{C1, D1\}. % D3 and S2, B contains C1 and D2, and C contains C1 and D1.
+According to Table~\ref{topologicalResults}, the sorting in understandability is $A>C>B$ since $D3>D1>D2$. However, what we usually see in source code are B and C but not A. The reason might be that the representation of A takes more time to type, or may have a longer runtime performance.
+In another example, we prefer {\tt \$[0-9]*.[0-9][0-9]} to {\tt \$[0-9]*.[0-9]\{2\}} in order to match dollar amounts. This is because S2 in the former regex is preferred to S1 in the latter regex, for all metrics.
 %
 
 \subsection{Summary}
