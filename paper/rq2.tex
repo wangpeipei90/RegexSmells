@@ -21,10 +21,11 @@ Consider the Python snippet:
 r1 = re.\textbf{compile}(`(0|-?[1-9][0-9]*)\$', re.MULTILINE)}
 %\vspace{3mm}
 \\{\footnotesize ~}\\
-The \emph{function} {\tt re.compile} returns a regex object {\tt r1}.
-The \emph{pattern}, \verb!(0|-?[1-9][0-9]*)$, !defines what strings will be matched and the \emph{flag} {\tt re.MULTILINE} modifies the matching behavior.
+The function \emph{re.compile} compiles the regex \texttt{\justify(0|-?[1-9][0-9]*)\$} into \verb!r1!, an object of re.RegexObject. \emph{re.MULTILINE} is a flag that changes the matching behavior from the default one line to multiple lines. 
+%The \emph{function} {\tt re.compile} returns a regex object {\tt r1}.
+%The \emph{pattern}, \verb!(0|-?[1-9][0-9]*)$, !defines what strings will be matched and the \emph{flag} {\tt re.MULTILINE} modifies the matching behavior.
 %The regex pattern is an ordered series of regular expression language feature tokens.
-This particular regex will match strings with a zero at the end of a line, or an integer at the end of a line (i.e., the {\tt -?} sequence indicates the integer may be negative).
+This particular regex will match strings with any integer at the end of a line (``\verb!-?!" indicates the integer may be negative).
 
 
 %Our goal was to collect regex patterns from a variety of projects to represent the breadth of how developers use regexes.
