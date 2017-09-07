@@ -16,7 +16,7 @@
 %%As prior work has shown that regexes are difficult to read~\cite{},
 %We focus on refactoring for understandability.
 
-In this work, we use the term {\em regex representation} to refer to the syntactic expression of a regular expression. A \emph{feature} is a structural component of a regular expression  (e.g., kleene star: \verb!*! or custom character class: \verb![1-5]!). An \emph{equivalence class} is a group of behaviorally equivalent regular expressions. 
+In this work, we use the term {\em regex representation} to refer to the syntactic expression of a regular expression. A \emph{feature} is a structural component of a regular expression  (e.g., Kleene star: \verb!*! or custom character class: \verb![1-5]!). An \emph{equivalence class} is a group of behaviorally equivalent regular expressions. 
 To explore regex comprehension, we answer the following  research questions: \\
 
 %We define regex understandability two ways. First, we present people with regexes exemplifying some of the more common characteristics and ask them comprehension questions along two directions: determine which of a list of strings is matched by the regex, and compose a string that is matched by the regex. Second, assuming that common programming practices are more understandable than uncommon practices, we explore the frequencies of each representation from Figure~\ref{fig:refactoringTree} using thousands of regexes scraped from Python projects.
@@ -32,8 +32,8 @@ To answer RQ1, we conduct a study in which programmers are presented with a rege
 
 We also explore factors that may impact comprehension, namely regex string length, regex DFA size, and the equivalence class representation.
 %We also explore factors that may impact comprehension, such as the regex string length, regex DFA size, and the equivalence class representation.
-This analysis requires identification of equivalence classes for regexes. By inspecting a python regex dataset of nearly 14,000 regexes~\cite{chapman2016}, we formed an initial set of five equivalence classes to explore. \\
-%This analysis requires identification of equivalence classes for regexes. By inspecting nearly 14,000 regexes extracted from Python projects in a publicly available dataset~\cite{chapman2016}, we formed an initial set of five equivalence classes to explore. \\
+This analysis requires identification of equivalence classes for regexes. By inspecting a Python regex dataset of nearly 14,000 regexes~\cite{chapman2016}, we formed an initial set of five types of equivalence classes to explore. \\
+%This analysis requires identification of equivalence classes for regexes. By inspecting nearly 14,000 regexes extracted from Python projects in a publicly available dataset~\cite{chapman2016}, we formed an initial set of five types of equivalence classes to explore. \\
 % as measured by identifying matching strings and by composing matching strings
 
 \noindent {\textbf{RQ2:}} {\em Which regex representations have the strongest {community support} based on frequency?} % each representation appears in regexes in open source Python projects?}

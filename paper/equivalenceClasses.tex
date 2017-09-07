@@ -9,7 +9,7 @@ While they are not a complete set of equivalence classes, this is the first work
 
 %For example, \verb!AAA*! and \verb!AA+! are semantically identical, except one uses the star operator (indicating zero or more repetitions) and the other uses the plus operator (indicating one or more repetitions).
 %Both match strings with two or more \verb!A!'s.
-Figure~\ref{fig:refactoringTree} shows five equivalence classes in grey boxes and examples of behaviorally equivalent {representations} in white boxes with identifiers in white circles. For example, LWB is an equivalence class with representations L1, L2, and L3. Regexes \verb!AAA*! and \verb!AA+! map to L2 and L3, respectively.
+Figure~\ref{fig:refactoringTree} shows five types of equivalence classes in grey boxes and examples of behaviorally equivalent {representations} in white boxes with identifiers in white circles. For example, LWB is an equivalence class with representations L1, L2, and L3. Regexes \verb!AAA*! and \verb!AA+! map to L2 and L3, respectively.
 
 Each equivalence class is accompanied by a deterministic finite automata (DFA) representing the behavior of the example regexes. For example, with the SNG group, each of the regexes accepts strings with a sequence of exactly three `S' characters. The accept state is marked by a double-circle.
 %, along with the L1 representation, \verb!A{2,}!.

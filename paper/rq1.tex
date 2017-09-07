@@ -70,7 +70,9 @@ Out of 1,800 questions (180 participants * 10 questions each), only 1.8\%(32) we
 Given a pattern, a participant composes a string they think it matches (question 7.F in Figure~\ref{fig:exampleQuestion}). If the participant is accurate, a composition score is 1, otherwise 0. For example, given the pattern \verb!(q4fab|ab)! from our study, the string, ``xyzq4fab" matches and gets a score of 1, but the string, ``acb" does not match and gets a score of 0.
 
 %To determine a match, each pattern was compiled using the \emph{java.util.regex} library. A \emph{java.util.regex.Matcher} \verb!m! object was created for each composed string using the compiled pattern. If \verb!m.find()! returned true, then that composed string was a match and scored 1, otherwise it scored 0.
-To determine a match, each pattern was compiled using the \emph{java.util.regex} library in Java. A {\em java.util.regex.Matcher} \verb!m! object was created for each composed string using the compiled pattern. If {\tt m.find()} returns {\tt true}, then that composed string was a match and scored 1; otherwise it scored~0.
+%To determine a match, each pattern was compiled using the \emph{java.util.regex} library in Java. A {\em java.util.regex.Matcher} \verb!m! was created for each composed string using the compiled pattern. If {\tt m.find()} returns {\tt true}, then that composed string was a match and scored 1; otherwise it scored~0.
+
+To determine a match, each pattern was compiled using the \emph{re.compile} module in Python. A regular expression object \verb!m! was created using the compiled pattern. \verb!m.search()! returns a regular match object \verb!m2! with the composed string as the input of the function. If \verb!m2! is not \emph{None}, then that composed string was a match and scored 1; otherwise it scored~0.
 
 \textbf{Regex Length:}
 Given a pattern, the regex length is computed by its literal string length. For example, regexes \verb!\072! and \verb!ab*c! are both length four.
