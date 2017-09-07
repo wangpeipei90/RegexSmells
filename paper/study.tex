@@ -2,7 +2,7 @@
 \centering
 %\includegraphics[width=\textwidth]{illustrations/refactoringTree.eps}
 %\includegraphics[scale=0.3]{illustrations/refactoringTree.eps}
-\includegraphics[width=0.85\textwidth]{illustrations/refactoringTree.eps}
+\includegraphics[width=0.90\textwidth]{illustrations/refactoringTree.eps}
 \vspace{-6pt}
 \caption{Equivalence classes based on language features. DBB = Double-Bounded, SNG = Single Bounded, LWB = Lower Bounded, CCC = Custom Character Class and LIT = Literal. We use concrete regexes along with their Deterministic Finite Automaton (DFA) in the representations for illustration. However, the A's in the LWB group (or B's in DBB group, S's in SNG group, and so forth) abstractly represent any pattern that could be operated on by a repetition modifier (e.g., literal characters, character classes, or groups). The same is true for the literals used in all the representations. }
 \vspace{-6pt}
@@ -16,7 +16,7 @@
 %%As prior work has shown that regexes are difficult to read~\cite{},
 %We focus on refactoring for understandability.
 
-In this work, we use the term {\em regex representation} to refer to the syntactic expression of a regular expression. A \emph{feature} is a structural component of a regular expression  (e.g., kleene star: \verb!*! or custom character class: \verb![1-5]!). An \emph{equivalence class} is a group of behaviorally equivalent regular expressions with different representations. 
+In this work, we use the term {\em regex representation} to refer to the syntactic expression of a regular expression. A \emph{feature} is a structural component of a regular expression  (e.g., kleene star: \verb!*! or custom character class: \verb![1-5]!). An \emph{equivalence class} is a group of behaviorally equivalent regular expressions. 
 To explore regex comprehension, we answer the following  research questions: \\
 
 %We define regex understandability two ways. First, we present people with regexes exemplifying some of the more common characteristics and ask them comprehension questions along two directions: determine which of a list of strings is matched by the regex, and compose a string that is matched by the regex. Second, assuming that common programming practices are more understandable than uncommon practices, we explore the frequencies of each representation from Figure~\ref{fig:refactoringTree} using thousands of regexes scraped from Python projects.

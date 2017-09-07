@@ -3,7 +3,7 @@
 \section{Understandability Study (RQ1)}
 \label{sec:rq1}
 This study presents programmers with regexes and asks comprehension questions. By comparing the understandability of semantically equivalent regexes that match the same language but have different syntactic representations, we aim to identify understandability code smells.
-This study\footnote{\url{https://github.com/wangpeipei90/RegexSmells/blob/master/questionnaire.pdf}} was implemented on Amazon's Mechanical Turk with 180 participants. A total of 60 regexes were evaluated, constructing 42 pairs of regex comparison. Each regex pattern was evaluated by 30 participants.
+This study was implemented on Amazon's Mechanical Turk with 180 participants. A total of 60 regexes were evaluated, constructing 42 pairs of regex comparison. Each regex pattern was evaluated by 30 participants.
 %The patterns used were designed to belong to various representations in Figure~\ref{fig:refactoringTree}.
 
 
@@ -19,7 +19,7 @@ For a deeper look at the data to gain a better understanding of factors that imp
 
 
 \textbf{Matching:}
- Given a pattern and a set of strings, a participant determines by inspection which strings will be matched by the pattern. There are four possible responses for each string, \emph{matches}, \emph{not a match}, \emph{unsure}, or blank. An example from our study is shown in Figure~\ref{fig:exampleQuestion}.
+ Given a pattern and a set of strings, a participant determines by inspection which strings will be matched by the pattern. There are four possible responses for each string, \emph{matches}, \emph{not a match}, \emph{unsure}, or blank. An example\footnote{Task instructions are also available: \url{https://github.com/wangpeipei90/RegexSmells/blob/master/questionnaire.pdf}} from our study is shown in Figure~\ref{fig:exampleQuestion}.
 
  The percentage of correct responses, disregarding blanks and unsure responses, is the matching score.
  For example, consider regex pattern \verb!`RR*'!, the five strings shown in Table~\ref{matchingmetric}, and the responses from four participants in the \emph{P1}, \emph{P2}, \emph{P3} and \emph{P4} columns.
