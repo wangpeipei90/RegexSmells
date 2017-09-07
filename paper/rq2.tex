@@ -10,7 +10,7 @@ corpus of regexes collected from Python code in GitHub projects~\cite{chapman201
 This dataset has 13,597 distinct (non-duplicate) regex patterns from 1,544 projects.
 
 %We targeted Python as it is a popular programming language with a strong presence on GitHub, being the fourth most common language after Java, Javascript, and Ruby. Further, Python's regex pattern language is close enough to other regex libraries that our conclusions are likely to generalize.
-This corpus was created by analyzed static invocations to the Python {\tt re} library.
+This corpus was created by analyzing static invocations to the Python {\tt re} library.
 Consider the Python snippet:
 %\begin{lstlisting}[language=Python,firstnumber=1, basicstyle=\footnotesize]
 %r1 = re.compile('(0|-?[1-9][0-9]*)$', re.MULTILINE)
@@ -85,7 +85,7 @@ To match patterns to representations, we used the PCRE parser or treated the reg
 Next, we describe the process in detail:
 
 \subsubsection{Presence of a Feature}
-For representations that require a particular feature, we used the PCRE parser to decide membership. This applies to D1, D2, S1, S3, L1, L2, L3, and C3.
+For representations that require a particular feature, we used the PCRE parser to decide membership. This applies to D1, D2, S1, S3, L1, L2, L3, and~C3.
 %For representations that require a particular feature, we used the PCRE parser to decide membership. This applies to D1 (double-bounded repetition with different bounds), D2 (question-mark), S1 (single-bounded repetition), S3 (double-bounded repetition with the same bounds), L1 (lower-bound repetition), L2 (Kleene star), L3 (add repetition), and C3 (negated custom character class).
 
 %

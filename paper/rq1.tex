@@ -23,11 +23,11 @@ For a deeper look at the data to gain a better understanding of factors that imp
 
  The percentage of correct responses, disregarding blanks and unsure responses, is the matching score.
  For example, consider regex pattern \verb!`RR*'!, the five strings shown in Table~\ref{matchingmetric}, and the responses from four participants in the \emph{P1}, \emph{P2}, \emph{P3} and \emph{P4} columns.
- The {\em Oracle} indicates the first three strings match and the last two do not. \emph{P1} answers correctly for the first three strings and the fifth, but incorrectly on the fourth, so the matching score is $4/5 = 0.80$. \emph{P2} incorrectly thinks that the second string is not a match, so the score is also $4/5 = 0.80$. \emph{P3} marks `unsure' for the third string and so the total number of attempted matching questions is 4. \emph{P3} is incorrect about the second and fourth string, so they score $2/4 = 0.50$. For \emph{P4}, we only have data for the first and second strings, since the other three are blank. \emph{P4} marks `unsure' for the second string so only one matching question has been attempted; the matching score is $1/1 = 1.00$.
+ The {\em Oracle} indicates the first three strings match and the last two do not; Python's {\tt  re.search()} function is used to determine a match. \emph{P1} answers correctly for the first three strings and the fifth, but incorrectly on the fourth, so the matching score is $4/5 = 0.80$. \emph{P2} incorrectly thinks that the second string is not a match, so the score is also $4/5 = 0.80$. \emph{P3} marks `unsure' for the third string and so the total number of attempted matching questions is 4. \emph{P3} is incorrect about the second and fourth string, so they score $2/4 = 0.50$. For \emph{P4}, we only have data for the first and second strings, since the other three are blank. \emph{P4} marks `unsure' for the second string so only one matching question has been attempted; the matching score is $1/1 = 1.00$.
 
 Blanks were incorporated into the metric because questions were occasionally left blank in the study. Unsure responses were provided as an option so not to bias the results through blind guessing. These situations did not occur very frequently.
 %Only 1.1\% of the responses were left blank and only 3.8\% of the responses were marked as unsure. %We refer to a response with all blank or unsure responses as an `NA'.
-Out of 1800 questions (180 participants * 10 questions each), only 1.8\%(32) were impacted by a blank or unsure response (never more than four out of 30 responses per pattern).
+Out of 1,800 questions (180 participants * 10 questions each), only 1.8\%(32) were impacted by a blank or unsure response (never more than four out of 30 responses per pattern).
 
 
 \begin{figure}[tb]
@@ -70,13 +70,13 @@ Out of 1800 questions (180 participants * 10 questions each), only 1.8\%(32) wer
 Given a pattern, a participant composes a string they think it matches (question 7.F in Figure~\ref{fig:exampleQuestion}). If the participant is accurate, a composition score is 1, otherwise 0. For example, given the pattern \verb!(q4fab|ab)! from our study, the string, ``xyzq4fab" matches and gets a score of 1, but the string, ``acb" does not match and gets a score of 0.
 
 %To determine a match, each pattern was compiled using the \emph{java.util.regex} library. A \emph{java.util.regex.Matcher} \verb!m! object was created for each composed string using the compiled pattern. If \verb!m.find()! returned true, then that composed string was a match and scored 1, otherwise it scored 0.
-To determine a match, each pattern was compiled using the \emph{re.compile} module in python. A regular expression object \verb!m! object was created using the compiled pattern. \verb!m.search()! returns a regular match object \verb!m2! with the composed string as the input of the function. If \verb!m2! is not \emph{None}, then that composed string was a match and scored 1, otherwise it scored 0.
+To determine a match, each pattern was compiled using the \emph{java.util.regex} library in Java. A {\em java.util.regex.Matcher} \verb!m! object was created for each composed string using the compiled pattern. If {\tt m.find()} returns {\tt true}, then that composed string was a match and scored 1; otherwise it scored~0.
 
 \textbf{Regex Length:}
 Given a pattern, the regex length is computed by its literal string length. For example, regexes \verb!\072! and \verb!ab*c! are both length four.
 
 \textbf{DFA Size:}
-To compute the size of minimal DFA, we run both \textit{brics}~\cite{brics} and \textit{Rex}~\cite{rex} on each regex, and mannually check their results to guarantee their correctness.
+To compute the size of minimal DFA, we run both \textit{brics}~\cite{brics} and \textit{Rex}~\cite{rex} on each regex, and manually check their results to guarantee their correctness.
 %The DFA size is the number of states of minimal DFA. We run both \textit{brics}~\cite{brics} and \textit{Rex}~\cite{rex} on each regex in order to get the minimal DFA. We also mannually check their results to guarantee their correctness.
 \iffalse
 We note that \textit{brics} always shows the minimal DFAs but its syntax is very restricted in language coverage~\cite{chapman2016} while \textit{Rex} accepts most regular expression features, but does not guarantee a minimal DFA (although, as it turns out, most are minimal). %Although most of the DFAs generated by \textit{Rex} are minimal but they are not guaranteed to be minimal.
@@ -270,7 +270,7 @@ The average analysis or average composition is computed by averaging the associa
 %These groupings allow pairwise comparisons of the metrics values to determine which representation of the regex was most understandable and the direction of a refactoring for understandability.
 Of the original 42 pairs, we report scores for 41. Due to a design flaw, the regexes evaluated, \verb!\..*! and \verb!\.+!. were not semantically equivalent (the former is missing an escape and should be \verb!\.\.*!), so this was omitted from the data. In the end, we analyzed 58 regexes that cover 17 edges from Figure~\ref{fig:refactoringTree}.
 
-To gain a better understanding of why some regexes may be more understandable than others, we also look at the impact of the representation from Figure~\ref{fig:refactoringTree}, regex length, and DFA size\footnote{The design is not specifically designed for regex length and DFA size} on the comprehension metrics.
+To gain a better understanding of why some regexes may be more understandable than others, we also look at the impact of the representation from Figure~\ref{fig:refactoringTree}, regex length, and DFA size\footnote{Note that the study was not specifically designed for regex length and DFA size} on the comprehension metrics.
 Note that we retain all 60 regexes for this analysis as we are looking at the properties of regexes individually.
 We conduct two three-factor analysis of variances (ANOVAs) with matching accuracy and composition accuracy as the dependent variables.
 We also conduct the correlation analysis between these three factors and the composition metrics.
@@ -280,8 +280,8 @@ Since the regex representations are categorical data, these are excluded from th
 
 
 \subsection{Results}
-The ANOVA in Table~\ref{table:anova} shows that DFA size significantly affects both the average matching accuracy and the average composition for the regexes at $\alpha = 0.05$.
-The representation from Table~\ref{fig:refactoringTree} significantly affects the average matching accuracy at $\alpha = 0.10$.
+The ANOVA in Table~\ref{table:anova} shows that DFA size significantly affects both the average matching accuracy and the average composition at $\alpha = 0.05$ and $\alpha = 0.01$, respectively.
+The length and representation from Figure~\ref{fig:refactoringTree} each significantly affect the average matching accuracy at $\alpha = 0.10$.
 Since the DFA sizes vary across the pairwise comparisons within a representation, we present our results for matching and composition using each of the 41 pairs of regexes separately, rather than in aggregate over the equivalence class edges explored. %
 
 
@@ -292,7 +292,7 @@ For the comprehension metrics, Table~\ref{table:testedEdgesTable} presents the r
 Each row represents a {\em Pair} of regex evaluated by study participants.
 The representations for the regexes per Figure~\ref{fig:refactoringTree} are shown in the {\em Edge} column, which is how the table is sorted.
 The {\em Regex 1} and {\em Regex 2} columns identify the regexes used in the study, mapping to the first and second representations in the {\em Edge} column, respectively.
-{\em Match1} is the average matching for {\em Regex 1} and {\em Match2} is the average matching for {\em Regex 2}.
+{\em Match1} is the average matching for {\em Regex 1} and {\em Match2} is the average matching for {\em Regex~2}.
 Using the Mann-Whitney test of means, the {\em sigM} column following tests if there is a significant difference between the accuracies.
 The {\em Comp1} column presents the percentage of the string responses for that were in fact correctly matched by {\em Regex 1}. {\em Comp2} presents the same information, except for {\em Regex 2}.
 The following {\em sigC} column uses a test of two proportions to identify if the percentage of the participants who correctly composed a string for Regex 1 is significantly different than the percentage who correctly composed a string for {Regex 2}.
@@ -300,7 +300,7 @@ The following {\em sigC} column uses a test of two proportions to identify if th
 
 %, \emph{Nodes} lists the representations, \emph{Pairs} shows the number of comparisons, \emph{Example Preferred Regex} shows a regex from the preferred node (bolded in \emph{Pairs} column), \emph{Match1} and \emph{Match2} give the matching scores for the first and second representations, respectively, and $H_0: \mu_{match1} = \mu_{match2}$ uses the Mann-Whitney test of means to compare the matching scores, and presents the p-values. The last three columns list the average composition scores for the representations and the composition p-value.
 
-To illustrate, consider row 16 in Table~\ref{table:testedEdgesTable}.
+To illustrate, consider pair 16 in Table~\ref{table:testedEdgesTable}.
 One pair of regexes was \verb!([}{])! and \verb!(\{|\})! in C4 and C5, respectively, with average matching scores of 78.79\% and 70.33\% and average composition scores of 50.00\% and 86.67\%, respectively.
 The difference between the composition scores is significant at $\alpha = 0.01$, yet the difference between the accuracies is not.
 In fact, the representation C5 was more understandable in that participants could more effectively compose a string that it would match, but C4 is more understandable in that participants could more easily determine which of a set of strings would be matched by C4. Thus, neither representation is bolded in the \emph{Edge} column since there is a conflict.
