@@ -4,7 +4,7 @@
 %\includegraphics[scale=0.3]{illustrations/refactoringTree.eps}
 \includegraphics[width=0.85\textwidth]{illustrations/refactoringTree.eps}
 \vspace{-6pt}
-\caption{Equivalence classes with various representations. DBB = Double-Bounded, SNG = Single Bounded, LWB = Lower Bounded, CCC = Custom Character Class and LIT = Literal. We use concrete regexes along with their Deterministic Finite Automaton (DFA) in the representations for illustration. However, the A's in the LWB group (or B's in DBB group, S's in SNG group, and so forth) abstractly represent any pattern that could be operated on by a repetition modifier (e.g., literal characters, character classes, or groups). The same is true for the literals used in all the representations. }
+\caption{Equivalence classes based on language features. DBB = Double-Bounded, SNG = Single Bounded, LWB = Lower Bounded, CCC = Custom Character Class and LIT = Literal. We use concrete regexes along with their Deterministic Finite Automaton (DFA) in the representations for illustration. However, the A's in the LWB group (or B's in DBB group, S's in SNG group, and so forth) abstractly represent any pattern that could be operated on by a repetition modifier (e.g., literal characters, character classes, or groups). The same is true for the literals used in all the representations. }
 \vspace{-6pt}
 \label{fig:refactoringTree}
 \end{figure*}
@@ -16,7 +16,9 @@
 %%As prior work has shown that regexes are difficult to read~\cite{},
 %We focus on refactoring for understandability.
 
-To explore regex comprehension and identify smells, we answer the following research questions: \\
+In this work, we use the term {\em regex representation} to refer to the syntactic expression of a regular expression. A \emph{feature} is a structural component of a regular expression  (e.g., kleene star: \verb!*! or custom character class: \verb![1-5]!). An \emph{equivalence class} is a group of behaviorally equivalent regular expressions with different representations. 
+To explore regex comprehension, we answer the following  research questions: \\
+
 %We define regex understandability two ways. First, we present people with regexes exemplifying some of the more common characteristics and ask them comprehension questions along two directions: determine which of a list of strings is matched by the regex, and compose a string that is matched by the regex. Second, assuming that common programming practices are more understandable than uncommon practices, we explore the frequencies of each representation from Figure~\ref{fig:refactoringTree} using thousands of regexes scraped from Python projects.
 
 %\noindent {\textbf{Features}} are the regular expression syntax which are accepted by a certain language. Character classes, alternation, and repetition are of basic features. Advanced features include backreference, grouping, look-around, and so on.\\
@@ -26,7 +28,7 @@ To explore regex comprehension and identify smells, we answer the following rese
 %\noindent {\textbf{Representations}} are the different literal expressions of equivalent regexes which serve the matching string in the same behavior.\\
 
 \noindent {\textbf{RQ1:}} {\em Which regex representations are most understandable?}
-To answer RQ1, we conduct a study in which programmers are presented with a regex and asked comprehension questions about its matching behavior. By comparing accuracy between regexes that match the same language but are expressed differently (e.g., \verb!tri[a-f]3! and \verb!tri(a|b|c|d|e|f)3!), we can measure understandability and identify code smells.
+To answer RQ1, we conduct a study in which programmers are presented with a regex and asked comprehension questions about its matching behavior. By comparing accuracy between  regexes that match the same language but are expressed using different representations (e.g., \verb!tri[a-f]3! and \verb!tri(a|b|c|d|e|f)3!), we can measure understandability and identify code smells.
 
 We also explore factors that may impact comprehension, namely regex string length, regex DFA size, and the equivalence class representation.
 %We also explore factors that may impact comprehension, such as the regex string length, regex DFA size, and the equivalence class representation.
