@@ -1,7 +1,6 @@
-
 \section{Community Support Study (RQ2)}
 \label{sec:rq2}
-The goal of this evaluation is to understand how frequently each of the regex representations appears in the source code, as a way to identify community standards code smells~\cite{stoleeicse, stoleeTSE}. %. Based on the results, we identify preferred representations using popularity in the source code.
+The goal of this evaluation is to understand how frequently each of the regex representations appears in source code, as a way to identify community standards code smells~\cite{stoleeicse, stoleeTSE}. %. Based on the results, we identify preferred representations using popularity in source code.
 
 
 
@@ -13,9 +12,15 @@ This dataset has 13,597 distinct (non-duplicate) regex patterns from 1,544 proje
 %We targeted Python as it is a popular programming language with a strong presence on GitHub, being the fourth most common language after Java, Javascript, and Ruby. Further, Python's regex pattern language is close enough to other regex libraries that our conclusions are likely to generalize.
 This corpus was created by analyzed static invocations to the Python {\tt re} library.
 Consider the Python snippet:
-\begin{lstlisting}[language=Python,firstnumber=1, basicstyle=\footnotesize]
-r1 = re.compile('(0|-?[1-9][0-9]*)$', re.MULTILINE)
-\end{lstlisting}
+%\begin{lstlisting}[language=Python,firstnumber=1, basicstyle=\footnotesize]
+%r1 = re.compile('(0|-?[1-9][0-9]*)$', re.MULTILINE)
+%\end{lstlisting}
+%\vspace{3mm}
+\\{\footnotesize ~}\\
+{\tt \footnotesize
+r1 = re.\textbf{compile}('(0|-?[1-9][0-9]*)\$', re.MULTILINE)}
+%\vspace{3mm}
+\\{\footnotesize ~}\\
 The \emph{function} {\tt re.compile} returns a regex object {\tt r1}.
 The \emph{pattern}, \verb!(0|-?[1-9][0-9]*)$, !defines what strings will be matched and the \emph{flag} {\tt re.MULTILINE} modifies the matching behavior.
 %The regex pattern is an ordered series of regular expression language feature tokens.
@@ -80,7 +85,8 @@ To match patterns to representations, we used the PCRE parser or treated the reg
 Next, we describe the process in detail:
 
 \subsubsection{Presence of a Feature}
-For representations that require a particular feature, we used the PCRE parser to decide membership. This applies to D1 (double-bounded repetition with different bounds), D2 (question-mark), S1 (single-bounded repetition), S3 (double-bounded repetition with the same bounds), L1 (lower-bound repetition), L2 (Kleene star), L3 (add repetition), and C3 (negated custom character class).
+For representations that require a particular feature, we used the PCRE parser to decide membership. This applies to D1, D2, S1, S3, L1, L2, L3, and C3.
+%For representations that require a particular feature, we used the PCRE parser to decide membership. This applies to D1 (double-bounded repetition with different bounds), D2 (question-mark), S1 (single-bounded repetition), S3 (double-bounded repetition with the same bounds), L1 (lower-bound repetition), L2 (Kleene star), L3 (add repetition), and C3 (negated custom character class).
 
 %
 %\begin{figure}[tb]
@@ -108,7 +114,7 @@ Python-style octal structure. %, requiring either exactly three digits after a s
 T3 requires that a single literal character is wrapped in a custom character class (a member of T3 is always a member of C2).
 T1 requires that no characters are wrapped in brackets or are hex or octal characters, which matches over 91\% of the patterns analyzed.
 
-\subsubsection{Token Stream }
+\subsubsection{Token Stream}
 %The rest of the representations were identified by representing the regex patterns as a sequence of tokens.
 S2 requires a repeated element. This element could be a character class, a literal, or a collection of things encapsulated in parentheses; rather than a parser, we used a token stream to identify it.
 C1 requires that a non-negative character class contains a range.

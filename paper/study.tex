@@ -1,8 +1,8 @@
 \begin{figure*}[tb]
 \centering
-\includegraphics[width=\textwidth]{illustrations/refactoringTree.eps}
-%\includegraphics[scale=0.8]{illustrations/refactoringTree.eps}
-%\includegraphics[width=0.85\textwidth]{illustrations/refactoringTree.eps}
+%\includegraphics[width=\textwidth]{illustrations/refactoringTree.eps}
+%\includegraphics[scale=0.3]{illustrations/refactoringTree.eps}
+\includegraphics[width=0.85\textwidth]{illustrations/refactoringTree.eps}
 \vspace{-6pt}
 \caption{Equivalence classes with various representations. DBB = Double-Bounded, SNG = Single Bounded, LWB = Lower Bounded, CCC = Custom Character Class and LIT = Literal. We use concrete regexes along with their Deterministic Finite Automaton (DFA) in the representations for illustration. However, the A's in the LWB group (or B's in DBB group, S's in SNG group, and so forth) abstractly represent any pattern that could be operated on by a repetition modifier (e.g., literal characters, character classes, or groups). The same is true for the literals used in all the representations. }
 \vspace{-6pt}
@@ -28,8 +28,10 @@ To explore regex comprehension and identify smells, we answer the following rese
 \noindent {\textbf{RQ1:}} {\em Which regex representations are most understandable?}
 To answer RQ1, we conduct a study in which programmers are presented with a regex and asked comprehension questions about its matching behavior. By comparing accuracy between regexes that match the same language but are expressed differently (e.g., \verb!tri[a-f]3! and \verb!tri(a|b|c|d|e|f)3!), we can measure understandability and identify code smells.
 
-We also explore factors that may impact comprehensions, such as the regex string length, regex DFA size, and the equivalence class representation.
-This analysis requires identification of equivalence classes for regexes. By inspecting nearly 14,000 regexes extracted from Python projects in a publicly available dataset~\cite{chapman2016}, we formed an initial set of five equivalence classes to explore. \\
+We also explore factors that may impact comprehension, namely regex string length, regex DFA size, and the equivalence class representation.
+%We also explore factors that may impact comprehension, such as the regex string length, regex DFA size, and the equivalence class representation.
+This analysis requires identification of equivalence classes for regexes. By inspecting a python regex dataset of nearly 14,000 regexes~\cite{chapman2016}, we formed an initial set of five equivalence classes to explore. \\
+%This analysis requires identification of equivalence classes for regexes. By inspecting nearly 14,000 regexes extracted from Python projects in a publicly available dataset~\cite{chapman2016}, we formed an initial set of five equivalence classes to explore. \\
 % as measured by identifying matching strings and by composing matching strings
 
 \noindent {\textbf{RQ2:}} {\em Which regex representations have the strongest {community support} based on frequency?} % each representation appears in regexes in open source Python projects?}

@@ -10,7 +10,7 @@ In an evaluation using humans where we measure comprehension of various regular 
 that repetition operators, such as \verb!?! in D2 can decrease comprehension, and that using ranges is preferred to some character classes (e.g., \verb![A-Za-z0-9_! is often more understandable than \verb!\w!).
 
 In general, the factors that explain differences in comprehension metrics are the DFA size and the representation, where DFA sizes range from two to eight and the representations are as defined in Section~\ref{fig:refactoringTree}.
-The implications of these results are for refactoring tool designers and code maintainers. Opting to use the preferred regex representations, when possible, may increase the understandability of regexes in the source code.
+The implications of these results are for refactoring tool designers and code maintainers. Opting to use the preferred regex representations, when possible, may increase the understandability of regexes in source code.
 Since there are differences in regex comprehension based on how regexes are syntactically composed, it also has implications for refactoring tool designers to add refactoring for comprehension, which could enable developers to more easily compose regexes that are easier to understand.
 %In the CCC equivalence class, C1 (e.g., \verb![0-9a]!) is more commonly found in the patterns and projects. C2 (e.g., \verb![0123456789a]!) and C3 (e.g., \verb![^\x00-/:-`b-\x7F]!) appear in similar percentages of patterns and projects but there is no significant difference in understandability considering two pairs of regexes tested.
 %A small preference is shown for C1 over C2, indicating ranges in character classes enhance comprehension.
@@ -46,7 +46,7 @@ Future work could consider models with more different classes, such as:
 %
 %We have not determined a list of all possible refactoring groups given the functional variety and significant number of features to consider, but we are aware of a few additional equivalence classes outside of our 5 groups, such as:
 %Additional equivalence groups to consider may include:
-\begin{itemize} %\itemsep -2pt
+\begin{itemize}[leftmargin=8pt] %\itemsep -2pt
 %\item Single line option \verb!'''(.|\n)+'''! $\equiv$ \verb!(?s)'''(.)+'''!
 \item Multiline option: { \verb!(?m)G\n! $\equiv$ \verb!(?m)G$!}
 \item Case insensitive: { \verb!(?i)[a-z]! $\equiv$ \verb![A-Za-z]!}
@@ -70,7 +70,7 @@ In our evaluation, we did not focus on a specific community or a specific regex 
  If an understandability study used regexes sampled from the codebase of a specific community (e.g., most frequently observed regexes, most buggy regexes, regexes on the hottest execution paths, etc.), and measured the understanding of programming professionals working in that community, then the measurements and the refactoring they imply would be more likely to have a direct impact.
  \fi
 %
-%In another study, we did a survey where software professionals indicated that understandability of regexes they find in the source code is a major pain point. In this study, our participants indicated that they read about twice as many regexes as they compose. What is the impact on maintainers, developers and contributors to open-source projects of not being able to understand a regex that they find in the code they are working with? Presumably this is a frustrating experience - how much does a confusing regex slow down a software professional? What bugs or other negative factors can be attributed to or associated with regexes that are difficult to understand? How often does this happen and in what settings? Future work could tailor an in-depth exploration of the overall costs of confusing regexes and the potential benefits of refactoring or other treatments for confusing regexes.
+%In another study, we did a survey where software professionals indicated that understandability of regexes they find in source code is a major pain point. In this study, our participants indicated that they read about twice as many regexes as they compose. What is the impact on maintainers, developers and contributors to open-source projects of not being able to understand a regex that they find in the code they are working with? Presumably this is a frustrating experience - how much does a confusing regex slow down a software professional? What bugs or other negative factors can be attributed to or associated with regexes that are difficult to understand? How often does this happen and in what settings? Future work could tailor an in-depth exploration of the overall costs of confusing regexes and the potential benefits of refactoring or other treatments for confusing regexes.
 
 %\vspace{-1pt}
 %\paragraph{Regex Migration Libraries}
