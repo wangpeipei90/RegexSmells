@@ -9,62 +9,62 @@ Node & Description & Example & nPatterns & \% patterns & nProjects & \% projects
 \toprule[0.16em]
 %corpusProjectIDs.size(): 1544
 C1 & char class using ranges & \begin{minipage}{1.5in}\begin{verbatim}
-'^[1-9][0-9]*$'\end{verbatim}\end{minipage}
+^[1-9][0-9]*$\end{verbatim}\end{minipage}
  & 2,479 & 18.2\% & 810 & 52.5\%\\
 C2 & char class explicitly listing all chars & \begin{minipage}{1.5in}\begin{verbatim}
-'[aeiouy]'\end{verbatim}\end{minipage}
+[aeiouy]\end{verbatim}\end{minipage}
  & 1,903 & 14.0\% & 715 & 46.3\%\\
 C3 & any negated char class & \begin{minipage}{1.5in}\begin{verbatim}
-'[^A-Za-z0-9.]+'\end{verbatim}\end{minipage}
+[^A-Za-z0-9.]+\end{verbatim}\end{minipage}
  & 1,935 & 14.2\% & 776 & 50.3\%\\
 C4 & char class using defaults & \begin{minipage}{1.5in}\begin{verbatim}
-'[-+\d.]'\end{verbatim}\end{minipage}
+[-+\d.]\end{verbatim}\end{minipage}
  & 840 & 6.2\% & 414 & 26.8\%\\
 C5 & an OR of length-one sub-patterns & \begin{minipage}{1.5in}\begin{verbatim}
-'(@|<|>|-|!)'\end{verbatim}\end{minipage}
+(@|<|>|-|!)\end{verbatim}\end{minipage}
  & 245 & 1.8\% & 239 & 15.5\%\\
 \midrule
-D1 & curly brace repetition like \{M,N\} with $M<N$ & \begin{minipage}{1.5in}\begin{verbatim}
-'^x{1,4}$'\end{verbatim}\end{minipage}
+D1 & curly brace repetition like \{M,N\} with M\textless N & \begin{minipage}{1.5in}\begin{verbatim}
+^x{1,4}$\end{verbatim}\end{minipage}
  & 346 & 2.5\% & 234 & 15.2\%\\
 D2 & zero-or-one repetition using question mark & \begin{minipage}{1.5in}\begin{verbatim}
-'^http(s)?://'\end{verbatim}\end{minipage}
+^http(s)?://\end{verbatim}\end{minipage}
  & 1,871 & 13.8\% & 646 & 41.8\%\\
 D3 & repetition expressed using an OR & \begin{minipage}{1.5in}\begin{verbatim}
-'^(Q|QQ)\<(.+)\>$'\end{verbatim}\end{minipage}
+^(Q|QQ)\<(.+)\>$\end{verbatim}\end{minipage}
  & 10 & .1\% & 27 & 1.7\%\\
 \midrule
 T1 & no HEX, OCT or char-class-wrapped literals & \begin{minipage}{1.5in}\begin{verbatim}
-'get_tag'\end{verbatim}\end{minipage}
+get_tag\end{verbatim}\end{minipage}
  & 12,482 & 91.8\% & 1,485 & 96.2\%\\
 T2 & has HEX literal like \verb!\xF5! & \begin{minipage}{1.5in}\begin{verbatim}
-'[\x80-\xff]'\end{verbatim}\end{minipage}
+[\x80-\xff]\end{verbatim}\end{minipage}
  & 479 & 3.5\% & 243 & 15.7\%\\
 T3 & has char-class-wrapped literals like [\$] & \begin{minipage}{1.5in}\begin{verbatim}
-'[$][{]\d+:([^}]+)[}]'\end{verbatim}\end{minipage}
+[$][{]\d+:([^}]+)[}]\end{verbatim}\end{minipage}
  & 307 & 2.3\% & 268 & 17.4\%\\
 T4 & has OCT literal like \verb!\0177! & \begin{minipage}{1.5in}\begin{verbatim}
-'[\041-\176]+:$'\end{verbatim}\end{minipage}
+[\041-\176]+:$\end{verbatim}\end{minipage}
  & 14 & .1\% & 37 & 2.4\%\\
 \midrule
 L1 & curly brace repetition like \{M,\} & \begin{minipage}{1.5in}\begin{verbatim}
-'(DN)[0-9]{4,}'\end{verbatim}\end{minipage}
+(DN)[0-9]{4,}\end{verbatim}\end{minipage}
  & 91 & .7\% & 166 & 10.8\%\\
 L2 & zero-or-more repetition using Kleene star & \begin{minipage}{1.5in}\begin{verbatim}
-'\s*(#.*)?$'\end{verbatim}\end{minipage}
+\s*(#.*)?$\end{verbatim}\end{minipage}
  & 6,017 & 44.3\% & 1,097 & 71.0\%\\
 L3 & one-or-more repetition using plus & \begin{minipage}{1.5in}\begin{verbatim}
-'[A-Z][a-z]+'\end{verbatim}\end{minipage}
+[A-Z][a-z]+\end{verbatim}\end{minipage}
  & 6,003 & 44.1\% & 1,207 & 78.2\%\\
 \midrule
 S1 & curly brace repetition like \{M\} & \begin{minipage}{1.5in}\begin{verbatim}
-'^[a-f0-9]{40}$'\end{verbatim}\end{minipage}
+^[a-f0-9]{40}$\end{verbatim}\end{minipage}
  & 581 & 4.3\% & 340 & 22.0\%\\
 S2 & explicit sequential repetition & \begin{minipage}{1.5in}\begin{verbatim}
-'ff:ff:ff:ff:ff:ff'\end{verbatim}\end{minipage}
+ff:ff:ff:ff:ff:ff\end{verbatim}\end{minipage}
  & 3,378 & 24.8\% & 861 & 55.8\%\\
 S3 & curly brace repetition like \{M,M\} & \begin{minipage}{1.5in}\begin{verbatim}
-'U[\dA-F]{5,5}'\end{verbatim}\end{minipage}
+U[\dA-F]{5,5}\end{verbatim}\end{minipage}
  & 27 & .2\% & 32 & 2.1\%\\
 \bottomrule[0.13em]
 \end{tabular}
