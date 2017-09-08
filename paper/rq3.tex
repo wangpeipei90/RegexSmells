@@ -58,24 +58,6 @@ As a general rule, for both graphs, the higher the ratio of incoming edges to to
 %\end{footnotesize}
 %\end{table}
 
-\begin{table}
-\centering
-\caption{Topological Sorting, with the left-most position being highest (non-smelly) and the right-most being most smelly \label{topologicalResults} }
-%\vspace{-6pt}
-\vspace{-3pt}
-\begin{tabular}{| l | l | l |}  \hline
-& Understandability & Community  \\ \hline
-CCC & C1 C5 C3 C4 C2  &   C1 C3 C2 C4 C5  \\
-DBB & D3 D1 D2  &   D2 D1 D3\\
- LBW & L3 L2	 &  L3 L2 L1 	\\
- SNG &  S2 S1 &  S2 S1 S3 \\
- LIT & T1 T3 T2 T4 & T1 T3 T2 T4 \\
-\hline
-\end{tabular}
-\vspace{-6pt}
-\vspace{-6pt}
-\vspace{-3pt}
-\end{table}
 
 
 
@@ -125,6 +107,26 @@ Thus, we mark ties in order to identify when a tiebreaker is needed.
 Breaking ties on the community standards graph involves choosing the representation that appears in a larger number of projects, as it is more widespread across the community.
 Breaking ties in the understandability graph uses the RQ1 results. Based on Table~\ref{table:testedEdgesTable}, we compute the average metrics for each representation and select the winner.
 %For example, C4 appears in E5, E12, and E13 with an overall average matching score of 0.81 and composition score of 24.3. C5 appears in E4 and E9 with an average matching of 0.87 and composition of 28.28. Thus, C5 is favored to C4 and appears higher in the sorting.
+
+\begin{table}
+\centering
+\caption{Topological Sorting, with the left-most position being highest (non-smelly) and the right-most being most smelly \label{topologicalResults} }
+%\vspace{-6pt}
+\vspace{-3pt}
+\begin{tabular}{| l | l | l |}  \hline
+& Understandability & Community  \\ \hline
+CCC & C1 C5 C3 C4 C2  &   C1 C3 C2 C4 C5  \\
+DBB & D3 D1 D2  &   D2 D1 D3\\
+ LBW & L3 L2	 &  L3 L2 L1 	\\
+ SNG &  S2 S1 &  S2 S1 S3 \\
+ LIT & T1 T3 T2 T4 & T1 T3 T2 T4 \\
+\hline
+\end{tabular}
+\vspace{-6pt}
+\vspace{-3pt}
+%\vspace{-3pt}
+\end{table}
+
 
 \subsection{Results}
 The total orderings on nodes for each graph are shown in Table~\ref{topologicalResults}. For example, given the graphs in Figure~\ref{fig:graphsforanalysis}a and Figure~\ref{fig:graphsforanalysis}b, the topological sorts are {\tt C1 C5 C3 C4 C2} and {\tt C1 C3 C2 C4 C5}, respectively.
