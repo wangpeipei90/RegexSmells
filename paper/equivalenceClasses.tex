@@ -9,7 +9,7 @@ While they are not a complete set of equivalence classes, this is the first work
 
 %For example, \verb!AAA*! and \verb!AA+! are semantically identical, except one uses the star operator (indicating zero or more repetitions) and the other uses the plus operator (indicating one or more repetitions).
 %Both match strings with two or more \verb!A!'s.
-Figure~\ref{fig:refactoringTree} shows five types of equivalence classes in grey boxes and examples of behaviorally equivalent {representations} in white boxes with identifiers in white circles. For example, LWB is an equivalence class with representations L1, L2, and L3. Regexes \verb!AAA*! and \verb!AA+! map to L2 and L3, respectively.
+Figure~\ref{fig:refactoringTree} shows five types of equivalence classes in grey boxes and examples of behaviorally equivalent {representations} in white boxes with identifiers in white circles. For example, LWB is a type of equivalence classes with representations L1, L2, and L3. Regexes \verb!AAA*! and \verb!AA+! map to L2 and L3, respectively.
 
 Each equivalence class is accompanied by a deterministic finite automata (DFA) representing the behavior of the example regexes. For example, with the SNG group, each of the regexes accepts strings with a sequence of exactly three `S' characters. The accept state is marked by a double-circle.
 %, along with the L1 representation, \verb!A{2,}!.
@@ -85,7 +85,7 @@ We use the ASCII charset in which all characters can be expressed using hex and 
 \begin{description} \itemsep -1pt
 \item[T1:] Patterns that do not use any hex, wrapped, or octal characters, but use at least one literal character. Special characters are escaped using the backslashes.
 \item[T2:] Any pattern using a hex token, such as \verb!\x07!.
-\item[T3:] Any pattern with a literal wrapped in square brackets.
+\item[T3:] Any pattern with a literal character wrapped in square brackets.
 %Literal character can be wrapped in brackets to form a custom character classes of size one, such as \verb![x]!.
 This style is used most often to avoid using a backslash for a special character in the regex language, for example, \verb![{]! which must otherwise be escaped like \verb!\{!.
 

@@ -59,7 +59,7 @@ There also may exist critical comprehension differences within a representation.
 By creating a more granular model of equivalence classes and carefully evaluating alternative representations of the most frequently used specific patterns, additional useful smells could be identified.
 
 \noindent \textbf{Automated Improvement:}
-Currently the equivalence classes are identified manually. In future work, we  will consider automatically generating the equivalence classes by building behavioral clusters and observing how regex representations differ within those clusters. % and make recommendations according to the representations in each equivalence class.
+Currently the equivalence classes are identified manually. In future work, we will consider automatically generating the equivalence classes by building behavioral clusters and observing how regex representations differ within those clusters. % and make recommendations according to the representations in each equivalence class.
 
 %We focused on refactorings within a group, treating groups as orthogonal to one another. It would be interesting to see if there is some cooperation between pairs of edges in separate groups by applying more than one type of refactoring at once.
 \iffalse
@@ -98,7 +98,7 @@ In our evaluation, we did not focus on a specific community or a specific regex 
 
 \subsection{Threats to Validity}
 
-\textbf{Internal:}
+\noindent \textbf{Internal:}
 We measure understandability using two metrics: matching and composition. These measures may not reflect the actual understanding of regex behavior. To mitigate, we used multiple metrics that require reading and writing regexes. %, but the threat remains.
 
 We measure community support using two metrics: patterns and projects. These measures may not reflect the actual desire of the community to use the representations contained within. To mitigate, we use multiple metrics.
@@ -120,7 +120,7 @@ We treated unsure responses as omissions that did not count against the matching
 %It may also be meaningful to provide some code that exists around a regex as context since that would better represent a scenario in which programmers would encounter regexes in practice.
 %Further study is needed to determine if the chosen metrics and experimentation context have resulted in a reasonable measure of understandability.
 
-\textbf{External:}
+\noindent \textbf{External:}
 The regexes used in the evaluation were inspired by those found in Python code, which is just one language that has library support for regexes, and may not generalize to other languages. %Furthermore, the DFAs and regex string length are not the main consideration during MTurk study. The DFAs for the regexes ranged in size from two to eight, so the comprehension metrics may not generalize to larger regexes.
 Furthermore, the DFAs for the regexes ranged in size from two to eight, so the comprehension metrics may not generalize to larger regexes.% Thus, we may have missed opportunities for other refactorings based on how programmers use regexes in other programming languages.
 

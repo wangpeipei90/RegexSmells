@@ -1,3 +1,4 @@
+\input{table/nodeCountTable}
 \section{Community Support Study (RQ2)}
 \label{sec:rq2}
 The goal of this evaluation is to understand how frequently each of the regex representations appears in source code, as a way to identify community standards code smells~\cite{stoleeicse, stoleeTSE}. %. Based on the results, we identify preferred representations using popularity in source code.
@@ -11,12 +12,12 @@ This dataset has 13,597 distinct (non-duplicate) regex patterns from 1,544 proje
 
 %We targeted Python as it is a popular programming language with a strong presence on GitHub, being the fourth most common language after Java, Javascript, and Ruby. Further, Python's regex pattern language is close enough to other regex libraries that our conclusions are likely to generalize.
 This corpus was created by analyzing static invocations to the Python {\tt re} library.
-Consider the Python snippet:
+Consider the Python snippet:\\
 %\begin{lstlisting}[language=Python,firstnumber=1, basicstyle=\footnotesize]
 %r1 = re.compile('(0|-?[1-9][0-9]*)$', re.MULTILINE)
 %\end{lstlisting}
 %\vspace{3mm}
-\\{\footnotesize ~}\\
+{\footnotesize ~}\\
 {\tt \footnotesize
 r1 = re.\textbf{compile}(`(0|-?[1-9][0-9]*)\$', re.MULTILINE)}
 %\vspace{3mm}
@@ -60,7 +61,7 @@ This particular regex will match strings with any integer at the end of a line (
 
 \subsection{Metrics}
 \label{sec:communitymetric}
-We measure community support by matching regexes in the corpus to representations in Figure~\ref{fig:refactoringTree} and counting the \emph{patterns} and \emph{projects}. These are referred to as the \emph{community standards metrics}.
+We measure community support by matching regexes in the corpus to representations in Figure~\ref{fig:refactoringTree} and by counting the \emph{patterns} and \emph{projects}. These are referred to as the \emph{community standards metrics}.
 %A \emph{pattern} is extracted from a utilization, as shown in Figure~\ref{fig:exampleUsage}.
 A regex can belong to multiple representations and to multiple projects since the corpus tracks its duplicates.
 % and only analyze the distinct regex patterns.
@@ -81,12 +82,14 @@ A regex can belong to multiple representations and to multiple projects since th
 
 \subsection{Analysis}
 \label{communityanalysis}
-To match patterns to representations, we used the PCRE parser or treated the regexes as token streams, depending on the characteristics of the representation. Our analysis code is available on GitHub\footnote{\url{https://github.com/wangpeipei90/RegexSmells}}.
+To match patterns to representations, we either used the PCRE parser to parse features of patterns or extracted token streams of them. The choice depends on the characteristics of the representation. Our analysis code is available on GitHub\footnote{\url{https://github.com/wangpeipei90/RegexSmells}}. 
 %To match patterns to representations, we used the PCRE parser or treated the regexes as token streams, depending on the characteristics of the representation. Our analysis code is available on GitHub\footnote{blinded for review}. %\url{http://tinyurl.com/jmeeytk} (this is a git repo - not anonymized)}.
-Next, we describe the process in detail:
+%Next, we describe the process in detail:
+The details of this process are described as follows.
 
-\subsubsection{Presence of a Feature}
-For representations that require a particular feature, we used the PCRE parser to decide membership. This applies to D1, D2, S1, S3, L1, L2, L3, and~C3.
+%\subsubsection{Presence of a Feature}
+\textbf{Presence of a Feature:}
+For representations that require a particular feature, we used the PCRE parser to decide membership. This applies to C3, D1, D2, L1, L2, L3, S1, and~S3.
 %For representations that require a particular feature, we used the PCRE parser to decide membership. This applies to D1 (double-bounded repetition with different bounds), D2 (question-mark), S1 (single-bounded repetition), S3 (double-bounded repetition with the same bounds), L1 (lower-bound repetition), L2 (Kleene star), L3 (add repetition), and C3 (negated custom character class).
 
 %
@@ -100,40 +103,42 @@ For representations that require a particular feature, we used the PCRE parser t
 %\end{figure}
 
 
-\input{table/nodeCountTable}
 
 
-\subsubsection{Features and Pattern}
+%\subsubsection{Features and Pattern}
+\textbf{Features and Pattern:}
 %The presence of a feature is not always enough to determine membership.
 %However, the presence of a feature and properties of the pattern can determine membership.
-Identifying D3 requires an OR containing at least two entries with a sequence present in one entry repeated N times and the same sequence present in another entry repeated N+1 times. We first looked for a sequence of N repeating groups with an OR-bar (i.e., \verb!|!) next to them on a side. This produced a list of 113 candidates which we narrowed down manually to 10 actual members.
+Identifying D3 requires an OR containing at least two entries with a sequence repeated N times in one entry and the same sequence repeated N+1 times in another entry. We first looked for a sequence of N repeating groups with an OR-bar (i.e., \verb!|!) next to them on a side. This produced a list of 113 candidates and we narrowed them down manually to 10 actual members.
 
 
-T2 requires a literal with a hex structure. %that matches the regex \verb!(\\x[a-f0-9A-F]{2})! which reliably identifies hex codes within a pattern.
-T4 requires a literal with a %and must match the regex \verb!((\\0\d*)|(\\\d{3}))! which is specific to
+T1 requires that no characters are wrapped in brackets or are hex or octal characters, which matches over 91\% of the patterns analyzed;
+T2 requires a literal character with a hex structure; %that matches the regex \verb!(\\x[a-f0-9A-F]{2})! which reliably identifies hex codes within a pattern.
+T3 requires that a single literal character is wrapped in a custom character class (a member of T3 is always a member of C2);
+T4 requires a literal character with a %and must match the regex \verb!((\\0\d*)|(\\\d{3}))! which is specific to
 Python-style octal structure. %, requiring either exactly three digits after a slash, or a zero and some other digits after a slash. One false positive was identified, which was actually the lower end of a hex range using the literal \verb!\0!.
-T3 requires that a single literal character is wrapped in a custom character class (a member of T3 is always a member of C2).
-T1 requires that no characters are wrapped in brackets or are hex or octal characters, which matches over 91\% of the patterns analyzed.
 
-\subsubsection{Token Stream}
+%\subsubsection{Token Stream}
+\textbf{Token Stream:}
 %The rest of the representations were identified by representing the regex patterns as a sequence of tokens.
-S2 requires a repeated element. This element could be a character class, a literal, or a collection of things encapsulated in parentheses; rather than a parser, we used a token stream to identify it.
-C1 requires that a non-negative character class contains a range.
-C2 requires that there exists a custom character class that does not use ranges or defaults.
-C4 requires the presence of a default character class within a custom character class.
+C1 requires a non-negative class of characters whose ASCII codes are consecutive;
+C2 requires a custom character class which does not use ranges or defaults;
+C4 requires the presence of a default character class within a custom character class;
 %, specifically, \verb!\d!, \verb!\D!, \verb!\w!, \verb!\W!, \verb!\s!, \verb!\S! and \verb!.!.
-C5 requires an OR of length-one sequences (literal characters or any character class).
-
+C5 requires an OR of length-one sequences (literal characters or any character class);
+S2 requires a repeated element which could be a character class, a literal character, or a smaller regex encapsulated in parentheses. These representations were treated as sequences of tokens. To identify them, we chose token streams instead of the PCRE parser.
 
 \subsection{Results}
-Table~\ref{table:nodeCount} presents the results.
+Table~\ref{table:nodeCount} presents the results. 
 % frequencies with which each representation appears in a regex pattern and in a project scraped from GitHub.
- \emph{Node} references Figure~\ref{fig:refactoringTree}, \emph{description} briefly describes the representation, \emph{example} provides a regex from the corpus. \emph{nPatterns} counts the patterns that belong to the representation, followed by the percent of patterns out of 13,597.
- \emph{nProjects} counts the projects that contain a regex belonging to the representation,
-followed by the percentage of projects out of 1,544.
+\emph{Node} references Figure~\ref{fig:refactoringTree}; \emph{Description} briefly describes the representation; \emph{Example} provides a regex from the corpus; \emph{nPatterns} counts the patterns that belong to the representation;
+\emph{\%~patterns} shows the percentage of patterns out of 13,597; 
+\emph{nProjects} counts the projects that contain a regex belonging to the representation; 
+\emph{\%~projects} shows the percentage of projects out of 1,544.
 %The project support is used to show pervasiveness across the whole corpus.
-For example, D1 appears in 346 (2.5\%) of the patterns but only 234 (15.2\%) of the projects.
- In contrast, T3 appears in 39 \emph{fewer} patterns but 34 \emph{more} projects, indicating that D1 is more concentrated in a few projects and T3 is more widespread across projects.
+For example, D1 is more concentrated in a few projects and T3 is more widespread across projects. This is because comparing to D1, T3 appears in 39 \emph{fewer} patterns but 34 \emph{more} projects.
+%For example, D1 appears in 346 (2.5\%) of the patterns but only 234 (15.2\%) of the projects. 
+%In contrast, T3 appears in 39 \emph{fewer} patterns but 34 \emph{more} projects, indicating that D1 is more concentrated in a few projects and T3 is more widespread across projects.
 
 The pattern frequency is our guide for setting the community standards.
 For example, since C1 is more prevalent than C2 in both patterns and projects, we could say that C2 is smelly since it could better conform to community standards if expressed as C1.

@@ -2,17 +2,18 @@
 
 \section{Desirable Representations (RQ3)}
 \label{sec:rq3}
-To determine the overall trends in the data, we created and compared total orderings on the representations in each equivalence class (Figure~\ref{fig:refactoringTree}) with respect to the comprehension (RQ1) and community standards (RQ2) metrics.
+To determine the overall trends in the data, we created and compared total orderings on the representations in each equivalence class with respect to the comprehension (RQ1) and community standards (RQ2) metrics.
 
 \subsection{Analysis}
-Total orderings were achieved by building directed graphs with the representations as nodes and edge directions determined by the metrics: matching and composition for understandability; patterns and projects for community standards. Within each graph, a topological sort created total orderings.
+Total orderings were represented in directed graphs with representations as nodes and edge directions determined by the metrics: matching and composition of understandability; patterns and projects of community standards. The graphs for comprehension are based on Table~\ref{table:testedEdgesTable} and for community support are based on Table~\ref{table:nodeCount}. Within each graph, a topological sort created total orderings.
 
-The graphs for comprehension are based on Table~\ref{table:testedEdgesTable} and for community support are based on Table~\ref{table:nodeCount}.
+
 %The following sections describe the process for building and sorting the graphs.
 
 
 
-\subsubsection{Building the Graphs}
+%\subsubsection{Building the Graphs}
+\textbf{Building the Graphs:}
 In the community standards graph, a directed edge $\overrightarrow{C2 C1}$ is used when nPatterns(C1) $>$ nPatterns(C2) \emph{and} nProjects(C1) $>$ nProjects(C2).
 When there is a conflict between nPatterns and nProjects, as is the case between L2 and L3,
 %where L2 is found in more patterns and L3 is found in more projects,
@@ -29,6 +30,7 @@ As a general rule, for both graphs, the higher the ratio of incoming edges to to
 %Nodes with fewer incoming edges are more smelly and nodes with more incoming edges are less smelly.
 %Note that with the CCC group, there is no edge between C3 and C5 because there is no straightforward refactoring between those representations, as discussed in Section~\ref{sec:refactoring}.
 
+
 \begin{figure}[tb]
 \centering
 %\includegraphics[width=0.57\columnwidth]{graphs/ccom.pdf}
@@ -39,11 +41,9 @@ As a general rule, for both graphs, the higher the ratio of incoming edges to to
 \includegraphics[width=0.35\columnwidth]{graphs/ccart.eps}
 \vspace{-12pt}
 \caption{Trend graphs for the CCC equivalence graph: (a) represent the comprehension analysis (RQ1) and (b) represent the artifact analysis (RQ2)}
-
+\vspace{-12pt}
 \label{fig:graphsforanalysis}
 \end{figure}
-
-
 %\begin{table}
 %\centering
 %\caption{Topological Sorting, with the left-most position being highest \label{topologicalResults}}
@@ -61,6 +61,7 @@ As a general rule, for both graphs, the higher the ratio of incoming edges to to
 \centering
 \caption{Topological Sorting, with the left-most position being highest (non-smelly) and the right-most being most smelly \label{topologicalResults} }
 \vspace{-6pt}
+\vspace{-2pt}
 \begin{tabular}{| l | l | l |}  \hline
 & Understandability & Community  \\ \hline
 CCC & C1 C5 C3 C4 C2  &   C1 C3 C2 C4 C5  \\
@@ -75,11 +76,15 @@ DBB & D3 D1 D2  &   D2 D1 D3\\
 \end{table}
 
 
+
+
+
 %In the understandability graph, we represent a directed edge $\overrightarrow{C2C1}$ when match(C1) $>$ match(C2) \emph{and} compose(C1) $>$ compose(C2). When there is a conflict between match and compose, as is the case with T1 and T3 where match(T1) is higher but compose(T3) is higher, an undirected edge $\overline{T1T3}$ is used. When one metric has a tie, as is the case with composition in E9, we use the other metric to determine $\overrightarrow{C5C1}$. An example understandability graph for the CCC is shown in Figure~\ref{fig:graphsforanalysis}b. Nodes with few incoming edges are less understandable (or were not evaluated in our study), and nodes with more incoming edges were more understandable.
 %\footnote{When there are confounded representations, as is the case with E8, E4, and E5 which all use transformations from the CCC and the LIT equivalence classes, we omit those from the understandability graph. This makes sense since all use a transformation between T1 and T4 strongly favoring T1. }
 
-\subsubsection{Topological Sorting}
-Once the two graphs are built for each equivalence class, within each graph, we sort the nodes to identify a (preferably unique) total ordering on the nodes. This ordering represents preferences from the perspective of the comprehension or community standards metrics.
+%\subsubsection{Topological Sorting}
+\textbf{Topological Sorting:}
+Once the two graphs are built for each equivalence class type, within each graph, we sort the nodes to identify a (preferably unique) total ordering on the nodes. This ordering represents preferences from the perspective of the comprehension or community standards metrics.
 %we apply a modified version of Kahn's topological sorting algorithm to obtain a total ordering.
 %The first modification is to remove all undirected edges since Kahn's operates over a directed graph.
 %To begin, any disconnected nodes are added to the end of the topologically sorted list $L$.
@@ -124,7 +129,8 @@ The total orderings on nodes for each graph are shown in Table~\ref{topologicalR
 
 
 
-Considering both topological sorts, there is a clear winner in each equivalence class, with the exception of DBB.
+Considering both topological sorts, there is a clear winner in each equivalence class except DBB. 
+%, with the exception of DBB.
 %That is, the node sorted highest in the topological sorts for both the community standards and understandability analyses are
 This is C1 for CCC, L3 for LBW, S2 for SNG, and T1 for LIT.
 %While the least-smelly representation is relatively clear, the smelliest representation varies.
@@ -136,7 +142,7 @@ Further study is needed on this, as well as LBW and SNG since not all nodes were
 These results can guide regex design.
 For example, to match numbers from one to 999, there are (at least) three options: $A$~=~{\tt [1-9]|[1-9][0-9]|[1-9][0-9][0-9]}, $B$~=~{\tt [1-9][0-9]?[0-9]?}, and $C$~=~{\tt [1-9][0-9]\{0,2\}}.
 $A$ contains representations \{C1, D3, S2\}, $B$ contains \{C1,~D2\}, and $C$ contains \{C1, D1\}. % D3 and S2, B contains C1 and D2, and C contains C1 and D1.
-According to Table~\ref{topologicalResults}, the sorting in understandability is $A>C>B$ since $D3>D1>D2$. However, what we usually see in source code are B and C but not A. The reason might be that the representation of A takes more time to type, or may have a longer runtime performance.
+According to Table~\ref{topologicalResults}, the sorting in understandability is \texttt{A\textgreater C\textgreater B} since \texttt{D3\textgreater D1\textgreater D2}. However, what we usually see in source code are B and C but not A. The reason might be that the representation of A takes more time to type, or may have a longer runtime performance.
 In another example, we prefer {\tt \$[0-9]*.[0-9][0-9]} to {\tt \$[0-9]*.[0-9]\{2\}} in order to match dollar amounts. This is because S2 in the former regex is preferred to S1 in the latter regex, for all metrics.
 %
 
