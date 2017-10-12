@@ -1,4 +1,32 @@
 
+\begin{table} [th]
+%\vspace{2mm}
+\caption{Matching metric example \label{matchingmetric}}
+\vspace{-12pt}
+\begin{center}
+%\begin{small}
+%\vspace{-6pt}
+\begin{tabular} {|cl | c c c c c|} \hline
+\textbf{String} & \verb!`RR*'! & \textbf{Oracle} & \textbf{P1} & \textbf{P2} & \textbf{P3}& \textbf{P4}\\ \hline
+1 & ``ARROW"    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark \\
+2 & ``qRs"      & \checkmark    & \checkmark    & \xmark        & \xmark        & ?\\
+3 & ``R0R"      & \checkmark    & \checkmark    & \checkmark    & ?             & -\\
+4 & ``qrs"      & \xmark        & \checkmark    & \xmark        & \checkmark    & -\\
+5 & ``98"       & \xmark        & \xmark        & \xmark        & \xmark        & -\\
+\hline
+  & Score       & 1.00          & 0.80          & 0.80          & 0.50          & 1.00\\ \hline
+%\multicolumn{7}{l}{}\\
+\multicolumn{7}{l}{\checkmark = match, \xmark = not a match, ? = unsure, -- = left blank}\\
+\end{tabular}
+%\vspace{-6pt}
+\vspace{-6pt}
+%\end{small}
+\end{center}
+\vspace{-6pt}
+\vspace{-6pt}
+\vspace{-3pt}
+\end{table}
+
 
 \section{Understandability Study (RQ1)}
 \label{sec:rq1}
@@ -32,48 +60,17 @@ Blanks were incorporated into the metric because questions were occasionally lef
 Out of 1,800 questions (180 participants * 10 questions each), only 1.8\%(32) were impacted by a blank or unsure response (never more than four out of 30 responses per pattern).
 
 
-\begin{figure}[tb]
+\begin{figure}[th]
 \centering
 %\includegraphics[width=0.75\columnwidth]{illustrations/ExampleQuestion}
 \includegraphics[width=0.75\columnwidth]{illustrations/exampleQuestion.eps}
-\vspace{-3pt}
+\vspace{-6pt}
 \caption{Questions from one pattern in one HIT}
 \vspace{-6pt}
-%\vspace{-6pt}
+\vspace{-6pt}
 \vspace{-3pt}
 \label{fig:exampleQuestion}
 \end{figure}
-
-
-
-\begin{table} [t]
-\vspace{2mm}
-\caption{Matching metric example \label{matchingmetric}}
-\vspace{-12pt}
-\begin{center}
-%\begin{small}
-%\vspace{-6pt}
-\begin{tabular} {|cl | c c c c c|} \hline
-\textbf{String} & \verb!`RR*'! & \textbf{Oracle} & \textbf{P1} & \textbf{P2} & \textbf{P3}& \textbf{P4}\\ \hline
-1 & ``ARROW"    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark \\
-2 & ``qRs"      & \checkmark    & \checkmark    & \xmark        & \xmark        & ?\\
-3 & ``R0R"      & \checkmark    & \checkmark    & \checkmark    & ?             & -\\
-4 & ``qrs"      & \xmark        & \checkmark    & \xmark        & \checkmark    & -\\
-5 & ``98"       & \xmark        & \xmark        & \xmark        & \xmark        & -\\
-\hline
-  & Score       & 1.00          & 0.80          & 0.80          & 0.50          & 1.00\\ \hline
-%\multicolumn{7}{l}{}\\
-\multicolumn{7}{l}{\checkmark = match, \xmark = not a match, ? = unsure, -- = left blank}\\
-\end{tabular}
-%\vspace{-6pt}
-\vspace{-6pt}
-%\end{small}
-\end{center}
-\vspace{-6pt}
-%\vspace{-6pt}
-\vspace{-3pt}
-\end{table}
-
 
 
 \textbf{Composition:}
@@ -149,10 +146,10 @@ at least an Associates degree (72\%), were at least somewhat familiar with regex
 
 
 \begin{table}[t]
-\vspace{2mm}
+%\vspace{2mm}
 \centering
 \caption{3-factor ANOVA with average matching or composition accuracy as dependent variables, considering representation (rep), DFA size (dfa\_size), and regex length (len) as independent variables}
-\vspace{-3pt}
+\vspace{-6pt}
 \begin{tabular}{@{}l@{}r|rl|ll@{}}
 
   \multicolumn{2}{c}{} & \multicolumn{2}{c}{Average Matching} & \multicolumn{2}{c}{Average Composition} \\
@@ -176,8 +173,8 @@ $\cdot\alpha = 0.10$ \hspace{3pt} *$\alpha=0.05$ \hspace{3pt} **$\alpha=0.01$ \h
 
 \label{table:anova}
 \vspace{-6pt}
+\vspace{-6pt}
 \vspace{-3pt}
-%\vspace{-3pt}
 \end{table}
 
 \iffalse
@@ -236,11 +233,11 @@ Since the DFA sizes vary across the pairwise comparisons within a representation
 For the comprehension metrics, Table~\ref{table:testedEdgesTable} presents the results.
 Each row represents a {\em Pair} of regex evaluated by study participants.
 The representations for the regexes per Figure~\ref{fig:refactoringTree} are shown in the {\em Edge} column, which is how the table is sorted.
-The {\em Regex 1} and {\em Regex 2} columns identify the regexes used in the study, mapping to the first and second representations in the {\em Edge} column, respectively.
-{\em Match1} is the average matching for {\em Regex 1} and {\em Match2} is the average matching for {\em Regex~2}.
+The {\em Regex1} and {\em Regex2} columns identify the regexes used in the study, mapping to the first and second representations in the Edge column, respectively.
+{\em Match1} is the average matching for Regex1 and {\em Match2} is the average matching for Regex2.
 Using the Mann-Whitney test of means, the {\em sigM} column following tests if there is a significant difference between the accuracies.
-The {\em Comp1} column presents the percentage of the string responses for that were in fact correctly matched by {\em Regex 1}. {\em Comp2} presents the same information, except for {\em Regex 2}.
-The following {\em sigC} column uses a test of two proportions to identify if the percentage of the participants who correctly composed a string for Regex 1 is significantly different than the percentage who correctly composed a string for {Regex 2}.
+The {\em Comp1} column presents the percentage of the string responses for that were in fact correctly matched by Regex1. {\em Comp2} presents the same information, except for Regex2.
+The following {\em sigC} column uses a test of two proportions to identify if the percentage of the participants who correctly composed a string for Regex1 is significantly different than the percentage who correctly composed a string for Regex2.
 
 %, \emph{Nodes} lists the representations, \emph{Pairs} shows the number of comparisons, \emph{Example Preferred Regex} shows a regex from the preferred node (bolded in \emph{Pairs} column), \emph{Match1} and \emph{Match2} give the matching scores for the first and second representations, respectively, and $H_0: \mu_{match1} = \mu_{match2}$ uses the Mann-Whitney test of means to compare the matching scores, and presents the p-values. The last three columns list the average composition scores for the representations and the composition p-value.
 
