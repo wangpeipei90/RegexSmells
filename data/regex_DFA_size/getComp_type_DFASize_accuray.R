@@ -112,7 +112,7 @@ dev.off()
 
 setEPS()
 postscript("scatter_avgAccur.eps")
-plot(regex_dfa$dfa_size,regex_dfa$AvgAccur,type="n",xlab="DFA Size of Regex", ylab="Average Accuracy", main="Correlation betwwen DFA size and average accuracy")
+plot(regex_dfa$dfa_size,regex_dfa$AgAccur,type="n",xlab="DFA Size of Regex", ylab="Average Accuracy", main="Correlation betwwen DFA size and average accuracy")
 v_len=sort(unique(regex_dfa$str_len))
 colors=rainbow(length(v_len))
 for (i in 1:length(v_len)) { 
@@ -127,6 +127,10 @@ for (i in 1:length(v_len)) {
   # }
 }
 dev.off()
+
+
+
+
 
 regex_map=read.csv(file=regex_pattern_map_type,head=TRUE,sep=",",colClasses = c("character","character","character","character","character","character"))
 regex_map=as.data.frame(regex_map)
@@ -398,3 +402,36 @@ library(xtable)
 table_map=regex_map[,c("P_CR1","P_CR2","CR1","CR2","AvgAccur1","AvgAccur2","wilcox_sig","CompAccur1","CompAccur2","prop_sig")]
 table_res=xtable(table_map)
 print(table_res, file="../../paper/table/testedEdgesTable2.tex")
+
+setEPS()
+postscript("scatter_avgAccur2.eps")
+accur_dfa=regex_dfa[,c("dfa_size","AvgAccur","CompAccur")]
+plot(regex_dfa$dfa_size,regex_dfa$AvgAccur,col="black", xlim=c(1,25), ylim=c(0,100),xlab="DFA Size of Regex", ylab="Average Accuracy(%)", main="Correlation betwwen DFA size and average accuracy")
+points(regex_dfa$dfa_size,regex_dfa$CompAccur,col="blue",pch=20)
+lists=split(accur_dfa,accur_dfa$dfa_size)
+pairs1=unlist(lapply(lists,function(x)mean(x$AvgAccur)))
+lines(c(2,3,4,5,6,7,8),pairs1)
+pairs2=unlist(lapply(lists,function(x)mean(x$CompAccur)))
+lines(c(2,3,4,5,6,7,8),pairs2,col="blue")
+a=c(8,9,10,11,12,13,14,15,15,17,18,19,20,21,22,23,24,25,26,27)
+b=a+75
+lines(x=a,y=b,lty=2,col="black")
+c=91-a
+lines(x=a,y=c,lty=2,col="black")
+d=a+60
+lines(x=a,y=d,lty=2,col="blue")
+e=75-a
+lines(x=a,y=e,lty=2,col="blue")
+abline(v=16,lty=3,col="red",lwd=3)
+#median(df$Forward) #16 
+#mean(df$Forward) #43.84895
+legend("bottomright", 
+       legend = c("Matching", "Composition"), 
+       col = c("black","blue"), 
+       pch = c(1,20), 
+       bty = "n", 
+       pt.cex =0.8, 
+       cex = 0.8, 
+       text.col = "black", 
+       horiz = F)
+dev.off()

@@ -1,6 +1,6 @@
-setwd("/home/peipei/CodeSmell_ICPC/data/regex_DFA_size")
+setwd("/home/peipei/RegexSmells/data/regex_DFA_size")
 
-regex_str="/home/peipei/CodeSmell_ICPC/data/regex_DFA_size/regex.csv" ##stats from crowd sourcing results
+regex_str="/home/peipei/RegexSmells/data/regex_DFA_size/regex.csv" ##stats from crowd sourcing results
 strs=read.csv(file=regex_str,head=TRUE,colClasses=c("numeric","numeric","character","character","character","numeric"),sep=",")
 strs=as.data.frame(strs)
 
